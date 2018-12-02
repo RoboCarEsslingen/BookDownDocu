@@ -316,6 +316,16 @@ or if openCV is needed
 source activate carnd-term1 
 ```
 
+## install carnd-term1
+
+```
+git clone https://github.com/udacity/CarND-Term1-Starter-Kit.git
+cd CarND-Term1-Starter-Kit
+conda env create -f environment.yml
+conda install -c anaconda tk 
+
+```
+
 
 ```
  cd /Users/uwesterr/CloudProjectsUnderWork/ProjectsUnderWork/RoboCar/sunfounder/Sunfounder_Smart_Video_Car_Kit_for_RaspberryPi/client 
@@ -336,6 +346,15 @@ Install pygame
 ```
 python -m pip install -U pygame --user
 ```
+
+or
+```
+brew upgrade sdl sdl_image sdl_mixer sdl_ttf portmidi
+python3.6 -m venv anenv
+. ./anenv/bin/activate
+pip install https://github.com/pygame/pygame/archive/master.zip
+```
+
 create a jupyter notebook "xboxControllerOnMac.ipynb"" with 
 ```
 import pygame
