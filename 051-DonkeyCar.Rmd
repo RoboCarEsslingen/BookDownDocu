@@ -53,7 +53,7 @@ For [RPI SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-
 [SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
 library(knitr)
 include_graphics("images/SunFounderDonkeyMerge.jpg")
 ```
