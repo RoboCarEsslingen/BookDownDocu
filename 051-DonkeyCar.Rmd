@@ -3,3 +3,7 @@
 In December 2018 I switched from sunfounder to donkeycar 
 [Donkey Car](http://www.donkeycar.com "Donkey Car's Homepage")
 
+## Reason for changeing the plattform
+The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me => Donkey Car
+Second reason, other members of the group [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")  opted for donkey car
+
