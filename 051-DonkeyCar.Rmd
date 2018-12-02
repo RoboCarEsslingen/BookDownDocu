@@ -6,7 +6,12 @@ In December 2018 I switched from sunfounder to donkeycar
 ## Reason for changing the plattform
 The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to => Donkey Car  
 
-Second reason, other members of the group [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")  opted for donkey car
+Second reason, other members of the group [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")  opted for donkey car.
+
+I changed to [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)
+Tamiya-Buchse is the connector of the NiMH battery
+Charger is [Voltcraft V-Charge Eco NiMh 3000](https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB)
+
 
 
 ## What to do

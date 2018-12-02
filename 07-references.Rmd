@@ -2,3 +2,4 @@
 
 [config PI wifi]((https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI"))
 
+[Self-driving car in a simulator with a tiny neural network](https://github.com/xslittlegrass/CarND-Behavioral-Cloning)
