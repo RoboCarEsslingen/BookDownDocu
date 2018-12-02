@@ -164,7 +164,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>7</b> Change to donkeycar</a><ul>
-<li class="chapter" data-level="7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changeing-the-plattform"><i class="fa fa-check"></i><b>7.1</b> Reason for changeing the plattform</a></li>
+<li class="chapter" data-level="7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changing-the-plattform"><i class="fa fa-check"></i><b>7.1</b> Reason for changing the plattform</a></li>
+<li class="chapter" data-level="7.2" data-path="donkeyCar.html"><a href="donkeyCar.html#what-to-do"><i class="fa fa-check"></i><b>7.2</b> What to do</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#folders-created-during-installation-of-host-pc"><i class="fa fa-check"></i><b>7.2.1</b> Folders created during installation of host PC</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html"><i class="fa fa-check"></i><b>8</b> Minutes of meeting</a><ul>
 <li class="chapter" data-level="8.1" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#section-1"><i class="fa fa-check"></i><b>8.1</b> 21-03-2018</a></li>
@@ -179,7 +182,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3.4" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#robocar"><i class="fa fa-check"></i><b>8.3.4</b> RoboCar</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="9" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>9</b> Useful links</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/RoboCarEsslingen" target="blank">Related files on Github</a></li>
 
@@ -203,14 +206,49 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="donkeyCar" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Change to donkeycar</h1>
 <p>In December 2018 I switched from sunfounder to donkeycar <a href="http://www.donkeycar.com" title="Donkey Car&#39;s Homepage">Donkey Car</a></p>
-<div id="reason-for-changeing-the-plattform" class="section level2">
-<h2><span class="header-section-number">7.1</span> Reason for changeing the plattform</h2>
-<p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me =&gt; Donkey Car Second reason, other members of the group <a href="https://www.meetup.com/Esslingen-Makerspace/" title="Homepage of the meetup">Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a> opted for donkey car</p>
-<div class="figure">
-<img src="images/SunFounderDonkeyMerge.jpg" alt="Merging sunfounder and donkeycar" />
-<p class="caption">Merging sunfounder and donkeycar</p>
+<div id="reason-for-changing-the-plattform" class="section level2">
+<h2><span class="header-section-number">7.1</span> Reason for changing the plattform</h2>
+<p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to =&gt; Donkey Car</p>
+<p>Second reason, other members of the group <a href="https://www.meetup.com/Esslingen-Makerspace/" title="Homepage of the meetup">Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a> opted for donkey car</p>
 </div>
+<div id="what-to-do" class="section level2">
+<h2><span class="header-section-number">7.2</span> What to do</h2>
+<ul>
+<li>disassemble the sunfounder, by taking of the plate on which the raspberry is mounted</li>
+<li>disassemble the L298N H-bridge, not needed if you use an <a href="https://en.wikipedia.org/wiki/Electronic_speed_control">ESC</a></li>
+<li>connect the [PWM] signal of your PCA9685 to the new car
+<ul>
+<li>channel 0 =&gt; steering</li>
+<li>channel 1 =&gt; throttle</li>
+</ul></li>
+<li><a href="http://docs.donkeycar.com/guide/install_software/#get-the-raspberry-pi-working">Install Software on Pi and Host Computer</a>
+<ul>
+<li>Setup RaspberryPi</li>
+<li>Setup Mac Host PC (or windows or linux host)</li>
+</ul></li>
+<li><a href="http://docs.donkeycar.com/guide/calibrate/">Calibrate your car</a></li>
+<li><a href="http://docs.donkeycar.com/guide/get_driving/">Drive your car</a></li>
+<li><a href="http://docs.donkeycar.com/guide/train_autopilot/">Train an autopilot with Keras</a></li>
+<li><p><a href="http://docs.donkeycar.com/guide/simulator/" class="uri">http://docs.donkeycar.com/guide/simulator/</a></p></li>
+<li><p>Select web or pysical controller <a href="http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller">Controller Parts</a></p></li>
+</ul>
+<div id="folders-created-during-installation-of-host-pc" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Folders created during installation of host PC</h3>
+<ul>
+<li>/Users/uwesterr/mycar/models</li>
+<li>/Users/uwesterr/mycar/data</li>
+<li>/Users/uwesterr/mycar/logs</li>
+</ul>
+<p><strong>Note</strong>, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibartion but not when the car is controlled via the web interface. TBC</p>
+<p>A possible cure is described at <a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf">Adafruit 16 Channel Servo Driver with Raspberry Pi</a>.</p>
+<blockquote>
+<p>When to add an optional Capacitor to the driver board We have a spot on the PCB for soldering in an electrolytic capacitor. Based on your usage, you may or may not need a capacitor. If you are driving a lot of servos from a power supply that dips a lot when the servos move, n * 100uF where n is the number of servos is a good place to start - eg 470uF or more for 5 servos. Since its so dependent on servo current draw, the torque on each motor, and what power supply, there is no “one magic capacitor value” we can suggest which is why we don’t include a capacitor in the kit.</p>
+</blockquote>
+<p>I did <strong>not</strong> check whether this works.</p>
+<p>For <a href="https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?">RPI SERVO HAT</a> that problem was not seen.</p>
+<p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" title="DOCUMENTATION &gt; CONFIGURATION &gt; WIRELESS &gt; WIRELESS-CLI">SETTING WIFI UP VIA THE COMMAND LINE</a></p>
 
+</div>
 </div>
 </div>
             </section>

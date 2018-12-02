@@ -1,3 +1,4 @@
-`r if (knitr::is_html_output()) '
-# References {-}
-'`
+# Useful links
+
+[config PI wifi]((https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI"))
+
