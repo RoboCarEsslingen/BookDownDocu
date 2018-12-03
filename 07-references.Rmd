@@ -25,5 +25,6 @@ donkey car
 
 [Install XBox driver on mac]( https://github.com/360Controller/360Controller/releases)
 
-[Python Xbox Controller Mac](http://www.philipzucker.com/python-xbox-controller-mac/)
-[find IP adress in shack](http://leases.shack/#/)
+[Python Xbox Controller Mac](http://www.philipzucker.com/python-xbox-controller-mac/)  
+
+[find IP adress in shack](http://leases.shack/#/)  
