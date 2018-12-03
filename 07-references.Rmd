@@ -3,3 +3,27 @@
 [config PI wifi]((https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI"))
 
 [Self-driving car in a simulator with a tiny neural network](https://github.com/xslittlegrass/CarND-Behavioral-Cloning)
+
+[Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
+
+[Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)
+
+[ESC](https://en.wikipedia.org/wiki/Electronic_speed_control) 
+
+donkey car
+- [Calibrate your car](http://docs.donkeycar.com/guide/calibrate/)
+- [Drive your car](http://docs.donkeycar.com/guide/get_driving/)
+- [Train an autopilot with Keras](http://docs.donkeycar.com/guide/train_autopilot/)
+- [http://docs.donkeycar.com/guide/simulator/](http://docs.donkeycar.com/guide/simulator/)
+- [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
+
+[Adafruit 16 Channel Servo Driver with Raspberry Pi](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf )
+
+[RPI SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?)
+
+[SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
+
+[Install XBox driver on mac]( https://github.com/360Controller/360Controller/releases)
+
+[Python Xbox Controller Mac](http://www.philipzucker.com/python-xbox-controller-mac/)
+[find IP adress in shack](http://leases.shack/#/)
