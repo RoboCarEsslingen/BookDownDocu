@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2018-12-03">
+<meta name="date" content="2018-12-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -168,6 +168,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.2" data-path="donkeyCar.html"><a href="donkeyCar.html#what-to-do"><i class="fa fa-check"></i><b>7.2</b> What to do</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#folders-created-during-installation-of-host-pc"><i class="fa fa-check"></i><b>7.2.1</b> Folders created during installation of host PC</a></li>
 </ul></li>
+<li class="chapter" data-level="7.3" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>7.3</b> Connecting bluetooth controller</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="donkeyCar.html"><a href="donkeyCar.html#connect-your-bluetooth-controller-to-the-raspberry-pi."><i class="fa fa-check"></i><b>7.3.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html"><i class="fa fa-check"></i><b>8</b> Minutes of meeting</a><ul>
 <li class="chapter" data-level="8.1" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#section-1"><i class="fa fa-check"></i><b>8.1</b> 21-03-2018</a></li>
@@ -249,6 +252,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>For <a href="https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?">RPI SERVO HAT</a> that problem was not seen.</p>
 <p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" title="DOCUMENTATION &gt; CONFIGURATION &gt; WIRELESS &gt; WIRELESS-CLI">SETTING WIFI UP VIA THE COMMAND LINE</a></p>
 <p><img src="images/SunFounderDonkeyMerge.jpg" width="1512" /></p>
+</div>
+</div>
+<div id="connecting-bluetooth-controller" class="section level2">
+<h2><span class="header-section-number">7.3</span> Connecting bluetooth controller</h2>
+<p>I got an WiiU second hand <a href="https://www.amazon.de/gp/product/B06XSB2TXQ/ref=oh_aui_detailpage_o01_s00?ie=UTF8&amp;psc=1">WiiU controller</a>, therefore I did select the <a href="http://docs.donkeycar.com/parts/controllers/">Controllers page</a> the <a href="https://github.com/autorope/donkeypart_bluetooth_game_controller">WiiU controller</a></p>
+<p>After ssh into the raspberry install <strong>Bluetooth Game Controller</strong> library</p>
+<pre><code>git clone https://github.com/autorope/donkeypart_bluetooth_game_controller.git
+pip install -e ./donkeypart_bluetooth_game_controller</code></pre>
+<div id="connect-your-bluetooth-controller-to-the-raspberry-pi." class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Connect your bluetooth controller to the raspberry pi.</h3>
+<ol style="list-style-type: decimal">
+<li>Start the bluetooth bash tool on your raspberry pi.</li>
+</ol>
+<pre><code>sudo bluetoothctl
+power on
+scan on</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Turn on your controller in scan mode and look for your controllers name in the bluetoothctl scan results. This is done by turning over the controller and pushing the sync button until the 4 blue buttons blink</li>
+</ol>
+<p>In the shell the scan showed &gt; [NEW] Device 0C:FC:83:97:A6:4F Nintendo RVL-CNT-01</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Connect to your controller using its id (my controller id is <code>0C:FC:83:97:A6:4F</code>) once you’ve found it’s id. You may have to run these commands several times.</li>
+</ol>
+<pre><code> pair 0C:FC:83:97:A6:4F 
+ connect 0C:FC:83:97:A6:4F
+ trust 0C:FC:83:97:A6:4F</code></pre>
+<p>Now your controller should show that your controller is connected - the 4 blinking lights turns to one solid light.</p>
+<p>Run the part script to see if it works. You should see all the button values printed as you press them. Like this.</p>
+<pre><code>cd /donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller
+(env) pi@donkeypi_uwe:~/donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller $ python part.py log
+Please give a string that can identify the bluetooth device (ie. nintendo)nintendo
+log
+device /dev/input/event0, name &quot;Nintendo Wii Remote Pro Controller&quot;, phys &quot;&quot;
+button: LEFT_STICK_X, value:-0.009375
+button: LEFT_STICK_X, value:-0.0015625
+button: LEFT_STICK_X, value:-0.00390625
+button: LEFT_STICK_X, value:-0.00546875
+button: LEFT_STICK_X, value:-0.00703125</code></pre>
 
 </div>
 </div>

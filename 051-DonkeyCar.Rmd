@@ -64,5 +64,54 @@ include_graphics("images/SunFounderDonkeyMerge.jpg")
 ```
 
 
+## Connecting bluetooth controller
 
+I got an WiiU second hand [WiiU controller](https://www.amazon.de/gp/product/B06XSB2TXQ/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1), therefore I did select the [Controllers page](http://docs.donkeycar.com/parts/controllers/) the [WiiU controller](https://github.com/autorope/donkeypart_bluetooth_game_controller)
+
+After ssh into the raspberry install **Bluetooth Game Controller** library
+
+``` 
+git clone https://github.com/autorope/donkeypart_bluetooth_game_controller.git
+pip install -e ./donkeypart_bluetooth_game_controller
+``` 
+
+
+### Connect your bluetooth controller to the raspberry pi.
+
+1. Start the bluetooth bash tool on your raspberry pi.
+
+``` 
+sudo bluetoothctl
+power on
+scan on
+``` 
+2. Turn on your controller in scan mode and look for your controllers name in the bluetoothctl scan results. This is done by turning over the controller and pushing the sync button until the 4 blue buttons blink
+
+In the shell the scan showed 
+> [NEW] Device 0C:FC:83:97:A6:4F Nintendo RVL-CNT-01
+
+3. Connect to your controller using its id (my controller id is ```0C:FC:83:97:A6:4F```) once you've found it's id. You may have to run these commands several times.
+
+``` 
+ pair 0C:FC:83:97:A6:4F 
+ connect 0C:FC:83:97:A6:4F
+ trust 0C:FC:83:97:A6:4F
+``` 
+
+Now your controller should show that your controller is connected - the 4 blinking lights turns to one solid light.
+
+Run the part script to see if it works. You should see all the button values printed as you press them. Like this.
+
+``` 
+cd /donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller
+(env) pi@donkeypi_uwe:~/donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller $ python part.py log
+Please give a string that can identify the bluetooth device (ie. nintendo)nintendo
+log
+device /dev/input/event0, name "Nintendo Wii Remote Pro Controller", phys ""
+button: LEFT_STICK_X, value:-0.009375
+button: LEFT_STICK_X, value:-0.0015625
+button: LEFT_STICK_X, value:-0.00390625
+button: LEFT_STICK_X, value:-0.00546875
+button: LEFT_STICK_X, value:-0.00703125
+``` 
 
