@@ -12,7 +12,10 @@ I changed to [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-bru
 Tamiya-Buchse is the connector of the NiMH battery
 Charger is [Voltcraft V-Charge Eco NiMh 3000](https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB)
 
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+library(knitr)
+include_graphics("images/SunFounderDonkeyMerge.jpg")
+```
 
 ## What to do
 
@@ -45,12 +48,101 @@ A possible cure is described at [Adafruit 16 Channel Servo Driver with Raspberry
 
 
 
-
 >When to add an optional Capacitor to the driver board
 We have a spot on the PCB for soldering in an electrolytic capacitor. Based on your usage, you may or may not need a
 capacitor. If you are driving a lot of servos from a power supply that dips a lot when the servos move, n * 100uF where n is the number of servos is a good place to start - eg 470uF or more for 5 servos. Since its so dependent on servo current draw, the torque on each motor, and what power supply, there is no "one magic capacitor value" we can suggest which is why we don't include a capacitor in the kit.
 
 I did **not** check whether this works.
+
+The newly integrated PI servo hat did not show any problem controlling two channels at the same time
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+library(knitr)
+include_graphics("images/ServoHat.jpg")
+```
+
+
+## Calibrate the car
+
+Instructions for the calibrations can be found at http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car
+
+ssh into your raspberry
+### Steering Calibration
+run
+```
+donkey calibrate --channel <your_steering_channel>
+```
+
+
+for PWM channel 0 for steering
+```
+donkey calibrate --channel 0
+```
+
+```
+(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 0
+using donkey version: 2.5.8 ...
+Enter a PWM setting to test(0-1500)360
+Enter a PWM setting to test(0-1500)120     
+.
+.
+.
+```
+
+```Ctrl C``` to exit calibration mode  
+
+### Throttle Calibration
+
+run
+```
+donkey calibrate --channel <your_throttle_channel>
+```
+for PWM channel 1 for throttle
+```
+(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 1
+using donkey version: 2.5.8 ...
+Enter a PWM setting to test(0-1500)400
+Enter a PWM setting to test(0-1500)420
+Enter a PWM setting to test(0-1500)400
+Enter a PWM setting to test(0-1500)380
+```
+
+## Drive your car with web interface
+
+Instructions are at http://docs.donkeycar.com/guide/get_driving/ 
+
+### Preparation on Mac
+
+- open terminal
+- Activate mappings to donkey Python setup with: ```source activate donkey```
+- Change to your local dir for managing donkey: ```cd ~/mycar```
+
+### Preparation on Raspberry
+```
+cd ~/mycar
+python manage.py drive
+```
+in the terminal window that looks like follows: 
+
+```
+(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive
+
+using donkey version: 2.5.8 ...
+/usr/lib/python3/dist-packages/h5py/__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+loading config file: /home/pi/mycar/config.py
+config loaded
+PiCamera loaded.. .warming camera
+Starting Donkey Server...
+You can now go to http://127.0.0.1:8887 to drive your car.
+/home/pi/env/lib/python3.5/site-packages/picamera/encoders.py:544: PiCameraResolutionRounded: frame size rounded up from 160x120 to 160x128
+  width, height, fwidth, fheight)))
+```
+
+### Open control in web browser on Mac
+
+You can now control your car from a web browser at the URL: ```192.168.178.67:8887```
+
 
 For [RPI SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?) that problem was not seen.
 
@@ -114,4 +206,40 @@ button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125
 ``` 
+## Start driving or training
+
+See [instructions](https://docs.donkeycar.com/guide/get_driving/)
+
+``` 
+ssh pi@<your_pi_ip_address>
+
+cd ~/mycar
+python manage.py drive
+``` 
+
+add bluetooth controller to manage.py  https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
+
+
+manage.py can be called with several options, to find them type 
+``` 
+(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h
+``` 
+>
+using donkey version: 2.5.8 ...
+/usr/lib/python3/dist-packages/h5py/__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Scripts to drive a donkey 2 car and train a model for it.
+
+```
+Usage:
+    manage.py (drive) [--model=<model>] [--js] [--chaos]
+    manage.py (train) [--tub=<tub1,tub2,..tubn>]  (--model=<model>) [--base_model=<base_model>] [--no_cache]
+
+Options:
+    -h --help        Show this screen.
+    --tub TUBPATHS   List of paths to tubs. Comma separated. Use quotes to use wildcards. ie "~/tubs/*"
+    --js             Use physical joystick.
+    --chaos          Add periodic random steering when manually driving
+```
+
 

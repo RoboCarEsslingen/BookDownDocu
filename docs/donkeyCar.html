@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2018-12-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -168,9 +168,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.2" data-path="donkeyCar.html"><a href="donkeyCar.html#what-to-do"><i class="fa fa-check"></i><b>7.2</b> What to do</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#folders-created-during-installation-of-host-pc"><i class="fa fa-check"></i><b>7.2.1</b> Folders created during installation of host PC</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>7.3</b> Connecting bluetooth controller</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="donkeyCar.html"><a href="donkeyCar.html#connect-your-bluetooth-controller-to-the-raspberry-pi."><i class="fa fa-check"></i><b>7.3.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
+<li class="chapter" data-level="7.3" data-path="donkeyCar.html"><a href="donkeyCar.html#calibrate-the-car"><i class="fa fa-check"></i><b>7.3</b> Calibrate the car</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="donkeyCar.html"><a href="donkeyCar.html#throttle-calibration"><i class="fa fa-check"></i><b>7.3.1</b> Throttle Calibration</a></li>
 </ul></li>
+<li class="chapter" data-level="7.4" data-path="donkeyCar.html"><a href="donkeyCar.html#drive-your-car-with-web-interface"><i class="fa fa-check"></i><b>7.4</b> Drive your car with web interface</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-mac"><i class="fa fa-check"></i><b>7.4.1</b> Preparation on Mac</a></li>
+<li class="chapter" data-level="7.4.2" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-raspberry"><i class="fa fa-check"></i><b>7.4.2</b> Preparation on Raspberry</a></li>
+<li class="chapter" data-level="7.4.3" data-path="donkeyCar.html"><a href="donkeyCar.html#open-control-in-web-browser-on-mac"><i class="fa fa-check"></i><b>7.4.3</b> Open control in web browser on Mac</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>7.5</b> Connecting bluetooth controller</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="donkeyCar.html"><a href="donkeyCar.html#connect-your-bluetooth-controller-to-the-raspberry-pi."><i class="fa fa-check"></i><b>7.5.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>7.6</b> Start driving or training</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html"><i class="fa fa-check"></i><b>8</b> Minutes of meeting</a><ul>
 <li class="chapter" data-level="8.1" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#section-1"><i class="fa fa-check"></i><b>8.1</b> 21-03-2018</a></li>
@@ -214,6 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to =&gt; Donkey Car</p>
 <p>Second reason, other members of the group <a href="https://www.meetup.com/Esslingen-Makerspace/" title="Homepage of the meetup">Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a> opted for donkey car.</p>
 <p>I changed to <a href="https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html">Reely Dart 2.0 Brushed</a> Tamiya-Buchse is the connector of the NiMH battery Charger is <a href="https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&amp;gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB">Voltcraft V-Charge Eco NiMh 3000</a></p>
+<p><img src="images/SunFounderDonkeyMerge.jpg" width="1512" /></p>
 </div>
 <div id="what-to-do" class="section level2">
 <h2><span class="header-section-number">7.2</span> What to do</h2>
@@ -249,19 +259,83 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>When to add an optional Capacitor to the driver board We have a spot on the PCB for soldering in an electrolytic capacitor. Based on your usage, you may or may not need a capacitor. If you are driving a lot of servos from a power supply that dips a lot when the servos move, n * 100uF where n is the number of servos is a good place to start - eg 470uF or more for 5 servos. Since its so dependent on servo current draw, the torque on each motor, and what power supply, there is no “one magic capacitor value” we can suggest which is why we don’t include a capacitor in the kit.</p>
 </blockquote>
 <p>I did <strong>not</strong> check whether this works.</p>
+<p>The newly integrated PI servo hat did not show any problem controlling two channels at the same time</p>
+<p><img src="images/ServoHat.jpg" width="1512" /></p>
+</div>
+</div>
+<div id="calibrate-the-car" class="section level2">
+<h2><span class="header-section-number">7.3</span> Calibrate the car</h2>
+<p>Instructions for the calibrations can be found at <a href="http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car" class="uri">http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car</a></p>
+<p>ssh into your raspberry ### Steering Calibration run</p>
+<pre><code>donkey calibrate --channel &lt;your_steering_channel&gt;</code></pre>
+<p>for PWM channel 0 for steering</p>
+<pre><code>donkey calibrate --channel 0</code></pre>
+<pre><code>(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 0
+using donkey version: 2.5.8 ...
+Enter a PWM setting to test(0-1500)360
+Enter a PWM setting to test(0-1500)120     
+.
+.
+.</code></pre>
+<p><code>Ctrl C</code> to exit calibration mode</p>
+<div id="throttle-calibration" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Throttle Calibration</h3>
+<p>run</p>
+<pre><code>donkey calibrate --channel &lt;your_throttle_channel&gt;</code></pre>
+<p>for PWM channel 1 for throttle</p>
+<pre><code>(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 1
+using donkey version: 2.5.8 ...
+Enter a PWM setting to test(0-1500)400
+Enter a PWM setting to test(0-1500)420
+Enter a PWM setting to test(0-1500)400
+Enter a PWM setting to test(0-1500)380</code></pre>
+</div>
+</div>
+<div id="drive-your-car-with-web-interface" class="section level2">
+<h2><span class="header-section-number">7.4</span> Drive your car with web interface</h2>
+<p>Instructions are at <a href="http://docs.donkeycar.com/guide/get_driving/" class="uri">http://docs.donkeycar.com/guide/get_driving/</a></p>
+<div id="preparation-on-mac" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Preparation on Mac</h3>
+<ul>
+<li>open terminal</li>
+<li>Activate mappings to donkey Python setup with: <code>source activate donkey</code></li>
+<li>Change to your local dir for managing donkey: <code>cd ~/mycar</code></li>
+</ul>
+</div>
+<div id="preparation-on-raspberry" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Preparation on Raspberry</h3>
+<pre><code>cd ~/mycar
+python manage.py drive</code></pre>
+<p>in the terminal window that looks like follows:</p>
+<pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive
+
+using donkey version: 2.5.8 ...
+/usr/lib/python3/dist-packages/h5py/__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+loading config file: /home/pi/mycar/config.py
+config loaded
+PiCamera loaded.. .warming camera
+Starting Donkey Server...
+You can now go to http://127.0.0.1:8887 to drive your car.
+/home/pi/env/lib/python3.5/site-packages/picamera/encoders.py:544: PiCameraResolutionRounded: frame size rounded up from 160x120 to 160x128
+  width, height, fwidth, fheight)))</code></pre>
+</div>
+<div id="open-control-in-web-browser-on-mac" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> Open control in web browser on Mac</h3>
+<p>You can now control your car from a web browser at the URL: <code>192.168.178.67:8887</code></p>
 <p>For <a href="https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?">RPI SERVO HAT</a> that problem was not seen.</p>
 <p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" title="DOCUMENTATION &gt; CONFIGURATION &gt; WIRELESS &gt; WIRELESS-CLI">SETTING WIFI UP VIA THE COMMAND LINE</a></p>
 <p><img src="images/SunFounderDonkeyMerge.jpg" width="1512" /></p>
 </div>
 </div>
 <div id="connecting-bluetooth-controller" class="section level2">
-<h2><span class="header-section-number">7.3</span> Connecting bluetooth controller</h2>
+<h2><span class="header-section-number">7.5</span> Connecting bluetooth controller</h2>
 <p>I got an WiiU second hand <a href="https://www.amazon.de/gp/product/B06XSB2TXQ/ref=oh_aui_detailpage_o01_s00?ie=UTF8&amp;psc=1">WiiU controller</a>, therefore I did select the <a href="http://docs.donkeycar.com/parts/controllers/">Controllers page</a> the <a href="https://github.com/autorope/donkeypart_bluetooth_game_controller">WiiU controller</a></p>
 <p>After ssh into the raspberry install <strong>Bluetooth Game Controller</strong> library</p>
 <pre><code>git clone https://github.com/autorope/donkeypart_bluetooth_game_controller.git
 pip install -e ./donkeypart_bluetooth_game_controller</code></pre>
 <div id="connect-your-bluetooth-controller-to-the-raspberry-pi." class="section level3">
-<h3><span class="header-section-number">7.3.1</span> Connect your bluetooth controller to the raspberry pi.</h3>
+<h3><span class="header-section-number">7.5.1</span> Connect your bluetooth controller to the raspberry pi.</h3>
 <ol style="list-style-type: decimal">
 <li>Start the bluetooth bash tool on your raspberry pi.</li>
 </ol>
@@ -290,8 +364,31 @@ button: LEFT_STICK_X, value:-0.0015625
 button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125</code></pre>
-
 </div>
+</div>
+<div id="start-driving-or-training" class="section level2">
+<h2><span class="header-section-number">7.6</span> Start driving or training</h2>
+<p>See <a href="https://docs.donkeycar.com/guide/get_driving/">instructions</a></p>
+<pre><code>ssh pi@&lt;your_pi_ip_address&gt;
+
+cd ~/mycar
+python manage.py drive</code></pre>
+<p>add bluetooth controller to manage.py <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
+<p>manage.py can be called with several options, to find them type</p>
+<pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h</code></pre>
+<blockquote>
+<p>using donkey version: 2.5.8 … /usr/lib/python3/dist-packages/h5py/<strong>init</strong>.py:34: FutureWarning: Conversion of the second argument of issubdtype from <code>float</code> to <code>np.floating</code> is deprecated. In future, it will be treated as <code>np.float64 == np.dtype(float).type</code>. from ._conv import register_converters as _register_converters Scripts to drive a donkey 2 car and train a model for it.</p>
+</blockquote>
+<pre><code>Usage:
+    manage.py (drive) [--model=&lt;model&gt;] [--js] [--chaos]
+    manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;]  (--model=&lt;model&gt;) [--base_model=&lt;base_model&gt;] [--no_cache]
+
+Options:
+    -h --help        Show this screen.
+    --tub TUBPATHS   List of paths to tubs. Comma separated. Use quotes to use wildcards. ie &quot;~/tubs/*&quot;
+    --js             Use physical joystick.
+    --chaos          Add periodic random steering when manually driving</code></pre>
+
 </div>
 </div>
             </section>
