@@ -28,3 +28,6 @@ donkey car
 [Python Xbox Controller Mac](http://www.philipzucker.com/python-xbox-controller-mac/)  
 
 [find IP adress in shack](http://leases.shack/#/)  
+
+
+[Github of Detroit-Autonomous-Vehicle-Group](https://github.com/Sashulik/Detroit-Autonomous-Vehicle-Group)

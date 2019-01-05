@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RoboCar project documentation</title>
+  <title>Chapter 7 Change to donkeycar | RoboCar project documentation</title>
   <meta name="description" content="Notes taken by Uwe for the RoboCar project">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="RoboCar project documentation" />
+  <meta property="og:title" content="Chapter 7 Change to donkeycar | RoboCar project documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="RoboCar project documentation" />
+  <meta name="twitter:title" content="Chapter 7 Change to donkeycar | RoboCar project documentation" />
   
   <meta name="twitter:description" content="Notes taken by Uwe for the RoboCar project" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2018-12-07">
+<meta name="date" content="2019-01-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="minutesOfMeeting.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -180,6 +181,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.5.1" data-path="donkeyCar.html"><a href="donkeyCar.html#connect-your-bluetooth-controller-to-the-raspberry-pi."><i class="fa fa-check"></i><b>7.5.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>7.6</b> Start driving or training</a></li>
+<li class="chapter" data-level="7.7" data-path="donkeyCar.html"><a href="donkeyCar.html#change-manage.py"><i class="fa fa-check"></i><b>7.7</b> Change manage.py</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#how-to-tether-raspberry-pi-to-android-device-hotspot"><i class="fa fa-check"></i><b>7.7.1</b> HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html"><i class="fa fa-check"></i><b>8</b> Minutes of meeting</a><ul>
 <li class="chapter" data-level="8.1" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#section-1"><i class="fa fa-check"></i><b>8.1</b> 21-03-2018</a></li>
@@ -364,15 +368,34 @@ button: LEFT_STICK_X, value:-0.0015625
 button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125</code></pre>
+<p>in the file <strong>manageOrgExtWii.py</strong> the bluetooth controller was integrated, however, throttle doesnt work</p>
 </div>
 </div>
 <div id="start-driving-or-training" class="section level2">
 <h2><span class="header-section-number">7.6</span> Start driving or training</h2>
-<p>See <a href="https://docs.donkeycar.com/guide/get_driving/">instructions</a></p>
+<ul>
+<li>Power donkeycar</li>
+<li>Wait about 10s until rapsi is booted</li>
+<li>Switch on bluetooth controller
+<ul>
+<li>for Nintedo Wii controller</li>
+<li>the four blue LEDs flash a few times</li>
+<li>the left most LED solid shows that controller is connected with Raspi</li>
+</ul></li>
+</ul>
+<p>Once controller is connected proceed as described in <a href="https://docs.donkeycar.com/guide/get_driving/">instructions</a></p>
 <pre><code>ssh pi@&lt;your_pi_ip_address&gt;
+# or
+ssh pi@donkeypi-uwe
 
 cd ~/mycar
-python manage.py drive</code></pre>
+python manage.py drive
+# or if you have changed the file name to indicate that you added the bluetooth contorller
+python manageOrgExtWii.py drive</code></pre>
+<p>And the car drives</p>
+<video width="720" controls>
+<source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
+</video>
 <p>add bluetooth controller to manage.py <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
 <p>manage.py can be called with several options, to find them type</p>
 <pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h</code></pre>
@@ -388,7 +411,19 @@ Options:
     --tub TUBPATHS   List of paths to tubs. Comma separated. Use quotes to use wildcards. ie &quot;~/tubs/*&quot;
     --js             Use physical joystick.
     --chaos          Add periodic random steering when manually driving</code></pre>
+</div>
+<div id="change-manage.py" class="section level2">
+<h2><span class="header-section-number">7.7</span> Change manage.py</h2>
+<p><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">copy file from pi to mac</a> run in terminal</p>
+<pre><code>scp pi@192.168.178.67:mycar/manage.py
+# or
+rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/</code></pre>
+<p>then type the password of the pi copies the file mycar/manage.py to the current location</p>
+<div id="how-to-tether-raspberry-pi-to-android-device-hotspot" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT</h3>
+<p><a href="http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/" class="uri">http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/</a></p>
 
+</div>
 </div>
 </div>
             </section>
@@ -417,7 +452,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -427,6 +462,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

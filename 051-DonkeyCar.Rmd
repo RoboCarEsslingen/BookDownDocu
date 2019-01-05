@@ -206,16 +206,36 @@ button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125
 ``` 
+in the file **manageOrgExtWii.py** the bluetooth controller was integrated, however, throttle doesnt work
+
+
 ## Start driving or training
 
-See [instructions](https://docs.donkeycar.com/guide/get_driving/)
+- Power donkeycar
+- Wait about 10s until rapsi is booted
+- Switch on bluetooth controller
+    - for Nintedo Wii controller
+    - the four blue LEDs flash a few times
+    - the left most LED solid shows that controller is connected with Raspi
+
+Once controller is connected proceed as described in [instructions](https://docs.donkeycar.com/guide/get_driving/)
 
 ``` 
 ssh pi@<your_pi_ip_address>
+# or
+ssh pi@donkeypi-uwe
 
 cd ~/mycar
 python manage.py drive
+# or if you have changed the file name to indicate that you added the bluetooth contorller
+python manageOrgExtWii.py drive
 ``` 
+
+And the car drives
+
+<video width="720" controls>
+  <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
+</video>
 
 add bluetooth controller to manage.py  https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
 
@@ -242,4 +262,18 @@ Options:
     --chaos          Add periodic random steering when manually driving
 ```
 
+## Change manage.py
 
+[copy file from pi to mac](https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md) run in terminal
+
+```
+scp pi@192.168.178.67:mycar/manage.py
+# or
+rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/
+```
+then type the password of the pi
+copies the file mycar/manage.py to the current location
+
+### HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT
+
+http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ 
