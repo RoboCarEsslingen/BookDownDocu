@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RoboCar project documentation</title>
+  <title>Chapter 8 Donkeycar software analysis | RoboCar project documentation</title>
   <meta name="description" content="Notes taken by Uwe for the RoboCar project">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="RoboCar project documentation" />
+  <meta property="og:title" content="Chapter 8 Donkeycar software analysis | RoboCar project documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="RoboCar project documentation" />
+  <meta name="twitter:title" content="Chapter 8 Donkeycar software analysis | RoboCar project documentation" />
   
   <meta name="twitter:description" content="Notes taken by Uwe for the RoboCar project" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="resources.html">
+<link rel="prev" href="donkeyCar.html">
+<link rel="next" href="minutesOfMeeting.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -225,40 +225,94 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">RoboCar project documentation</h1>
-<p class="author"><em>Uwe Sterr</em></p>
-<p class="date"><em>2019-01-10</em></p>
-</div>
-<div id="project-robocar" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Project RoboCar</h1>
-<p>We want to build autonomous driving model cars which can master a course without any human intervention</p>
-<p>The project was started during one of those cold dark winter evenings on 8th of February 2018 by</p>
-<ul>
-<li>Elias, who carried this idea with him for quite some time already</li>
-<li>Andreas, who as far as I can tell is interested in just about everything</li>
-<li>Finn, who probably never thought about this idea before that day but was immediately enthusiastic</li>
-<li>Uwe, who was infected with the idea by Elias in autumn 2017</li>
-</ul>
-<p>We decided then and there to build autonomous robotic cars probably with Raspberry Pi, but open for all possible concepts.</p>
-<p>We organize our meetings via the meetup group <a href="https://www.meetup.com/Esslingen-Makerspace/" class="uri">https://www.meetup.com/Esslingen-Makerspace/</a>, you are welcome to join in, register as a member of that meetup group and you will receive invitations to our meetings.</p>
-<p>This documentation shall act as an archive for</p>
-<ul>
-<li><a href="resources.html#resources">Resources</a></li>
-<li><a href="experiences.html#experiences">Experiences gathered</a></li>
-<li><a href="Theory.html#Theory">Theory</a></li>
-<li><a href="minutesOfMeeting.html#minutesOfMeeting">Minutes of meeting</a></li>
-</ul>
-<p>For inspiration you can check the it:movES <a href="http://www.hs-esslingen.de/de/hochschule/fakultaeten/informationstechnik/aktuelles/einzelansicht/datum/2018/02/artikel/carolo-cup-2018-itmoves-belegt-vorderen-platz.html" class="uri">http://www.hs-esslingen.de/de/hochschule/fakultaeten/informationstechnik/aktuelles/einzelansicht/datum/2018/02/artikel/carolo-cup-2018-itmoves-belegt-vorderen-platz.html</a> &lt;</p>
+<div id="donkeycar-software-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Donkeycar software analysis</h1>
+<p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the keras model</p>
+<div id="locate-modules-on-raspi-which-are-being-imported-by-manage.py" class="section level2">
+<h2><span class="header-section-number">8.1</span> Locate modules on raspi which are being imported by manage.py</h2>
+<p>Where on the raspi are the moudles located which are being imported by the python script manage.py</p>
+<pre><code>from docopt import docopt
 
+import donkeycar as dk
+from donkeycar.parts.camera import PiCamera
+from donkeycar.parts.transform import Lambda
+from donkeycar.parts.keras import KerasLinear
+from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
+from donkeycar.parts.datastore import TubGroup, TubWriter
+from donkeycar.parts.web_controller import LocalWebController
+from donkeycar.parts.clock import Timestamp
+from donkeypart_bluetooth_game_controller import BluetoothGameController</code></pre>
+<p>donkeycar is found at the raspi</p>
+<pre><code>(env) pi@donkeypi_uwe:~ $ find . -name donkeycar
+./env/lib/python3.5/site-packages/donkeycar</code></pre>
+<p>listing this folder</p>
+<pre><code>(env) pi@donkeypi_uwe:~ $ cd ./env/lib/python3.5/site-packages/donkeycar
+(env) pi@donkeypi_uwe:~/env/lib/python3.5/site-packages/donkeycar $ ls
+config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templates  tests  util  vehicle.py</code></pre>
+<p>which are the same files and folders which are located at the <a href="https://github.com/autorope/donkeycar/tree/dev/donkeycar">official GitHub page of DonkeyCar project</a></p>
+<p>The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section <a href="donkeyCar.html#BluetoothControllerInstall">7.5.1</a></p>
+<div id="assignment-of-wii-controller-sticks-to-action" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Assignment of Wii controller sticks to action</h3>
+<p>The maping from button codes to button names is defined in donkeypart_bluetooth_game_controller/wiiu_config.yml</p>
+<pre><code>
+device_search_term: &#39;nintendo&#39;
+
+
+#Map the button codes to the button names
+button_map:
+  305: &#39;A&#39;
+  304: &#39;B&#39;
+  307: &#39;X&#39;
+  308: &#39;Y&#39;
+  312: &#39;LEFT_BOTTOM_TRIGGER&#39;
+  310: &#39;LEFT_TOP_TRIGGER&#39;
+  313: &#39;RIGHT_BOTTOM_TRIGGER&#39;
+  311: &#39;RIGHT_TOP_TRIGGER&#39;
+  317: &#39;LEFT_STICK_PRESS&#39;
+  318: &#39;RIGHT_STICK_PRESS&#39;
+  314: &#39;SELECT&#39;
+  315: &#39;START&#39;
+  0: &#39;LEFT_STICK_X&#39;
+  1: &#39;LEFT_STICK_Y&#39;
+  3: &#39;RIGHT_STICK_X&#39;
+  4: &#39;RIGHT_STICK_Y&#39;
+  547: &#39;PAD_RIGHT&#39;
+  546: &#39;PAD_LEFT&#39;
+  544: &#39;PAD_UP&#39;
+  548: &#39;PAD_DOWN&#39;
+
+
+joystic_max_value: 1280</code></pre>
+<p>which is then used in donkeypart_bluetooth_game_controller/part.py</p>
+<p>In the class definition BluetoothGameController</p>
+<pre><code>def __init__(self, event_input_device=None, config_path=None, device_search_term=None, verbose=False):
+.  
+.  
+.  
+        self.func_map = {
+            &#39;LEFT_STICK_X&#39;: self.update_angle,
+            &#39;LEFT_STICK_Y&#39;: self.update_throttle,
+            &#39;B&#39;: self.toggle_recording,
+            &#39;A&#39;: self.toggle_drive_mode,
+            &#39;PAD_UP&#39;: self.increment_throttle_scale,
+            &#39;PAD_DOWN&#39;: self.decrement_throttle_scale,
+        }</code></pre>
+<p>this mapping seems a bit odd, to change throttle so it is not on the same stick as angle change donkeypart_bluetooth_game_controller/part.py to</p>
+<pre><code>  self.func_map = {
+            &#39;LEFT_STICK_X&#39;: self.update_angle,
+            &#39;RIGHT_STICK_Y&#39;: self.update_throttle,</code></pre>
+<p>to make the controller more sensitive it might be a good idea to limit the max joystick value in donkeypart_bluetooth_game_controller/wiiu_config.yml to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">7.3.2</a></p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="resources.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="donkeyCar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="minutesOfMeeting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
