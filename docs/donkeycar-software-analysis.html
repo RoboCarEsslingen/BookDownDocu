@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-01-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -230,7 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the keras model</p>
 <div id="locate-modules-on-raspi-which-are-being-imported-by-manage.py" class="section level2">
 <h2><span class="header-section-number">8.1</span> Locate modules on raspi which are being imported by manage.py</h2>
-<p>Where on the raspi are the moudles located which are being imported by the python script manage.py</p>
+<p>Where on the raspi are the moudles located which are being imported by the python script <code>manage.py</code></p>
 <pre><code>from docopt import docopt
 
 import donkeycar as dk
@@ -253,7 +253,7 @@ config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templ
 <p>The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section <a href="donkeyCar.html#BluetoothControllerInstall">7.5.1</a></p>
 <div id="assignment-of-wii-controller-sticks-to-action" class="section level3">
 <h3><span class="header-section-number">8.1.1</span> Assignment of Wii controller sticks to action</h3>
-<p>The maping from button codes to button names is defined in donkeypart_bluetooth_game_controller/wiiu_config.yml</p>
+<p>The maping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
 <pre><code>
 device_search_term: &#39;nintendo&#39;
 
@@ -283,7 +283,7 @@ button_map:
 
 
 joystic_max_value: 1280</code></pre>
-<p>which is then used in donkeypart_bluetooth_game_controller/part.py</p>
+<p>which is then used in <code>donkeypart_bluetooth_game_controller/part.py</code></p>
 <p>In the class definition BluetoothGameController</p>
 <pre><code>def __init__(self, event_input_device=None, config_path=None, device_search_term=None, verbose=False):
 .  
@@ -297,11 +297,11 @@ joystic_max_value: 1280</code></pre>
             &#39;PAD_UP&#39;: self.increment_throttle_scale,
             &#39;PAD_DOWN&#39;: self.decrement_throttle_scale,
         }</code></pre>
-<p>this mapping seems a bit odd, to change throttle so it is not on the same stick as angle change donkeypart_bluetooth_game_controller/part.py to</p>
+<p>It seems to be odd to have steering and throttle on one stick, to assign throttle to the right stick change <code>donkeypart_bluetooth_game_controller/part.py</code> to</p>
 <pre><code>  self.func_map = {
             &#39;LEFT_STICK_X&#39;: self.update_angle,
             &#39;RIGHT_STICK_Y&#39;: self.update_throttle,</code></pre>
-<p>to make the controller more sensitive it might be a good idea to limit the max joystick value in donkeypart_bluetooth_game_controller/wiiu_config.yml to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">7.3.2</a></p>
+<p>to make the controller more sensitive it might be a good idea to limit the max joystick value in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code> to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">7.3.2</a></p>
 
 </div>
 </div>

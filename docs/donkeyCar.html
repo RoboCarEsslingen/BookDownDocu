@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-01-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -302,7 +302,7 @@ Enter a PWM setting to test(0-1500)380</code></pre>
 </div>
 <div id="configpyAfterCalib" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Config.py after calibration</h3>
-<p>after configuration the config.py file reads</p>
+<p>after configuration the <code>config.py</code> file reads</p>
 <pre><code>&quot;&quot;&quot;
 CAR CONFIG
 
@@ -432,7 +432,7 @@ button: LEFT_STICK_X, value:-0.0015625
 button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125</code></pre>
-<p>in the file <strong>manageOrgExtWii.py</strong> the bluetooth controller was integrated, however, throttle doesnt work</p>
+<p>in the file <code>manageOrgExtWii.py</code> the bluetooth controller was integrated</p>
 </div>
 </div>
 <div id="start-driving-or-training" class="section level2">
@@ -460,8 +460,8 @@ python manageOrgExtWii.py drive</code></pre>
 <video width="720" controls>
 <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
 </video>
-<p>add bluetooth controller to manage.py <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
-<p>manage.py can be called with several options, to find them type</p>
+<p>add bluetooth controller to <code>manage.py</code> <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
+<p>The script <code>manage.py</code> can be called with several options, to find them type</p>
 <pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h</code></pre>
 <blockquote>
 <p>using donkey version: 2.5.8 … /usr/lib/python3/dist-packages/h5py/<strong>init</strong>.py:34: FutureWarning: Conversion of the second argument of issubdtype from <code>float</code> to <code>np.floating</code> is deprecated. In future, it will be treated as <code>np.float64 == np.dtype(float).type</code>. from ._conv import register_converters as _register_converters Scripts to drive a donkey 2 car and train a model for it.</p>
@@ -482,7 +482,7 @@ Options:
 <pre><code>scp pi@192.168.178.67:mycar/manage.py
 # or
 rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/</code></pre>
-<p>then type the password of the pi copies the file mycar/manage.py to the current location</p>
+<p>then type the password of the pi copies the file <code>mycar/manage.py</code> to the current location</p>
 <div id="how-to-tether-raspberry-pi-to-android-device-hotspot" class="section level3">
 <h3><span class="header-section-number">7.7.1</span> HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT</h3>
 <p><a href="http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/" class="uri">http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/</a></p>

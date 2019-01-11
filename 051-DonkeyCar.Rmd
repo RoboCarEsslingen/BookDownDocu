@@ -97,7 +97,7 @@ run
 ```
 donkey calibrate --channel <your_throttle_channel>
 ```
-for PWM channel 1 for throttle
+for PWM channel 1 for angle
 ```
 (env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 1
 using donkey version: 2.5.8 ...
@@ -106,6 +106,66 @@ Enter a PWM setting to test(0-1500)420
 Enter a PWM setting to test(0-1500)400
 Enter a PWM setting to test(0-1500)380
 ```
+
+### Config.py after calibration {#configpyAfterCalib}
+after configuration the ```config.py``` file reads
+```
+"""
+CAR CONFIG
+
+This file is read by your car application's manage.py script to change the car
+performance.
+
+EXMAPLE
+-----------
+import dk
+cfg = dk.load_config(config_path='~/mycar/config.py')
+print(cfg.CAMERA_RESOLUTION)
+
+"""
+
+
+import os
+
+#PATHS
+CAR_PATH = PACKAGE_PATH = os.path.dirname(os.path.realpath(__file__))
+DATA_PATH = os.path.join(CAR_PATH, 'data')
+MODELS_PATH = os.path.join(CAR_PATH, 'models')
+
+#VEHICLE
+DRIVE_LOOP_HZ = 20
+MAX_LOOPS = 100000
+
+#CAMERA
+CAMERA_RESOLUTION = (120, 160) #(height, width)
+CAMERA_FRAMERATE = DRIVE_LOOP_HZ
+
+#STEERING
+STEERING_CHANNEL = 1
+STEERING_LEFT_PWM = 460
+STEERING_RIGHT_PWM = 370
+
+#THROTTLE
+THROTTLE_CHANNEL = 0
+THROTTLE_FORWARD_PWM = 550
+THROTTLE_STOPPED_PWM = 410
+THROTTLE_REVERSE_PWM = 320
+
+#TRAINING
+BATCH_SIZE = 128
+TRAIN_TEST_SPLIT = 0.8
+
+
+#JOYSTICK
+USE_JOYSTICK_AS_DEFAULT = False
+JOYSTICK_MAX_THROTTLE = 0.25
+JOYSTICK_STEERING_SCALE = 1.0
+AUTO_RECORD_ON_THROTTLE = True
+
+
+TUB_PATH = os.path.join(CAR_PATH, 'tub') # if using a single tub
+```
+
 
 ## Drive your car with web interface
 
@@ -168,7 +228,7 @@ pip install -e ./donkeypart_bluetooth_game_controller
 ``` 
 
 
-### Connect your bluetooth controller to the raspberry pi.
+### Connect your bluetooth controller to the raspberry pi. {#BluetoothControllerInstall}
 
 1. Start the bluetooth bash tool on your raspberry pi.
 
@@ -206,7 +266,7 @@ button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125
 ``` 
-in the file **manageOrgExtWii.py** the bluetooth controller was integrated, however, throttle doesnt work
+in the file ```manageOrgExtWii.py``` the bluetooth controller was integrated
 
 
 ## Start driving or training
@@ -237,10 +297,10 @@ And the car drives
   <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
 </video>
 
-add bluetooth controller to manage.py  https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
+add bluetooth controller to ```manage.py``` https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
 
 
-manage.py can be called with several options, to find them type 
+The script ```manage.py``` can be called with several options, to find them type 
 ``` 
 (env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h
 ``` 
@@ -262,7 +322,7 @@ Options:
     --chaos          Add periodic random steering when manually driving
 ```
 
-## Change manage.py
+## Copy files from raspi to mac
 
 [copy file from pi to mac](https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md) run in terminal
 
@@ -272,7 +332,7 @@ scp pi@192.168.178.67:mycar/manage.py
 rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/
 ```
 then type the password of the pi
-copies the file mycar/manage.py to the current location
+copies the file ```mycar/manage.py``` to the current location
 
 ### HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT
 
