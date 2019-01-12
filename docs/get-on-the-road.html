@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-11">
+<meta name="date" content="2019-01-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -423,6 +423,23 @@ RIGHTTHUMB = 10</p>
 <h2><span class="header-section-number">6.4</span> Get IP adress of raspi</h2>
 <p>Check in the router for the IP adress, procedure is dependent on router At shackspace go to <a href="http://leases.shack/#/" class="uri">http://leases.shack/#/</a> (only available from the shackspace network)</p>
 <p>and then connect via ssh <a href="mailto:pi@ipAdress">pi@ipAdress</a></p>
+<p>if you get</p>
+<pre><code>Uwes-MBP:data uwesterr$ ssh pi@10.42.26.33
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:aYMRAzv3GpxqJNugz1oTi20m0QKVIVfVxszQkJNbNqg.
+Please contact your system administrator.
+Add correct host key in /Users/uwesterr/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/uwesterr/.ssh/known_hosts:20
+ECDSA host key for 10.42.26.33 has changed and you have requested strict checking.
+Host key verification failed.</code></pre>
+<p>then you have to remove the cached key for donkeypi-uwe (or the old IP adress) on the local machine:</p>
+<pre><code>ssh-keygen -R donkeypi-uwe</code></pre>
 </div>
 <div id="store-snapshots-of-video-stream-on-local-computer" class="section level2">
 <h2><span class="header-section-number">6.5</span> Store snapshots of video stream on local computer</h2>
