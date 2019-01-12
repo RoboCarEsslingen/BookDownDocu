@@ -529,7 +529,7 @@ if event.axis == 0: # this is the x axis
 			 print 'sendData = %s' % data
 			 tcpCliSock.send(data)  # Send the speed data to the server(Raspberry Pi)
 ```
-## Get IP adress of raspi
+## Get IP adress of raspi {#GetIp}
 
 Check in the router for the IP adress, procedure is dependent on router
 At shackspace go to http://leases.shack/#/ (only available from the shackspace network)

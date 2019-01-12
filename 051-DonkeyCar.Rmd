@@ -291,6 +291,9 @@ python manage.py drive
 python manageOrgExtWii.py drive
 ``` 
 
+how to the the IP adress of your car you  check your at your router. How to do this at shackspace is described \@ref(GetIp)
+
+
 And the car drives
 
 <video width="720" controls>
@@ -337,3 +340,13 @@ copies the file ```mycar/manage.py``` to the current location
 ### HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT
 
 http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ 
+
+
+## delete recoreded data
+
+The training data is being stored in the folder /mycar/tub. once you want to get rid of the data use the following command
+
+
+```
+rm -rf tub
+```
