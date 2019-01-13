@@ -235,10 +235,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="donkeycar-software-analysis" class="section level1">
 <h1><span class="header-section-number">Chapter 8</span> Donkeycar software analysis</h1>
-<p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the keras model</p>
+<p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the Keras model</p>
 <div id="locate-modules-on-raspi-which-are-being-imported-by-manage.py" class="section level2">
 <h2><span class="header-section-number">8.1</span> Locate modules on raspi which are being imported by manage.py</h2>
-<p>Where on the raspi are the moudles located which are being imported by the python script <code>manage.py</code></p>
+<p>Where on the Raspberry Pi are the modules located which are being imported by the python script <code>manage.py</code></p>
 <pre><code>from docopt import docopt
 
 import donkeycar as dk
@@ -262,7 +262,7 @@ config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templ
 </div>
 <div id="assignment-of-wiiu-controller-sticks-to-action" class="section level2">
 <h2><span class="header-section-number">8.2</span> Assignment of WiiU controller sticks to action</h2>
-<p>The maping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
+<p>The mapping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
 <pre><code>
 device_search_term: &#39;nintendo&#39;
 

@@ -238,7 +238,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>In December 2018 I switched from sunfounder to donkeycar <a href="http://www.donkeycar.com" title="Donkey Car&#39;s Homepage">Donkey Car</a></p>
 <div id="reason-for-changing-the-plattform" class="section level2">
 <h2><span class="header-section-number">7.1</span> Reason for changing the plattform</h2>
-<p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to =&gt; Donkey Car</p>
+<p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcomings in the steering mechanism. The steering angle was not reproducible, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to =&gt; Donkey Car</p>
 <p>Second reason, other members of the group <a href="https://www.meetup.com/Esslingen-Makerspace/" title="Homepage of the meetup">Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a> opted for donkey car.</p>
 <p>I changed to <a href="https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html">Reely Dart 2.0 Brushed</a> Tamiya-Buchse is the connector of the NiMH battery Charger is <a href="https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&amp;gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB">Voltcraft V-Charge Eco NiMh 3000</a></p>
 <p><img src="images/SunFounderDonkeyMerge.jpg" width="1512" /></p>
@@ -255,24 +255,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li><a href="http://docs.donkeycar.com/guide/install_software/#get-the-raspberry-pi-working">Install Software on Pi and Host Computer</a>
 <ul>
-<li>Setup RaspberryPi</li>
-<li>Setup Mac Host PC (or windows or linux host)</li>
+<li>Setup Raspberry Pi</li>
+<li>Setup Mac Host PC (or windows or Linux host)</li>
 </ul></li>
 <li><a href="http://docs.donkeycar.com/guide/calibrate/">Calibrate your car</a></li>
 <li><a href="http://docs.donkeycar.com/guide/get_driving/">Drive your car</a></li>
 <li><a href="http://docs.donkeycar.com/guide/train_autopilot/">Train an autopilot with Keras</a></li>
 <li><p><a href="http://docs.donkeycar.com/guide/simulator/" class="uri">http://docs.donkeycar.com/guide/simulator/</a></p></li>
-<li><p>Select web or pysical controller <a href="http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller">Controller Parts</a></p></li>
+<li><p>Select web or physical controller <a href="http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller">Controller Parts</a></p></li>
 </ul>
 </div>
 <div id="rewiring-the-car" class="section level2">
 <h2><span class="header-section-number">7.3</span> Rewiring the car</h2>
-<p>The rewiring consits of</p>
+<p>The rewiring consists of</p>
 <ul>
 <li>Disconnect the following connections
 <ul>
 <li>PWM signal RC receiver =&gt; Steering Servo</li>
-<li>PWM signal RC receicer =&gt; ESC</li>
+<li>PWM signal RC receiver =&gt; ESC</li>
 </ul></li>
 <li>Connect
 <ul>
@@ -309,12 +309,12 @@ Figure 7.2: Close-up of PWM Servo Hat
 <li><a href="https://www.reichelt.de/entwicklerboards-spannungsregler-6-40-v-dc-auf-2x-usb-5v-3a-debo-dc-2xusb-p242778.html?PROVID=2788&amp;gclid=CjwKCAiA4OvhBRAjEiwAU2FoJaCWbrXYqhuMADE3wArHLnltplldPHPumAXmfit7bQZUbyxtnIbwhRoCvqAQAvD_BwE&amp;&amp;r=1">DC/DC converter</a> ca. 4€,</li>
 <li><a href="https://www.amazon.de/dp/B06XSB2TXQ/ref=pe_3044161_185740101_TE_item">WiiU controller</a> ca. 18€</li>
 <li><p><a href="https://www.amazon.de/gp/product/B01I1N73TI/ref=ppx_yo_dt_b_asin_title_o04__o00_s00?ie=UTF8&amp;psc=1">Tamiya Stecker Power wires</a> ca. 9€</p></li>
-<li><p>Stuff to meachanicall integrate the new elements into the car.</p></li>
+<li><p>Stuff to mechanically integrate the new elements into the car.</p></li>
 </ul>
 </div>
 <div id="why-not-using-pca9685" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Why not using PCA9685</h3>
-<p><strong>Note</strong>, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibartion but not when the car is controlled via the web interface. TBC</p>
+<p><strong>Note</strong>, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibration but not when the car is controlled via the web interface. TBC</p>
 <p>A possible cure is described at <a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf">Adafruit 16 Channel Servo Driver with Raspberry Pi</a>.</p>
 <blockquote>
 <p>When to add an optional Capacitor to the driver board We have a spot on the PCB for soldering in an electrolytic capacitor. Based on your usage, you may or may not need a capacitor. If you are driving a lot of servos from a power supply that dips a lot when the servos move, n * 100uF where n is the number of servos is a good place to start - eg 470uF or more for 5 servos. Since its so dependent on servo current draw, the torque on each motor, and what power supply, there is no “one magic capacitor value” we can suggest which is why we don’t include a capacitor in the kit.</p>
@@ -452,7 +452,7 @@ You can now go to http://127.0.0.1:8887 to drive your car.
 </div>
 <div id="setting-wifi-up-for-the-raspberry" class="section level3">
 <h3><span class="header-section-number">7.6.4</span> Setting WIFI up for the raspberry</h3>
-<p>To set up the wifi connection on the raspberry you find a detailed description at <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" title="DOCUMENTATION &gt; CONFIGURATION &gt; WIRELESS &gt; WIRELESS-CLI">SETTING WIFI UP VIA THE COMMAND LINE</a></p>
+<p>To set up the WiFi connection on the raspberry you find a detailed description at <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" title="DOCUMENTATION &gt; CONFIGURATION &gt; WIRELESS &gt; WIRELESS-CLI">SETTING WIFI UP VIA THE COMMAND LINE</a></p>
 </div>
 </div>
 <div id="connecting-bluetooth-controller" class="section level2">
@@ -464,7 +464,7 @@ pip install -e ./donkeypart_bluetooth_game_controller</code></pre>
 <div id="BluetoothControllerInstall" class="section level3">
 <h3><span class="header-section-number">7.7.1</span> Connect your bluetooth controller to the raspberry pi.</h3>
 <ol style="list-style-type: decimal">
-<li>Start the bluetooth bash tool on your raspberry pi.</li>
+<li>Start the Bluetooth bash tool on your raspberry pi.</li>
 </ol>
 <pre><code>sudo bluetoothctl
 power on
@@ -491,19 +491,19 @@ button: LEFT_STICK_X, value:-0.0015625
 button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125</code></pre>
-<p>in the file <code>manageOrgExtWii.py</code> the bluetooth controller was integrated</p>
+<p>in the file <code>manageOrgExtWii.py</code> the Bluetooth controller was integrated</p>
 </div>
 </div>
 <div id="start-driving-or-training" class="section level2">
 <h2><span class="header-section-number">7.8</span> Start driving or training</h2>
 <ul>
 <li>Power donkeycar</li>
-<li>Wait about 10s until rapsi is booted</li>
-<li>Switch on bluetooth controller
+<li>Wait about 10s until Raspberry Pi is booted</li>
+<li>Switch on Bluetooth controller
 <ul>
-<li>for Nintedo Wii controller</li>
+<li>for Nintendo Wii controller</li>
 <li>the four blue LEDs flash a few times</li>
-<li>the left most LED solid shows that controller is connected with Raspi</li>
+<li>the left most LED solid shows that controller is connected with Raspberry Pi</li>
 </ul></li>
 </ul>
 <p>Once controller is connected proceed as described in <a href="https://docs.donkeycar.com/guide/get_driving/">instructions</a></p>
@@ -515,12 +515,12 @@ cd ~/mycar
 python manage.py drive
 # or if you have changed the file name to indicate that you added the bluetooth contorller
 python manageOrgExtWii.py drive</code></pre>
-<p>how to the the IP adress of your car you check your at your router. How to do this at shackspace is described <a href="get-on-the-road.html#GetIp">6.4</a></p>
+<p>how to the the IP address of your car you check your at your router. How to do this at shackspace is described <a href="get-on-the-road.html#GetIp">6.4</a></p>
 <p>And the car drives</p>
 <video width="720" controls>
 <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
 </video>
-<p>add bluetooth controller to <code>manage.py</code> <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
+<p>add Bluetooth controller to <code>manage.py</code> <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
 <p>The script <code>manage.py</code> can be called with several options, to find them type</p>
 <pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h</code></pre>
 <blockquote>
@@ -547,12 +547,12 @@ Options:
 <ul>
 <li>delete</li>
 <li>archive</li>
-<li>copy it from the raspi to your computer</li>
+<li>copy it from the Raspberry Pi to your computer</li>
 </ul>
 <p>data</p>
 <div id="archiving-data" class="section level3">
 <h3><span class="header-section-number">7.9.1</span> Archiving data</h3>
-<p>Archiving can be done by renaming the tub folder with the <code>mv</code> command. The <code>mv</code> command moves, or renames, files and directories on your filesystem. To move the <strong>tub</strong> folder, i.e rename it, to <strong>tubArchive</strong> use</p>
+<p>Archiving can be done by renaming the tub folder with the <code>mv</code> command. The <code>mv</code> command moves, or renames, files and directories on your file system. To move the <strong>tub</strong> folder, i.e rename it, to <strong>tubArchive</strong> use</p>
 <pre><code>mv tub tubArchive</code></pre>
 <p>more details on <code>mv</code> can be found at <a href="https://www.computerhope.com/unix/umv.htm" class="uri">https://www.computerhope.com/unix/umv.htm</a></p>
 </div>

@@ -4,7 +4,7 @@ In December 2018 I switched from sunfounder to donkeycar
 [Donkey Car](http://www.donkeycar.com "Donkey Car's Homepage")
 
 ## Reason for changing the plattform
-The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcommings in the steering mechanism. The steering angle was not reproducable, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to => Donkey Car  
+The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcomings in the steering mechanism. The steering angle was not reproducible, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to => Donkey Car  
 
 Second reason, other members of the group [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")  opted for donkey car.
 
@@ -25,8 +25,8 @@ include_graphics("images/SunFounderDonkeyMerge.jpg")
     - channel 1 => steering
     - channel 0 => throttle
 - [Install Software on Pi and Host Computer](http://docs.donkeycar.com/guide/install_software/#get-the-raspberry-pi-working)
-    - Setup RaspberryPi
-    - Setup Mac Host PC (or windows or linux host)
+    - Setup Raspberry Pi
+    - Setup Mac Host PC (or windows or Linux host)
     
     
 - [Calibrate your car](http://docs.donkeycar.com/guide/calibrate/)
@@ -34,15 +34,15 @@ include_graphics("images/SunFounderDonkeyMerge.jpg")
 - [Train an autopilot with Keras](http://docs.donkeycar.com/guide/train_autopilot/)
 - [http://docs.donkeycar.com/guide/simulator/](http://docs.donkeycar.com/guide/simulator/)
 
--  Select web or pysical controller [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
+-  Select web or physical controller [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
 
 ## Rewiring the car
 
-The rewiring consits of
+The rewiring consists of
 
 - Disconnect the following connections
     - PWM signal RC receiver => Steering Servo
-    - PWM signal RC receicer => ESC
+    - PWM signal RC receiver => ESC
     
 - Connect
     - Battery => DC/DC converter
@@ -80,12 +80,12 @@ The following list is what I used to build the car, this does not mean there are
 - [WiiU controller](https://www.amazon.de/dp/B06XSB2TXQ/ref=pe_3044161_185740101_TE_item) ca. 18€
 - [Tamiya Stecker Power wires](https://www.amazon.de/gp/product/B01I1N73TI/ref=ppx_yo_dt_b_asin_title_o04__o00_s00?ie=UTF8&psc=1) ca. 9€
 
-- Stuff to meachanicall integrate the new elements into the car.
+- Stuff to mechanically integrate the new elements into the car.
 
 
 ### Why not using PCA9685 
 
-**Note**, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibartion but not when the car is controlled via the web interface. TBC
+**Note**, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibration but not when the car is controlled via the web interface. TBC
 
 A possible cure is described at [Adafruit 16 Channel Servo Driver with Raspberry Pi](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf ). 
 
@@ -254,7 +254,7 @@ You can now control your car from a web browser at the URL: ```192.168.178.67:88
 
 ### Setting WIFI up for the raspberry
 
-To set up the wifi connection on the raspberry you find a detailed description at 
+To set up the WiFi connection on the raspberry you find a detailed description at 
 [SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
 
 
@@ -273,7 +273,7 @@ pip install -e ./donkeypart_bluetooth_game_controller
 
 ### Connect your bluetooth controller to the raspberry pi. {#BluetoothControllerInstall}
 
-1. Start the bluetooth bash tool on your raspberry pi.
+1. Start the Bluetooth bash tool on your raspberry pi.
 
 ``` 
 sudo bluetoothctl
@@ -309,17 +309,17 @@ button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125
 ``` 
-in the file ```manageOrgExtWii.py``` the bluetooth controller was integrated
+in the file ```manageOrgExtWii.py``` the Bluetooth controller was integrated
 
 
 ## Start driving or training
 
 - Power donkeycar
-- Wait about 10s until rapsi is booted
-- Switch on bluetooth controller
-    - for Nintedo Wii controller
+- Wait about 10s until Raspberry Pi is booted
+- Switch on Bluetooth controller
+    - for Nintendo Wii controller
     - the four blue LEDs flash a few times
-    - the left most LED solid shows that controller is connected with Raspi
+    - the left most LED solid shows that controller is connected with Raspberry Pi
 
 Once controller is connected proceed as described in [instructions](https://docs.donkeycar.com/guide/get_driving/)
 
@@ -334,7 +334,7 @@ python manage.py drive
 python manageOrgExtWii.py drive
 ``` 
 
-how to the the IP adress of your car you  check your at your router. How to do this at shackspace is described \@ref(GetIp)
+how to the the IP address of your car you  check your at your router. How to do this at shackspace is described \@ref(GetIp)
 
 
 And the car drives
@@ -343,7 +343,7 @@ And the car drives
   <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
 </video>
 
-add bluetooth controller to ```manage.py``` https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
+add Bluetooth controller to ```manage.py``` https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
 
 
 The script ```manage.py``` can be called with several options, to find them type 
@@ -382,12 +382,12 @@ Since there might be a lot of data after a while you might want to
 
 - delete 
 - archive 
-- copy it from the raspi to your computer
+- copy it from the Raspberry Pi to your computer
 
 data
 
 ### Archiving data
-Archiving can be done by renaming the tub folder with the ```mv``` command. The ```mv``` command moves, or renames, files and directories on your filesystem. To move the **tub** folder, i.e rename it, to **tubArchive** use
+Archiving can be done by renaming the tub folder with the ```mv``` command. The ```mv``` command moves, or renames, files and directories on your file system. To move the **tub** folder, i.e rename it, to **tubArchive** use
 
 
 ```
