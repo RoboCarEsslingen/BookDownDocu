@@ -21,9 +21,9 @@ include_graphics("images/SunFounderDonkeyMerge.jpg")
 
 - disassemble the sunfounder, by taking of the plate on which the raspberry is mounted
 - disassemble the L298N H-bridge, not needed if you use an [ESC](https://en.wikipedia.org/wiki/Electronic_speed_control) 
-- connect the [PWM] signal of your PCA9685 to the new car
-    - channel 0 => steering
-    - channel 1 => throttle
+- Rewire the PWM signal of the car
+    - channel 1 => steering
+    - channel 0 => throttle
 - [Install Software on Pi and Host Computer](http://docs.donkeycar.com/guide/install_software/#get-the-raspberry-pi-working)
     - Setup RaspberryPi
     - Setup Mac Host PC (or windows or linux host)
@@ -36,11 +36,54 @@ include_graphics("images/SunFounderDonkeyMerge.jpg")
 
 -  Select web or pysical controller [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
 
-### Folders created during installation of host PC
-- /Users/uwesterr/mycar/models
-- /Users/uwesterr/mycar/data
-- /Users/uwesterr/mycar/logs
+## Rewiring the car
 
+The rewiring consits of
+
+- Disconnect the following connections
+    - PWM signal RC receiver => Steering Servo
+    - PWM signal RC receicer => ESC
+    
+- Connect
+    - Battery => DC/DC converter
+    - DC/DC converter => Raspberry Pi
+    - PWM Servo Hat onto Raspberry Pi
+    - PWM Servo Hat Ch 0 => ESC
+    - PWM Servo Hat Ch 1 => Steering Servo
+    - Raspberry Pi => Raspberry Pi camera
+
+The resulting wiring diagram can be seen in figure \@ref(fig:wiringDiagram)
+
+
+```{r wiringDiagram, fig.cap= "Wiring diagram after rewiring car", echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+library(knitr)
+include_graphics("images/DonkeyCarRewiringI.png")
+```
+
+So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in fig \@ref(fig:closeUpPwmHat) 
+
+```{r closeUpPwmHat, fig.cap= "Close-up of PWM Servo Hat", echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE, dpi= 800}
+library(knitr)
+include_graphics("images/ServoHat.jpg", dpi = NA)
+```
+
+
+### Parts list
+
+The following list is what I used to build the car, this does not mean there are better and/or cheaper options available. In total the cost is about 250€.
+
+- [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html) ca. 130€
+- [Raspberry Pi](https://www.reichelt.de/raspberry-pi-3-b-4x-1-2-ghz-1-gb-ram-wlan-bt-raspberry-pi-3-p164977.html?r=1) ca. 34€
+- [Raspbery Pi camera](https://www.amazon.de/dp/B00N1YJKFS/ref=pe_3044161_189395811_TE_dp_1) ca. 25€
+- [PWM Servo Hat](https://www.amazon.de/gp/product/B01185WQXY?ref=em_1p_0_ti&ref_=pe_2444481_339394281) ca. 32€
+- [DC/DC converter](https://www.reichelt.de/entwicklerboards-spannungsregler-6-40-v-dc-auf-2x-usb-5v-3a-debo-dc-2xusb-p242778.html?PROVID=2788&gclid=CjwKCAiA4OvhBRAjEiwAU2FoJaCWbrXYqhuMADE3wArHLnltplldPHPumAXmfit7bQZUbyxtnIbwhRoCvqAQAvD_BwE&&r=1) ca. 4€, 
+- [WiiU controller](https://www.amazon.de/dp/B06XSB2TXQ/ref=pe_3044161_185740101_TE_item) ca. 18€
+- [Tamiya Stecker Power wires](https://www.amazon.de/gp/product/B01I1N73TI/ref=ppx_yo_dt_b_asin_title_o04__o00_s00?ie=UTF8&psc=1) ca. 9€
+
+- Stuff to meachanicall integrate the new elements into the car.
+
+
+### Why not using PCA9685 
 
 **Note**, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibartion but not when the car is controlled via the web interface. TBC
 
@@ -54,12 +97,16 @@ capacitor. If you are driving a lot of servos from a power supply that dips a lo
 
 I did **not** check whether this works.
 
-The newly integrated PI servo hat did not show any problem controlling two channels at the same time
+The now used [PWM SERVO HAT 2327 By ADAFRUIT INDUSTRIES](https://www.amazon.de/gp/product/B01185WQXY?ref=em_1p_0_ti&ref_=pe_2444481_339394281) did not show any problem controlling two channels at the same time
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
-library(knitr)
-include_graphics("images/ServoHat.jpg")
-```
+
+
+
+## Folders created during installation of host PC
+- /Users/uwesterr/mycar/models
+- /Users/uwesterr/mycar/data
+- /Users/uwesterr/mycar/logs
+
 
 
 ## Calibrate the car
@@ -74,13 +121,13 @@ donkey calibrate --channel <your_steering_channel>
 ```
 
 
-for PWM channel 0 for steering
+for PWM channel 1 for steering
 ```
-donkey calibrate --channel 0
+donkey calibrate --channel 1
 ```
 
 ```
-(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 0
+(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 1
 using donkey version: 2.5.8 ...
 Enter a PWM setting to test(0-1500)360
 Enter a PWM setting to test(0-1500)120     
@@ -97,9 +144,9 @@ run
 ```
 donkey calibrate --channel <your_throttle_channel>
 ```
-for PWM channel 1 for angle
+for PWM channel 0 for throttle
 ```
-(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 1
+(env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 0
 using donkey version: 2.5.8 ...
 Enter a PWM setting to test(0-1500)400
 Enter a PWM setting to test(0-1500)420
@@ -204,16 +251,12 @@ You can now go to http://127.0.0.1:8887 to drive your car.
 You can now control your car from a web browser at the URL: ```192.168.178.67:8887```
 
 
-For [RPI SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?) that problem was not seen.
 
+### Setting WIFI up for the raspberry
 
+To set up the wifi connection on the raspberry you find a detailed description at 
 [SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
-library(knitr)
-include_graphics("images/SunFounderDonkeyMerge.jpg")
-```
 
 
 ## Connecting bluetooth controller
@@ -325,7 +368,45 @@ Options:
     --chaos          Add periodic random steering when manually driving
 ```
 
-## Copy files from raspi to mac
+
+### HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT
+
+http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ 
+
+
+## Mange recorded data
+
+The training data is being stored in the folder /mycar/tub. 
+
+Since there might be a lot of data after a while you might want to
+
+- delete 
+- archive 
+- copy it from the raspi to your computer
+
+data
+
+### Archiving data
+Archiving can be done by renaming the tub folder with the ```mv``` command. The ```mv``` command moves, or renames, files and directories on your filesystem. To move the **tub** folder, i.e rename it, to **tubArchive** use
+
+
+```
+mv tub tubArchive
+```
+
+more details on ```mv``` can be found at https://www.computerhope.com/unix/umv.htm 
+
+### Delete data
+Once you want to get rid of the data use the following command
+
+```
+rm -rf tub
+```
+
+More on ```rm``` can be found at https://www.computerhope.com/unix/urm.htm 
+
+
+### Copy files from raspi to mac
 
 [copy file from pi to mac](https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md) run in terminal
 
@@ -334,19 +415,9 @@ scp pi@192.168.178.67:mycar/manage.py
 # or
 rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/
 ```
-then type the password of the pi
-copies the file ```mycar/manage.py``` to the current location
-
-### HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT
-
-http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ 
-
-
-## delete recoreded data
-
-The training data is being stored in the folder /mycar/tub. once you want to get rid of the data use the following command
-
+then type the password of the pi, afterwards the the file ```mycar/manage.py``` is being copied to the current location. The current location can be found via the ```pwd```command.
 
 ```
-rm -rf tub
+10-42-27-27:CloudProjectsUnderWork uwesterr$ pwd
+/Users/uwesterr/CloudProjectsUnderWork 
 ```
