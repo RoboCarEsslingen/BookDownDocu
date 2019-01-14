@@ -1,25 +1,44 @@
 # Useful links
+Links I found useful at some point 
 
-[config PI wifi]((https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI"))
 
-[Self-driving car in a simulator with a tiny neural network](https://github.com/xslittlegrass/CarND-Behavioral-Cloning)
+## Donkey car
+Here are links to the donkey car project
 
-[Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
-
-[Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)
-
-[ESC](https://en.wikipedia.org/wiki/Electronic_speed_control) 
-
-donkey car
 - [Calibrate your car](http://docs.donkeycar.com/guide/calibrate/)
 - [Drive your car](http://docs.donkeycar.com/guide/get_driving/)
 - [Train an autopilot with Keras](http://docs.donkeycar.com/guide/train_autopilot/)
 - [http://docs.donkeycar.com/guide/simulator/](http://docs.donkeycar.com/guide/simulator/)
 - [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
 
-[Adafruit 16 Channel Servo Driver with Raspberry Pi](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf )
+### Videos for donkey car
 
-[RPI SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?)
+Tawn Kramer on how to add parts (like a camera) to the vehicle. Great step by step intro to the Vehicle class of the framework.  
+- [Donkeycar Parts Overview Pt 1/2](https://www.youtube.com/watch?v=YZ4ESrtfShs)    
+- [Donkeycar Parts Overview Pt 2/2](https://www.youtube.com/watch?v=G1JjAw_NdnE)  
+
+## Parts
+Links to hardware 
+
+[Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)  
+
+[PWM SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?)  
+
+[Adafruit 16 Channel Servo Driver with Raspberry Pi](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf )  
+
+[Raspberry Pi](https://www.reichelt.de/raspberry-pi-3-b-4x-1-2-ghz-1-gb-ram-wlan-bt-raspberry-pi-3-p164977.html?r=1)  
+
+[Raspbery Pi camera](https://www.amazon.de/dp/B00N1YJKFS/ref=pe_3044161_189395811_TE_dp_1)  
+
+[DC/DC converter for raspi](https://www.reichelt.de/entwicklerboards-spannungsregler-6-40-v-dc-auf-2x-usb-5v-3a-debo-dc-2xusb-p242778.html?PROVID=2788&gclid=CjwKCAiA4OvhBRAjEiwAU2FoJaCWbrXYqhuMADE3wArHLnltplldPHPumAXmfit7bQZUbyxtnIbwhRoCvqAQAvD_BwE&&r=1)  
+
+[WiiU controller](https://www.amazon.de/dp/B06XSB2TXQ/ref=pe_3044161_185740101_TE_item)  
+
+[Tamiya Stecker Power wires](https://www.amazon.de/gp/product/B01I1N73TI/ref=ppx_yo_dt_b_asin_title_o04__o00_s00?ie=UTF8&psc=1) 
+
+
+## Little setup helpers
+Here are links to instructions on how to get things done
 
 [SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
 
@@ -30,4 +49,20 @@ donkey car
 [find IP adress in shack](http://leases.shack/#/)  
 
 
+[Self-driving car in a simulator with a tiny neural network by xslittlegrass](https://github.com/xslittlegrass/CarND-Behavioral-Cloning)
+
+
 [Github of Detroit-Autonomous-Vehicle-Group](https://github.com/Sashulik/Detroit-Autonomous-Vehicle-Group)
+
+## Meetup in Stuttgart area
+
+
+[Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
+
+## Other stuff
+
+[ESC exlained](https://en.wikipedia.org/wiki/Electronic_speed_control) 
+
+
+
+
