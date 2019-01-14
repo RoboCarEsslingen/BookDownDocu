@@ -314,6 +314,9 @@ in the file ```manageOrgExtWii.py``` the Bluetooth controller was integrated
 
 ## Start driving or training
 
+Before start driving it might be a good idea to **limit the max velocity**, this can be done as described in \@ref(setMaxVel)
+
+
 - Power donkeycar
 - Wait about 10s until Raspberry Pi is booted
 - Switch on Bluetooth controller

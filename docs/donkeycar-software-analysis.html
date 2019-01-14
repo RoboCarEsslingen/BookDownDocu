@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-13">
+<meta name="date" content="2019-01-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -197,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
 <li class="chapter" data-level="8.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>8.1</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="8.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>8.2</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="8.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#limit-max-velocity"><i class="fa fa-check"></i><b>8.3</b> limit max velocity</a></li>
+<li class="chapter" data-level="8.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>8.3</b> Limit max velocity</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html"><i class="fa fa-check"></i><b>9</b> Minutes of meeting</a><ul>
 <li class="chapter" data-level="9.1" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#section-1"><i class="fa fa-check"></i><b>9.1</b> 21-03-2018</a></li>
@@ -312,21 +312,20 @@ joystic_max_value: 1280</code></pre>
             &#39;RIGHT_STICK_Y&#39;: self.update_throttle,</code></pre>
 <p>to make the controller more sensitive it might be a good idea to limit the max joystick value in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code> to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">7.5.2</a></p>
 </div>
-<div id="limit-max-velocity" class="section level2">
-<h2><span class="header-section-number">8.3</span> limit max velocity</h2>
-<p>To avoid that the car becomes too fast change in <code>manage.py</code></p>
+<div id="setMaxVel" class="section level2">
+<h2><span class="header-section-number">8.3</span> Limit max velocity</h2>
+<p>To avoid that the car becomes too fast change in <code>manage.py</code> the <strong>max_pulse</strong> value. Note, the value is dependend of your <strong>cfg.THROTTLE_STOPPED_PWM</strong>, the <strong>max_pulse</strong> value ought to be a bit higher than the <strong>cfg.THROTTLE_STOPPED_PWM</strong>. You might want to find out a suitable value by using the calibration mode which you used to find the max values.</p>
 <pre><code>    throttle = PWMThrottle(controller=throttle_controller,
                            max_pulse=cfg.THROTTLE_FORWARD_PWM,
                            zero_pulse=cfg.THROTTLE_STOPPED_PWM,
                            min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
 <p>to</p>
-<pre><code>    throttle = PWMThrottle(controller= 411,
-                           max_pulse=cfg.THROTTLE_FORWARD_PWM,
+<pre><code>    throttle = PWMThrottle(controller= throttle_controller,
+                           max_pulse=413,
                            zero_pulse=cfg.THROTTLE_STOPPED_PWM,
                            min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
-<p>Or you can change in <code>config.py</code> the variable which defines the max throttle value</p>
-<pre><code>THROTTLE_FORWARD_PWM = 400</code></pre>
-<p>to a lower value</p>
+<p>Or you can set in <code>config.py</code> the *variable<strong>THROTTLE_FORWARD_PWM</strong> which defines the max throttle value to a value which gives you a low enough speed to master the track.</p>
+<pre><code>THROTTLE_FORWARD_PWM = 413</code></pre>
 
 </div>
 </div>

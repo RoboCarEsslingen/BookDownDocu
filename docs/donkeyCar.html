@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-13">
+<meta name="date" content="2019-01-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -197,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
 <li class="chapter" data-level="8.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>8.1</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="8.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>8.2</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="8.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#limit-max-velocity"><i class="fa fa-check"></i><b>8.3</b> limit max velocity</a></li>
+<li class="chapter" data-level="8.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>8.3</b> Limit max velocity</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html"><i class="fa fa-check"></i><b>9</b> Minutes of meeting</a><ul>
 <li class="chapter" data-level="9.1" data-path="minutesOfMeeting.html"><a href="minutesOfMeeting.html#section-1"><i class="fa fa-check"></i><b>9.1</b> 21-03-2018</a></li>
@@ -496,6 +496,7 @@ button: LEFT_STICK_X, value:-0.00703125</code></pre>
 </div>
 <div id="start-driving-or-training" class="section level2">
 <h2><span class="header-section-number">7.8</span> Start driving or training</h2>
+<p>Before start driving it might be a good idea to <strong>limit the max velocity</strong>, this can be done as described in <a href="donkeycar-software-analysis.html#setMaxVel">8.3</a></p>
 <ul>
 <li>Power donkeycar</li>
 <li>Wait about 10s until Raspberry Pi is booted</li>
