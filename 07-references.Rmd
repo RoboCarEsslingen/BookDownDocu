@@ -61,7 +61,7 @@ Here are links to instructions on how to get things done
 
 ## Other stuff
 
-[ESC exlained](https://en.wikipedia.org/wiki/Electronic_speed_control) 
+[ESC explained](https://en.wikipedia.org/wiki/Electronic_speed_control) 
 
 
 
