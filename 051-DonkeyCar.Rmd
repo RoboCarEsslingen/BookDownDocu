@@ -309,7 +309,9 @@ button: LEFT_STICK_X, value:-0.00390625
 button: LEFT_STICK_X, value:-0.00546875
 button: LEFT_STICK_X, value:-0.00703125
 ``` 
-in the file ```manageOrgExtWii.py``` the Bluetooth controller was integrated
+How to adde the Bluetooth controller into `manage.py`is described in section \@ref(AddBluetooth)
+
+In the file ```manageOrgExtWii.py``` the Bluetooth controller was integrated.
 
 
 ## Start driving or training
@@ -317,7 +319,7 @@ in the file ```manageOrgExtWii.py``` the Bluetooth controller was integrated
 Before start driving it might be a good idea to **limit the max velocity**, this can be done as described in \@ref(setMaxVel)
 
 
-- Power donkeycar
+- Power up donkeycar
 - Wait about 10s until Raspberry Pi is booted
 - Switch on Bluetooth controller
     - for Nintendo Wii controller
