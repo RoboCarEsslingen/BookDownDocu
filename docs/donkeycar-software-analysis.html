@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-14">
+<meta name="date" content="2019-01-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="donkeyCar.html">
-<link rel="next" href="useful-links.html">
+<link rel="next" href="map-the-button-codes-to-the-button-names.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -195,18 +195,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
-<li class="chapter" data-level="8.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>8.1</b> Locate modules on raspi which are being imported by manage.py</a></li>
-<li class="chapter" data-level="8.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>8.2</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="8.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>8.3</b> Limit max velocity</a></li>
+<li class="chapter" data-level="8.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>8.1</b> How to add parts to a vehicle</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>9</b> Useful links</a><ul>
-<li class="chapter" data-level="9.1" data-path="useful-links.html"><a href="useful-links.html#donkey-car-1"><i class="fa fa-check"></i><b>9.1</b> Donkey car</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="useful-links.html"><a href="useful-links.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>9.1.1</b> Videos for donkey car</a></li>
+<li class="chapter" data-level="9" data-path="map-the-button-codes-to-the-button-names.html"><a href="map-the-button-codes-to-the-button-names.html"><i class="fa fa-check"></i><b>9</b> Map the button codes to the button names</a></li>
+<li class="chapter" data-level="10" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>10</b> Useful links</a><ul>
+<li class="chapter" data-level="10.1" data-path="useful-links.html"><a href="useful-links.html#donkey-car-1"><i class="fa fa-check"></i><b>10.1</b> Donkey car</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="useful-links.html"><a href="useful-links.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>10.1.1</b> Videos for donkey car</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="useful-links.html"><a href="useful-links.html#parts"><i class="fa fa-check"></i><b>9.2</b> Parts</a></li>
-<li class="chapter" data-level="9.3" data-path="useful-links.html"><a href="useful-links.html#little-setup-helpers"><i class="fa fa-check"></i><b>9.3</b> Little setup helpers</a></li>
-<li class="chapter" data-level="9.4" data-path="useful-links.html"><a href="useful-links.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>9.4</b> Meetup in Stuttgart area</a></li>
-<li class="chapter" data-level="9.5" data-path="useful-links.html"><a href="useful-links.html#other-stuff"><i class="fa fa-check"></i><b>9.5</b> Other stuff</a></li>
+<li class="chapter" data-level="10.2" data-path="useful-links.html"><a href="useful-links.html#parts"><i class="fa fa-check"></i><b>10.2</b> Parts</a></li>
+<li class="chapter" data-level="10.3" data-path="useful-links.html"><a href="useful-links.html#little-setup-helpers"><i class="fa fa-check"></i><b>10.3</b> Little setup helpers</a></li>
+<li class="chapter" data-level="10.4" data-path="useful-links.html"><a href="useful-links.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>10.4</b> Meetup in Stuttgart area</a></li>
+<li class="chapter" data-level="10.5" data-path="useful-links.html"><a href="useful-links.html#other-stuff"><i class="fa fa-check"></i><b>10.5</b> Other stuff</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/RoboCarEsslingen" target="blank">Related files on Github</a></li>
@@ -231,97 +230,165 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="donkeycar-software-analysis" class="section level1">
 <h1><span class="header-section-number">Chapter 8</span> Donkeycar software analysis</h1>
 <p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the Keras model</p>
-<div id="locate-modules-on-raspi-which-are-being-imported-by-manage.py" class="section level2">
-<h2><span class="header-section-number">8.1</span> Locate modules on raspi which are being imported by manage.py</h2>
-<p>Where on the Raspberry Pi are the modules located which are being imported by the python script <code>manage.py</code></p>
-<pre><code>from docopt import docopt
-
-import donkeycar as dk
-from donkeycar.parts.camera import PiCamera
-from donkeycar.parts.transform import Lambda
-from donkeycar.parts.keras import KerasLinear
-from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
-from donkeycar.parts.datastore import TubGroup, TubWriter
-from donkeycar.parts.web_controller import LocalWebController
-from donkeycar.parts.clock import Timestamp
-from donkeypart_bluetooth_game_controller import BluetoothGameController</code></pre>
-<p>donkeycar is found at the raspi</p>
-<pre><code>(env) pi@donkeypi_uwe:~ $ find . -name donkeycar
-./env/lib/python3.5/site-packages/donkeycar</code></pre>
-<p>listing this folder</p>
-<pre><code>(env) pi@donkeypi_uwe:~ $ cd ./env/lib/python3.5/site-packages/donkeycar
-(env) pi@donkeypi_uwe:~/env/lib/python3.5/site-packages/donkeycar $ ls
-config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templates  tests  util  vehicle.py</code></pre>
-<p>which are the same files and folders which are located at the <a href="https://github.com/autorope/donkeycar/tree/dev/donkeycar">official GitHub page of DonkeyCar project</a></p>
-<p>The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section <a href="donkeyCar.html#BluetoothControllerInstall">7.7.1</a></p>
+<div id="how-to-add-parts-to-a-vehicle" class="section level2">
+<h2><span class="header-section-number">8.1</span> How to add parts to a vehicle</h2>
+<p>Two brilliant videos by Tawn Kramer describe the Donkeycar framework. The <a href="https://www.youtube.com/watch?v=YZ4ESrtfShs">first part</a> describes in detail how to add a part to the vehicle. In short, a part will be added to the vehicle class and for each iteration of the loop the <strong>run</strong> or the <strong>run_threaded</strong> method of the added class will be executed.</p>
+<p>The stacking of the methods are shown in figure <a href="donkeycar-software-analysis.html#fig:vehicleCalls">8.1</a></p>
+<div class="figure"><span id="fig:vehicleCalls"></span>
+<img src="images/DonkeyCarVehicleClass.png" alt="Stacking of methods" width="670" />
+<p class="caption">
+Figure 8.1: Stacking of methods
+</p>
 </div>
-<div id="assignment-of-wiiu-controller-sticks-to-action" class="section level2">
-<h2><span class="header-section-number">8.2</span> Assignment of WiiU controller sticks to action</h2>
-<p>The mapping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
+<pre><code>## function (data, expr, ...) 
+## UseMethod(&quot;with&quot;)
+## &lt;bytecode: 0x7fbe1b55c290&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>from donkeycar.vehicle import Vehicle</p>
+<pre><code>the Vehicle class is available and is instantiated by</code></pre>
+<p>V = Vehicle()</p>
+<pre><code>### Function V.start() 
+
+To start vehicle&#39;s main drive loop. 
+</code></pre>
+<p>V.start()</p>
+<pre><code>This is the main thread of the vehicle. It starts all the new threads for the threaded parts then starts an infinite loop that runs each part and updates the memory.
+
+A Vehicle has
+
+- memory
+- parts
+- threads
+- Boolean flag &quot;ON&quot;
+
+#### Parameters of V.start()
+The parameters for ```V.start()``` are   
+
+- rate_hz : int (default = 10Hz) 
+    - The max frequency that the drive loop should run. The actual frequency may be less than this if there are many blocking parts.   
+
+- max_loop_count : int  (default = None)
+    - Maximum number of loops the drive loop should execute. This is used for testing the all the parts of the vehicle work.
+
+
+#### Main run loop of V.start()
+The main run loop of the V.start() function is below. The sleep_time assures that the loop rate is achieved. This can only be guaranteed if the update process duration of the parts does not exceed the loop time.
+</code></pre>
+<pre><code>       loop_count = 0
+        while self.on:
+            start_time = time.time()
+            loop_count += 1
+
+            self.update_parts()
+
+            # stop drive loop if loop_count exceeds max_loopcount
+            if max_loop_count and loop_count &gt; max_loop_count:
+                self.on = False
+
+            sleep_time = 1.0 / rate_hz - (time.time() - start_time)
+            if sleep_time &gt; 0.0:
+                time.sleep(sleep_time)</code></pre>
 <pre><code>
-device_search_term: &#39;nintendo&#39;
+### Function V.update_parts() 
+
+In the ```V.update_parts()``` function the appropriate run function of part are being called.
+
+#### Parameters of V.parts()
+There are no parameters
+
+#### Loop over all parts
+The following code will be looped over for all parts
+</code></pre>
+<pre><code>    for entry in self.parts:
+        # don&#39;t run if there is a run condition that is False
+        run = True
+        if entry.get(&#39;run_condition&#39;):
+            run_condition = entry.get(&#39;run_condition&#39;)
+            run = self.mem.get([run_condition])[0]
+            # print(&#39;run_condition&#39;, entry[&#39;part&#39;], entry.get(&#39;run_condition&#39;), run)
+
+        if run:
+            p = entry[&#39;part&#39;]
+            # get inputs from memory
+            inputs = self.mem.get(entry[&#39;inputs&#39;])
+
+            # run the part
+            if entry.get(&#39;thread&#39;):
+                outputs = p.run_threaded(*inputs)
+            else:
+                outputs = p.run(*inputs)
+
+            # save the output to memory
+            if outputs is not None:
+                self.mem.put(entry[&#39;outputs&#39;], outputs)</code></pre>
+<pre><code>It checks whether the part has inputs and passes the input to 
+
+- ```p.run_threaded``` if the part is threaded
+- ```p.run`` if the part is not threaded
+
+If there are outputs the are passed to the output of the part using the name of the keys supplied by the call. The names of the inputs and outputs are defined when the parts are added via the ```V.add()```function
+
+### Function V.add
+Method to add a part to the vehicle drive loop. The names of parts in- and outputs are defined by the parameters of the ```V.add```function
+
+#### Parameters of V.add()
+
+- inputs : list
+    - Channel names to get from memory.
+- outputs : list
+    - Channel names to save to memory.
+- threaded : Boolean
+    - If a part should be run in a separate thread.
+- run_condition: Boolean
+    - If a part should be run at all.
+
+#### Example to add Web controller
+The web controller is first instantiated and then added using the ```V.add()```function. The names of in- and outputs are supplied as well as the indicator that the controller is threaded. More on threaded parts in section \@ref(threadedParts)
+</code></pre>
+<p>ctr = LocalWebController(use_chaos=use_chaos) V.add(ctr, inputs=[‘cam/image_array’], outputs=[‘user/angle’, ‘user/throttle’, ‘user/mode’, ‘recording’], threaded=True)</p>
+<pre><code>
+
+### Concept of threads vs non-threaded parts {#threadedParts}
+
+Updating of the parts is run in the loop of the ```V.update()```. To avoid that parts which take long to update blocks the loop they can be assigned to a dedicated thread. Whenever the a threaded part is updated the ```run_threaded```method is run. For a camera the  ```run_threaded``` is
+</code></pre>
+<p>def run_threaded(self): return self.frame</p>
+<pre><code>which returns the frame available at the time, no delay being imposed on the loop.
 
 
-#Map the button codes to the button names
-button_map:
-  305: &#39;A&#39;
-  304: &#39;B&#39;
-  307: &#39;X&#39;
-  308: &#39;Y&#39;
-  312: &#39;LEFT_BOTTOM_TRIGGER&#39;
-  310: &#39;LEFT_TOP_TRIGGER&#39;
-  313: &#39;RIGHT_BOTTOM_TRIGGER&#39;
-  311: &#39;RIGHT_TOP_TRIGGER&#39;
-  317: &#39;LEFT_STICK_PRESS&#39;
-  318: &#39;RIGHT_STICK_PRESS&#39;
-  314: &#39;SELECT&#39;
-  315: &#39;START&#39;
-  0: &#39;LEFT_STICK_X&#39;
-  1: &#39;LEFT_STICK_Y&#39;
-  3: &#39;RIGHT_STICK_X&#39;
-  4: &#39;RIGHT_STICK_Y&#39;
-  547: &#39;PAD_RIGHT&#39;
-  546: &#39;PAD_LEFT&#39;
-  544: &#39;PAD_UP&#39;
-  548: &#39;PAD_DOWN&#39;
+#### The ```update``` function
+Images are taken constantly as fast as possible by the method ```update``` as shown below
+</code></pre>
+<p>def update(self): # keep looping infinitely until the thread is stopped for f in self.stream: # grab the frame from the stream and clear the stream in # preparation for the next frame self.frame = f.array self.rawCapture.truncate(0)</p>
+<pre><code>    # if the thread indicator variable is set, stop the thread
+    if not self.on:
+        break</code></pre>
+<pre><code>#### The ```shutdown```function
 
+To stop the thread a ```shutdown```function needs to be defined</code></pre>
+<p>def shutdown(self): # indicate that the thread should be stopped self.on = False print(‘stoping PiCamera’) time.sleep(.5) self.stream.close() self.rawCapture.close() self.camera.close()</p>
+<pre><code>
+## Locate modules on raspi which are being imported by manage.py
 
-joystic_max_value: 1280</code></pre>
-<p>which is then used in <code>donkeypart_bluetooth_game_controller/part.py</code></p>
-<p>In the class definition BluetoothGameController</p>
-<pre><code>def __init__(self, event_input_device=None, config_path=None, device_search_term=None, verbose=False):
-.  
-.  
-.  
-        self.func_map = {
-            &#39;LEFT_STICK_X&#39;: self.update_angle,
-            &#39;LEFT_STICK_Y&#39;: self.update_throttle,
-            &#39;B&#39;: self.toggle_recording,
-            &#39;A&#39;: self.toggle_drive_mode,
-            &#39;PAD_UP&#39;: self.increment_throttle_scale,
-            &#39;PAD_DOWN&#39;: self.decrement_throttle_scale,
-        }</code></pre>
-<p>It seems to be odd to have steering and throttle on one stick, to assign throttle to the right stick change <code>donkeypart_bluetooth_game_controller/part.py</code> to</p>
-<pre><code>  self.func_map = {
-            &#39;LEFT_STICK_X&#39;: self.update_angle,
-            &#39;RIGHT_STICK_Y&#39;: self.update_throttle,</code></pre>
-<p>to make the controller more sensitive it might be a good idea to limit the max joystick value in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code> to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">7.5.2</a></p>
-</div>
-<div id="setMaxVel" class="section level2">
-<h2><span class="header-section-number">8.3</span> Limit max velocity</h2>
-<p>To avoid that the car becomes too fast change in <code>manage.py</code> the <strong>max_pulse</strong> value. Note, the value is dependend of your <strong>cfg.THROTTLE_STOPPED_PWM</strong>, the <strong>max_pulse</strong> value ought to be a bit higher than the <strong>cfg.THROTTLE_STOPPED_PWM</strong>. You might want to find out a suitable value by using the calibration mode which you used to find the max values.</p>
-<pre><code>    throttle = PWMThrottle(controller=throttle_controller,
-                           max_pulse=cfg.THROTTLE_FORWARD_PWM,
-                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
-<p>to</p>
-<pre><code>    throttle = PWMThrottle(controller= throttle_controller,
-                           max_pulse=413,
-                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
-<p>Or you can set in <code>config.py</code> the *variable<strong>THROTTLE_FORWARD_PWM</strong> which defines the max throttle value to a value which gives you a low enough speed to master the track.</p>
-<pre><code>THROTTLE_FORWARD_PWM = 413</code></pre>
+Where on the Raspberry Pi are the modules located which are being imported by the python script ```manage.py```
+</code></pre>
+<p>from docopt import docopt</p>
+<p>import donkeycar as dk from donkeycar.parts.camera import PiCamera from donkeycar.parts.transform import Lambda from donkeycar.parts.keras import KerasLinear from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle from donkeycar.parts.datastore import TubGroup, TubWriter from donkeycar.parts.web_controller import LocalWebController from donkeycar.parts.clock import Timestamp from donkeypart_bluetooth_game_controller import BluetoothGameController</p>
+<pre><code>
+donkeycar is found at the raspi
+</code></pre>
+<p>(env) <a href="mailto:pi@donkeypi_uwe">pi@donkeypi_uwe</a>:~ $ find . -name donkeycar ./env/lib/python3.5/site-packages/donkeycar</p>
+<pre><code>listing this folder</code></pre>
+<p>(env) <a href="mailto:pi@donkeypi_uwe">pi@donkeypi_uwe</a>:~ $ cd ./env/lib/python3.5/site-packages/donkeycar (env) <a href="mailto:pi@donkeypi_uwe">pi@donkeypi_uwe</a>:~/env/lib/python3.5/site-packages/donkeycar $ ls config.py <strong>init</strong>.py log.py management memory.py parts <strong>pycache</strong> templates tests util vehicle.py</p>
+<pre><code>which are the same files and folders which are located at the [official GitHub page of DonkeyCar project](https://github.com/autorope/donkeycar/tree/dev/donkeycar)
 
+The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section \@ref(BluetoothControllerInstall)
+
+## Assignment of WiiU controller sticks to action
+
+The mapping from button codes to button names is defined in ```donkeypart_bluetooth_game_controller/wiiu_config.yml```
+</code></pre>
+<p>device_search_term: ‘nintendo’</p>
 </div>
 </div>
             </section>
@@ -330,7 +397,7 @@ joystic_max_value: 1280</code></pre>
         </div>
       </div>
 <a href="donkeyCar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="useful-links.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="map-the-button-codes-to-the-button-names.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
