@@ -15,7 +15,11 @@ Here are links to the donkey car project
 
 Tawn Kramer on how to add parts (like a camera) to the vehicle. Great step by step intro to the Vehicle class of the framework.  
 - [Donkeycar Parts Overview Pt 1/2](https://www.youtube.com/watch?v=YZ4ESrtfShs)    
-- [Donkeycar Parts Overview Pt 2/2](https://www.youtube.com/watch?v=G1JjAw_NdnE)  
+- [Donkeycar Parts Overview Pt 2/2](https://www.youtube.com/watch?v=G1JjAw_NdnE)
+
+Another video by Tawn Kramer gives tips on how to drive during training
+
+[Driving Tips to Train your Autonomous End-to-End NN Driver](https://www.youtube.com/watch?v=4fXbDf_QWM4&feature=youtu.be)
 
 ## Parts
 Links to hardware 
@@ -53,6 +57,9 @@ Here are links to instructions on how to get things done
 
 
 [Github of Detroit-Autonomous-Vehicle-Group](https://github.com/Sashulik/Detroit-Autonomous-Vehicle-Group)
+
+[HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT](http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ )
+
 
 ## Meetup in Stuttgart area
 

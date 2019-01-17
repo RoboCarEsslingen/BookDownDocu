@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-15">
+<meta name="date" content="2019-01-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -185,13 +185,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.7" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>7.7</b> Connecting bluetooth controller</a><ul>
 <li class="chapter" data-level="7.7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#BluetoothControllerInstall"><i class="fa fa-check"></i><b>7.7.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>7.8</b> Start driving or training</a><ul>
-<li class="chapter" data-level="7.8.1" data-path="donkeyCar.html"><a href="donkeyCar.html#how-to-tether-raspberry-pi-to-android-device-hotspot"><i class="fa fa-check"></i><b>7.8.1</b> HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT</a></li>
+<li class="chapter" data-level="7.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>7.8</b> Start driving or training</a></li>
+<li class="chapter" data-level="7.9" data-path="donkeyCar.html"><a href="donkeyCar.html#tips-on-how-to-drive-during-training"><i class="fa fa-check"></i><b>7.9</b> Tips on how to drive during training</a><ul>
+<li class="chapter" data-level="7.9.1" data-path="donkeyCar.html"><a href="donkeyCar.html#how-to-edit-recorded-data"><i class="fa fa-check"></i><b>7.9.1</b> How to edit recorded data</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>7.9</b> Mange recorded data</a><ul>
-<li class="chapter" data-level="7.9.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>7.9.1</b> Archiving data</a></li>
-<li class="chapter" data-level="7.9.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>7.9.2</b> Delete data</a></li>
-<li class="chapter" data-level="7.9.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>7.9.3</b> Copy files from raspi to mac</a></li>
+<li class="chapter" data-level="7.10" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>7.10</b> Mange recorded data</a><ul>
+<li class="chapter" data-level="7.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>7.10.1</b> Archiving data</a></li>
+<li class="chapter" data-level="7.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>7.10.2</b> Delete data</a></li>
+<li class="chapter" data-level="7.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>7.10.3</b> Copy files from raspi to mac</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
@@ -557,13 +558,58 @@ Options:
     --tub TUBPATHS   List of paths to tubs. Comma separated. Use quotes to use wildcards. ie &quot;~/tubs/*&quot;
     --js             Use physical joystick.
     --chaos          Add periodic random steering when manually driving</code></pre>
-<div id="how-to-tether-raspberry-pi-to-android-device-hotspot" class="section level3">
-<h3><span class="header-section-number">7.8.1</span> HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT</h3>
-<p><a href="http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/" class="uri">http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/</a></p>
+</div>
+<div id="tips-on-how-to-drive-during-training" class="section level2">
+<h2><span class="header-section-number">7.9</span> Tips on how to drive during training</h2>
+<p>Here are a few tips on how to gather the necessary training data. The tips are based on a video by Tawn Kramer <a href="https://www.youtube.com/watch?v=4fXbDf_QWM4&amp;feature=youtu.be">Driving Tips to Train your Autonomous End-to-End NN Driver</a></p>
+<ul>
+<li>create about 10,000 images</li>
+<li>four different driving modes, more don’t hurt</li>
+<li>do some driving to get used to the control</li>
+<li>divide training session into three parts
+<ul>
+<li>drive slowly precisely center of the lane
+<ul>
+<li>about two laps</li>
+<li>about 10% of the data</li>
+</ul></li>
+<li>drive in lane with small oscillations
+<ul>
+<li>shows NN how track looks like at different angles</li>
+<li>shows NN how to correct back to center</li>
+<li>about 2-3 laps</li>
+</ul></li>
+<li>drive like you normally drive
+<ul>
+<li>speed a little bit</li>
+<li>not always bang center of lane</li>
+</ul></li>
+<li>drive with slow oscillations
+<ul>
+<li>bounce back and forth between extremes of the lanes</li>
+<li>help NN to establish the lane boundaries</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>The resulting steering angle histogram is shown in figure <a href="donkeyCar.html#fig:steeringAngleHist">7.3</a></p>
+<div class="figure"><span id="fig:steeringAngleHist"></span>
+<img src="images/HistSteeringAngleTawn.png" alt="Steering angle histogramm of Tawn Kramer's training data" width="262" />
+<p class="caption">
+Figure 7.3: Steering angle histogramm of Tawn Kramer’s training data
+</p>
+</div>
+<ul>
+<li>About 50% are straight driving</li>
+<li>Two humps from the oscillating driving</li>
+<li>Right hump more prominent since course has more right bends</li>
+</ul>
+<div id="how-to-edit-recorded-data" class="section level3">
+<h3><span class="header-section-number">7.9.1</span> How to edit recorded data</h3>
+<p>TBD</p>
 </div>
 </div>
 <div id="mange-recorded-data" class="section level2">
-<h2><span class="header-section-number">7.9</span> Mange recorded data</h2>
+<h2><span class="header-section-number">7.10</span> Mange recorded data</h2>
 <p>The training data is being stored in the folder /mycar/tub.</p>
 <p>Since there might be a lot of data after a while you might want to</p>
 <ul>
@@ -573,19 +619,19 @@ Options:
 </ul>
 <p>data</p>
 <div id="archiving-data" class="section level3">
-<h3><span class="header-section-number">7.9.1</span> Archiving data</h3>
+<h3><span class="header-section-number">7.10.1</span> Archiving data</h3>
 <p>Archiving can be done by renaming the tub folder with the <code>mv</code> command. The <code>mv</code> command moves, or renames, files and directories on your file system. To move the <strong>tub</strong> folder, i.e rename it, to <strong>tubArchive</strong> use</p>
 <pre><code>mv tub tubArchive</code></pre>
 <p>more details on <code>mv</code> can be found at <a href="https://www.computerhope.com/unix/umv.htm" class="uri">https://www.computerhope.com/unix/umv.htm</a></p>
 </div>
 <div id="delete-data" class="section level3">
-<h3><span class="header-section-number">7.9.2</span> Delete data</h3>
+<h3><span class="header-section-number">7.10.2</span> Delete data</h3>
 <p>Once you want to get rid of the data use the following command</p>
 <pre><code>rm -rf tub</code></pre>
 <p>More on <code>rm</code> can be found at <a href="https://www.computerhope.com/unix/urm.htm" class="uri">https://www.computerhope.com/unix/urm.htm</a></p>
 </div>
 <div id="copy-files-from-raspi-to-mac" class="section level3">
-<h3><span class="header-section-number">7.9.3</span> Copy files from raspi to mac</h3>
+<h3><span class="header-section-number">7.10.3</span> Copy files from raspi to mac</h3>
 <p><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">copy file from pi to mac</a> run in terminal</p>
 <pre><code>scp pi@192.168.178.67:mycar/manage.py
 # or

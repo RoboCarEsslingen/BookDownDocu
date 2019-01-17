@@ -373,10 +373,45 @@ Options:
     --chaos          Add periodic random steering when manually driving
 ```
 
+## Tips on how to drive during training
 
-### HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT
+Here are a few tips on how to gather the necessary training data. The tips are based on a video by Tawn Kramer [Driving Tips to Train your Autonomous End-to-End NN Driver](https://www.youtube.com/watch?v=4fXbDf_QWM4&feature=youtu.be)
 
-http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ 
+
+
+- create about 10,000 images
+- four different driving modes, more don't hurt
+- do some driving to get used to the control
+- divide training session into three parts
+    - drive slowly precisely center of the lane 
+        - about two laps
+        - about 10% of the data
+    - drive in lane with small oscillations
+        - shows NN how track looks like at different angles
+        - shows NN how to correct back to center
+        - about 2-3 laps
+    - drive like you normally drive
+        - speed a little bit
+        - not always bang center of lane
+    - drive with slow oscillations
+        - bounce back and forth between extremes of the lanes
+        - help NN to establish the lane boundaries
+
+The resulting steering angle histogram is shown in figure \@ref(fig:steeringAngleHist)
+
+
+```{r steeringAngleHist, fig.cap= "Steering angle histogramm of Tawn Kramer's training data", echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+library(knitr)
+include_graphics("images/HistSteeringAngleTawn.png")
+```
+
+
+- About 50% are straight driving
+- Two humps from the oscillating driving
+- Right hump more prominent since course has more right bends
+
+### How to edit recorded data
+TBD
 
 
 ## Mange recorded data
