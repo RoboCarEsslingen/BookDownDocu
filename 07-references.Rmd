@@ -72,9 +72,9 @@ Here are links to instructions on how to get things done
 
 ## Other RoboCar projects
 
-[DIY RoboCars website](https://diyrobocars.com)
-[Sunfounder RPI car ](https://www.sunfounder.com/rpi-car.html)
-[AWS DeepRacer](https://aws.amazon.com/deepracer/)
+[DIY RoboCars website](https://diyrobocars.com)  
+[Sunfounder RPI car ](https://www.sunfounder.com/rpi-car.html)  
+[AWS DeepRacer](https://aws.amazon.com/deepracer/)  
 
 ## Other stuff
 
