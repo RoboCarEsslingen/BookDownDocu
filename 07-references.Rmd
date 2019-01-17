@@ -10,6 +10,7 @@ Here are links to the donkey car project
 - [Train an autopilot with Keras](http://docs.donkeycar.com/guide/train_autopilot/)
 - [http://docs.donkeycar.com/guide/simulator/](http://docs.donkeycar.com/guide/simulator/)
 - [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
+- [donkey Car FAQ](http://www.donkeycar.com/faq)
 
 ### Videos for donkey car
 
@@ -21,12 +22,14 @@ Another video by Tawn Kramer gives tips on how to drive during training
 
 [Driving Tips to Train your Autonomous End-to-End NN Driver](https://www.youtube.com/watch?v=4fXbDf_QWM4&feature=youtu.be)
 
-## Parts
+## Parts to build a RoboCar
 Links to hardware 
 
 [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)  
 
 [PWM SERVO HAT](https://www.reichelt.de/raspberry-pi-servo-hat-16-kanal-pwm-rpi-servo-hat-p235533.html?)  
+
+[Adafruit 16-Channel PWM/Servo HAT & Bonnet for Raspberry Pi16 channels of servo-bust](https://learn.adafruit.com/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi/overview)
 
 [Adafruit 16 Channel Servo Driver with Raspberry Pi](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf )  
 
@@ -66,9 +69,18 @@ Here are links to instructions on how to get things done
 
 [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
 
+
+## Other RoboCar projects
+
+[DIY RoboCars website](https://diyrobocars.com)
+[Sunfounder RPI car ](https://www.sunfounder.com/rpi-car.html)
+[AWS DeepRacer](https://aws.amazon.com/deepracer/)
+
 ## Other stuff
 
 [ESC explained](https://en.wikipedia.org/wiki/Electronic_speed_control) 
+
+
 
 
 
