@@ -12,9 +12,9 @@ I changed to [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-bru
 Tamiya-Buchse is the connector of the NiMH battery
 Charger is [Voltcraft V-Charge Eco NiMh 3000](https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB)
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+```{r echo=FALSE, fig.cap="Reely Dart 2.0 Brushed converted RoboCar", message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
 library(knitr)
-include_graphics("images/SunFounderDonkeyMerge.jpg")
+include_graphics("images/Donkey3DPrint.jpg")
 ```
 
 ## What to do

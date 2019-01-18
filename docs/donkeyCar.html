@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-17">
+<meta name="date" content="2019-01-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -250,7 +250,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcomings in the steering mechanism. The steering angle was not reproducible, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to =&gt; Donkey Car</p>
 <p>Second reason, other members of the group <a href="https://www.meetup.com/Esslingen-Makerspace/" title="Homepage of the meetup">Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a> opted for donkey car.</p>
 <p>I changed to <a href="https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html">Reely Dart 2.0 Brushed</a> Tamiya-Buchse is the connector of the NiMH battery Charger is <a href="https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&amp;gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB">Voltcraft V-Charge Eco NiMh 3000</a></p>
-<p><img src="images/SunFounderDonkeyMerge.jpg" width="1512" /></p>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="images/Donkey3DPrint.jpg" alt="Reely Dart 2.0 Brushed converted RoboCar" width="2016" />
+<p class="caption">
+Figure 7.1: Reely Dart 2.0 Brushed converted RoboCar
+</p>
+</div>
 </div>
 <div id="what-to-do" class="section level2">
 <h2><span class="header-section-number">7.2</span> What to do</h2>
@@ -293,18 +298,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Raspberry Pi =&gt; Raspberry Pi camera</li>
 </ul></li>
 </ul>
-<p>The resulting wiring diagram can be seen in figure <a href="donkeyCar.html#fig:wiringDiagram">7.1</a></p>
+<p>The resulting wiring diagram can be seen in figure <a href="donkeyCar.html#fig:wiringDiagram">7.2</a></p>
 <div class="figure"><span id="fig:wiringDiagram"></span>
 <img src="images/DonkeyCarRewiringI.png" alt="Wiring diagram after rewiring car" width="827" />
 <p class="caption">
-Figure 7.1: Wiring diagram after rewiring car
+Figure 7.2: Wiring diagram after rewiring car
 </p>
 </div>
-<p>So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in fig <a href="donkeyCar.html#fig:closeUpPwmHat">7.2</a></p>
+<p>So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in fig <a href="donkeyCar.html#fig:closeUpPwmHat">7.3</a></p>
 <div class="figure"><span id="fig:closeUpPwmHat"></span>
 <img src="images/ServoHat.jpg" alt="Close-up of PWM Servo Hat"  />
 <p class="caption">
-Figure 7.2: Close-up of PWM Servo Hat
+Figure 7.3: Close-up of PWM Servo Hat
 </p>
 </div>
 <div id="parts-list" class="section level3">
@@ -579,11 +584,11 @@ Options:
 </ul></li>
 </ul></li>
 </ul>
-<p>The resulting steering angle histogram is shown in figure <a href="donkeyCar.html#fig:steeringAngleHist">7.3</a></p>
+<p>The resulting steering angle histogram is shown in figure <a href="donkeyCar.html#fig:steeringAngleHist">7.4</a></p>
 <div class="figure"><span id="fig:steeringAngleHist"></span>
 <img src="images/HistSteeringAngleTawn.png" alt="Steering angle histogramm of Tawn Kramer's training data" width="262" />
 <p class="caption">
-Figure 7.3: Steering angle histogramm of Tawn Kramer’s training data
+Figure 7.4: Steering angle histogramm of Tawn Kramer’s training data
 </p>
 </div>
 <ul>

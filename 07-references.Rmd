@@ -43,6 +43,8 @@ Links to hardware
 
 [Tamiya Stecker Power wires](https://www.amazon.de/gp/product/B01I1N73TI/ref=ppx_yo_dt_b_asin_title_o04__o00_s00?ie=UTF8&psc=1) 
 
+[Template for 3D printing a plate for raspi and DC/DC converter](https://www.tinkercad.com/things/fX3fJVQicx5-donkeycarbaseplate)
+
 
 ## Little setup helpers
 Here are links to instructions on how to get things done
