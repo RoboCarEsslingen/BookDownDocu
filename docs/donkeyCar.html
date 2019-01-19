@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-18">
+<meta name="date" content="2019-01-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -193,6 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>7.10.1</b> Archiving data</a></li>
 <li class="chapter" data-level="7.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>7.10.2</b> Delete data</a></li>
 <li class="chapter" data-level="7.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>7.10.3</b> Copy files from raspi to mac</a></li>
+<li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>7.10.4</b> How big is the tub folder</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
@@ -628,10 +629,16 @@ Figure 7.4: Steering angle histogramm of Tawn Kramer’s training data
 <p><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">copy file from pi to mac</a> run in terminal</p>
 <pre><code>scp pi@192.168.178.67:mycar/manage.py
 # or
-rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/</code></pre>
+rsync -r pi@192.168.178.67:~/mycar/tub/  ~/mycar/tub/</code></pre>
 <p>then type the password of the pi, afterwards the the file <code>mycar/manage.py</code> is being copied to the current location. The current location can be found via the <code>pwd</code>command.</p>
 <pre><code>10-42-27-27:CloudProjectsUnderWork uwesterr$ pwd
 /Users/uwesterr/CloudProjectsUnderWork </code></pre>
+</div>
+<div id="how-big-is-the-tub-folder" class="section level3">
+<h3><span class="header-section-number">7.10.4</span> How big is the tub folder</h3>
+<p>If you want to know how many MB of data you collected already use the <code>su</code> comand. More info on the <code>su</code> command <a href="https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line">here</a></p>
+<pre><code>(env) pi@donkeypi_uwe:~/mycar $ du -sh tub
+232M    tub</code></pre>
 
 </div>
 </div>

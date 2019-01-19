@@ -453,11 +453,18 @@ More on ```rm``` can be found at https://www.computerhope.com/unix/urm.htm
 ```
 scp pi@192.168.178.67:mycar/manage.py
 # or
-rsync -r pi@192.168.178.67:~/mycar/data/  ~/mycar/data/
+rsync -r pi@192.168.178.67:~/mycar/tub/  ~/mycar/tub/
 ```
 then type the password of the pi, afterwards the the file ```mycar/manage.py``` is being copied to the current location. The current location can be found via the ```pwd```command.
 
 ```
 10-42-27-27:CloudProjectsUnderWork uwesterr$ pwd
 /Users/uwesterr/CloudProjectsUnderWork 
+```
+
+### How big is the tub folder
+If you want to know how many MB of data you collected already use the `su` comand. More info on the `su` command [here](https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line)
+```
+(env) pi@donkeypi_uwe:~/mycar $ du -sh tub
+232M	tub
 ```

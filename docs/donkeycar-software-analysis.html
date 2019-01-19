@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-18">
+<meta name="date" content="2019-01-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -193,6 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>7.10.1</b> Archiving data</a></li>
 <li class="chapter" data-level="7.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>7.10.2</b> Delete data</a></li>
 <li class="chapter" data-level="7.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>7.10.3</b> Copy files from raspi to mac</a></li>
+<li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>7.10.4</b> How big is the tub folder</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
@@ -600,10 +601,10 @@ joystic_max_value: 1280</code></pre>
                            zero_pulse=cfg.THROTTLE_STOPPED_PWM,
                            min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
 <p>to</p>
-<pre><code>    throttle = PWMThrottle(controller= throttle_controller,
-                           max_pulse=413,
+<pre><code>    throttle = PWMThrottle(controller=throttle_controller,
+                           max_pulse= 409, # cfg.THROTTLE_FORWARD_PWM, limit forward speed
                            zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
+                           min_pulse= 380) #  cfg.THROTTLE_REVERSE_PWM) Limit reverse speed</code></pre>
 <p>Or you can set in <code>config.py</code> the variable <strong>THROTTLE_FORWARD_PWM</strong> which defines the max throttle value to a value which gives you a low enough speed to master the track.</p>
 <pre><code>THROTTLE_FORWARD_PWM = 413</code></pre>
 

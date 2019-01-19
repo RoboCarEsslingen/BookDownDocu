@@ -85,7 +85,7 @@ Here are links to instructions on how to get things done
 
 [ESC explained](https://en.wikipedia.org/wiki/Electronic_speed_control) 
 
-
+[LED on The Adafruit 16-Channel 12-bit PWM/Servo HAT](https://cdn-learn.adafruit.com/downloads/pdf/16-channel-pwm-servo-driver.pdf)
 
 
 
