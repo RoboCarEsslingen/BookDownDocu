@@ -350,7 +350,17 @@ And the car drives
 
 add Bluetooth controller to ```manage.py``` https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py 
 
+### Create movie from tub data
+To create a movie from the gathered data
+```
+donkey makemovie <tub_path> [--out=<tub_movie.mp4>]
+# for example create movie tubMovie.mp4 from data located at tub
+donkey makemovie --tub tub --out tubMovie.mp4   
+```
+More details at http://docs.donkeycar.com/utility/donkey/#make-movie-from-tub
 
+
+### Options of manage.py
 The script ```manage.py``` can be called with several options, to find them type 
 ``` 
 (env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h
