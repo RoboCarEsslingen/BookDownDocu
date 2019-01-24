@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 8 Donkeycar software analysis | RoboCar project documentation</title>
+  <title>Chapter 9 Donkeycar software analysis | RoboCar project documentation</title>
   <meta name="description" content="Notes taken by Uwe for the RoboCar project">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 8 Donkeycar software analysis | RoboCar project documentation" />
+  <meta property="og:title" content="Chapter 9 Donkeycar software analysis | RoboCar project documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Donkeycar software analysis | RoboCar project documentation" />
+  <meta name="twitter:title" content="Chapter 9 Donkeycar software analysis | RoboCar project documentation" />
   
   <meta name="twitter:description" content="Notes taken by Uwe for the RoboCar project" />
   
@@ -25,14 +25,14 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-01-19">
+<meta name="date" content="2019-01-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="donkeyCar.html">
+<link rel="prev" href="donkey-command-line-utilities.html">
 <link rel="next" href="useful-links.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -199,32 +199,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>7.10.4</b> How big is the tub folder</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>8</b> Donkeycar software analysis</a><ul>
-<li class="chapter" data-level="8.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>8.1</b> How to add parts to a vehicle</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-v.start"><i class="fa fa-check"></i><b>8.1.1</b> Function V.start()</a></li>
-<li class="chapter" data-level="8.1.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-v.update_parts"><i class="fa fa-check"></i><b>8.1.2</b> Function V.update_parts()</a></li>
-<li class="chapter" data-level="8.1.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-v.add"><i class="fa fa-check"></i><b>8.1.3</b> Function V.add</a></li>
-<li class="chapter" data-level="8.1.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#threadedParts"><i class="fa fa-check"></i><b>8.1.4</b> Concept of threads vs non-threaded parts</a></li>
+<li class="chapter" data-level="8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>8</b> Donkey Command-line Utilities</a><ul>
+<li class="chapter" data-level="8.1" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#create-car"><i class="fa fa-check"></i><b>8.1</b> Create Car</a></li>
+<li class="chapter" data-level="8.2" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#find-car"><i class="fa fa-check"></i><b>8.2</b> Find Car</a></li>
+<li class="chapter" data-level="8.3" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#calibrate-car"><i class="fa fa-check"></i><b>8.3</b> Calibrate Car</a></li>
+<li class="chapter" data-level="8.4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#clean-data-in-tub"><i class="fa fa-check"></i><b>8.4</b> Clean data in Tub</a></li>
+<li class="chapter" data-level="8.5" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#make-movie-from-tub"><i class="fa fa-check"></i><b>8.5</b> Make Movie from Tub</a></li>
+<li class="chapter" data-level="8.6" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#tubclean"><i class="fa fa-check"></i><b>8.6</b> Check Tub</a></li>
+<li class="chapter" data-level="8.7" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#histogram"><i class="fa fa-check"></i><b>8.7</b> Histogram</a></li>
+<li class="chapter" data-level="8.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>8.8</b> Plot Predictions</a></li>
+<li class="chapter" data-level="8.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>8.9</b> Simulation Server</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>8.2</b> Structure of <code>manage.py</code></a><ul>
-<li class="chapter" data-level="8.2.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#creating-manage.py"><i class="fa fa-check"></i><b>8.2.1</b> Creating <code>manage.py</code></a></li>
-<li class="chapter" data-level="8.2.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#starting-manage.py"><i class="fa fa-check"></i><b>8.2.2</b> Starting <code>manage.py</code></a></li>
-<li class="chapter" data-level="8.2.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#parsing-the-command-line-parameters"><i class="fa fa-check"></i><b>8.2.3</b> Parsing the command line parameters</a></li>
-<li class="chapter" data-level="8.2.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-drive"><i class="fa fa-check"></i><b>8.2.4</b> Function <code>drive</code></a></li>
+<li class="chapter" data-level="9" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html"><i class="fa fa-check"></i><b>9</b> Donkeycar software analysis</a><ul>
+<li class="chapter" data-level="9.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>9.1</b> How to add parts to a vehicle</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-v.start"><i class="fa fa-check"></i><b>9.1.1</b> Function V.start()</a></li>
+<li class="chapter" data-level="9.1.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-v.update_parts"><i class="fa fa-check"></i><b>9.1.2</b> Function V.update_parts()</a></li>
+<li class="chapter" data-level="9.1.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-v.add"><i class="fa fa-check"></i><b>9.1.3</b> Function V.add</a></li>
+<li class="chapter" data-level="9.1.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#threadedParts"><i class="fa fa-check"></i><b>9.1.4</b> Concept of threads vs non-threaded parts</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>8.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
-<li class="chapter" data-level="8.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>8.4</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="8.5" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>8.5</b> Limit max velocity</a></li>
+<li class="chapter" data-level="9.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>9.2</b> Structure of <code>manage.py</code></a><ul>
+<li class="chapter" data-level="9.2.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#creating-manage.py"><i class="fa fa-check"></i><b>9.2.1</b> Creating <code>manage.py</code></a></li>
+<li class="chapter" data-level="9.2.2" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#starting-manage.py"><i class="fa fa-check"></i><b>9.2.2</b> Starting <code>manage.py</code></a></li>
+<li class="chapter" data-level="9.2.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#parsing-the-command-line-parameters"><i class="fa fa-check"></i><b>9.2.3</b> Parsing the command line parameters</a></li>
+<li class="chapter" data-level="9.2.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-drive"><i class="fa fa-check"></i><b>9.2.4</b> Function <code>drive</code></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>9</b> Useful links</a><ul>
-<li class="chapter" data-level="9.1" data-path="useful-links.html"><a href="useful-links.html#donkey-car-1"><i class="fa fa-check"></i><b>9.1</b> Donkey car</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="useful-links.html"><a href="useful-links.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>9.1.1</b> Videos for donkey car</a></li>
+<li class="chapter" data-level="9.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>9.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
+<li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
+<li class="chapter" data-level="9.5" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>9.5</b> Limit max velocity</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="useful-links.html"><a href="useful-links.html#parts-to-build-a-robocar"><i class="fa fa-check"></i><b>9.2</b> Parts to build a RoboCar</a></li>
-<li class="chapter" data-level="9.3" data-path="useful-links.html"><a href="useful-links.html#little-setup-helpers"><i class="fa fa-check"></i><b>9.3</b> Little setup helpers</a></li>
-<li class="chapter" data-level="9.4" data-path="useful-links.html"><a href="useful-links.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>9.4</b> Meetup in Stuttgart area</a></li>
-<li class="chapter" data-level="9.5" data-path="useful-links.html"><a href="useful-links.html#other-robocar-projects"><i class="fa fa-check"></i><b>9.5</b> Other RoboCar projects</a></li>
-<li class="chapter" data-level="9.6" data-path="useful-links.html"><a href="useful-links.html#other-stuff"><i class="fa fa-check"></i><b>9.6</b> Other stuff</a></li>
+<li class="chapter" data-level="10" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>10</b> Useful links</a><ul>
+<li class="chapter" data-level="10.1" data-path="useful-links.html"><a href="useful-links.html#donkey-car-1"><i class="fa fa-check"></i><b>10.1</b> Donkey car</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="useful-links.html"><a href="useful-links.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>10.1.1</b> Videos for donkey car</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="useful-links.html"><a href="useful-links.html#parts-to-build-a-robocar"><i class="fa fa-check"></i><b>10.2</b> Parts to build a RoboCar</a></li>
+<li class="chapter" data-level="10.3" data-path="useful-links.html"><a href="useful-links.html#little-setup-helpers"><i class="fa fa-check"></i><b>10.3</b> Little setup helpers</a></li>
+<li class="chapter" data-level="10.4" data-path="useful-links.html"><a href="useful-links.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>10.4</b> Meetup in Stuttgart area</a></li>
+<li class="chapter" data-level="10.5" data-path="useful-links.html"><a href="useful-links.html#other-robocar-projects"><i class="fa fa-check"></i><b>10.5</b> Other RoboCar projects</a></li>
+<li class="chapter" data-level="10.6" data-path="useful-links.html"><a href="useful-links.html#other-stuff"><i class="fa fa-check"></i><b>10.6</b> Other stuff</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/RoboCarEsslingen" target="blank">Related files on Github</a></li>
@@ -247,16 +258,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="donkeycar-software-analysis" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Donkeycar software analysis</h1>
+<h1><span class="header-section-number">Chapter 9</span> Donkeycar software analysis</h1>
 <p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the Keras model</p>
 <div id="how-to-add-parts-to-a-vehicle" class="section level2">
-<h2><span class="header-section-number">8.1</span> How to add parts to a vehicle</h2>
+<h2><span class="header-section-number">9.1</span> How to add parts to a vehicle</h2>
 <p>Two brilliant videos by Tawn Kramer describe the Donkeycar framework. The <a href="https://www.youtube.com/watch?v=YZ4ESrtfShs">first part</a> describes in detail how to add a part to the vehicle. In short, a part will be added to the vehicle class and for each iteration of the loop the <strong>run</strong> or the <strong>run_threaded</strong> method of the added class will be executed.</p>
-<p>The stacking of the methods are shown in figure <a href="donkeycar-software-analysis.html#fig:vehicleCalls">8.1</a></p>
+<p>The stacking of the methods are shown in figure <a href="donkeycar-software-analysis.html#fig:vehicleCalls">9.1</a></p>
 <div class="figure"><span id="fig:vehicleCalls"></span>
 <img src="images/DonkeyCarVehicleClass.png" alt="Stacking of methods" width="670" />
 <p class="caption">
-Figure 8.1: Stacking of methods
+Figure 9.1: Stacking of methods
 </p>
 </div>
 <p>with</p>
@@ -264,7 +275,7 @@ Figure 8.1: Stacking of methods
 <p>the Vehicle class is available and is instantiated by</p>
 <pre><code>V = Vehicle()</code></pre>
 <div id="function-v.start" class="section level3">
-<h3><span class="header-section-number">8.1.1</span> Function V.start()</h3>
+<h3><span class="header-section-number">9.1.1</span> Function V.start()</h3>
 <p>To start vehicle’s main drive loop.</p>
 <pre><code>V.start()</code></pre>
 <p>This is the main thread of the vehicle. It starts all the new threads for the threaded parts then starts an infinite loop that runs each part and updates the memory.</p>
@@ -276,7 +287,7 @@ Figure 8.1: Stacking of methods
 <li>Boolean flag “ON”</li>
 </ul>
 <div id="parameters-of-v.start" class="section level4">
-<h4><span class="header-section-number">8.1.1.1</span> Parameters of V.start()</h4>
+<h4><span class="header-section-number">9.1.1.1</span> Parameters of V.start()</h4>
 <p>The parameters for <code>V.start()</code> are</p>
 <ul>
 <li>rate_hz : int (default = 10Hz)
@@ -290,7 +301,7 @@ Figure 8.1: Stacking of methods
 </ul>
 </div>
 <div id="main-run-loop-of-v.start" class="section level4">
-<h4><span class="header-section-number">8.1.1.2</span> Main run loop of V.start()</h4>
+<h4><span class="header-section-number">9.1.1.2</span> Main run loop of V.start()</h4>
 <p>The main run loop of the V.start() function is below. The sleep_time assures that the loop rate is achieved. This can only be guaranteed if the update process duration of the parts does not exceed the loop time.</p>
 <pre><code>           loop_count = 0
             while self.on:
@@ -309,14 +320,14 @@ Figure 8.1: Stacking of methods
 </div>
 </div>
 <div id="function-v.update_parts" class="section level3">
-<h3><span class="header-section-number">8.1.2</span> Function V.update_parts()</h3>
+<h3><span class="header-section-number">9.1.2</span> Function V.update_parts()</h3>
 <p>In the <code>V.update_parts()</code> function the appropriate run function of part are being called.</p>
 <div id="parameters-of-v.parts" class="section level4">
-<h4><span class="header-section-number">8.1.2.1</span> Parameters of V.parts()</h4>
+<h4><span class="header-section-number">9.1.2.1</span> Parameters of V.parts()</h4>
 <p>There are no parameters</p>
 </div>
 <div id="loop-over-all-parts" class="section level4">
-<h4><span class="header-section-number">8.1.2.2</span> Loop over all parts</h4>
+<h4><span class="header-section-number">9.1.2.2</span> Loop over all parts</h4>
 <p>The following code will be looped over for all parts</p>
 <pre><code>        for entry in self.parts:
             # don&#39;t run if there is a run condition that is False
@@ -349,10 +360,10 @@ Figure 8.1: Stacking of methods
 </div>
 </div>
 <div id="function-v.add" class="section level3">
-<h3><span class="header-section-number">8.1.3</span> Function V.add</h3>
+<h3><span class="header-section-number">9.1.3</span> Function V.add</h3>
 <p>Method to add a part to the vehicle drive loop. The names of parts in- and outputs are defined by the parameters of the <code>V.add</code>function</p>
 <div id="parameters-of-v.add" class="section level4">
-<h4><span class="header-section-number">8.1.3.1</span> Parameters of V.add()</h4>
+<h4><span class="header-section-number">9.1.3.1</span> Parameters of V.add()</h4>
 <ul>
 <li>inputs : list
 <ul>
@@ -373,8 +384,8 @@ Figure 8.1: Stacking of methods
 </ul>
 </div>
 <div id="example-to-add-web-controller" class="section level4">
-<h4><span class="header-section-number">8.1.3.2</span> Example to add Web controller</h4>
-<p>The web controller is first instantiated and then added using the <code>V.add()</code>function. The names of in- and outputs are supplied as well as the indicator that the controller is threaded. More on threaded parts in section <a href="donkeycar-software-analysis.html#threadedParts">8.1.4</a></p>
+<h4><span class="header-section-number">9.1.3.2</span> Example to add Web controller</h4>
+<p>The web controller is first instantiated and then added using the <code>V.add()</code>function. The names of in- and outputs are supplied as well as the indicator that the controller is threaded. More on threaded parts in section <a href="donkeycar-software-analysis.html#threadedParts">9.1.4</a></p>
 <pre><code>ctr = LocalWebController(use_chaos=use_chaos)
 V.add(ctr,
       inputs=[&#39;cam/image_array&#39;],
@@ -382,7 +393,7 @@ V.add(ctr,
       threaded=True)</code></pre>
 </div>
 <div id="AddBluetooth" class="section level4">
-<h4><span class="header-section-number">8.1.3.3</span> Example add Bluetooth Controller</h4>
+<h4><span class="header-section-number">9.1.3.3</span> Example add Bluetooth Controller</h4>
 <p>To add a Bluetooth controller add the following lines to <code>manage.py</code> in the <code>drive</code> method</p>
 <pre><code>from donkeypart_bluetooth_game_controller import BluetoothGameController
    ctl = BluetoothGameController()
@@ -393,13 +404,13 @@ V.add(ctr,
 </div>
 </div>
 <div id="threadedParts" class="section level3">
-<h3><span class="header-section-number">8.1.4</span> Concept of threads vs non-threaded parts</h3>
+<h3><span class="header-section-number">9.1.4</span> Concept of threads vs non-threaded parts</h3>
 <p>Updating of the parts is run in the loop of the <code>V.update()</code>. To avoid that parts which take long to update blocks the loop they can be assigned to a dedicated thread. Whenever the a threaded part is updated the <code>run_threaded</code>method is run. For a camera the <code>run_threaded</code> is</p>
 <pre><code>def run_threaded(self):
     return self.frame</code></pre>
 <p>which returns the frame available at the time, no delay being imposed on the loop.</p>
 <div id="the-update-function" class="section level4">
-<h4><span class="header-section-number">8.1.4.1</span> The <code>update</code> function</h4>
+<h4><span class="header-section-number">9.1.4.1</span> The <code>update</code> function</h4>
 <p>Images are taken constantly as fast as possible by the method <code>update</code> as shown below</p>
 <pre><code>def update(self):
     # keep looping infinitely until the thread is stopped
@@ -413,7 +424,7 @@ V.add(ctr,
             break</code></pre>
 </div>
 <div id="the-shutdown-function" class="section level4">
-<h4><span class="header-section-number">8.1.4.2</span> The <code>shutdown</code> function</h4>
+<h4><span class="header-section-number">9.1.4.2</span> The <code>shutdown</code> function</h4>
 <p>To stop the thread a <code>shutdown</code>function needs to be defined</p>
 <pre><code>def shutdown(self):
     # indicate that the thread should be stopped
@@ -427,16 +438,16 @@ V.add(ctr,
 </div>
 </div>
 <div id="structure-of-manage.py" class="section level2">
-<h2><span class="header-section-number">8.2</span> Structure of <code>manage.py</code></h2>
+<h2><span class="header-section-number">9.2</span> Structure of <code>manage.py</code></h2>
 <p><code>manage.py</code> contains scripts to drive a donkey 2 car and train a model for it.</p>
 <p>The structure of <code>manage.py</code>is well explained by Tawn Kramer in <a href="https://www.youtube.com/watch?v=G1JjAw_NdnE">Donkeycar Parts Overview Pt 2/2</a></p>
 <div id="creating-manage.py" class="section level3">
-<h3><span class="header-section-number">8.2.1</span> Creating <code>manage.py</code></h3>
+<h3><span class="header-section-number">9.2.1</span> Creating <code>manage.py</code></h3>
 <p><code>manage.py</code>is created when <code>donkey createcar --path ~/d2</code> and is a copy of <code>/templates/donkey2.py</code> If you want to add other templates this can be done by adding the name of the template without the extension “.py”.</p>
 <p><code>donkey createcar --path ~/d2 --template tk</code> Then <code>tk.py</code>will be copied into <code>manage.py</code></p>
 </div>
 <div id="starting-manage.py" class="section level3">
-<h3><span class="header-section-number">8.2.2</span> Starting <code>manage.py</code></h3>
+<h3><span class="header-section-number">9.2.2</span> Starting <code>manage.py</code></h3>
 <p>In order to start <code>manage.py</code> without the need to write <strong>pyhton</strong></p>
 <pre><code>chmode +x manage.py
 ./manage.py</code></pre>
@@ -445,7 +456,7 @@ V.add(ctr,
 <p>makes sure that the script is run with pyhton3.</p>
 </div>
 <div id="parsing-the-command-line-parameters" class="section level3">
-<h3><span class="header-section-number">8.2.3</span> Parsing the command line parameters</h3>
+<h3><span class="header-section-number">9.2.3</span> Parsing the command line parameters</h3>
 <p>docopt is a Command-line interface description language with which the following options are parsed.</p>
 <p>The parsed inputs are then used by</p>
 <pre><code>if __name__ == &#39;__main__&#39;:
@@ -474,11 +485,11 @@ Options:
     --chaos          Add periodic random steering when manually driving</code></pre>
 </div>
 <div id="function-drive" class="section level3">
-<h3><span class="header-section-number">8.2.4</span> Function <code>drive</code></h3>
+<h3><span class="header-section-number">9.2.4</span> Function <code>drive</code></h3>
 <p>Construct a working robotic vehicle from many parts. Each part runs as a job in the Vehicle loop, calling either it’s run or run_threaded method depending on the constructor flag <code>threaded</code>. All parts are updated one after another at the framerate given in cfg.DRIVE_LOOP_HZ assuming each part finishes processing in a timely manner.</p>
 <p>Parts may have named outputs and inputs. The framework handles passing named outputs to parts requesting the same named input.</p>
 <div id="lambda-class" class="section level4">
-<h4><span class="header-section-number">8.2.4.1</span> Lambda class</h4>
+<h4><span class="header-section-number">9.2.4.1</span> Lambda class</h4>
 <p>Lambda wraps a function into a donkey part, i.e. it will be called for every update loop.</p>
 <pre><code>class Lambda:
     &quot;&quot;&quot;
@@ -521,7 +532,7 @@ V.add(pilot_condition_part,
 </div>
 </div>
 <div id="locate-modules-on-raspi-which-are-being-imported-by-manage.py" class="section level2">
-<h2><span class="header-section-number">8.3</span> Locate modules on raspi which are being imported by manage.py</h2>
+<h2><span class="header-section-number">9.3</span> Locate modules on raspi which are being imported by manage.py</h2>
 <p>Where on the Raspberry Pi are the modules located which are being imported by the python script <code>manage.py</code></p>
 <pre><code>from docopt import docopt
 
@@ -545,7 +556,7 @@ config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templ
 <p>The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section <a href="donkeyCar.html#BluetoothControllerInstall">7.7.1</a></p>
 </div>
 <div id="assignment-of-wiiu-controller-sticks-to-action" class="section level2">
-<h2><span class="header-section-number">8.4</span> Assignment of WiiU controller sticks to action</h2>
+<h2><span class="header-section-number">9.4</span> Assignment of WiiU controller sticks to action</h2>
 <p>The mapping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
 <pre><code>
 device_search_term: &#39;nintendo&#39;
@@ -597,7 +608,7 @@ joystic_max_value: 1280</code></pre>
 <p>to make the controller more sensitive it might be a good idea to limit the max joystick value in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code> to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">7.5.2</a></p>
 </div>
 <div id="setMaxVel" class="section level2">
-<h2><span class="header-section-number">8.5</span> Limit max velocity</h2>
+<h2><span class="header-section-number">9.5</span> Limit max velocity</h2>
 <p>To avoid that the car becomes too fast change in <code>manage.py</code> the <strong>max_pulse</strong> value. Note, the value is dependend of your <strong>cfg.THROTTLE_STOPPED_PWM</strong>, the <strong>max_pulse</strong> value ought to be a bit higher than the <strong>cfg.THROTTLE_STOPPED_PWM</strong>. You might want to find out a suitable value by using the calibration mode which you used to find the max values.</p>
 <pre><code>    throttle = PWMThrottle(controller=throttle_controller,
                            max_pulse=cfg.THROTTLE_FORWARD_PWM,
@@ -618,7 +629,7 @@ joystic_max_value: 1280</code></pre>
           </div>
         </div>
       </div>
-<a href="donkeyCar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="donkey-command-line-utilities.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="useful-links.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
