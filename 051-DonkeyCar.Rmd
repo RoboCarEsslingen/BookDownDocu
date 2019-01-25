@@ -392,7 +392,7 @@ Here are a few tips on how to gather the necessary training data. The tips are b
 - create about 10,000 images
 - four different driving modes, more don't hurt
 - do some driving to get used to the control
-- divide training session into three parts
+- divide training session into four parts
     - drive slowly precisely center of the lane 
         - about two laps
         - about 10% of the data
