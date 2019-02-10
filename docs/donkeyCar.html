@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-02-02">
+<meta name="date" content="2019-02-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -321,11 +321,18 @@ Figure 7.1: Reely Dart 2.0 Brushed converted RoboCar
 Figure 7.2: Wiring diagram after rewiring car
 </p>
 </div>
-<p>So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in fig <a href="donkeyCar.html#fig:closeUpPwmHat">7.3</a></p>
+<p>So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure <a href="donkeyCar.html#fig:closeUpPwmHat">7.3</a></p>
 <div class="figure"><span id="fig:closeUpPwmHat"></span>
 <img src="images/ServoHat.jpg" alt="Close-up of PWM Servo Hat"  />
 <p class="caption">
 Figure 7.3: Close-up of PWM Servo Hat
+</p>
+</div>
+<p>You can elimnate the RC receiver altogether, see figure <a href="donkeyCar.html#fig:rewireSimple">7.4</a></p>
+<div class="figure"><span id="fig:rewireSimple"></span>
+<img src="images/RewiringSimple.png" alt="Rewiring without RC receiver"  />
+<p class="caption">
+Figure 7.4: Rewiring without RC receiver
 </p>
 </div>
 <div id="parts-list" class="section level3">
@@ -611,11 +618,11 @@ Options:
 </ul></li>
 </ul></li>
 </ul>
-<p>The resulting steering angle histogram is shown in figure <a href="donkeyCar.html#fig:steeringAngleHist">7.4</a></p>
+<p>The resulting steering angle histogram is shown in figure <a href="donkeyCar.html#fig:steeringAngleHist">7.5</a></p>
 <div class="figure"><span id="fig:steeringAngleHist"></span>
 <img src="images/HistSteeringAngleTawn.png" alt="Steering angle histogramm of Tawn Kramer's training data" width="262" />
 <p class="caption">
-Figure 7.4: Steering angle histogramm of Tawn Kramer’s training data
+Figure 7.5: Steering angle histogramm of Tawn Kramer’s training data
 </p>
 </div>
 <ul>

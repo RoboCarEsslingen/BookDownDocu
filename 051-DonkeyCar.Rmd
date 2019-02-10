@@ -60,11 +60,19 @@ library(knitr)
 include_graphics("images/DonkeyCarRewiringI.png")
 ```
 
-So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in fig \@ref(fig:closeUpPwmHat) 
+So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure \@ref(fig:closeUpPwmHat) 
 
 ```{r closeUpPwmHat, fig.cap= "Close-up of PWM Servo Hat", echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE, dpi= 800}
 library(knitr)
 include_graphics("images/ServoHat.jpg", dpi = NA)
+```
+
+
+You can elimnate the RC receiver altogether, see figure \@ref(fig:rewireSimple) 
+
+```{r rewireSimple, fig.cap= "Rewiring without RC receiver", echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE, dpi= 800}
+library(knitr)
+include_graphics("images/RewiringSimple.png", dpi = NA)
 ```
 
 
