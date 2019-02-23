@@ -8,6 +8,17 @@ The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with P
 
 Second reason, other members of the group [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")  opted for donkey car.
 
+### Selecting a RC car
+
+Selection criteria for RC car are:
+
+- Brushed motor => no need for high speed
+- NiMH battery => less sensitive to mechanical impact compared to Li-ion battery
+- ESC no integrated into remote controll receiver
+- 3 wire steering servo
+
+
+
 I changed to [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)
 Tamiya-Buchse is the connector of the NiMH battery
 Charger is [Voltcraft V-Charge Eco NiMh 3000](https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB)
@@ -121,15 +132,21 @@ The now used [PWM SERVO HAT 2327 By ADAFRUIT INDUSTRIES](https://www.amazon.de/g
 
 Instructions for the calibrations can be found at http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car
 
-ssh into your raspberry
+ssh into your raspberry 
+
+### Setting WIFI up for the raspberry
+
+To set up the WiFi connection on the raspberry you find a detailed description at 
+[SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
+
 ### Steering Calibration
-run
+To start steering calibration run
 ```
 donkey calibrate --channel <your_steering_channel>
 ```
 
 
-for PWM channel 1 for steering
+PWM channel 1 for steering
 ```
 donkey calibrate --channel 1
 ```
@@ -148,11 +165,11 @@ Enter a PWM setting to test(0-1500)120
 
 ### Throttle Calibration
 
-run
+To start throttle calibration run
 ```
 donkey calibrate --channel <your_throttle_channel>
 ```
-for PWM channel 0 for throttle
+PWM channel 0 for throttle
 ```
 (env) pi@donkeypi_uwe:~ $ donkey calibrate --channel 0
 using donkey version: 2.5.8 ...
@@ -164,6 +181,7 @@ Enter a PWM setting to test(0-1500)380
 
 ### Config.py after calibration {#configpyAfterCalib}
 after configuration the ```config.py``` file reads
+
 ```
 """
 CAR CONFIG
@@ -257,14 +275,6 @@ You can now go to http://127.0.0.1:8887 to drive your car.
 ### Open control in web browser on Mac
 
 You can now control your car from a web browser at the URL: ```192.168.178.67:8887```
-
-
-
-### Setting WIFI up for the raspberry
-
-To set up the WiFi connection on the raspberry you find a detailed description at 
-[SETTING WIFI UP VIA THE COMMAND LINE](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md "DOCUMENTATION > CONFIGURATION > WIRELESS > WIRELESS-CLI")
-
 
 
 ## Connecting bluetooth controller

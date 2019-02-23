@@ -7,5 +7,4 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/RoboCarEsslingen" target="blank">Related files on Github</a></li>
     download: ["pdf", "epub"]
-
 bookdown::epub_book: default
