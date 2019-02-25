@@ -42,11 +42,7 @@ network={
     id_str="home" 
 } 
 
-network={ 
-    ssid="shack" 
-    psk="welcome2shack" 
-    id_str="shack" 
-} 
+
 ```
  
 ## installs 
