@@ -14,7 +14,7 @@ Selection criteria for RC car are:
 
 - Brushed motor => no need for high speed
 - NiMH battery => less sensitive to mechanical impact compared to Li-ion battery
-- ESC no integrated into remote controll receiver
+- ESC not integrated into remote controll receiver
 - 3 wire steering servo
 
 
