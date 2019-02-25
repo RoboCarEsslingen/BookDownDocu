@@ -316,7 +316,7 @@ donkey tubcheck tub*</code></pre>
 donkey tubclean 20190223-Shackspace/
 using donkey version: 2.5.7 ...
 Listening on 8886...</code></pre>
-<p><img src="https://github.com/Heavy02011/50-donkey/blob/master/images/tubclean1.png" alt="tubclean1" /> <img src="https://github.com/Heavy02011/50-donkey/blob/master/images/tubclean2.png" alt="tubclean2" /> <img src="https://github.com/Heavy02011/50-donkey/blob/master/images/tubclean3.png" alt="tubclean3" /></p>
+<p><img src="images/rainer/tubclean1.png" alt="tubclean1" /> <img src="images/rainer/tubclean2.png" alt="tubclean2" /> <img src="images/rainer/tubclean3.png" alt="tubclean3" /></p>
 </div>
 <div id="make-movie" class="section level2">
 <h2><span class="header-section-number">11.5</span> Make movie</h2>
@@ -333,20 +333,20 @@ donkey makemovie --tub=raw/tub_36_19-02-23 --config=config.py --out=tub_36_19-02
 donkey tubhist \
 --tub /media/rainer/_data/20-data/M3-robocar_training/20190112-Shackspace/prepared/*</code></pre>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/tubhist_shack1_Data.png" alt="tubhist_shack" />
+<img src="images/rainer/tubhist_shack1_Data.png" alt="tubhist_shack" />
 <p class="caption">tubhist_shack</p>
 </div>
 <pre><code>(donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk$ 
 donkey tubhist \
 --tub /media/rainer/_data/20-data/M3-robocar_training/20190126-TawnKramer/combined_donkey_tub_data/* </code></pre>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/tubhist_TawnKramar_Data.png" alt="tubhist_tawn" />
+<img src="images/rainer/tubhist_TawnKramar_Data.png" alt="tubhist_tawn" />
 <p class="caption">tubhist_tawn</p>
 </div>
 <pre><code>(donkey_3tk4) rainer@neuron:/media/rainer/_data/20-data/M3-robocar_training/20190223-Shackspace$ 
 donkey tubhist --tub prepared/*</code></pre>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/tubhist_tub_36_19-02-23.png" alt="tubhist_tub_36_19-02-23" />
+<img src="images/rainer/tubhist_tub_36_19-02-23.png" alt="tubhist_tub_36_19-02-23" />
 <p class="caption">tubhist_tub_36_19-02-23</p>
 </div>
 </div>
@@ -354,7 +354,7 @@ donkey tubhist --tub prepared/*</code></pre>
 <h2><span class="header-section-number">11.7</span> Train Data</h2>
 <p><code>(donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/mycar/$  python manage.py train \        --tub=/media/rainer/_data/20-data/M3-robocar_training/20190112-Shackspace/prepared/* \        --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack1.h5</code></p>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/model_loss_shack1.png" alt="model loss for training shack1.h5" />
+<img src="images/rainer/model_loss_shack1.png" alt="model loss for training shack1.h5" />
 <p class="caption">model loss for training shack1.h5</p>
 </div>
 <pre><code>(donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/mycar$ 
@@ -362,7 +362,7 @@ python train.py \
        --tub=/media/rainer/_data/20-data/M3-robocar_training/20190223-Shackspace/prepared/* \
        --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack2.h5</code></pre>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/model_loss_shack2.png" alt="model loss for training shack2.h5" />
+<img src="images/rainer/model_loss_shack2.png" alt="model loss for training shack2.h5" />
 <p class="caption">model loss for training shack2.h5</p>
 </div>
 <p>Attention: What happened during training above? Hint, mind the accuracy of testing data.</p>
@@ -374,15 +374,15 @@ donkey tubplot \
 --tub=/media/rainer/_data/20-data/M3-robocar_training/20190112-Shackspace/prepared/tub2_c \
 --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack1.h5 </code></pre>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_vs_tub2_c.png" alt="tub2_c" />
+<img src="images/rainer/shack1_vs_tub2_c.png" alt="tub2_c" />
 <p class="caption">tub2_c</p>
 </div>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_vs_tub3_c.png" alt="tub3_c" />
+<img src="images/rainer/shack1_vs_tub3_c.png" alt="tub3_c" />
 <p class="caption">tub3_c</p>
 </div>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_vs_tub4_c.png" alt="tub4_c" />
+<img src="images/rainer/shack1_vs_tub4_c.png" alt="tub4_c" />
 <p class="caption">tub4_c</p>
 </div>
 <pre><code>(donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/mycar$ 
@@ -390,7 +390,7 @@ donkey tubplot \
        --tub=/media/rainer/_data/20-data/M3-robocar_training/20190112-Shackspace/prepared/tub4_c \
        --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack2.h5 </code></pre>
 <div class="figure">
-<img src="https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_tub4c_vs_shack2-model.png" alt="tub4_cvs shack2" />
+<img src="images/rainer/shack1_tub4c_vs_shack2-model.png" alt="tub4_cvs shack2" />
 <p class="caption">tub4_cvs shack2</p>
 </div>
 </div>
@@ -400,7 +400,7 @@ donkey tubplot \
 # python evaluate.py --model /home/rainer/dev/25-donkey_3tk/mycar/models/tawn_shark_cl.h5 
 python evaluate.py --model /home/rainer/dev/25-donkey_3tk/mycar/models/shack1.h5 
 (donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/DonkeySimLinux$ ./donkey_sim.x86_64  </code></pre>
-<p><a href="https://youtu.be/LuXiSPAWJ_I"><img src="https://github.com/Heavy02011/50-donkey/blob/master/images/simulator_shack1.png" alt="Watch the video" /></a></p>
+<p><a href="https://youtu.be/LuXiSPAWJ_I"><img src="images/rainer/simulator_shack1.png" alt="Watch the video" /></a></p>
 </div>
 <div id="copy-model-to-pi" class="section level2">
 <h2><span class="header-section-number">11.10</span> Copy model to pi</h2>
@@ -438,7 +438,7 @@ python ppo_train.py --sim /home/rainer/dev/25-donkey_3tk/DonkeySimLinux/donkey_s
 
 python ppo_train.py --sim /home/rainer/dev/25-donkey_3tk/DonkeySimLinux/donkey_sim.x86_64 --env_name donkey-generated-roads-v0 --headless 1
 python ppo_train.py --sim /home/rainer/dev/25-donkey_3tk/DonkeySimLinux/donkey_sim.x86_64 --env_name donkey-generated-roads-v0 --headless 1 --multi</code></pre>
-<p><a href="https://youtu.be/RxJFzar_0l4"><img src="https://github.com/Heavy02011/50-donkey/blob/master/images/DataTawn.jpeg" alt="reinforcement" /></a></p>
+<p><a href="https://youtu.be/RxJFzar_0l4"><img src="images/rainer/DataTawn.jpeg" alt="reinforcement" /></a></p>
 <pre><code>(donkey_3tk) rainer@neuron:~/dev/25-donkey_3tk$ python donkey_gym/examples/supervised_learning/evaluate.py --model=siliconpi_neuron1_donkey2.h5
 using donkey v2.5.0t ...
 2019-01-15 18:42:56.116375: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA

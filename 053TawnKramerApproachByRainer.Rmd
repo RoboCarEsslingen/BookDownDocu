@@ -178,9 +178,12 @@ donkey tubclean 20190223-Shackspace/
 using donkey version: 2.5.7 ...
 Listening on 8886...
 ```
-![tubclean1](https://github.com/Heavy02011/50-donkey/blob/master/images/tubclean1.png)
-![tubclean2](https://github.com/Heavy02011/50-donkey/blob/master/images/tubclean2.png)
-![tubclean3](https://github.com/Heavy02011/50-donkey/blob/master/images/tubclean3.png)
+
+
+
+![tubclean1](images/rainer/tubclean1.png)
+![tubclean2](images/rainer/tubclean2.png)
+![tubclean3](images/rainer/tubclean3.png)
 
 ## Make movie 
 ```
@@ -199,7 +202,7 @@ donkey tubhist \
 --tub /media/rainer/_data/20-data/M3-robocar_training/20190112-Shackspace/prepared/*
 ```
 
-![tubhist_shack](https://github.com/Heavy02011/50-donkey/blob/master/images/tubhist_shack1_Data.png)
+![tubhist_shack](images/rainer/tubhist_shack1_Data.png)
 
 ```
 (donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk$ 
@@ -207,13 +210,13 @@ donkey tubhist \
 --tub /media/rainer/_data/20-data/M3-robocar_training/20190126-TawnKramer/combined_donkey_tub_data/* 
 ```
 
-![tubhist_tawn](https://github.com/Heavy02011/50-donkey/blob/master/images/tubhist_TawnKramar_Data.png)
+![tubhist_tawn](images/rainer/tubhist_TawnKramar_Data.png)
 
 ```
 (donkey_3tk4) rainer@neuron:/media/rainer/_data/20-data/M3-robocar_training/20190223-Shackspace$ 
 donkey tubhist --tub prepared/*
 ```
-![tubhist_tub_36_19-02-23](https://github.com/Heavy02011/50-donkey/blob/master/images/tubhist_tub_36_19-02-23.png)
+![tubhist_tub_36_19-02-23](images/rainer/tubhist_tub_36_19-02-23.png)
 
 
 ## Train Data
@@ -224,7 +227,7 @@ python manage.py train \
        --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack1.h5 
 ```
 
-![model loss for training shack1.h5](https://github.com/Heavy02011/50-donkey/blob/master/images/model_loss_shack1.png)
+![model loss for training shack1.h5](images/rainer/model_loss_shack1.png)
 
 ```
 (donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/mycar$ 
@@ -232,7 +235,7 @@ python train.py \
        --tub=/media/rainer/_data/20-data/M3-robocar_training/20190223-Shackspace/prepared/* \
        --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack2.h5
 ```
-![model loss for training shack2.h5](https://github.com/Heavy02011/50-donkey/blob/master/images/model_loss_shack2.png)
+![model loss for training shack2.h5](images/rainer/model_loss_shack2.png)
 
 Attention: What happened during training above? Hint, mind the accuracy of testing data.
 
@@ -244,11 +247,11 @@ donkey tubplot \
 --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack1.h5 
 ```
 
-![tub2_c](https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_vs_tub2_c.png)
+![tub2_c](images/rainer/shack1_vs_tub2_c.png)
 
-![tub3_c](https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_vs_tub3_c.png)
+![tub3_c](images/rainer/shack1_vs_tub3_c.png)
 
-![tub4_c](https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_vs_tub4_c.png)
+![tub4_c](images/rainer/shack1_vs_tub4_c.png)
 
 ```
 (donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/mycar$ 
@@ -256,7 +259,7 @@ donkey tubplot \
        --tub=/media/rainer/_data/20-data/M3-robocar_training/20190112-Shackspace/prepared/tub4_c \
        --model=/home/rainer/dev/25-donkey_3tk/mycar/models/shack2.h5 
 ```
-![tub4_cvs shack2](https://github.com/Heavy02011/50-donkey/blob/master/images/shack1_tub4c_vs_shack2-model.png)
+![tub4_cvs shack2](images/rainer/shack1_tub4c_vs_shack2-model.png)
 
 ## Run in simulator 
 ```
@@ -265,7 +268,7 @@ donkey tubplot \
 python evaluate.py --model /home/rainer/dev/25-donkey_3tk/mycar/models/shack1.h5 
 (donkey_3tk4) rainer@neuron:~/dev/25-donkey_3tk/DonkeySimLinux$ ./donkey_sim.x86_64  
 ```
-[![Watch the video](https://github.com/Heavy02011/50-donkey/blob/master/images/simulator_shack1.png)](https://youtu.be/LuXiSPAWJ_I)
+[![Watch the video](images/rainer/simulator_shack1.png)](https://youtu.be/LuXiSPAWJ_I)
 
 ## Copy model to pi 
 ```
@@ -312,7 +315,7 @@ remote browser: http://siliconpi2:3233
 	python ppo_train.py --sim /home/rainer/dev/25-donkey_3tk/DonkeySimLinux/donkey_sim.x86_64 --env_name donkey-generated-roads-v0 --headless 1
 	python ppo_train.py --sim /home/rainer/dev/25-donkey_3tk/DonkeySimLinux/donkey_sim.x86_64 --env_name donkey-generated-roads-v0 --headless 1 --multi
 
-[![reinforcement](https://github.com/Heavy02011/50-donkey/blob/master/images/DataTawn.jpeg)](https://youtu.be/RxJFzar_0l4)
+[![reinforcement](images/rainer/DataTawn.jpeg)](https://youtu.be/RxJFzar_0l4)
 
 
 
