@@ -95,7 +95,7 @@ Reinforcement Learning on a Small Racing Car](https://towardsdatascience.com/lea
 
 [LED on The Adafruit 16-Channel 12-bit PWM/Servo HAT](https://cdn-learn.adafruit.com/downloads/pdf/16-channel-pwm-servo-driver.pdf)
 
-
+[Mount a Raspberry Pi SD card on a Mac (read-only) with osxfuse and ext4fuse](https://www.jeffgeerling.com/blog/2017/mount-raspberry-pi-sd-card-on-mac-read-only-osxfuse-and-ext4fuse)
 
 
 
