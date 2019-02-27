@@ -44,7 +44,7 @@ network={
 
 network={ 
     ssid="shack" 
-    psk="welcome2shack" 
+    psk="xxxx" 
     id_str="shack" 
 } 
 ```
