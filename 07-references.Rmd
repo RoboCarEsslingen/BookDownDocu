@@ -5,6 +5,7 @@ Links I found useful at some point
 ## Donkey car
 Here are links to the donkey car project
 
+- [A great buying guide for RC-cars](http://docs.donkeycar.com/roll_your_own/) 
 - [Calibrate your car](http://docs.donkeycar.com/guide/calibrate/)
 - [Drive your car](http://docs.donkeycar.com/guide/get_driving/)
 - [Train an autopilot with Keras](http://docs.donkeycar.com/guide/train_autopilot/)
@@ -24,6 +25,7 @@ Another video by Tawn Kramer gives tips on how to drive during training
 
 ## Parts to build a RoboCar
 Links to hardware 
+
 
 [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)  
 

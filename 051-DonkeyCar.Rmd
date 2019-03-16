@@ -17,7 +17,7 @@ Selection criteria for RC car are:
 - ESC not integrated into remote controll receiver
 - 3 wire steering servo
 
-
+A great buying guide for RC-cars from the donkeycar project can be found at  http://docs.donkeycar.com/roll_your_own/
 
 I changed to [Reely Dart 2.0 Brushed](https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html)
 Tamiya-Buchse is the connector of the NiMH battery
@@ -71,12 +71,15 @@ library(knitr)
 include_graphics("images/DonkeyCarRewiringI.png")
 ```
 
-So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure \@ref(fig:closeUpPwmHat) 
+**WARNING, don't connect the red wire of the ESC to PWM Servo Hat, only the other two wires are needed between ESC to PWM Servo Hat**
+
+So there are only the PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure \@ref(fig:closeUpPwmHat) 
 
 ```{r closeUpPwmHat, fig.cap= "Close-up of PWM Servo Hat", echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE, dpi= 800}
 library(knitr)
 include_graphics("images/ServoHat.jpg", dpi = NA)
 ```
+
 
 
 You can elimnate the RC receiver altogether, see figure \@ref(fig:rewireSimple) 
@@ -86,6 +89,7 @@ library(knitr)
 include_graphics("images/RewiringSimple.png", dpi = NA)
 ```
 
+**WARNING, don't connect the red wire of the ESC to PWM Servo Hat, only the other two wires are needed between ESC to PWM Servo Hat**
 
 ### Parts list
 

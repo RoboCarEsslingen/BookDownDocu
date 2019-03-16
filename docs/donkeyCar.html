@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-02-27">
+<meta name="date" content="2019-03-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -305,6 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>ESC not integrated into remote controll receiver</li>
 <li>3 wire steering servo</li>
 </ul>
+<p>A great buying guide for RC-cars from the donkeycar project can be found at <a href="http://docs.donkeycar.com/roll_your_own/" class="uri">http://docs.donkeycar.com/roll_your_own/</a></p>
 <p>I changed to <a href="https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html">Reely Dart 2.0 Brushed</a> Tamiya-Buchse is the connector of the NiMH battery Charger is <a href="https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&amp;gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB">Voltcraft V-Charge Eco NiMh 3000</a></p>
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
 <img src="images/Donkey3DPrint.jpg" alt="Reely Dart 2.0 Brushed converted RoboCar" width="2016" />
@@ -362,7 +363,8 @@ Figure 7.1: Reely Dart 2.0 Brushed converted RoboCar
 Figure 7.2: Wiring diagram after rewiring car
 </p>
 </div>
-<p>So there are only two PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure <a href="donkeyCar.html#fig:closeUpPwmHat">7.3</a></p>
+<p><strong>WARNING, don’t connect the red wire of the ESC to PWM Servo Hat, only the other two wires are needed between ESC to PWM Servo Hat</strong></p>
+<p>So there are only the PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure <a href="donkeyCar.html#fig:closeUpPwmHat">7.3</a></p>
 <div class="figure"><span id="fig:closeUpPwmHat"></span>
 <img src="images/ServoHat.jpg" alt="Close-up of PWM Servo Hat"  />
 <p class="caption">
@@ -376,6 +378,7 @@ Figure 7.3: Close-up of PWM Servo Hat
 Figure 7.4: Rewiring without RC receiver
 </p>
 </div>
+<p><strong>WARNING, don’t connect the red wire of the ESC to PWM Servo Hat, only the other two wires are needed between ESC to PWM Servo Hat</strong></p>
 <div id="parts-list" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Parts list</h3>
 <p>The following list is what I used to build the car, this does not mean there are better and/or cheaper options available. In total the cost is about 250€.</p>

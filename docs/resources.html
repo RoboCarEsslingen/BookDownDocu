@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-02-27">
+<meta name="date" content="2019-03-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -522,11 +522,13 @@ GPIO.setup(GPIO_SERVO_PIN, GPIO.OUT)
 <p>code example</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> xbox
 joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span>
+
 <span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span>
     <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span>
 x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span>
 (x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span>
 trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span>
+
 joy.close()                   <span class="co">#Cleanup before exit</span></code></pre></div>
 <p><a href="https://github.com/FRC4564/Xbox" class="uri">https://github.com/FRC4564/Xbox</a></p>
 </div>
