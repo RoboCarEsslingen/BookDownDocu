@@ -501,6 +501,11 @@ If you want to know how many MB of data you collected already use the `su` coman
 232M	tub
 ```
 
+## Build pre processing pipe line
+
+To add a pre proccessing pipe line we need open cv. To intsall opencv on the raspberry
+`pip install opencv-python`
+
 # Donkey Command-line Utilities
 
 This chapter is copied from the [donkey car utility doc](https://github.com/autorope/donkeycar/blob/e23f8f1d2478a4d2132cd8b09e27faa00b393ff7/docs/utility/donkey.md)

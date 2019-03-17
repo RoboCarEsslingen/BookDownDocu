@@ -68,6 +68,7 @@ Here are links to instructions on how to get things done
 [HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT](http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ )
 
 
+
 ## Meetup in Stuttgart area
 
 
