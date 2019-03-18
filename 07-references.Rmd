@@ -100,5 +100,7 @@ Reinforcement Learning on a Small Racing Car](https://towardsdatascience.com/lea
 
 [Mount a Raspberry Pi SD card on a Mac (read-only) with osxfuse and ext4fuse](https://www.jeffgeerling.com/blog/2017/mount-raspberry-pi-sd-card-on-mac-read-only-osxfuse-and-ext4fuse)
 
+[Dimming LEDs with PWM/Servo HAT without the need of an restistor](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) at chapter "Python Wiring"
+
 
 
