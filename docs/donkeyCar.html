@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-03-18">
+<meta name="date" content="2019-03-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -199,7 +199,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>7.10.1</b> Archiving data</a></li>
 <li class="chapter" data-level="7.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>7.10.2</b> Delete data</a></li>
 <li class="chapter" data-level="7.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>7.10.3</b> Copy files from raspi to mac</a></li>
-<li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>7.10.4</b> How big is the tub folder</a></li>
+<li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-to-usb-drive"><i class="fa fa-check"></i><b>7.10.4</b> Copy files to USB drive</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>7.11</b> Build pre processing pipe line</a></li>
 </ul></li>
@@ -228,8 +228,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-drive"><i class="fa fa-check"></i><b>9.2.4</b> Function <code>drive</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>9.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
-<li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
+<li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
 <li class="chapter" data-level="9.5" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>9.5</b> Limit max velocity</a></li>
+<li class="chapter" data-level="9.6" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#add-led-to-indicate-recording-mode"><i class="fa fa-check"></i><b>9.6</b> Add led to indicate recording mode</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>9.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><i class="fa fa-check"></i><b>10</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
 <li class="chapter" data-level="10.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#environment"><i class="fa fa-check"></i><b>10.1</b> Environment</a></li>
@@ -716,11 +719,29 @@ rsync -r pi@192.168.178.67:~/mycar/tub/  ~/mycar/tub/</code></pre>
 <pre><code>10-42-27-27:CloudProjectsUnderWork uwesterr$ pwd
 /Users/uwesterr/CloudProjectsUnderWork </code></pre>
 </div>
-<div id="how-big-is-the-tub-folder" class="section level3">
-<h3><span class="header-section-number">7.10.4</span> How big is the tub folder</h3>
-<p>If you want to know how many MB of data you collected already use the <code>su</code> comand. More info on the <code>su</code> command <a href="https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line">here</a></p>
-<pre><code>(env) pi@donkeypi_uwe:~/mycar $ du -sh tub
-232M    tub</code></pre>
+<div id="copy-files-to-usb-drive" class="section level3">
+<h3><span class="header-section-number">7.10.4</span> Copy files to USB drive</h3>
+<p>TBD, not managed to get this to work Der Befehl</p>
+<pre class="usb-devices```"><code>zeigt eine ausführliche Übersicht der USB Geräte und Busse an. Diese Liste ist kompakter als die Liste die durch den Befehl lsusb -v erzeugt wird.
+
+
+according to http://www.netzmafia.de/skripten/hardware/RasPi/RasPi_Laufwerke.html
+
+Im Gegensatz zum Windows-Gefrickel mit Laufwerksbuchstaben, wird bei Linux eine Platte bzw. Plattenpartition (&quot;Dateisystem&quot; genannt) in ein beliebiges Unterverzeichnis eingehängt (&quot;mounted&quot;). Also legen Sie zuerst einen Ordner für die Platte oder den USB-Stick an (&quot;Mountpoint&quot; genannt). Per Konvention geschiet die meist im Verzeichnis /media - was in den folgenden Beispielen auch so gehandhabt wird. Zum Beispiel nenne ich den Ordner usbdisk. Der Name kann frei gewählt werden, sollte aber keine Sonder- oder Leerzeichen enthalten:
+</code></pre>
+<p>sudo mkdir /media/usbdisk</p>
+<pre><code>
+Bevor Sie den Stick oder die Platte anschließen, schalten Sie die Ausgabe des Systemlogs mit dem folgenden Kommando ein (&quot;-f&quot; sorgt dafür, dass alle weiteren Meldungen ausgegeben werden, ohne tail zu beenden):
+</code></pre>
+<p>(env) <a href="mailto:pi@donkeypi_uwe">pi@donkeypi_uwe</a>:/media $ tail -f /var/log/messages</p>
+<pre><code>Wenn Sie nun den USB-Stick oder die Platte anschließen, werden entsprechende Log-Einträge angezeigt, zum Beispiel:
+</code></pre>
+<p>tail: cannot open ‘–f’ for reading: No such file or directory ==&gt; /var/log/messages &lt;== Mar 22 17:20:46 donkeypi_uwe kernel: [ 278.505355] usb-storage 1-1.3:1.0: USB Mass Storage device detected Mar 22 17:20:46 donkeypi_uwe kernel: [ 278.505724] scsi host0: usb-storage 1-1.3:1.0 Mar 22 17:20:46 donkeypi_uwe mtp-probe: checking bus 1, device 5: “/sys/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3” Mar 22 17:20:46 donkeypi_uwe mtp-probe: bus: 1, device: 5 was not an MTP device Mar 22 17:20:47 donkeypi_uwe kernel: [ 279.602877] scsi 0:0:0:0: Direct-Access Kingston DataTraveler 3.0 PMAP PQ: 0 ANSI: 6 Mar 22 17:20:47 donkeypi_uwe kernel: [ 279.603908] sd 0:0:0:0: Attached scsi generic sg0 type 0 Mar 22 17:20:48 donkeypi_uwe kernel: [ 280.989507] sd 0:0:0:0: [sda] 61457664 512-byte logical blocks: (31.5 GB/29.3 GiB) Mar 22 17:20:48 donkeypi_uwe kernel: [ 280.989729] sd 0:0:0:0: [sda] Write Protect is off Mar 22 17:20:48 donkeypi_uwe kernel: [ 281.019596] sd 0:0:0:0: [sda] Attached SCSI removable disk Mar 22 17:20:50 donkeypi_uwe kernel: [ 282.873096] Voltage normalised (0x00000000)</p>
+<pre><code>
+
+### How big is the tub folder
+If you want to know how many MB of data you collected already use the `su` comand. More info on the `su` command [here](https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line)</code></pre>
+<p>(env) <a href="mailto:pi@donkeypi_uwe">pi@donkeypi_uwe</a>:~/mycar $ du -sh tub 232M tub ```</p>
 </div>
 </div>
 <div id="build-pre-processing-pipe-line" class="section level2">

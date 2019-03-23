@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-03-18">
+<meta name="date" content="2019-03-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -199,7 +199,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>7.10.1</b> Archiving data</a></li>
 <li class="chapter" data-level="7.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>7.10.2</b> Delete data</a></li>
 <li class="chapter" data-level="7.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>7.10.3</b> Copy files from raspi to mac</a></li>
-<li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>7.10.4</b> How big is the tub folder</a></li>
+<li class="chapter" data-level="7.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-to-usb-drive"><i class="fa fa-check"></i><b>7.10.4</b> Copy files to USB drive</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>7.11</b> Build pre processing pipe line</a></li>
 </ul></li>
@@ -228,8 +228,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#function-drive"><i class="fa fa-check"></i><b>9.2.4</b> Function <code>drive</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>9.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
-<li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#assignment-of-wiiu-controller-sticks-to-action"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
+<li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
 <li class="chapter" data-level="9.5" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>9.5</b> Limit max velocity</a></li>
+<li class="chapter" data-level="9.6" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#add-led-to-indicate-recording-mode"><i class="fa fa-check"></i><b>9.6</b> Add led to indicate recording mode</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>9.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><i class="fa fa-check"></i><b>10</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
 <li class="chapter" data-level="10.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#environment"><i class="fa fa-check"></i><b>10.1</b> Environment</a></li>
@@ -521,7 +524,7 @@ Options:
 <h3><span class="header-section-number">9.2.4</span> Function <code>drive</code></h3>
 <p>Construct a working robotic vehicle from many parts. Each part runs as a job in the Vehicle loop, calling either it’s <strong>run</strong> or <strong>run_threaded</strong> method depending on the constructor flag <code>threaded</code>. All parts are updated one after another at the framerate given in cfg.DRIVE_LOOP_HZ assuming each part finishes processing in a timely manner.</p>
 <p>Parts may have named outputs and inputs. The framework handles passing named outputs to parts requesting the same named input.</p>
-<div id="lambda-class" class="section level4">
+<div id="LambdaClass" class="section level4">
 <h4><span class="header-section-number">9.2.4.1</span> Lambda class</h4>
 <p>Lambda wraps a function into a donkey part, i.e. it will be called for every update loop.</p>
 <pre><code>class Lambda:
@@ -588,7 +591,7 @@ config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templ
 <p>which are the same files and folders which are located at the <a href="https://github.com/autorope/donkeycar/tree/dev/donkeycar">official GitHub page of DonkeyCar project</a></p>
 <p>The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section <a href="donkeyCar.html#BluetoothControllerInstall">7.7.1</a></p>
 </div>
-<div id="assignment-of-wiiu-controller-sticks-to-action" class="section level2">
+<div id="AssignStickToAction" class="section level2">
 <h2><span class="header-section-number">9.4</span> Assignment of WiiU controller sticks to action</h2>
 <p>The mapping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
 <pre><code>
@@ -654,7 +657,37 @@ joystic_max_value: 1280</code></pre>
                            min_pulse= 380) #  cfg.THROTTLE_REVERSE_PWM) Limit reverse speed</code></pre>
 <p>Or you can set in <code>config.py</code> the variable <strong>THROTTLE_FORWARD_PWM</strong> which defines the max throttle value to a value which gives you a low enough speed to master the track.</p>
 <pre><code>THROTTLE_FORWARD_PWM = 413</code></pre>
+</div>
+<div id="add-led-to-indicate-recording-mode" class="section level2">
+<h2><span class="header-section-number">9.6</span> Add led to indicate recording mode</h2>
+<p>Recording of images can be activated pressing button “B” on the wii controller. Assignment of buttons to actions can be found at <a href="donkeycar-software-analysis.html#AssignStickToAction">9.4</a>.</p>
+<p>To indicate if recording is acitve a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class <a href="donkeycar-software-analysis.html#LambdaClass">9.2.4.1</a>. Channel 0 and 1 are already taken, channel 3 is available. So the LED controller channel can be set by</p>
+<pre><code>Led_controller = PCA9685(3)</code></pre>
+<p>The function and wrapping it by the lambda class is below</p>
+<pre><code>
+    # Switch LED depending on recording video or not.
+    def led_switch(recording):
+        Led_controller.set_pulse(4095*recording)
+        
+        return 
 
+    led_switch_part = Lambda(led_switch)
+    V.add(led_switch_part,
+          inputs=[&#39;recording&#39;],
+          outputs=[])</code></pre>
+<div id="wiring-of-led-to-pwmservo-hat" class="section level3">
+<h3><span class="header-section-number">9.6.1</span> Wiring of LED to PWM/Servo HAT</h3>
+<p>How to wire the LED to the PWM/Servo hat is shown in <a href="donkeyCar.html#fig:wiringDiagram">7.2</a></p>
+<div class="figure"><span id="fig:LedPwmWiring"></span>
+<img src="images/LedPwmWiring.png" alt="Wiring diagram of LED to PWM/Servo hat" width="776" />
+<p class="caption">
+Figure 9.2: Wiring diagram of LED to PWM/Servo hat
+</p>
+</div>
+<p>Note: you don’t need to use a resistor to limit current through the LED as the HAT and Bonnet will limit the current to around 10mA.</p>
+<p>More details on how to connect the LED are given in (<a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf" class="uri">https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf</a>) at chapter “Python Wiring”</p>
+
+</div>
 </div>
 </div>
             </section>

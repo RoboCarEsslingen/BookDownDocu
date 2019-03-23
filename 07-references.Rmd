@@ -102,5 +102,6 @@ Reinforcement Learning on a Small Racing Car](https://towardsdatascience.com/lea
 
 [Dimming LEDs with PWM/Servo HAT without the need of an restistor](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) at chapter "Python Wiring"
 
-
-
+cross reference headings in bookdown
+{#AssignStickToAction}
+\@ref(AssignStickToAction)

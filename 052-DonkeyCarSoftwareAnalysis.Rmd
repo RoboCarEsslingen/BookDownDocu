@@ -262,7 +262,7 @@ Construct a working robotic vehicle from many parts. Each part runs as a job in 
 Parts may have named outputs and inputs. The framework handles passing named outputs to parts requesting the same named input.
 
 
-#### Lambda class
+#### Lambda class {#LambdaClass}
 
 Lambda wraps a function into a donkey part, i.e. it will be called for every update loop.  
 ```
@@ -355,7 +355,7 @@ which are the same files and folders which are located at the [official GitHub p
 
 The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section \@ref(BluetoothControllerInstall)
 
-## Assignment of WiiU controller sticks to action
+## Assignment of WiiU controller sticks to action {#AssignStickToAction}
 
 The mapping from button codes to button names is defined in ```donkeypart_bluetooth_game_controller/wiiu_config.yml```
 
@@ -444,3 +444,41 @@ Or you can set in ```config.py``` the variable **THROTTLE_FORWARD_PWM** which de
 ```
 THROTTLE_FORWARD_PWM = 413
 ```
+
+
+## Add led to indicate recording mode
+Recording of images can be activated pressing button "B" on the wii controller. Assignment of buttons to actions can be found at \@ref(AssignStickToAction).
+
+To indicate if recording is acitve a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class \@ref(LambdaClass). 
+Channel 0 and 1 are already taken, channel 3 is available. So the LED controller channel can be set by
+```
+Led_controller = PCA9685(3)
+```
+The function and wrapping it by the lambda class is below
+```
+
+    # Switch LED depending on recording video or not.
+    def led_switch(recording):
+        Led_controller.set_pulse(4095*recording)
+        
+        return 
+
+    led_switch_part = Lambda(led_switch)
+    V.add(led_switch_part,
+          inputs=['recording'],
+          outputs=[])
+```
+
+### Wiring of LED to PWM/Servo HAT
+
+How to wire the LED to the PWM/Servo hat is shown in \@ref(fig:wiringDiagram)
+
+
+```{r LedPwmWiring, fig.cap= "Wiring diagram of LED to PWM/Servo hat", echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+library(knitr)
+include_graphics("images/LedPwmWiring.png")
+```
+
+Note: you don't need to use a resistor to limit current through the LED as the HAT and Bonnet will limit the current to around 10mA.
+
+More details on how to connect the LED are given in (https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) at chapter "Python Wiring"
