@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-03-23">
+<meta name="date" content="2019-04-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -230,9 +230,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>9.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
 <li class="chapter" data-level="9.5" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>9.5</b> Limit max velocity</a></li>
-<li class="chapter" data-level="9.6" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#add-led-to-indicate-recording-mode"><i class="fa fa-check"></i><b>9.6</b> Add led to indicate recording mode</a><ul>
+<li class="chapter" data-level="9.6" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>9.6</b> Add led to indicate recording mode</a><ul>
 <li class="chapter" data-level="9.6.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>9.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
 </ul></li>
+<li class="chapter" data-level="9.7" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#change-default-recording-status-to-false"><i class="fa fa-check"></i><b>9.7</b> Change default recording status to false</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><i class="fa fa-check"></i><b>10</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
 <li class="chapter" data-level="10.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#environment"><i class="fa fa-check"></i><b>10.1</b> Environment</a></li>
@@ -658,7 +659,7 @@ joystic_max_value: 1280</code></pre>
 <p>Or you can set in <code>config.py</code> the variable <strong>THROTTLE_FORWARD_PWM</strong> which defines the max throttle value to a value which gives you a low enough speed to master the track.</p>
 <pre><code>THROTTLE_FORWARD_PWM = 413</code></pre>
 </div>
-<div id="add-led-to-indicate-recording-mode" class="section level2">
+<div id="LedIndicatingRecordingMode" class="section level2">
 <h2><span class="header-section-number">9.6</span> Add led to indicate recording mode</h2>
 <p>Recording of images can be activated pressing button “B” on the wii controller. Assignment of buttons to actions can be found at <a href="donkeycar-software-analysis.html#AssignStickToAction">9.4</a>.</p>
 <p>To indicate if recording is acitve a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class <a href="donkeycar-software-analysis.html#LambdaClass">9.2.4.1</a>. Channel 0 and 1 are already taken, channel 3 is available. So the LED controller channel can be set by</p>
@@ -685,9 +686,21 @@ Figure 9.2: Wiring diagram of LED to PWM/Servo hat
 </p>
 </div>
 <p>Note: you don’t need to use a resistor to limit current through the LED as the HAT and Bonnet will limit the current to around 10mA.</p>
-<p>More details on how to connect the LED are given in (<a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf" class="uri">https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf</a>) at chapter “Python Wiring”</p>
-
+<p>More details on how to connect the LED are given in (<a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf" class="uri">https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf</a>) in chapter “Python Wiring”</p>
 </div>
+</div>
+<div id="change-default-recording-status-to-false" class="section level2">
+<h2><span class="header-section-number">9.7</span> Change default recording status to false</h2>
+<p>To avoid unnecessary images in the tub folder the default <code>recording</code> status is set to <code>false</code>by changing in the file</p>
+<pre><code>~/donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller/part.py </code></pre>
+<p>using the editor nano</p>
+<pre><code> nano part.py</code></pre>
+<p>the line</p>
+<pre><code>        self.recording_toggle = cycle([True, False])</code></pre>
+<p>to</p>
+<pre><code>        self.recording_toggle = cycle([False, True])</code></pre>
+<p>so the cycle starts with <code>False</code> and can be toggled by pressing the button <strong>B</strong> on the WiiU controller. How to indicate the recording mode with an LED is described in <a href="donkeycar-software-analysis.html#LedIndicatingRecordingMode">9.6</a></p>
+
 </div>
 </div>
             </section>

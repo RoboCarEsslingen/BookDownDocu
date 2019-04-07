@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-03-23">
+<meta name="date" content="2019-04-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -230,9 +230,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.3" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>9.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="9.4" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>9.4</b> Assignment of WiiU controller sticks to action</a></li>
 <li class="chapter" data-level="9.5" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#setMaxVel"><i class="fa fa-check"></i><b>9.5</b> Limit max velocity</a></li>
-<li class="chapter" data-level="9.6" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#add-led-to-indicate-recording-mode"><i class="fa fa-check"></i><b>9.6</b> Add led to indicate recording mode</a><ul>
+<li class="chapter" data-level="9.6" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>9.6</b> Add led to indicate recording mode</a><ul>
 <li class="chapter" data-level="9.6.1" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>9.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
 </ul></li>
+<li class="chapter" data-level="9.7" data-path="donkeycar-software-analysis.html"><a href="donkeycar-software-analysis.html#change-default-recording-status-to-false"><i class="fa fa-check"></i><b>9.7</b> Change default recording status to false</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><i class="fa fa-check"></i><b>10</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
 <li class="chapter" data-level="10.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#environment"><i class="fa fa-check"></i><b>10.1</b> Environment</a></li>
@@ -337,7 +338,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.4</span> Clean data in Tub</h2>
 <p>Opens a web server to delete bad data from a tub.</p>
 <p>Usage:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">donkey</span> tubclean <span class="op">&lt;</span>folder containing tubs<span class="op">&gt;</span></code></pre></div>
+<pre><code>donkey tubclean &lt;folder containing tubs&gt;</code></pre>
 <ul>
 <li>Run on pi or host computer.</li>
 <li>Opens the web server to delete bad data.</li>
@@ -360,7 +361,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.6</span> Check Tub</h2>
 <p>This command allows you to see how many records are contained in any/all tubs. It will also open each record and ensure that the data is readable and intact. If not, it will allow you to remove corrupt records.</p>
 <p>Usage:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">donkey</span> tubcheck <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> [--fix]</code></pre></div>
+<pre><code>donkey tubcheck &lt;tub_path&gt; [--fix]</code></pre>
 <ul>
 <li>Run on the host computer or the robot</li>
 <li>It will print summary of record count and channels recorded for each tub</li>

@@ -67,7 +67,9 @@ Here are links to instructions on how to get things done
 
 [HOW TO TETHER RASPBERRY PI TO ANDROID DEVICE HOTSPOT](http://onlineshouter.com/how-to-tether-raspberry-pi-to-android-device-hotspot/ )
 
+[File Sharing From a Mac to Your Raspberry Pi](https://www.dexterindustries.com/howto/how-to-transfer-files-to-your-raspberry-pi-from-a-mac/)
 
+[SFTP on Raspbery](https://www.raspberrypi.org/documentation/remote-access/ssh/sftp.md)
 
 ## Meetup in Stuttgart area
 
@@ -100,8 +102,8 @@ Reinforcement Learning on a Small Racing Car](https://towardsdatascience.com/lea
 
 [Mount a Raspberry Pi SD card on a Mac (read-only) with osxfuse and ext4fuse](https://www.jeffgeerling.com/blog/2017/mount-raspberry-pi-sd-card-on-mac-read-only-osxfuse-and-ext4fuse)
 
-[Dimming LEDs with PWM/Servo HAT without the need of an restistor](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) at chapter "Python Wiring"
+[Dimming LEDs with PWM/Servo HAT without the need of an restistor](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) in chapter "Python Wiring"
 
 cross reference headings in bookdown
 {#AssignStickToAction}
-\@ref(AssignStickToAction)
+"\@ref(AssignStickToAction)"

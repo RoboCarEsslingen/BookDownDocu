@@ -446,7 +446,7 @@ THROTTLE_FORWARD_PWM = 413
 ```
 
 
-## Add led to indicate recording mode
+## Add led to indicate recording mode {#LedIndicatingRecordingMode}
 Recording of images can be activated pressing button "B" on the wii controller. Assignment of buttons to actions can be found at \@ref(AssignStickToAction).
 
 To indicate if recording is acitve a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class \@ref(LambdaClass). 
@@ -481,4 +481,34 @@ include_graphics("images/LedPwmWiring.png")
 
 Note: you don't need to use a resistor to limit current through the LED as the HAT and Bonnet will limit the current to around 10mA.
 
-More details on how to connect the LED are given in (https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) at chapter "Python Wiring"
+More details on how to connect the LED are given in (https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf) in chapter "Python Wiring"
+
+
+## Change default recording status to false
+
+To avoid unnecessary images in the tub folder the default `recording` status is set to `false`by changing in the file
+
+```
+~/donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller/part.py 
+```
+using the editor nano
+
+```
+ nano part.py
+```
+
+the line
+
+
+```        
+        self.recording_toggle = cycle([True, False])
+```
+
+to
+
+
+```
+        self.recording_toggle = cycle([False, True])
+```
+
+so the cycle starts with `False` and can be toggled by pressing the button **B** on the WiiU controller. How to indicate the recording mode with an LED is described in \@ref(LedIndicatingRecordingMode)     

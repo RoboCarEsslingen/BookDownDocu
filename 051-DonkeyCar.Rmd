@@ -377,6 +377,7 @@ To create a movie from the gathered data
 ```
 donkey makemovie <tub_path> [--out=<tub_movie.mp4>]
 # for example create movie tubMovie.mp4 from data located at tub
+source activate donkey
 donkey makemovie --tub tub --out tubMovie.mp4   
 ```
 More details at http://docs.donkeycar.com/utility/donkey/#make-movie-from-tub
@@ -601,7 +602,7 @@ donkey calibrate --channel <0-15 channel id>
 Opens a web server to delete bad data from a tub.
 
 Usage:
-```bash
+```
 donkey tubclean <folder containing tubs>
 ```
 
@@ -631,7 +632,7 @@ donkey makemovie <tub_path> [--out=<tub_movie.mp4>] [--config=<config.py>]
 This command allows you to see how many records are contained in any/all tubs. It will also open each record and ensure that the data is readable and intact. If not, it will allow you to remove corrupt records.
 
 Usage:
-```bash
+```
 donkey tubcheck <tub_path> [--fix]
 ```
 
