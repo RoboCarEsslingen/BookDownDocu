@@ -446,7 +446,7 @@ THROTTLE_FORWARD_PWM = 413
 ```
 
 
-## Add led to indicate recording mode {#LedIndicatingRecordingMode}
+## Add LED to indicate recording mode {#LedIndicatingRecordingMode}
 Recording of images can be activated pressing button "B" on the wii controller. Assignment of buttons to actions can be found at \@ref(AssignStickToAction).
 
 To indicate if recording is acitve a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class \@ref(LambdaClass). 
@@ -471,7 +471,7 @@ The function and wrapping it by the lambda class is below
 
 ### Wiring of LED to PWM/Servo HAT
 
-How to wire the LED to the PWM/Servo hat is shown in \@ref(fig:wiringDiagram)
+How to wire the LED to the PWM/Servo hat is shown in \@ref(fig:LedPwmWiring)
 
 
 ```{r LedPwmWiring, fig.cap= "Wiring diagram of LED to PWM/Servo hat", echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
