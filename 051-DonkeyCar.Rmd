@@ -1,4 +1,4 @@
-# Building a donkeycar {#donkeyCar}
+# Building and operate a donkeycar {#donkeyCar}
 
 In December 2018 I switched from sunfounder to donkeycar 
 [Donkey Car](http://www.donkeycar.com "Donkey Car's Homepage")
@@ -507,9 +507,48 @@ If you want to know how many MB of data you collected already use the `su` comma
 232M	tub
 ```
 
-## Build pre processing pipe line
+## Train neural network
 
+A description is given in the [donkeycar documentation](http://docs.donkeycar.com/guide/train_autopilot/)
+Below an example for the case that all training data are located in a single folder named `tub`.
+
+To train a neural network: 
+
+- change to directory where tub is located 
+- activate donkey environment `source activate donkey`
+
+run 
+
+```
+(donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot
+```
+
+this leads to
+
+```
+(donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot
+using donkey version: 2.5.7 ...
+loading config file: /Users/uwesterr/mycar/config.py
+config loaded
+tub_names tub
+train: 4497, validation: 1125
+steps_per_epoch 35
+Epoch 1/100
+2019-04-12 16:14:59.549618: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+34/35 [============================>.] - ETA: 0s - loss: 15.0006 - angle_out_loss: 12.5454 - throttle_out_loss: 17.4558    
+Epoch 00001: val_loss improved from inf to 0.37914, saving model to ./models/mypilot
+35/35 [==============================] - 29s 815ms/step - loss: 14.5843 - angle_out_loss: 12.2074 - throttle_out_loss: 16.9612 - val_loss: 0.3791 - val_angle_out_loss: 0.5718 - val_throttle_out_loss: 0.1865
+Epoch 2/100
+34/35 [============================>.] - ETA: 0s - loss: 0.3353 - angle_out_loss: 0.5307 - throttle_out_loss: 0.1398 
+Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models/mypilot
+35/35 [==============================] - 31s 874ms/step - loss: 0.3338 - angle_out_loss: 0.5289 - throttle_out_loss: 0.1387 - val_loss: 0.2920 - val_angle_out_loss: 0.4629 - val_throttle_out_loss: 0.1212
+```
+
+
+## Build pre processing pipe line
+First step is to install openCV on the raspi so that the images recorded by the camera can be processed before they are stored.
 
 ### Install openCV on the raspi
 To add a pre-processing pipe line we need openCV. To intsall opencv on the raspberry
 `pip install opencv-python`
+
