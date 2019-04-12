@@ -2,6 +2,14 @@
 
 Donkeycar needs to communicate to other devices for several purposes using different connections. In this chapter the purpose and the setting up of the  wireless connections of the donkeycar, i.e. Raspberry Pi are described.
 
+An overview of the necessary connection are shown in figure \@ref(fig:connectOverview) 
+
+```{r connectOverview, fig.cap= "Setting up wifi hotspot on Android phone (Pixel 2)", echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, paged.print=FALSE, eval=TRUE}
+library(knitr)
+include_graphics("images/ConnectionOverview.png")
+```
+
+
 ## Purpose of connections
 
 The connections serve different needs which are as follows:

@@ -309,6 +309,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="Conncectivity" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Wireless connections Raspi, Controller, Mac</h1>
 <p>Donkeycar needs to communicate to other devices for several purposes using different connections. In this chapter the purpose and the setting up of the wireless connections of the donkeycar, i.e. Raspberry Pi are described.</p>
+<p>An overview of the necessary connection are shown in figure <a href="Conncectivity.html#fig:connectOverview">3.1</a></p>
+<div class="figure"><span id="fig:connectOverview"></span>
+<img src="images/ConnectionOverview.png" alt="Setting up wifi hotspot on Android phone (Pixel 2)" width="668" />
+<p class="caption">
+Figure 3.1: Setting up wifi hotspot on Android phone (Pixel 2)
+</p>
+</div>
 <div id="purpose-of-connections" class="section level2">
 <h2><span class="header-section-number">3.1</span> Purpose of connections</h2>
 <p>The connections serve different needs which are as follows:</p>
@@ -362,18 +369,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="setting-up-wifi-hotspot-android-phone" class="section level4">
 <h4><span class="header-section-number">3.2.2.2</span> Setting up wifi hotspot (Android phone)</h4>
-<p>Using a mobil phone as wifi hotspot enables independent operation of the donkeycar. In figure <a href="Conncectivity.html#fig:WifiHotspot">3.1</a> a screen shot of the wifi hotspot menu is shown.</p>
+<p>Using a mobil phone as wifi hotspot enables independent operation of the donkeycar. In figure <a href="Conncectivity.html#fig:WifiHotspot">3.2</a> a screen shot of the wifi hotspot menu is shown.</p>
 <div class="figure"><span id="fig:WifiHotspot"></span>
 <img src="images/WlanHotspot.png" alt="Setting up wifi hotspot on Android phone (Pixel 2)" width="276" />
 <p class="caption">
-Figure 3.1: Setting up wifi hotspot on Android phone (Pixel 2)
+Figure 3.2: Setting up wifi hotspot on Android phone (Pixel 2)
 </p>
 </div>
 <p>The Raspberry Pi IP-adress can be found using a app called <a href="https://play.google.com/store/apps/details?id=net.techet.netanalyzerlite.an&amp;hl=en">Network Analyzer</a></p>
 <div class="figure"><span id="fig:LanScan"></span>
 <img src="images/LanScanReduced.png" alt="Network Analyzer LAN scanning result" width="370" />
 <p class="caption">
-Figure 3.2: Network Analyzer LAN scanning result
+Figure 3.3: Network Analyzer LAN scanning result
 </p>
 </div>
 <p>Now the Raspberry Pi can be reached from the Mac using the IP-adress <code>192.168.43.75</code>. In a terminal on the Mac ssh connection and file transfers can be done.</p>
