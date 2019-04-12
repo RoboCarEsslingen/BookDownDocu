@@ -1,0 +1,42 @@
+--- 
+title: "RoboCar project documentation"
+author: "Uwe Sterr"
+date: "`r Sys.Date()`"
+bibliography:
+- book.bib
+- packages.bib
+description: Notes taken by Uwe for the RoboCar project
+documentclass: book
+
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# Project RoboCar
+
+We want to build autonomous driving model cars which can master a course without any human intervention
+
+The project was started during one of those cold dark winter evenings on 8th of February 2018 by
+
+- Elias, who carried this idea with him for quite some time already
+- Andreas, who as far as I can tell is interested in just about everything
+- Finn, who probably never thought about this idea before that day but was immediately enthusiastic 
+- Uwe, who was infected with the idea by Elias in autumn 2017
+
+We decided then and there to build autonomous robotic cars probably with Raspberry Pi, but open for all possible concepts. Later in 2018 we decided to work with the [donkeycar framework](http://www.donkeycar.com).
+
+## How to join us
+
+We organize our meetings via the meetup group https://www.meetup.com/Esslingen-Makerspace/, you are welcome to join in, register as a member of that meetup group and you will receive invitations to our meetings.
+
+## FAQ
+Frequent questions are addressed in this document:
+
+- Selection of RC car => chapter \@ref(carSelection)
+-	Wiring of donkeycar => chapter \@ref(carWiring)
+- DonkeyCar software analysis \@ref(donkeyCarSoftwareAnalysis)
+- Connect donkeycar to WiFi and Bluetooth => chapter \@ref(Conncectivity)
+- Useful links => chapter \@ref(UsefulLinks)
+
+For inspiration you can check the https://www.hs-esslingen.de/hochschule/aktuelles/news/artikel/news/ganz-vorne-mit-dabei/ 
