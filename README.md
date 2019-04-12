@@ -7,4 +7,4 @@ The documentation contains
 - Link collection
 - DonkeyCar software analysis
 
-The files here are .rmd files which are rendered to html by the bookdown package of R. The bookdown document is placed at https://robocaresslingen.github.io/BookDownDocu/
+The files here are .rmd files which are rendered to html by the bookdown package of R. The bookdown document is hosted at https://robocaresslingen.github.io/BookDownDocu/
