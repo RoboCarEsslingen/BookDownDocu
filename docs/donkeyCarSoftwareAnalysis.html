@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 5 Donkeycar software analysis | RoboCar project documentation</title>
+  <meta name="description" content="Notes taken by Uwe for the RoboCar project">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 5 Donkeycar software analysis | RoboCar project documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Notes taken by Uwe for the RoboCar project" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Donkeycar software analysis | RoboCar project documentation" />
+  
+  <meta name="twitter:description" content="Notes taken by Uwe for the RoboCar project" />
+  
+
+<meta name="author" content="Uwe Sterr">
+
+
+<meta name="date" content="2019-04-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="donkey-command-line-utilities.html">
+<link rel="next" href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">RoboCar project documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project RoboCar</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-to-join-us"><i class="fa fa-check"></i><b>1.1</b> How to join us</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.2</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>2</b> Building a donkeycar</a><ul>
+<li class="chapter" data-level="2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changing-the-plattform"><i class="fa fa-check"></i><b>2.1</b> Reason for changing the plattform</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="donkeyCar.html"><a href="donkeyCar.html#carSelection"><i class="fa fa-check"></i><b>2.1.1</b> Selecting a RC car</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="donkeyCar.html"><a href="donkeyCar.html#what-to-do"><i class="fa fa-check"></i><b>2.2</b> What to do</a></li>
+<li class="chapter" data-level="2.3" data-path="donkeyCar.html"><a href="donkeyCar.html#carWiring"><i class="fa fa-check"></i><b>2.3</b> Rewiring the car</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="donkeyCar.html"><a href="donkeyCar.html#parts-list"><i class="fa fa-check"></i><b>2.3.1</b> Parts list</a></li>
+<li class="chapter" data-level="2.3.2" data-path="donkeyCar.html"><a href="donkeyCar.html#why-not-using-pca9685"><i class="fa fa-check"></i><b>2.3.2</b> Why not using PCA9685</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="donkeyCar.html"><a href="donkeyCar.html#folders-created-during-installation-of-host-pc"><i class="fa fa-check"></i><b>2.4</b> Folders created during installation of host PC</a></li>
+<li class="chapter" data-level="2.5" data-path="donkeyCar.html"><a href="donkeyCar.html#calibrate-the-car"><i class="fa fa-check"></i><b>2.5</b> Calibrate the car</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="donkeyCar.html"><a href="donkeyCar.html#setting-wifi-up-for-the-raspberry"><i class="fa fa-check"></i><b>2.5.1</b> Setting WIFI up for the raspberry</a></li>
+<li class="chapter" data-level="2.5.2" data-path="donkeyCar.html"><a href="donkeyCar.html#steering-calibration"><i class="fa fa-check"></i><b>2.5.2</b> Steering Calibration</a></li>
+<li class="chapter" data-level="2.5.3" data-path="donkeyCar.html"><a href="donkeyCar.html#throttle-calibration"><i class="fa fa-check"></i><b>2.5.3</b> Throttle Calibration</a></li>
+<li class="chapter" data-level="2.5.4" data-path="donkeyCar.html"><a href="donkeyCar.html#configpyAfterCalib"><i class="fa fa-check"></i><b>2.5.4</b> Config.py after calibration</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="donkeyCar.html"><a href="donkeyCar.html#drive-your-car-with-web-interface"><i class="fa fa-check"></i><b>2.6</b> Drive your car with web interface</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-mac"><i class="fa fa-check"></i><b>2.6.1</b> Preparation on Mac</a></li>
+<li class="chapter" data-level="2.6.2" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-raspberry"><i class="fa fa-check"></i><b>2.6.2</b> Preparation on Raspberry</a></li>
+<li class="chapter" data-level="2.6.3" data-path="donkeyCar.html"><a href="donkeyCar.html#open-control-in-web-browser-on-mac"><i class="fa fa-check"></i><b>2.6.3</b> Open control in web browser on Mac</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>2.7</b> Connecting bluetooth controller</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#BluetoothControllerInstall"><i class="fa fa-check"></i><b>2.7.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>2.8</b> Start driving or training</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="donkeyCar.html"><a href="donkeyCar.html#create-movie-from-tub-data"><i class="fa fa-check"></i><b>2.8.1</b> Create movie from tub data</a></li>
+<li class="chapter" data-level="2.8.2" data-path="donkeyCar.html"><a href="donkeyCar.html#options-of-manage.py"><i class="fa fa-check"></i><b>2.8.2</b> Options of manage.py</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="donkeyCar.html"><a href="donkeyCar.html#tips-on-how-to-drive-during-training"><i class="fa fa-check"></i><b>2.9</b> Tips on how to drive during training</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="donkeyCar.html"><a href="donkeyCar.html#how-to-edit-recorded-data"><i class="fa fa-check"></i><b>2.9.1</b> How to edit recorded data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>2.10</b> Mange recorded data</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>2.10.1</b> Archiving data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>2.10.2</b> Delete data</a></li>
+<li class="chapter" data-level="2.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>2.10.3</b> Copy files from raspi to mac</a></li>
+<li class="chapter" data-level="2.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>2.10.4</b> How big is the tub folder</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.11</b> Build pre processing pipe line</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="donkeyCar.html"><a href="donkeyCar.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.11.1</b> Install openCV on the raspi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a><ul>
+<li class="chapter" data-level="3.1" data-path="Conncectivity.html"><a href="Conncectivity.html#purpose-of-connections"><i class="fa fa-check"></i><b>3.1</b> Purpose of connections</a></li>
+<li class="chapter" data-level="3.2" data-path="Conncectivity.html"><a href="Conncectivity.html#setting-up-of-the-wireless-connections"><i class="fa fa-check"></i><b>3.2</b> Setting up of the wireless connections</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="Conncectivity.html"><a href="Conncectivity.html#bluetooth-connection"><i class="fa fa-check"></i><b>3.2.1</b> Bluetooth connection</a></li>
+<li class="chapter" data-level="3.2.2" data-path="Conncectivity.html"><a href="Conncectivity.html#wifi-connection"><i class="fa fa-check"></i><b>3.2.2</b> Wifi connection</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>4</b> Donkey Command-line Utilities</a><ul>
+<li class="chapter" data-level="4.1" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#create-car"><i class="fa fa-check"></i><b>4.1</b> Create Car</a></li>
+<li class="chapter" data-level="4.2" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#find-car"><i class="fa fa-check"></i><b>4.2</b> Find Car</a></li>
+<li class="chapter" data-level="4.3" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#calibrate-car"><i class="fa fa-check"></i><b>4.3</b> Calibrate Car</a></li>
+<li class="chapter" data-level="4.4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#clean-data-in-tub"><i class="fa fa-check"></i><b>4.4</b> Clean data in Tub</a></li>
+<li class="chapter" data-level="4.5" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#make-movie-from-tub"><i class="fa fa-check"></i><b>4.5</b> Make Movie from Tub</a></li>
+<li class="chapter" data-level="4.6" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#tubclean"><i class="fa fa-check"></i><b>4.6</b> Check Tub</a></li>
+<li class="chapter" data-level="4.7" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#histogram"><i class="fa fa-check"></i><b>4.7</b> Histogram</a></li>
+<li class="chapter" data-level="4.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>4.8</b> Plot Predictions</a></li>
+<li class="chapter" data-level="4.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>4.9</b> Simulation Server</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.start"><i class="fa fa-check"></i><b>5.1.1</b> Function V.start()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.update_parts"><i class="fa fa-check"></i><b>5.1.2</b> Function V.update_parts()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.add"><i class="fa fa-check"></i><b>5.1.3</b> Function V.add</a></li>
+<li class="chapter" data-level="5.1.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#threadedParts"><i class="fa fa-check"></i><b>5.1.4</b> Concept of threads vs non-threaded parts</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>5.2</b> Structure of <code>manage.py</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#creating-manage.py"><i class="fa fa-check"></i><b>5.2.1</b> Creating <code>manage.py</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#starting-manage.py"><i class="fa fa-check"></i><b>5.2.2</b> Starting <code>manage.py</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#parsing-the-command-line-parameters"><i class="fa fa-check"></i><b>5.2.3</b> Parsing the command line parameters</a></li>
+<li class="chapter" data-level="5.2.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-drive"><i class="fa fa-check"></i><b>5.2.4</b> Function <code>drive</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>5.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
+<li class="chapter" data-level="5.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>5.4</b> Assignment of WiiU controller sticks to action</a></li>
+<li class="chapter" data-level="5.5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.5</b> Limit max velocity</a></li>
+<li class="chapter" data-level="5.6" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>5.6</b> Add LED to indicate recording mode</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>5.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#change-default-recording-status-to-false"><i class="fa fa-check"></i><b>5.7</b> Change default recording status to false</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="6.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#environment"><i class="fa fa-check"></i><b>6.1</b> Environment</a></li>
+<li class="chapter" data-level="6.2" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#sudo-raspi-config"><i class="fa fa-check"></i><b>6.2</b> sudo raspi-config</a></li>
+<li class="chapter" data-level="6.3" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#etcwpa_supllicantwpa_supplicant.conf"><i class="fa fa-check"></i><b>6.3</b> etc/wpa_supllicant/wpa_supplicant.conf</a></li>
+<li class="chapter" data-level="6.4" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#installs"><i class="fa fa-check"></i><b>6.4</b> installs</a></li>
+<li class="chapter" data-level="6.5" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#install-donkey-on-pi"><i class="fa fa-check"></i><b>6.5</b> install donkey on pi</a></li>
+<li class="chapter" data-level="6.6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#config.piy"><i class="fa fa-check"></i><b>6.6</b> 5. config.piy</a></li>
+<li class="chapter" data-level="6.7" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#bluetooth"><i class="fa fa-check"></i><b>6.7</b> bluetooth</a></li>
+<li class="chapter" data-level="6.8" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#wii-u-controller"><i class="fa fa-check"></i><b>6.8</b> 8. wii u controller</a></li>
+<li class="chapter" data-level="6.9" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#autostart-donkeycar"><i class="fa fa-check"></i><b>6.9</b> autostart donkeycar</a></li>
+<li class="chapter" data-level="6.10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#steering-calibration-1"><i class="fa fa-check"></i><b>6.10</b> Steering Calibration</a></li>
+<li class="chapter" data-level="6.11" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#drive"><i class="fa fa-check"></i><b>6.11</b> drive</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="7.1" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#environment-1"><i class="fa fa-check"></i><b>7.1</b> Environment</a></li>
+<li class="chapter" data-level="7.2" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#read-data-from-pi"><i class="fa fa-check"></i><b>7.2</b> Read data from pi</a></li>
+<li class="chapter" data-level="7.3" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#check-data-raw-prepared"><i class="fa fa-check"></i><b>7.3</b> Check data raw &amp; prepared</a></li>
+<li class="chapter" data-level="7.4" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#clean-data"><i class="fa fa-check"></i><b>7.4</b> 3. Clean data</a></li>
+<li class="chapter" data-level="7.5" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#make-movie"><i class="fa fa-check"></i><b>7.5</b> Make movie</a></li>
+<li class="chapter" data-level="7.6" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#tubhist"><i class="fa fa-check"></i><b>7.6</b> tubhist</a></li>
+<li class="chapter" data-level="7.7" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#train-data"><i class="fa fa-check"></i><b>7.7</b> Train Data</a></li>
+<li class="chapter" data-level="7.8" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#plot-data-against-model"><i class="fa fa-check"></i><b>7.8</b> Plot data against model</a></li>
+<li class="chapter" data-level="7.9" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#run-in-simulator"><i class="fa fa-check"></i><b>7.9</b> Run in simulator</a></li>
+<li class="chapter" data-level="7.10" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#copy-model-to-pi"><i class="fa fa-check"></i><b>7.10</b> Copy model to pi</a></li>
+<li class="chapter" data-level="7.11" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#run-model-on-pi"><i class="fa fa-check"></i><b>7.11</b> Run model on pi</a></li>
+<li class="chapter" data-level="7.12" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#watch-pi-camera"><i class="fa fa-check"></i><b>7.12</b> 11. Watch pi camera</a></li>
+<li class="chapter" data-level="7.13" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#reinfocement-learning"><i class="fa fa-check"></i><b>7.13</b> Reinfocement Learning</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a><ul>
+<li class="chapter" data-level="8.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#section"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#donkey-findcar"><i class="fa fa-check"></i><b>8.1.1</b> donkey findcar</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="robocarLogBook.html"><a href="robocarLogBook.html#build-sunfounder-car-17-02-2018"><i class="fa fa-check"></i><b>8.2</b> Build sunfounder car 17-02-2018</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#install-software-18-02-2018"><i class="fa fa-check"></i><b>8.2.1</b> install software 18-02-2018</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="robocarLogBook.html"><a href="robocarLogBook.html#viewing-a-list-of-available-python-versions"><i class="fa fa-check"></i><b>8.3</b> Viewing a list of available Python versions</a></li>
+<li class="chapter" data-level="8.4" data-path="robocarLogBook.html"><a href="robocarLogBook.html#run-calibration"><i class="fa fa-check"></i><b>8.4</b> Run calibration</a></li>
+<li class="chapter" data-level="8.5" data-path="robocarLogBook.html"><a href="robocarLogBook.html#mjpg-streamer-installation"><i class="fa fa-check"></i><b>8.5</b> MJPG-streamer Installation</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#testing"><i class="fa fa-check"></i><b>8.5.1</b> Testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="get-on-the-road.html"><a href="get-on-the-road.html"><i class="fa fa-check"></i><b>9</b> Get on the Road!</a><ul>
+<li class="chapter" data-level="9.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#install-carnd-term1"><i class="fa fa-check"></i><b>9.1</b> install carnd-term1</a></li>
+<li class="chapter" data-level="9.2" data-path="get-on-the-road.html"><a href="get-on-the-road.html#install-xbox-360-controller"><i class="fa fa-check"></i><b>9.2</b> Install Xbox 360 controller</a></li>
+<li class="chapter" data-level="9.3" data-path="get-on-the-road.html"><a href="get-on-the-road.html#implement-xbox-controller-as-input-in-client_app.py"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#make-steering-proportional-to-remote-control-lever-position"><i class="fa fa-check"></i><b>9.3.1</b> Make steering proportional to remote control lever position</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="Conncectivity.html"><a href="Conncectivity.html#GetIp"><i class="fa fa-check"></i><b>9.4</b> Get IP adress of raspi in shack</a></li>
+<li class="chapter" data-level="9.5" data-path="get-on-the-road.html"><a href="get-on-the-road.html#store-snapshots-of-video-stream-on-local-computer"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#jie-hous-alternative"><i class="fa fa-check"></i><b>9.5.1</b> Jie Hou’s alternative</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Resources</a><ul>
+<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#meetups"><i class="fa fa-check"></i><b>10.1</b> Meetups</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="resources.html"><a href="resources.html#esslinger-makerspace-projekt-autonomen-robocar-bauen"><i class="fa fa-check"></i><b>10.1.1</b> Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a></li>
+<li class="chapter" data-level="10.1.2" data-path="resources.html"><a href="resources.html#autonomous-mobility-berlin"><i class="fa fa-check"></i><b>10.1.2</b> Autonomous Mobility Berlin</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#robocar-projects"><i class="fa fa-check"></i><b>10.2</b> RoboCar projects</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="resources.html"><a href="resources.html#diy-robocars"><i class="fa fa-check"></i><b>10.2.1</b> DIY RoboCars</a></li>
+<li class="chapter" data-level="10.2.2" data-path="resources.html"><a href="resources.html#donkey-car"><i class="fa fa-check"></i><b>10.2.2</b> Donkey car</a></li>
+<li class="chapter" data-level="10.2.3" data-path="resources.html"><a href="resources.html#sunfounder-smart-video-car-kit-for-raspberry-pi-with-android-app"><i class="fa fa-check"></i><b>10.2.3</b> Sunfounder Smart Video Car Kit for Raspberry Pi with Android App</a></li>
+<li class="chapter" data-level="10.2.4" data-path="resources.html"><a href="resources.html#kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3"><i class="fa fa-check"></i><b>10.2.4</b> Kuman Professional WIFI Smart Robot Model Car Kit Videokamera for Raspberry Pi 3</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#hardware"><i class="fa fa-check"></i><b>10.3</b> Hardware</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="resources.html"><a href="resources.html#komponentenliste-fur-ein-ferngesteuertes-roboter-auto"><i class="fa fa-check"></i><b>10.3.1</b> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</a></li>
+<li class="chapter" data-level="10.3.2" data-path="resources.html"><a href="resources.html#motor-control"><i class="fa fa-check"></i><b>10.3.2</b> Motor control</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="resources.html"><a href="resources.html#simulators"><i class="fa fa-check"></i><b>10.4</b> Simulators</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="resources.html"><a href="resources.html#donkey-simulator"><i class="fa fa-check"></i><b>10.4.1</b> Donkey Simulator</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="resources.html"><a href="resources.html#software"><i class="fa fa-check"></i><b>10.5</b> Software</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="resources.html"><a href="resources.html#udacitiy-open-source-sdc"><i class="fa fa-check"></i><b>10.5.1</b> Udacitiy open source SDC</a></li>
+<li class="chapter" data-level="10.5.2" data-path="resources.html"><a href="resources.html#connect-raspberry-with-xbox-controller"><i class="fa fa-check"></i><b>10.5.2</b> connect raspberry with xbox controller</a></li>
+<li class="chapter" data-level="10.5.3" data-path="resources.html"><a href="resources.html#raspberry-pi-rc-control"><i class="fa fa-check"></i><b>10.5.3</b> RASPBERRY PI RC CONTROL</a></li>
+<li class="chapter" data-level="10.5.4" data-path="resources.html"><a href="resources.html#python-class-to-support-xbox-360-controller-under-linux-on-raspberrypi"><i class="fa fa-check"></i><b>10.5.4</b> Python class to support xbox 360 controller under Linux on RaspberryPi</a></li>
+<li class="chapter" data-level="10.5.5" data-path="resources.html"><a href="resources.html#xbox-driver-for-mac"><i class="fa fa-check"></i><b>10.5.5</b> xbox driver for mac</a></li>
+<li class="chapter" data-level="10.5.6" data-path="resources.html"><a href="resources.html#konzept-fur-softwareschichten"><i class="fa fa-check"></i><b>10.5.6</b> Konzept für softwareschichten</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a><ul>
+<li class="chapter" data-level="11.1" data-path="experiences.html"><a href="experiences.html#install-donkey-car-on-mac"><i class="fa fa-check"></i><b>11.1</b> Install donkey car on Mac</a></li>
+<li class="chapter" data-level="11.2" data-path="experiences.html"><a href="experiences.html#donkey-car-simulator"><i class="fa fa-check"></i><b>11.2</b> Donkey car simulator</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Theory.html"><a href="Theory.html"><i class="fa fa-check"></i><b>12</b> Theory</a><ul>
+<li class="chapter" data-level="12.1" data-path="Theory.html"><a href="Theory.html#wiring-of-pca9685-with-l298n-h-bridge"><i class="fa fa-check"></i><b>12.1</b> Wiring of PCA9685 with L298N H-bridge</a></li>
+<li class="chapter" data-level="12.2" data-path="Theory.html"><a href="Theory.html#sensor-fusion-of-lidar-and-camera-data"><i class="fa fa-check"></i><b>12.2</b> sensor fusion of LIDAR and camera data</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="UsefulLinks.html"><a href="UsefulLinks.html"><i class="fa fa-check"></i><b>13</b> Useful links</a><ul>
+<li class="chapter" data-level="13.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#donkey-car-1"><i class="fa fa-check"></i><b>13.1</b> Donkey car</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>13.1.1</b> Videos for donkey car</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="UsefulLinks.html"><a href="UsefulLinks.html#parts-to-build-a-robocar"><i class="fa fa-check"></i><b>13.2</b> Parts to build a RoboCar</a></li>
+<li class="chapter" data-level="13.3" data-path="UsefulLinks.html"><a href="UsefulLinks.html#little-setup-helpers"><i class="fa fa-check"></i><b>13.3</b> Little setup helpers</a></li>
+<li class="chapter" data-level="13.4" data-path="UsefulLinks.html"><a href="UsefulLinks.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>13.4</b> Meetup in Stuttgart area</a></li>
+<li class="chapter" data-level="13.5" data-path="UsefulLinks.html"><a href="UsefulLinks.html#robocar-projects-1"><i class="fa fa-check"></i><b>13.5</b> RoboCar projects</a></li>
+<li class="chapter" data-level="13.6" data-path="UsefulLinks.html"><a href="UsefulLinks.html#write-ups-on-donkeycar-projects"><i class="fa fa-check"></i><b>13.6</b> Write ups on Donkeycar projects</a></li>
+<li class="chapter" data-level="13.7" data-path="UsefulLinks.html"><a href="UsefulLinks.html#other-stuff"><i class="fa fa-check"></i><b>13.7</b> Other stuff</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/RoboCarEsslingen" target="blank">Related files on Github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RoboCar project documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="donkeyCarSoftwareAnalysis" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Donkeycar software analysis</h1>
+<p>In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the Keras model</p>
+<div id="how-to-add-parts-to-a-vehicle" class="section level2">
+<h2><span class="header-section-number">5.1</span> How to add parts to a vehicle</h2>
+<p>Two brilliant videos by Tawn Kramer describe the Donkeycar framework. The <a href="https://www.youtube.com/watch?v=YZ4ESrtfShs">first part</a> describes in detail how to add a part to the vehicle. In short, a part will be added to the vehicle class and for each iteration of the loop the <strong>run</strong> or the <strong>run_threaded</strong> method of the added class will be executed.</p>
+<p>The stacking of the methods are shown in figure <a href="donkeyCarSoftwareAnalysis.html#fig:vehicleCalls">5.1</a></p>
+<div class="figure"><span id="fig:vehicleCalls"></span>
+<img src="images/DonkeyCarVehicleClass.png" alt="Stacking of methods" width="670" />
+<p class="caption">
+Figure 5.1: Stacking of methods
+</p>
+</div>
+<p>with</p>
+<pre><code>from donkeycar.vehicle import Vehicle</code></pre>
+<p>the Vehicle class is available and is instantiated by</p>
+<pre><code>V = Vehicle()</code></pre>
+<div id="function-v.start" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Function V.start()</h3>
+<p>To start vehicle’s main drive loop.</p>
+<pre><code>V.start()</code></pre>
+<p>This is the main thread of the vehicle. It starts all the new threads for the threaded parts then starts an infinite loop that runs each part and updates the memory.</p>
+<p>A Vehicle has</p>
+<ul>
+<li>memory</li>
+<li>parts</li>
+<li>threads</li>
+<li>Boolean flag “ON”</li>
+</ul>
+<div id="parameters-of-v.start" class="section level4">
+<h4><span class="header-section-number">5.1.1.1</span> Parameters of V.start()</h4>
+<p>The parameters for <code>V.start()</code> are</p>
+<ul>
+<li>rate_hz : int (default = 10Hz)
+<ul>
+<li>The max frequency that the drive loop should run. The actual frequency may be less than this if there are many blocking parts.</li>
+</ul></li>
+<li>max_loop_count : int (default = None)
+<ul>
+<li>Maximum number of loops the drive loop should execute. This is used for testing the all the parts of the vehicle work.</li>
+</ul></li>
+</ul>
+</div>
+<div id="main-run-loop-of-v.start" class="section level4">
+<h4><span class="header-section-number">5.1.1.2</span> Main run loop of V.start()</h4>
+<p>The main run loop of the V.start() function is below. The sleep_time assures that the loop rate is achieved. This can only be guaranteed if the update process duration of the parts does not exceed the loop time.</p>
+<pre><code>           loop_count = 0
+            while self.on:
+                start_time = time.time()
+                loop_count += 1
+
+                self.update_parts()
+
+                # stop drive loop if loop_count exceeds max_loopcount
+                if max_loop_count and loop_count &gt; max_loop_count:
+                    self.on = False
+
+                sleep_time = 1.0 / rate_hz - (time.time() - start_time)
+                if sleep_time &gt; 0.0:
+                    time.sleep(sleep_time)</code></pre>
+</div>
+</div>
+<div id="function-v.update_parts" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Function V.update_parts()</h3>
+<p>In the <code>V.update_parts()</code> function the appropriate run function of part are being called.</p>
+<div id="parameters-of-v.parts" class="section level4">
+<h4><span class="header-section-number">5.1.2.1</span> Parameters of V.parts()</h4>
+<p>There are no parameters</p>
+</div>
+<div id="loop-over-all-parts" class="section level4">
+<h4><span class="header-section-number">5.1.2.2</span> Loop over all parts</h4>
+<p>The following code will be looped over for all parts</p>
+<pre><code>        for entry in self.parts:
+            # don&#39;t run if there is a run condition that is False
+            run = True
+            if entry.get(&#39;run_condition&#39;):
+                run_condition = entry.get(&#39;run_condition&#39;)
+                run = self.mem.get([run_condition])[0]
+                # print(&#39;run_condition&#39;, entry[&#39;part&#39;], entry.get(&#39;run_condition&#39;), run)
+
+            if run:
+                p = entry[&#39;part&#39;]
+                # get inputs from memory
+                inputs = self.mem.get(entry[&#39;inputs&#39;])
+
+                # run the part
+                if entry.get(&#39;thread&#39;):
+                    outputs = p.run_threaded(*inputs)
+                else:
+                    outputs = p.run(*inputs)
+
+                # save the output to memory
+                if outputs is not None:
+                    self.mem.put(entry[&#39;outputs&#39;], outputs)</code></pre>
+<p>It checks whether the part has inputs and passes the input to</p>
+<ul>
+<li><code>p.run_threaded</code> if the part is threaded</li>
+<li><code>p.run</code> if the part is not threaded</li>
+</ul>
+<p>If there are outputs the are passed to the output of the part using the name of the keys supplied by the call. The names of the inputs and outputs are defined when the parts are added via the <code>V.add()</code>function</p>
+</div>
+</div>
+<div id="function-v.add" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Function V.add</h3>
+<p>Method to add a part to the vehicle drive loop. The names of parts in- and outputs are defined by the parameters of the <code>V.add</code>function</p>
+<div id="parameters-of-v.add" class="section level4">
+<h4><span class="header-section-number">5.1.3.1</span> Parameters of V.add()</h4>
+<ul>
+<li>inputs : list
+<ul>
+<li>Channel names to get from memory.</li>
+</ul></li>
+<li>outputs : list
+<ul>
+<li>Channel names to save to memory.</li>
+</ul></li>
+<li>threaded : Boolean
+<ul>
+<li>If a part should be run in a separate thread.</li>
+</ul></li>
+<li>run_condition: Boolean
+<ul>
+<li>If a part should be run at all.</li>
+</ul></li>
+</ul>
+</div>
+<div id="example-to-add-web-controller" class="section level4">
+<h4><span class="header-section-number">5.1.3.2</span> Example to add Web controller</h4>
+<p>The web controller is first instantiated and then added using the <code>V.add()</code>function. The names of in- and outputs are supplied as well as the indicator that the controller is threaded. More on threaded parts in section <a href="donkeyCarSoftwareAnalysis.html#threadedParts">5.1.4</a></p>
+<pre><code>ctr = LocalWebController(use_chaos=use_chaos)
+V.add(ctr,
+      inputs=[&#39;cam/image_array&#39;],
+      outputs=[&#39;user/angle&#39;, &#39;user/throttle&#39;, &#39;user/mode&#39;, &#39;recording&#39;],
+      threaded=True)</code></pre>
+</div>
+<div id="AddBluetooth" class="section level4">
+<h4><span class="header-section-number">5.1.3.3</span> Example add Bluetooth Controller</h4>
+<p>To add a Bluetooth controller add the following lines to <code>manage.py</code> in the <code>drive</code> method</p>
+<pre><code>from donkeypart_bluetooth_game_controller import BluetoothGameController
+   ctl = BluetoothGameController()
+    V.add(ctl,
+          inputs=[&#39;cam/image_array&#39;],
+          outputs=[&#39;user/angle&#39;, &#39;user/throttle&#39;, &#39;user/mode&#39;, &#39;recording&#39;],
+          threaded=True) </code></pre>
+</div>
+</div>
+<div id="threadedParts" class="section level3">
+<h3><span class="header-section-number">5.1.4</span> Concept of threads vs non-threaded parts</h3>
+<p>Updating of the parts is run in the loop of the <code>V.update()</code>. To avoid that parts which take long to update blocks the loop they can be assigned to a dedicated thread. Whenever the a threaded part is updated the <code>run_threaded</code>method is run. For a camera the <code>run_threaded</code> is</p>
+<pre><code>def run_threaded(self):
+    return self.frame</code></pre>
+<p>which returns the frame available at the time, no delay being imposed on the loop.</p>
+<div id="the-update-function" class="section level4">
+<h4><span class="header-section-number">5.1.4.1</span> The <code>update</code> function</h4>
+<p>Images are taken constantly as fast as possible by the method <code>update</code> as shown below</p>
+<pre><code>def update(self):
+    # keep looping infinitely until the thread is stopped
+    for f in self.stream:
+        # grab the frame from the stream and clear the stream in
+        # preparation for the next frame
+        self.frame = f.array
+        self.rawCapture.truncate(0)
+        # if the thread indicator variable is set, stop the thread
+        if not self.on:
+            break</code></pre>
+</div>
+<div id="the-shutdown-function" class="section level4">
+<h4><span class="header-section-number">5.1.4.2</span> The <code>shutdown</code> function</h4>
+<p>To stop the thread a <code>shutdown</code>function needs to be defined</p>
+<pre><code>def shutdown(self):
+    # indicate that the thread should be stopped
+    self.on = False
+    print(&#39;stoping PiCamera&#39;)
+    time.sleep(.5)
+    self.stream.close()
+    self.rawCapture.close()
+    self.camera.close()</code></pre>
+</div>
+</div>
+</div>
+<div id="structure-of-manage.py" class="section level2">
+<h2><span class="header-section-number">5.2</span> Structure of <code>manage.py</code></h2>
+<p><code>manage.py</code> contains scripts to drive a donkey 2 car and train a model for it.</p>
+<p>The structure of <code>manage.py</code>is well explained by Tawn Kramer in <a href="https://www.youtube.com/watch?v=G1JjAw_NdnE">Donkeycar Parts Overview Pt 2/2</a></p>
+<div id="creating-manage.py" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Creating <code>manage.py</code></h3>
+<p><code>manage.py</code>is created when the command <code>donkey createcar --path ~/d2</code> is run and is a copy of <code>/templates/donkey2.py</code> If you want to add other templates this can be done by adding the name of the template without the extension “.py”.</p>
+<p><code>donkey createcar --path ~/d2 --template tk</code> Then <code>tk.py</code>will be copied into <code>manage.py</code></p>
+</div>
+<div id="starting-manage.py" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Starting <code>manage.py</code></h3>
+<p>In order to start <code>manage.py</code> without the need to write <strong>pyhton</strong></p>
+<pre><code>chmode +x manage.py
+./manage.py</code></pre>
+<p>The line</p>
+<pre><code>#!/usr/bin/env python3</code></pre>
+<p>makes sure that the script is run with pyhton3.</p>
+</div>
+<div id="parsing-the-command-line-parameters" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Parsing the command line parameters</h3>
+<p>docopt is a Command-line interface description language with which the following options are parsed.</p>
+<p>The parsed inputs are then used by</p>
+<pre><code>if __name__ == &#39;__main__&#39;:
+    args = docopt(__doc__)
+    cfg = dk.load_config()
+
+    if args[&#39;drive&#39;]:
+        drive(cfg, model_path=args[&#39;--model&#39;], use_chaos=args[&#39;--chaos&#39;])
+
+    elif args[&#39;train&#39;]:
+        tub = args[&#39;--tub&#39;]
+        new_model_path = args[&#39;--model&#39;]
+        base_model_path = args[&#39;--base_model&#39;]
+        cache = not args[&#39;--no_cache&#39;]
+        train(cfg, tub, new_model_path, base_model_path)
+</code></pre>
+<p>Note, the <code>if __name__ == '__main__':</code> part is only run if the code is called as first script.</p>
+<p>The <code>__doc__</code> string is the text block at the beginning of the script. Parameters in () are mandatory, parameters in [ ] are optional.</p>
+<pre><code>Usage:
+    manage.py (drive) [--model=&lt;model&gt;] [--js] [--chaos]
+    manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;]  (--model=&lt;model&gt;) [--base_model=&lt;base_model&gt;] [--no_cache]
+
+Options:
+    -h --help        Show this screen.
+    --tub TUBPATHS   List of paths to tubs. Comma separated. Use quotes to use wildcards. ie &quot;~/tubs/*&quot;
+    --chaos          Add periodic random steering when manually driving</code></pre>
+</div>
+<div id="function-drive" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Function <code>drive</code></h3>
+<p>Construct a working robotic vehicle from many parts. Each part runs as a job in the Vehicle loop, calling either it’s <strong>run</strong> or <strong>run_threaded</strong> method depending on the constructor flag <code>threaded</code>. All parts are updated one after another at the frame rate given in cfg.DRIVE_LOOP_HZ assuming each part finishes processing in a timely manner.</p>
+<p>Parts may have named outputs and inputs. The framework handles passing named outputs to parts requesting the same named input.</p>
+<div id="LambdaClass" class="section level4">
+<h4><span class="header-section-number">5.2.4.1</span> Lambda class</h4>
+<p>Lambda wraps a function into a donkey part, i.e. it will be called for every update loop.</p>
+<pre><code>class Lambda:
+    &quot;&quot;&quot;
+    Wraps a function into a donkey part.
+    &quot;&quot;&quot;
+    def __init__(self, f):
+        &quot;&quot;&quot;
+        Accepts the function to use.
+        &quot;&quot;&quot;
+        self.f = f
+
+    def run(self, *args, **kwargs):
+        return self.f(*args, **kwargs)
+
+    def shutdown(self):
+        return</code></pre>
+<p>The function is defined as usual put then</p>
+<ul>
+<li>apply <code>Lambda</code>to defined function</li>
+<li>V.add output of <code>Lambda</code></li>
+</ul>
+<pre><code># See if we should even run the pilot module.
+# This is only needed because the part run_condition only accepts boolean
+def pilot_condition(mode):
+    if mode == &#39;user&#39;:
+        return False
+    else:
+        return True
+
+pilot_condition_part = Lambda(pilot_condition)
+V.add(pilot_condition_part,
+      inputs=[&#39;user/mode&#39;],
+      outputs=[&#39;run_pilot&#39;])</code></pre>
+<p>The output <code>run_pilot</code>is used to define whether or not <code>kl</code>is run.</p>
+<pre><code>V.add(kl,
+      inputs=[&#39;cam/image_array&#39;],
+      outputs=[&#39;pilot/angle&#39;, &#39;pilot/throttle&#39;],
+      run_condition=&#39;run_pilot&#39;)</code></pre>
+</div>
+</div>
+</div>
+<div id="locate-modules-on-raspi-which-are-being-imported-by-manage.py" class="section level2">
+<h2><span class="header-section-number">5.3</span> Locate modules on raspi which are being imported by manage.py</h2>
+<p>Where on the Raspberry Pi are the modules located which are being imported by the python script <code>manage.py</code></p>
+<pre><code>from docopt import docopt
+
+import donkeycar as dk
+from donkeycar.parts.camera import PiCamera
+from donkeycar.parts.transform import Lambda
+from donkeycar.parts.keras import KerasLinear
+from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
+from donkeycar.parts.datastore import TubGroup, TubWriter
+from donkeycar.parts.web_controller import LocalWebController
+from donkeycar.parts.clock import Timestamp
+from donkeypart_bluetooth_game_controller import BluetoothGameController</code></pre>
+<p>donkeycar is found at the raspi</p>
+<pre><code>(env) pi@donkeypi_uwe:~ $ find . -name donkeycar
+./env/lib/python3.5/site-packages/donkeycar</code></pre>
+<p>the contents of this folder is shown below</p>
+<pre><code>(env) pi@donkeypi_uwe:~ $ cd ./env/lib/python3.5/site-packages/donkeycar
+(env) pi@donkeypi_uwe:~/env/lib/python3.5/site-packages/donkeycar $ ls
+config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templates  tests  util  vehicle.py</code></pre>
+<p>which are the same files and folders which are located at the <a href="https://github.com/autorope/donkeycar/tree/dev/donkeycar">official GitHub page of DonkeyCar project</a></p>
+<p>The donkeypart_bluetooth_game_controller was installed during the set up of the raspi for the project as described in section <a href="donkeyCar.html#BluetoothControllerInstall">2.7.1</a></p>
+</div>
+<div id="AssignStickToAction" class="section level2">
+<h2><span class="header-section-number">5.4</span> Assignment of WiiU controller sticks to action</h2>
+<p>The mapping from button codes to button names is defined in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code></p>
+<pre><code>
+device_search_term: &#39;nintendo&#39;
+
+
+#Map the button codes to the button names
+button_map:
+  305: &#39;A&#39;
+  304: &#39;B&#39;
+  307: &#39;X&#39;
+  308: &#39;Y&#39;
+  312: &#39;LEFT_BOTTOM_TRIGGER&#39;
+  310: &#39;LEFT_TOP_TRIGGER&#39;
+  313: &#39;RIGHT_BOTTOM_TRIGGER&#39;
+  311: &#39;RIGHT_TOP_TRIGGER&#39;
+  317: &#39;LEFT_STICK_PRESS&#39;
+  318: &#39;RIGHT_STICK_PRESS&#39;
+  314: &#39;SELECT&#39;
+  315: &#39;START&#39;
+  0: &#39;LEFT_STICK_X&#39;
+  1: &#39;LEFT_STICK_Y&#39;
+  3: &#39;RIGHT_STICK_X&#39;
+  4: &#39;RIGHT_STICK_Y&#39;
+  547: &#39;PAD_RIGHT&#39;
+  546: &#39;PAD_LEFT&#39;
+  544: &#39;PAD_UP&#39;
+  548: &#39;PAD_DOWN&#39;
+
+
+joystic_max_value: 1280</code></pre>
+<p>which is then used in <code>donkeypart_bluetooth_game_controller/part.py</code></p>
+<p>In the class definition BluetoothGameController</p>
+<pre><code>def __init__(self, event_input_device=None, config_path=None, device_search_term=None, verbose=False):
+.  
+.  
+.  
+        self.func_map = {
+            &#39;LEFT_STICK_X&#39;: self.update_angle,
+            &#39;LEFT_STICK_Y&#39;: self.update_throttle,
+            &#39;B&#39;: self.toggle_recording,
+            &#39;A&#39;: self.toggle_drive_mode,
+            &#39;PAD_UP&#39;: self.increment_throttle_scale,
+            &#39;PAD_DOWN&#39;: self.decrement_throttle_scale,
+        }</code></pre>
+<p>It seems to be odd to have steering and throttle on one stick, to assign throttle to the right stick change <code>donkeypart_bluetooth_game_controller/part.py</code> to</p>
+<pre><code>  self.func_map = {
+            &#39;LEFT_STICK_X&#39;: self.update_angle,
+            &#39;RIGHT_STICK_Y&#39;: self.update_throttle,</code></pre>
+<p>to make the controller more sensitive it might be a good idea to limit the max joystick value in <code>donkeypart_bluetooth_game_controller/wiiu_config.yml</code> to the max value needed which is according to <a href="donkeyCar.html#configpyAfterCalib">2.5.4</a></p>
+</div>
+<div id="setMaxVel" class="section level2">
+<h2><span class="header-section-number">5.5</span> Limit max velocity</h2>
+<p>To avoid that the car becomes too fast change in <code>manage.py</code> the <strong>max_pulse</strong> value. Note, the value is dependent of your <strong>cfg.THROTTLE_STOPPED_PWM</strong>, the <strong>max_pulse</strong> value ought to be a bit higher than the <strong>cfg.THROTTLE_STOPPED_PWM</strong>. You might want to find out a suitable value by using the calibration mode which you used to find the max values.</p>
+<pre><code>    throttle = PWMThrottle(controller=throttle_controller,
+                           max_pulse=cfg.THROTTLE_FORWARD_PWM,
+                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
+                           min_pulse=cfg.THROTTLE_REVERSE_PWM)</code></pre>
+<p>to</p>
+<pre><code>    throttle = PWMThrottle(controller=throttle_controller,
+                           max_pulse= 409, # cfg.THROTTLE_FORWARD_PWM, limit forward speed
+                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
+                           min_pulse= 380) #  cfg.THROTTLE_REVERSE_PWM) Limit reverse speed</code></pre>
+<p>Or you can set in <code>config.py</code> the variable <strong>THROTTLE_FORWARD_PWM</strong> which defines the max throttle value to a value which gives you a low enough speed to master the track.</p>
+<pre><code>THROTTLE_FORWARD_PWM = 413</code></pre>
+</div>
+<div id="LedIndicatingRecordingMode" class="section level2">
+<h2><span class="header-section-number">5.6</span> Add LED to indicate recording mode</h2>
+<p>Recording of images can be activated pressing button “B” on the Wii controller. Assignment of buttons to actions can be found at <a href="donkeyCarSoftwareAnalysis.html#AssignStickToAction">5.4</a>.</p>
+<p>To indicate if recording is active a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class <a href="donkeyCarSoftwareAnalysis.html#LambdaClass">5.2.4.1</a>. Channel 0 and 1 are already taken, channel 3 is available. So the LED controller channel can be set by</p>
+<pre><code>Led_controller = PCA9685(3)</code></pre>
+<p>The function and wrapping it by the lambda class is below</p>
+<pre><code>
+    # Switch LED depending on recording video or not.
+    def led_switch(recording):
+        Led_controller.set_pulse(4095*recording)
+        
+        return 
+
+    led_switch_part = Lambda(led_switch)
+    V.add(led_switch_part,
+          inputs=[&#39;recording&#39;],
+          outputs=[])</code></pre>
+<div id="wiring-of-led-to-pwmservo-hat" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> Wiring of LED to PWM/Servo HAT</h3>
+<p>How to wire the LED to the PWM/Servo hat is shown in <a href="donkeyCarSoftwareAnalysis.html#fig:LedPwmWiring">5.2</a></p>
+<div class="figure"><span id="fig:LedPwmWiring"></span>
+<img src="images/LedPwmWiring.png" alt="Wiring diagram of LED to PWM/Servo hat" width="776" />
+<p class="caption">
+Figure 5.2: Wiring diagram of LED to PWM/Servo hat
+</p>
+</div>
+<p>Note: you don’t need to use a resistor to limit current through the LED as the HAT and Bonnet will limit the current to around 10mA.</p>
+<p>More details on how to connect the LED are given in (<a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf" class="uri">https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi.pdf</a>) in chapter “Python Wiring”</p>
+</div>
+</div>
+<div id="change-default-recording-status-to-false" class="section level2">
+<h2><span class="header-section-number">5.7</span> Change default recording status to false</h2>
+<p>To avoid unnecessary images in the tub folder the default <code>recording</code> status is set to <code>false</code>by changing in the file</p>
+<pre><code>~/donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller/part.py </code></pre>
+<p>using the editor nano</p>
+<pre><code> nano part.py</code></pre>
+<p>the line</p>
+<pre><code>        self.recording_toggle = cycle([True, False])</code></pre>
+<p>to</p>
+<pre><code>        self.recording_toggle = cycle([False, True])</code></pre>
+<p>so the cycle starts with <code>False</code> and can be toggled by pressing the button <strong>B</strong> on the Wii U controller. How to indicate the recording mode with an LED is described in <a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode">5.6</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="donkey-command-line-utilities.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["RoboCarDokumentation.pdf", "RoboCarDokumentation.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
