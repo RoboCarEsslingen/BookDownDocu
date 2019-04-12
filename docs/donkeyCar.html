@@ -750,7 +750,12 @@ Figure 2.5: Steering angle histogramm of Tawn Kramer’s training data
 </ul>
 <p>run</p>
 <pre><code>(donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot</code></pre>
-<p>this leads to</p>
+<p>which will place a model file called <code>mypilot</code> at</p>
+<pre><code>(donkey) Uwes-MacBook-Pro:models uwesterr$ pwd
+/Users/uwesterr/mycar/models
+(donkey) Uwes-MacBook-Pro:models uwesterr$ ls
+mypilot</code></pre>
+<p>the command to train the neural network leads to the following output in the terminal window</p>
 <pre><code>(donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot
 using donkey version: 2.5.7 ...
 loading config file: /Users/uwesterr/mycar/config.py
