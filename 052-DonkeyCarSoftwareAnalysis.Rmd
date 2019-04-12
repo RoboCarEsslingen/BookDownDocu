@@ -1,5 +1,5 @@
 
-# Donkeycar software analysis
+# Donkeycar software analysis {#donkeyCarSoftwareAnalysis}
 In this section the software of the donkeycar project is analysed with emphasis of how to use the software to gather training data and to modify the Keras model
 
 
@@ -257,7 +257,7 @@ Options:
 
 ### Function ```drive```
 
-Construct a working robotic vehicle from many parts. Each part runs as a job in the Vehicle loop, calling either it's **run** or **run_threaded** method depending on the constructor flag `threaded`. All parts are updated one after another at the framerate given in cfg.DRIVE_LOOP_HZ assuming each part finishes processing in a timely manner.  
+Construct a working robotic vehicle from many parts. Each part runs as a job in the Vehicle loop, calling either it's **run** or **run_threaded** method depending on the constructor flag `threaded`. All parts are updated one after another at the frame rate given in cfg.DRIVE_LOOP_HZ assuming each part finishes processing in a timely manner.  
 
 Parts may have named outputs and inputs. The framework handles passing named outputs to parts requesting the same named input.
 
@@ -420,7 +420,7 @@ It seems to be odd to have steering and throttle on one stick, to assign throttl
 to make the controller more sensitive it might be a good idea to limit the max joystick value in ```donkeypart_bluetooth_game_controller/wiiu_config.yml``` to the max value needed which is according to \@ref(configpyAfterCalib) 
 
 ## Limit max velocity {#setMaxVel}
-To avoid that the car becomes too fast change in ```manage.py``` the **max_pulse** value. Note, the value is dependend of your **cfg.THROTTLE_STOPPED_PWM**, the **max_pulse** value ought to be a bit higher than the **cfg.THROTTLE_STOPPED_PWM**. You might want to find out a suitable value by using the calibration mode which you used to find the max values.
+To avoid that the car becomes too fast change in ```manage.py``` the **max_pulse** value. Note, the value is dependent of your **cfg.THROTTLE_STOPPED_PWM**, the **max_pulse** value ought to be a bit higher than the **cfg.THROTTLE_STOPPED_PWM**. You might want to find out a suitable value by using the calibration mode which you used to find the max values.
 
 
 ```
@@ -447,9 +447,9 @@ THROTTLE_FORWARD_PWM = 413
 
 
 ## Add LED to indicate recording mode {#LedIndicatingRecordingMode}
-Recording of images can be activated pressing button "B" on the wii controller. Assignment of buttons to actions can be found at \@ref(AssignStickToAction).
+Recording of images can be activated pressing button "B" on the Wii controller. Assignment of buttons to actions can be found at \@ref(AssignStickToAction).
 
-To indicate if recording is acitve a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class \@ref(LambdaClass). 
+To indicate if recording is active a LED can be used. A function can be added to the update loop of the vehicle class using the lambda class \@ref(LambdaClass). 
 Channel 0 and 1 are already taken, channel 3 is available. So the LED controller channel can be set by
 ```
 Led_controller = PCA9685(3)
@@ -511,4 +511,4 @@ to
         self.recording_toggle = cycle([False, True])
 ```
 
-so the cycle starts with `False` and can be toggled by pressing the button **B** on the WiiU controller. How to indicate the recording mode with an LED is described in \@ref(LedIndicatingRecordingMode)     
+so the cycle starts with `False` and can be toggled by pressing the button **B** on the Wii U controller. How to indicate the recording mode with an LED is described in \@ref(LedIndicatingRecordingMode)     

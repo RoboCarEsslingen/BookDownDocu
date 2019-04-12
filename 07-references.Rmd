@@ -1,6 +1,5 @@
-# Useful links
+# Useful links {#UsefulLinks}
 Links I found useful at some point 
-
 
 ## Donkey car
 Here are links to the donkey car project
@@ -77,7 +76,9 @@ Here are links to instructions on how to get things done
 [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
 
 
-## Other RoboCar projects
+## RoboCar projects
+
+- [DonkeyCar](http://www.donkeycar.com)
 
 - [DIY RoboCars website](https://diyrobocars.com)  
 
