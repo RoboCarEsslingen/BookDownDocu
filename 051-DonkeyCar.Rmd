@@ -553,6 +553,28 @@ Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models
 ```
 
 
+## Run car on neural net
+
+Run the following command on the raspberry pi.
+
+```
+(env) pi@donkeypi_uwe:~/mycar $ python  manageLedSwitch.py drive --model ~/mycar/models/Vaihingen20190413
+```
+Toggle drive mode by pressing button **'A'**, the modes are toggles between three states
+
+- **Throttle** and **steering** WiiU controlled
+- **Throttle** WiiU controlled and **steering** controlled by neural net
+- **Throttle** and **steering** controlled by neural net
+
+The modes have names and are defined:  
+
+a. User : As you guessed, this is where you are in control of both the steering and throttle control.
+
+b. Local Angle : Not too obvious, but this is where the trained model (mypilot from above) controls the steering. The Local refers to the trained model which is locally hosted on the raspberry-pi.
+
+c. Local Pilot : This is where the trained model (mypilot) assumes control of both the steering and the throttle. As of now, it's purportedly not very reliable.
+
+
 ## Build pre processing pipe line
 First step is to install openCV on the raspi so that the images recorded by the camera can be processed before they are stored.
 

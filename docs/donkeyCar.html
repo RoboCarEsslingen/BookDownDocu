@@ -25,7 +25,7 @@
 <meta name="author" content="Uwe Sterr">
 
 
-<meta name="date" content="2019-04-12">
+<meta name="date" content="2019-04-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -146,8 +146,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>2.10.4</b> How big is the tub folder</a></li>
 </ul></li>
 <li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a></li>
-<li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.12</b> Build pre processing pipe line</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="donkeyCar.html"><a href="donkeyCar.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.12.1</b> Install openCV on the raspi</a></li>
+<li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#run-car-on-neural-net"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a></li>
+<li class="chapter" data-level="2.13" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.13</b> Build pre processing pipe line</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="donkeyCar.html"><a href="donkeyCar.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.13.1</b> Install openCV on the raspi</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a><ul>
@@ -773,11 +774,28 @@ Epoch 2/100
 Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models/mypilot
 35/35 [==============================] - 31s 874ms/step - loss: 0.3338 - angle_out_loss: 0.5289 - throttle_out_loss: 0.1387 - val_loss: 0.2920 - val_angle_out_loss: 0.4629 - val_throttle_out_loss: 0.1212</code></pre>
 </div>
+<div id="run-car-on-neural-net" class="section level2">
+<h2><span class="header-section-number">2.12</span> Run car on neural net</h2>
+<p>Run the following command on the raspberry pi.</p>
+<pre><code>(env) pi@donkeypi_uwe:~/mycar $ python  manageLedSwitch.py drive --model ~/mycar/models/Vaihingen20190413</code></pre>
+<p>Toggle drive mode by pressing button <strong>‘A’</strong>, the modes are toggles between three states</p>
+<ul>
+<li><strong>Throttle</strong> and <strong>steering</strong> WiiU controlled</li>
+<li><strong>Throttle</strong> WiiU controlled and <strong>steering</strong> controlled by neural net</li>
+<li><strong>Throttle</strong> and <strong>steering</strong> controlled by neural net</li>
+</ul>
+<p>The modes have names and are defined:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>User : As you guessed, this is where you are in control of both the steering and throttle control.</p></li>
+<li><p>Local Angle : Not too obvious, but this is where the trained model (mypilot from above) controls the steering. The Local refers to the trained model which is locally hosted on the raspberry-pi.</p></li>
+<li><p>Local Pilot : This is where the trained model (mypilot) assumes control of both the steering and the throttle. As of now, it’s purportedly not very reliable.</p></li>
+</ol>
+</div>
 <div id="build-pre-processing-pipe-line" class="section level2">
-<h2><span class="header-section-number">2.12</span> Build pre processing pipe line</h2>
+<h2><span class="header-section-number">2.13</span> Build pre processing pipe line</h2>
 <p>First step is to install openCV on the raspi so that the images recorded by the camera can be processed before they are stored.</p>
 <div id="install-opencv-on-the-raspi" class="section level3">
-<h3><span class="header-section-number">2.12.1</span> Install openCV on the raspi</h3>
+<h3><span class="header-section-number">2.13.1</span> Install openCV on the raspi</h3>
 <p>To add a pre-processing pipe line we need openCV. To intsall opencv on the raspberry <code>pip install opencv-python</code></p>
 
 </div>
