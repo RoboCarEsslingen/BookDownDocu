@@ -167,6 +167,16 @@ Enter a PWM setting to test(0-1500)120
 
 ```Ctrl C``` to exit calibration mode  
 
+Values for my car:  
+
+- left:490
+- right: 390
+- stop 410
+- slow forward 440
+- slow reverse 390
+- fast forward 550
+- fast reverse 310
+
 ### Throttle Calibration
 
 To start throttle calibration run
@@ -320,7 +330,7 @@ Now your controller should show that your controller is connected - the 4 blinki
 Run the part script to see if it works. You should see all the button values printed as you press them. Like this.
 
 ``` 
-cd /donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller
+cd donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller
 (env) pi@donkeypi_uwe:~/donkeypart_bluetooth_game_controller/donkeypart_bluetooth_game_controller $ python part.py log
 Please give a string that can identify the bluetooth device (ie. nintendo)nintendo
 log
@@ -575,10 +585,50 @@ b. Local Angle : Not too obvious, but this is where the trained model (mypilot f
 c. Local Pilot : This is where the trained model (mypilot) assumes control of both the steering and the throttle. As of now, it's purportedly not very reliable.
 
 
+### change model
+
+change in 
+```
+/Users/uwesterr/CloudProjectsUnderWork/ProjectsUnderWork/RoboCar/donkeycar/donkeycar-1/donkeycar/parts/
+```
+the file `keras.py`to tawn kramers `keras.py` which has dropout in the model. The file can be found at github https://github.com/tawnkramer/donkey/blob/master/donkeycar/parts/keras.py 
+
+Model doesnt work with donkeycar installation on raspi, change to tawn kramer installation
+
+## See rainers description 
+https://github.com/tawnkramer/donkey/blob/master/docs/guide/install_software.md 
+
+name of new installation donkeyUweTk
+```
+(env) pi@donkeyUweTk:~/donkey/donkeycar/parts $ ls
+__init__.py  augment.py   controller.py  dgym.py          graph.py  keras.py       network.py  simulation.py       transform.py
+__pycache__  behavior.py  cv.py          encoder.py       image.py  led_status.py  ros.py      teensy.py           web_controller
+actuator.py  camera.py    datastore.py   file_watcher.py  imu.py    lidar.py       salient.py  throttle_filter.py
+```
+
+add Wii U controller instruction https://github.com/autorope/donkeypart_bluetooth_game_controller 
+
+
+
 ## Build pre processing pipe line
 First step is to install openCV on the raspi so that the images recorded by the camera can be processed before they are stored.
 
 ### Install openCV on the raspi
 To add a pre-processing pipe line we need openCV. To intsall opencv on the raspberry
 `pip install opencv-python`
+
+## bluetooth key mapping
+
+For Tawn Kramer's version of donkeycar the following key mappings are valid for the Wii U
+
+X: erased last 100 records.
+B: E-Stop!!!
+Left cross: 
+
+- up: increase throttle_scale
+- down decrease throttle_scale
+"-" new mode: local_angle
+again "-" new mode: local 
+
+**then full speed on no control anymore**
 

@@ -22,6 +22,10 @@ Another video by Tawn Kramer gives tips on how to drive during training
 
 [Driving Tips to Train your Autonomous End-to-End NN Driver](https://www.youtube.com/watch?v=4fXbDf_QWM4&feature=youtu.be)
 
+This is the official Donkey Car Assembly video.  It includes using options like the Sombrero board and The NVIDIA Jetson Nano
+
+- [Donkey Car Assembly Video](https://www.youtube.com/watch?v=OaVqWiR2rS0&feature=youtu.be&mc_cid=0a8c1f095f&mc_eid=547a8008c5)
+
 ## Parts to build a RoboCar
 Links to hardware 
 
@@ -107,4 +111,4 @@ Reinforcement Learning on a Small Racing Car](https://towardsdatascience.com/lea
 
 cross reference headings in bookdown
 {#AssignStickToAction}
-"\@ref(AssignStickToAction)"
+\@ref(AssignStickToAction)
