@@ -88,6 +88,11 @@ Examples:
 (donkeyV3) Uwes-MBP:mycarV3 uwesterr$ donkey makemovie --tub=/Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  --out=VaihingenTubMovieV3.mp4 --config=config.py --model=/Users/uwesterr/mycarV3/vaihingenIII.h5  --type=linear --start=0 --end=10 --salient
 ```
 
+Results in the following movie
+<video width="720" controls>
+  <source src="images/VaihingenTubMovieV3WithSteeringAndSalientLong.mp4" type="video/mp4">
+</video>
+
 ## Check Tub {#tubclean}
 
 This command allows you to see how many records are contained in any/all tubs. It will also open each record and ensure that the data is readable and intact. If not, it will allow you to remove corrupt records.
