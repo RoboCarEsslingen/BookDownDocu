@@ -595,7 +595,7 @@ the file `keras.py`to tawn kramers `keras.py` which has dropout in the model. Th
 
 Model doesnt work with donkeycar installation on raspi, change to tawn kramer installation
 
-## See rainers description 
+## See Rainer's description 
 https://github.com/tawnkramer/donkey/blob/master/docs/guide/install_software.md 
 
 name of new installation donkeyUweTk
@@ -621,14 +621,11 @@ To add a pre-processing pipe line we need openCV. To intsall opencv on the raspb
 
 For Tawn Kramer's version of donkeycar the following key mappings are valid for the Wii U
 
-X: erased last 100 records.
-B: E-Stop!!!
-Left cross: 
-
-- up: increase throttle_scale
-- down decrease throttle_scale
-"-" new mode: local_angle
-again "-" new mode: local 
-
-**then full speed on no control anymore**
+- X: erased last 100 records.
+- B: E-Stop!!!
+- "-" new mode: local_angle
+- again "-" new mode: local 
+- Left cross: 
+    - up: increase throttle_scale
+    - down decrease throttle_scale
 
