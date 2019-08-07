@@ -568,7 +568,7 @@ Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models
 Run the following command on the raspberry pi.
 
 ```
-(env) pi@donkeypi_uwe:~/mycar $ python  manageLedSwitch.py drive --model ~/mycar/models/Vaihingen20190413
+(env) pi@donkeyUweTk:~/d2 $ python manageUwe.py drive --model ~/d2/models/vaihingenIII.h5
 ```
 Toggle drive mode by pressing button **'A'**, the modes are toggles between three states
 

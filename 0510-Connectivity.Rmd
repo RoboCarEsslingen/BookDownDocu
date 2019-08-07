@@ -86,7 +86,7 @@ Now the Raspberry Pi can be reached from the Mac using the IP-adress `192.168.43
 
 ```
 
-#### Get IP adress of raspi in shack {#GetIp}
+#### Get IP adress of raspi in shack {#GetIpShack}
 
 If connected to a provided wifi network the Raspberry Pi IP adress needs to be found out.
 Check in the router for the IP adress, procedure is dependent on router

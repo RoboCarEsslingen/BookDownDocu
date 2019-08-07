@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2019-08-05" />
+<meta name="date" content="2019-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -265,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="get-on-the-road.html"><a href="get-on-the-road.html#implement-xbox-controller-as-input-in-client_app.py"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#make-steering-proportional-to-remote-control-lever-position"><i class="fa fa-check"></i><b>9.3.1</b> Make steering proportional to remote control lever position</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="Conncectivity.html"><a href="Conncectivity.html#GetIp"><i class="fa fa-check"></i><b>9.4</b> Get IP adress of raspi in shack</a></li>
+<li class="chapter" data-level="9.4" data-path="get-on-the-road.html"><a href="get-on-the-road.html#GetIp"><i class="fa fa-check"></i><b>9.4</b> Get IP adress of raspi in shack</a></li>
 <li class="chapter" data-level="9.5" data-path="get-on-the-road.html"><a href="get-on-the-road.html#store-snapshots-of-video-stream-on-local-computer"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#jie-hous-alternative"><i class="fa fa-check"></i><b>9.5.1</b> Jie Hou’s alternative</a></li>
 </ul></li>
@@ -666,7 +666,7 @@ cd ~/mycar
 python manage.py drive
 # or if you have changed the file name to indicate that you added the bluetooth contorller
 python manageOrgExtWii.py drive</code></pre>
-<p>how to the the IP address of your car you check your at your router. How to do this at shackspace is described <a href="Conncectivity.html#GetIp">3.2.2.3</a></p>
+<p>how to the the IP address of your car you check your at your router. How to do this at shackspace is described <a href="get-on-the-road.html#GetIp">9.4</a></p>
 <p>And the car drives</p>
 <video width="720" controls>
 <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
@@ -828,7 +828,7 @@ Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models
 <div id="run-car-on-neural-net" class="section level2">
 <h2><span class="header-section-number">2.12</span> Run car on neural net</h2>
 <p>Run the following command on the raspberry pi.</p>
-<pre><code>(env) pi@donkeypi_uwe:~/mycar $ python  manageLedSwitch.py drive --model ~/mycar/models/Vaihingen20190413</code></pre>
+<pre><code>(env) pi@donkeyUweTk:~/d2 $ python manageUwe.py drive --model ~/d2/models/vaihingenIII.h5</code></pre>
 <p>Toggle drive mode by pressing button <strong>‘A’</strong>, the modes are toggles between three states</p>
 <ul>
 <li><strong>Throttle</strong> and <strong>steering</strong> WiiU controlled</li>
