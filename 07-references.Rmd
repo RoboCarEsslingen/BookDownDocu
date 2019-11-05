@@ -11,6 +11,7 @@ Here are links to the donkey car project
 - [http://docs.donkeycar.com/guide/simulator/](http://docs.donkeycar.com/guide/simulator/)
 - [Controller Parts](http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller)
 - [donkey Car FAQ](http://www.donkeycar.com/faq)
+- [Donkey car CAD F360 file ](https://myhub.autodesk360.com/ue29cd685/g/shares/SHabee1QT1a327cf2b7a4e199edaece296a3?viewState=NoIgbgDAdAjCA0IDeAdEAXAngBwKZoC40ARXAZwEsBzAOzXjQEMyzd1C0BjAVgDNuAHNwDsANgC0ATgAswzuOkwARo3ECIMCbgDMAyZ14ATSZOFC0AXxABdIA)
 
 ### Videos for donkey car
 

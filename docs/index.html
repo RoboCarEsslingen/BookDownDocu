@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>RoboCar project documentation</title>
   <meta name="description" content="Notes taken by Uwe for the RoboCar project" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="RoboCar project documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-11-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="donkeyCar.html">
+<link rel="next" href="donkeyCar.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -178,6 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.14.1" data-path="donkeyCar.html"><a href="donkeyCar.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.14.1</b> Install openCV on the raspi</a></li>
 </ul></li>
 <li class="chapter" data-level="2.15" data-path="donkeyCar.html"><a href="donkeyCar.html#bluetooth-key-mapping"><i class="fa fa-check"></i><b>2.15</b> bluetooth key mapping</a></li>
+<li class="chapter" data-level="2.16" data-path="donkeyCar.html"><a href="donkeyCar.html#load-h5-model-and-inspect"><i class="fa fa-check"></i><b>2.16</b> Load h5 model and inspect</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a><ul>
 <li class="chapter" data-level="3.1" data-path="Conncectivity.html"><a href="Conncectivity.html#purpose-of-connections"><i class="fa fa-check"></i><b>3.1</b> Purpose of connections</a></li>
@@ -218,33 +222,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#change-default-recording-status-to-false"><i class="fa fa-check"></i><b>5.7</b> Change default recording status to false</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
-<li class="chapter" data-level="6.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#environment"><i class="fa fa-check"></i><b>6.1</b> Environment</a></li>
-<li class="chapter" data-level="6.2" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#sudo-raspi-config"><i class="fa fa-check"></i><b>6.2</b> sudo raspi-config</a></li>
-<li class="chapter" data-level="6.3" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#etcwpa_supllicantwpa_supplicant.conf"><i class="fa fa-check"></i><b>6.3</b> etc/wpa_supllicant/wpa_supplicant.conf</a></li>
-<li class="chapter" data-level="6.4" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#installs"><i class="fa fa-check"></i><b>6.4</b> installs</a></li>
-<li class="chapter" data-level="6.5" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#install-donkey-on-pi"><i class="fa fa-check"></i><b>6.5</b> install donkey on pi</a></li>
-<li class="chapter" data-level="6.6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#config.piy"><i class="fa fa-check"></i><b>6.6</b> 5. config.piy</a></li>
-<li class="chapter" data-level="6.7" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#bluetooth"><i class="fa fa-check"></i><b>6.7</b> bluetooth</a></li>
-<li class="chapter" data-level="6.8" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#wii-u-controller"><i class="fa fa-check"></i><b>6.8</b> 8. wii u controller</a></li>
-<li class="chapter" data-level="6.9" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#autostart-donkeycar"><i class="fa fa-check"></i><b>6.9</b> autostart donkeycar</a></li>
-<li class="chapter" data-level="6.10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#steering-calibration-1"><i class="fa fa-check"></i><b>6.10</b> Steering Calibration</a></li>
-<li class="chapter" data-level="6.11" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-barei.html#drive"><i class="fa fa-check"></i><b>6.11</b> drive</a></li>
+<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="6.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#environment"><i class="fa fa-check"></i><b>6.1</b> Environment</a></li>
+<li class="chapter" data-level="6.2" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#sudo-raspi-config"><i class="fa fa-check"></i><b>6.2</b> sudo raspi-config</a></li>
+<li class="chapter" data-level="6.3" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#etcwpa_supllicantwpa_supplicant.conf"><i class="fa fa-check"></i><b>6.3</b> etc/wpa_supllicant/wpa_supplicant.conf</a></li>
+<li class="chapter" data-level="6.4" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#installs"><i class="fa fa-check"></i><b>6.4</b> installs</a></li>
+<li class="chapter" data-level="6.5" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#install-donkey-on-pi"><i class="fa fa-check"></i><b>6.5</b> install donkey on pi</a></li>
+<li class="chapter" data-level="6.6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#config.piy"><i class="fa fa-check"></i><b>6.6</b> 5. config.piy</a></li>
+<li class="chapter" data-level="6.7" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#bluetooth"><i class="fa fa-check"></i><b>6.7</b> bluetooth</a></li>
+<li class="chapter" data-level="6.8" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#wii-u-controller"><i class="fa fa-check"></i><b>6.8</b> 8. wii u controller</a></li>
+<li class="chapter" data-level="6.9" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#autostart-donkeycar"><i class="fa fa-check"></i><b>6.9</b> autostart donkeycar</a></li>
+<li class="chapter" data-level="6.10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#steering-calibration-1"><i class="fa fa-check"></i><b>6.10</b> Steering Calibration</a></li>
+<li class="chapter" data-level="6.11" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#drive"><i class="fa fa-check"></i><b>6.11</b> drive</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a><ul>
-<li class="chapter" data-level="7.1" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#environment-1"><i class="fa fa-check"></i><b>7.1</b> Environment</a></li>
-<li class="chapter" data-level="7.2" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#read-data-from-pi"><i class="fa fa-check"></i><b>7.2</b> Read data from pi</a></li>
-<li class="chapter" data-level="7.3" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#check-data-raw-prepared"><i class="fa fa-check"></i><b>7.3</b> Check data raw &amp; prepared</a></li>
-<li class="chapter" data-level="7.4" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#clean-data"><i class="fa fa-check"></i><b>7.4</b> 3. Clean data</a></li>
-<li class="chapter" data-level="7.5" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#make-movie"><i class="fa fa-check"></i><b>7.5</b> Make movie</a></li>
-<li class="chapter" data-level="7.6" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#tubhist"><i class="fa fa-check"></i><b>7.6</b> tubhist</a></li>
-<li class="chapter" data-level="7.7" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#train-data"><i class="fa fa-check"></i><b>7.7</b> Train Data</a></li>
-<li class="chapter" data-level="7.8" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#plot-data-against-model"><i class="fa fa-check"></i><b>7.8</b> Plot data against model</a></li>
-<li class="chapter" data-level="7.9" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#run-in-simulator"><i class="fa fa-check"></i><b>7.9</b> Run in simulator</a></li>
-<li class="chapter" data-level="7.10" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#copy-model-to-pi"><i class="fa fa-check"></i><b>7.10</b> Copy model to pi</a></li>
-<li class="chapter" data-level="7.11" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#run-model-on-pi"><i class="fa fa-check"></i><b>7.11</b> Run model on pi</a></li>
-<li class="chapter" data-level="7.12" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#watch-pi-camera"><i class="fa fa-check"></i><b>7.12</b> 11. Watch pi camera</a></li>
-<li class="chapter" data-level="7.13" data-path="driving-training-following-tawn-kramer-by-rainer-barei.html"><a href="driving-training-following-tawn-kramer-by-rainer-barei.html#reinfocement-learning"><i class="fa fa-check"></i><b>7.13</b> Reinfocement Learning</a></li>
+<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="7.1" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#environment-1"><i class="fa fa-check"></i><b>7.1</b> Environment</a></li>
+<li class="chapter" data-level="7.2" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#read-data-from-pi"><i class="fa fa-check"></i><b>7.2</b> Read data from pi</a></li>
+<li class="chapter" data-level="7.3" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#check-data-raw-prepared"><i class="fa fa-check"></i><b>7.3</b> Check data raw &amp; prepared</a></li>
+<li class="chapter" data-level="7.4" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#clean-data"><i class="fa fa-check"></i><b>7.4</b> 3. Clean data</a></li>
+<li class="chapter" data-level="7.5" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#make-movie"><i class="fa fa-check"></i><b>7.5</b> Make movie</a></li>
+<li class="chapter" data-level="7.6" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#tubhist"><i class="fa fa-check"></i><b>7.6</b> tubhist</a></li>
+<li class="chapter" data-level="7.7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#train-data"><i class="fa fa-check"></i><b>7.7</b> Train Data</a></li>
+<li class="chapter" data-level="7.8" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#plot-data-against-model"><i class="fa fa-check"></i><b>7.8</b> Plot data against model</a></li>
+<li class="chapter" data-level="7.9" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#run-in-simulator"><i class="fa fa-check"></i><b>7.9</b> Run in simulator</a></li>
+<li class="chapter" data-level="7.10" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#copy-model-to-pi"><i class="fa fa-check"></i><b>7.10</b> Copy model to pi</a></li>
+<li class="chapter" data-level="7.11" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#run-model-on-pi"><i class="fa fa-check"></i><b>7.11</b> Run model on pi</a></li>
+<li class="chapter" data-level="7.12" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#watch-pi-camera"><i class="fa fa-check"></i><b>7.12</b> 11. Watch pi camera</a></li>
+<li class="chapter" data-level="7.13" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#reinfocement-learning"><i class="fa fa-check"></i><b>7.13</b> Reinfocement Learning</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a><ul>
 <li class="chapter" data-level="8.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#section"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a><ul>
@@ -282,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.4" data-path="resources.html"><a href="resources.html#kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3"><i class="fa fa-check"></i><b>10.2.4</b> Kuman Professional WIFI Smart Robot Model Car Kit Videokamera for Raspberry Pi 3</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#hardware"><i class="fa fa-check"></i><b>10.3</b> Hardware</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="resources.html"><a href="resources.html#komponentenliste-fur-ein-ferngesteuertes-roboter-auto"><i class="fa fa-check"></i><b>10.3.1</b> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</a></li>
+<li class="chapter" data-level="10.3.1" data-path="resources.html"><a href="resources.html#komponentenliste-für-ein-ferngesteuertes-roboter-auto"><i class="fa fa-check"></i><b>10.3.1</b> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</a></li>
 <li class="chapter" data-level="10.3.2" data-path="resources.html"><a href="resources.html#motor-control"><i class="fa fa-check"></i><b>10.3.2</b> Motor control</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="resources.html"><a href="resources.html#simulators"><i class="fa fa-check"></i><b>10.4</b> Simulators</a><ul>
@@ -294,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.3" data-path="resources.html"><a href="resources.html#raspberry-pi-rc-control"><i class="fa fa-check"></i><b>10.5.3</b> RASPBERRY PI RC CONTROL</a></li>
 <li class="chapter" data-level="10.5.4" data-path="resources.html"><a href="resources.html#python-class-to-support-xbox-360-controller-under-linux-on-raspberrypi"><i class="fa fa-check"></i><b>10.5.4</b> Python class to support xbox 360 controller under Linux on RaspberryPi</a></li>
 <li class="chapter" data-level="10.5.5" data-path="resources.html"><a href="resources.html#xbox-driver-for-mac"><i class="fa fa-check"></i><b>10.5.5</b> xbox driver for mac</a></li>
-<li class="chapter" data-level="10.5.6" data-path="resources.html"><a href="resources.html#konzept-fur-softwareschichten"><i class="fa fa-check"></i><b>10.5.6</b> Konzept für softwareschichten</a></li>
+<li class="chapter" data-level="10.5.6" data-path="resources.html"><a href="resources.html#konzept-für-softwareschichten"><i class="fa fa-check"></i><b>10.5.6</b> Konzept für softwareschichten</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a><ul>
@@ -339,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">RoboCar project documentation</h1>
 <p class="author"><em>Uwe Sterr</em></p>
-<p class="date"><em>2019-08-07</em></p>
+<p class="date"><em>2019-11-05</em></p>
 </div>
 <div id="project-robocar" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Project RoboCar</h1>
@@ -381,11 +385,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
