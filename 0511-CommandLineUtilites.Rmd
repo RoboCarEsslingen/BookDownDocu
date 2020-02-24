@@ -159,5 +159,17 @@ donkey sim --model=<model_path> [--type=<linear|categorical>] [--top_speed=<spee
 * `--type` can specify whether the model needs angle output to be treated as categorical
 * Top speed can be modified to ascertain stability at different goal speeds
 
+## Colab training
+
+fist we need to get the data in a format to upload to our google mydrive as a tar zip 
+```
+tar -czf tubTest.tar.gz tub*
+```
+
+more info on how to train in colab is given in the notebook itself
+
+https://colab.research.google.com/github/robocarstore/donkey-car-training-on-google-colab/blob/master/Donkey_Car_Training_using_Google_Colab.ipynb#scrollTo=0ShFSsaewLCT
+
+
 
 

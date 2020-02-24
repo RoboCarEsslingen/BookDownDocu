@@ -202,6 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#histogram"><i class="fa fa-check"></i><b>4.7</b> Histogram</a></li>
 <li class="chapter" data-level="4.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>4.8</b> Plot Predictions</a></li>
 <li class="chapter" data-level="4.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>4.9</b> Simulation Server</a></li>
+<li class="chapter" data-level="4.10" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.10</b> Colab training</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
@@ -604,16 +605,16 @@ if __name__ == &#39;__main__&#39;:
 <h3><span class="header-section-number">17.0.2</span> Python class to support xbox 360 controller under Linux on RaspberryPi</h3>
 <p>Python class to support reading xbox 360 wired and wireless controller input under Linux. Makes it easy to get real-time input from controller buttons, analog sticks and triggers. Built and tested on RaspberryPi running Raspbian.</p>
 <p>code example</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-1"></a><span class="im">import</span> xbox</span>
-<span id="cb149-2"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-2"></a>joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span></span>
-<span id="cb149-3"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-3"></a></span>
-<span id="cb149-4"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-4"></a><span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span></span>
-<span id="cb149-5"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-5"></a>    <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span></span>
-<span id="cb149-6"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-6"></a>x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span></span>
-<span id="cb149-7"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-7"></a>(x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span></span>
-<span id="cb149-8"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-8"></a>trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span></span>
-<span id="cb149-9"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-9"></a></span>
-<span id="cb149-10"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb149-10"></a>joy.close()                   <span class="co">#Cleanup before exit</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-1"></a><span class="im">import</span> xbox</span>
+<span id="cb153-2"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-2"></a>joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span></span>
+<span id="cb153-3"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-3"></a></span>
+<span id="cb153-4"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-4"></a><span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span></span>
+<span id="cb153-5"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-5"></a>    <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span></span>
+<span id="cb153-6"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-6"></a>x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span></span>
+<span id="cb153-7"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-7"></a>(x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span></span>
+<span id="cb153-8"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-8"></a>trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span></span>
+<span id="cb153-9"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-9"></a></span>
+<span id="cb153-10"><a href="based-on-example-in-httpswww-youtube-comwatchv2xcuzxataik.html#cb153-10"></a>joy.close()                   <span class="co">#Cleanup before exit</span></span></code></pre></div>
 <p><a href="https://github.com/FRC4564/Xbox" class="uri">https://github.com/FRC4564/Xbox</a></p>
 </div>
 <div id="xbox-driver-for-mac" class="section level3">

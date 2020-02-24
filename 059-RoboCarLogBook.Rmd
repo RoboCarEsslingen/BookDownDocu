@@ -27,7 +27,7 @@ Create a blank file ssh under the /boot directory to enable remote login and del
 
 Create a WiFi configuration file wpa_supplicant.conf under /boot according to http://www.linux-ratgeber.de/wlan-verbindungsdaten-einrichten-ueber-die-wpa_supplicant-conf/
 
-
+``` 
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
  
@@ -41,23 +41,40 @@ network={
     group=TKIP
 }
 
+``` 
+
 #### boot up raspi
 username: pi
 password: raspberry
 
 change password type  
 
-```passwd```  
+```
+passwd
+```
+
+
 and follow instructions
 
 change to german keyboard layout
+
 ```sudo nano /etc/default/keyboard```
 
 find where it says
 
-```XKBLAYOUT=”gb”``` 
+
+
+```
+XKBLAYOUT=”gb”
+```
+
+
 to
-```XKBLAYOUT=”de”``` 
+
+```
+XKBLAYOUT=”de”
+```
+
 
 and change the gb to the two letter code for german
 
@@ -356,6 +373,7 @@ pip install https://github.com/pygame/pygame/archive/master.zip
 ```
 
 create a jupyter notebook "xboxControllerOnMac.ipynb"" with 
+
 ```
 import pygame
 import sys
@@ -436,6 +454,7 @@ Joystick button pressed.
 ## Implement Xbox controller as input in client_App.py
 
 In client_App.py the part for driving forward extracted 
+
 ```
 from Tkinter import *
 from socket import *      # Import necessary modules
@@ -461,6 +480,7 @@ def forward_fun(event):
 	print 'forward'
 	tcpCliSock.send('forward')
 ```	
+
 then keystrokes are binded to the forward function, this needs to be changed to bind Xbox controller values to the function
 ```
 # =============================================================================

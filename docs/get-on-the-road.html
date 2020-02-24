@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2020-01-29" />
+<meta name="date" content="2020-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -200,6 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#histogram"><i class="fa fa-check"></i><b>4.7</b> Histogram</a></li>
 <li class="chapter" data-level="4.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>4.8</b> Plot Predictions</a></li>
 <li class="chapter" data-level="4.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>4.9</b> Simulation Server</a></li>
+<li class="chapter" data-level="4.10" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.10</b> Colab training</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
@@ -216,7 +219,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>5.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="5.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>5.4</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="5.5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.5</b> Limit max velocity</a></li>
+<li class="chapter" data-level="5.5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.5</b> Limit max velocity</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#limit-max-velocity-for-joystick-input"><i class="fa fa-check"></i><b>5.5.1</b> Limit max velocity for joystick input</a></li>
+<li class="chapter" data-level="5.5.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#limit-max-velocity-for-ai-pilot"><i class="fa fa-check"></i><b>5.5.2</b> Limit max velocity for ai pilot</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>5.6</b> Add LED to indicate recording mode</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>5.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
 </ul></li>
@@ -380,7 +386,7 @@ Install pygame</p>
 python3.6 -m venv anenv
 . ./anenv/bin/activate
 pip install https://github.com/pygame/pygame/archive/master.zip</code></pre>
-<p>create a jupyter notebook “xboxControllerOnMac.ipynb”&quot; with</p>
+<p>create a jupyter notebook “xboxControllerOnMac.ipynb”" with</p>
 <pre><code>import pygame
 import sys
 import time
