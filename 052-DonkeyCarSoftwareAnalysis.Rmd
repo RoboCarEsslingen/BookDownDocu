@@ -420,30 +420,25 @@ It seems to be odd to have steering and throttle on one stick, to assign throttl
 to make the controller more sensitive it might be a good idea to limit the max joystick value in ```donkeypart_bluetooth_game_controller/wiiu_config.yml``` to the max value needed which is according to \@ref(configpyAfterCalib) 
 
 ## Limit max velocity {#setMaxVel}
-To avoid that the car becomes too fast change in ```manage.py``` the **max_pulse** value. Note, the value is dependent of your **cfg.THROTTLE_STOPPED_PWM**, the **max_pulse** value ought to be a bit higher than the **cfg.THROTTLE_STOPPED_PWM**. You might want to find out a suitable value by using the calibration mode which you used to find the max values.
+To avoid that the car becomes too fast there are two variables in ```myconfig.py``` 
 
+### Limit max velocity for joystick input
 
-```
-    throttle = PWMThrottle(controller=throttle_controller,
-                           max_pulse=cfg.THROTTLE_FORWARD_PWM,
-                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse=cfg.THROTTLE_REVERSE_PWM)
-```
-
-to
+To limit the max velocity due to joystick input set in ```myconfig.py``` the variable ```JOYSTICK_MAX_THROTTLE``` to a value of your liking
 
 ```
-    throttle = PWMThrottle(controller=throttle_controller,
-                           max_pulse= 409, # cfg.THROTTLE_FORWARD_PWM, limit forward speed
-                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse= 380) #  cfg.THROTTLE_REVERSE_PWM) Limit reverse speed
-```                           
-
-Or you can set in ```config.py``` the variable **THROTTLE_FORWARD_PWM** which defines the max throttle value to a value which gives you a low enough speed to master the track.
-
+JOYSTICK_MAX_THROTTLE = 0.5         #this scalar is multiplied with the -1 to 1 throttle value to limit the maximum throttle. This can help if you drop the controller or just don't need the full speed available.
 ```
-THROTTLE_FORWARD_PWM = 413
+
+### Limit max velocity for ai pilot
+
+To limit the max velocity for ai pilot set in ```myconfig.py``` the variable ```AI_THROTTLE_MULT``` to a value of your liking
+
+
+``` 
+AI_THROTTLE_MULT = 1.0              # this multiplier will scale every throttle value for all output from NN models
 ```
+
 
 
 ## Add LED to indicate recording mode {#LedIndicatingRecordingMode}

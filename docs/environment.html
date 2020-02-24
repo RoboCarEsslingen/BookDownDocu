@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6.1 Environment | RoboCar project documentation</title>
+  <meta name="description" content="Notes taken by Uwe for the RoboCar project" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6.1 Environment | RoboCar project documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Notes taken by Uwe for the RoboCar project" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6.1 Environment | RoboCar project documentation" />
+  
+  <meta name="twitter:description" content="Notes taken by Uwe for the RoboCar project" />
+  
+
+<meta name="author" content="Uwe Sterr" />
+
+
+<meta name="date" content="2020-01-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"/>
+<link rel="next" href="sudo-raspi-config.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">RoboCar project documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project RoboCar</a><ul>
+<li class="chapter" data-level="1.1" data-path="how-to-join-us.html"><a href="how-to-join-us.html"><i class="fa fa-check"></i><b>1.1</b> How to join us</a></li>
+<li class="chapter" data-level="1.2" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>1.2</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>2</b> Building and operate a donkeycar</a><ul>
+<li class="chapter" data-level="2.1" data-path="reason-for-changing-the-plattform.html"><a href="reason-for-changing-the-plattform.html"><i class="fa fa-check"></i><b>2.1</b> Reason for changing the plattform</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="reason-for-changing-the-plattform.html"><a href="reason-for-changing-the-plattform.html#carSelection"><i class="fa fa-check"></i><b>2.1.1</b> Selecting a RC car</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="what-to-do.html"><a href="what-to-do.html"><i class="fa fa-check"></i><b>2.2</b> What to do</a></li>
+<li class="chapter" data-level="2.3" data-path="carWiring.html"><a href="carWiring.html"><i class="fa fa-check"></i><b>2.3</b> Rewiring the car</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="carWiring.html"><a href="carWiring.html#parts-list"><i class="fa fa-check"></i><b>2.3.1</b> Parts list</a></li>
+<li class="chapter" data-level="2.3.2" data-path="carWiring.html"><a href="carWiring.html#why-not-using-pca9685"><i class="fa fa-check"></i><b>2.3.2</b> Why not using PCA9685</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="folders-created-during-installation-of-host-pc.html"><a href="folders-created-during-installation-of-host-pc.html"><i class="fa fa-check"></i><b>2.4</b> Folders created during installation of host PC</a></li>
+<li class="chapter" data-level="2.5" data-path="calibrate-the-car.html"><a href="calibrate-the-car.html"><i class="fa fa-check"></i><b>2.5</b> Calibrate the car</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="calibrate-the-car.html"><a href="calibrate-the-car.html#setting-wifi-up-for-the-raspberry"><i class="fa fa-check"></i><b>2.5.1</b> Setting WIFI up for the raspberry</a></li>
+<li class="chapter" data-level="2.5.2" data-path="calibrate-the-car.html"><a href="calibrate-the-car.html#steering-calibration"><i class="fa fa-check"></i><b>2.5.2</b> Steering Calibration</a></li>
+<li class="chapter" data-level="2.5.3" data-path="calibrate-the-car.html"><a href="calibrate-the-car.html#throttle-calibration"><i class="fa fa-check"></i><b>2.5.3</b> Throttle Calibration</a></li>
+<li class="chapter" data-level="2.5.4" data-path="calibrate-the-car.html"><a href="calibrate-the-car.html#configpyAfterCalib"><i class="fa fa-check"></i><b>2.5.4</b> Config.py after calibration</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="drive-your-car-with-web-interface.html"><a href="drive-your-car-with-web-interface.html"><i class="fa fa-check"></i><b>2.6</b> Drive your car with web interface</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="drive-your-car-with-web-interface.html"><a href="drive-your-car-with-web-interface.html#preparation-on-mac"><i class="fa fa-check"></i><b>2.6.1</b> Preparation on Mac</a></li>
+<li class="chapter" data-level="2.6.2" data-path="drive-your-car-with-web-interface.html"><a href="drive-your-car-with-web-interface.html#preparation-on-raspberry"><i class="fa fa-check"></i><b>2.6.2</b> Preparation on Raspberry</a></li>
+<li class="chapter" data-level="2.6.3" data-path="drive-your-car-with-web-interface.html"><a href="drive-your-car-with-web-interface.html#open-control-in-web-browser-on-mac"><i class="fa fa-check"></i><b>2.6.3</b> Open control in web browser on Mac</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="connecting-bluetooth-controller.html"><a href="connecting-bluetooth-controller.html"><i class="fa fa-check"></i><b>2.7</b> Connecting bluetooth controller</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="connecting-bluetooth-controller.html"><a href="connecting-bluetooth-controller.html#BluetoothControllerInstall"><i class="fa fa-check"></i><b>2.7.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="start-driving-or-training.html"><a href="start-driving-or-training.html"><i class="fa fa-check"></i><b>2.8</b> Start driving or training</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="start-driving-or-training.html"><a href="start-driving-or-training.html#create-movie-from-tub-data"><i class="fa fa-check"></i><b>2.8.1</b> Create movie from tub data</a></li>
+<li class="chapter" data-level="2.8.2" data-path="start-driving-or-training.html"><a href="start-driving-or-training.html#options-of-manage.py"><i class="fa fa-check"></i><b>2.8.2</b> Options of manage.py</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="tips-on-how-to-drive-during-training.html"><a href="tips-on-how-to-drive-during-training.html"><i class="fa fa-check"></i><b>2.9</b> Tips on how to drive during training</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="tips-on-how-to-drive-during-training.html"><a href="tips-on-how-to-drive-during-training.html#how-to-edit-recorded-data"><i class="fa fa-check"></i><b>2.9.1</b> How to edit recorded data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="mange-recorded-data.html"><a href="mange-recorded-data.html"><i class="fa fa-check"></i><b>2.10</b> Mange recorded data</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="mange-recorded-data.html"><a href="mange-recorded-data.html#archiving-data"><i class="fa fa-check"></i><b>2.10.1</b> Archiving data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="mange-recorded-data.html"><a href="mange-recorded-data.html#delete-data"><i class="fa fa-check"></i><b>2.10.2</b> Delete data</a></li>
+<li class="chapter" data-level="2.10.3" data-path="mange-recorded-data.html"><a href="mange-recorded-data.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>2.10.3</b> Copy files from raspi to mac</a></li>
+<li class="chapter" data-level="2.10.4" data-path="mange-recorded-data.html"><a href="mange-recorded-data.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>2.10.4</b> How big is the tub folder</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="train-neural-network.html"><a href="train-neural-network.html"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a></li>
+<li class="chapter" data-level="2.12" data-path="run-car-on-neural-net.html"><a href="run-car-on-neural-net.html"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="run-car-on-neural-net.html"><a href="run-car-on-neural-net.html#change-model"><i class="fa fa-check"></i><b>2.12.1</b> change model</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="see-rainers-description.html"><a href="see-rainers-description.html"><i class="fa fa-check"></i><b>2.13</b> See Rainer’s description</a></li>
+<li class="chapter" data-level="2.14" data-path="build-pre-processing-pipe-line.html"><a href="build-pre-processing-pipe-line.html"><i class="fa fa-check"></i><b>2.14</b> Build pre processing pipe line</a><ul>
+<li class="chapter" data-level="2.14.1" data-path="build-pre-processing-pipe-line.html"><a href="build-pre-processing-pipe-line.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.14.1</b> Install openCV on the raspi</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="bluetooth-key-mapping.html"><a href="bluetooth-key-mapping.html"><i class="fa fa-check"></i><b>2.15</b> bluetooth key mapping</a></li>
+<li class="chapter" data-level="2.16" data-path="load-h5-model-and-inspect.html"><a href="load-h5-model-and-inspect.html"><i class="fa fa-check"></i><b>2.16</b> Load h5 model and inspect</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a><ul>
+<li class="chapter" data-level="3.1" data-path="purpose-of-connections.html"><a href="purpose-of-connections.html"><i class="fa fa-check"></i><b>3.1</b> Purpose of connections</a></li>
+<li class="chapter" data-level="3.2" data-path="setting-up-of-the-wireless-connections.html"><a href="setting-up-of-the-wireless-connections.html"><i class="fa fa-check"></i><b>3.2</b> Setting up of the wireless connections</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="setting-up-of-the-wireless-connections.html"><a href="setting-up-of-the-wireless-connections.html#bluetooth-connection"><i class="fa fa-check"></i><b>3.2.1</b> Bluetooth connection</a></li>
+<li class="chapter" data-level="3.2.2" data-path="setting-up-of-the-wireless-connections.html"><a href="setting-up-of-the-wireless-connections.html#wifi-connection"><i class="fa fa-check"></i><b>3.2.2</b> Wifi connection</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>4</b> Donkey Command-line Utilities</a><ul>
+<li class="chapter" data-level="4.1" data-path="create-car.html"><a href="create-car.html"><i class="fa fa-check"></i><b>4.1</b> Create Car</a></li>
+<li class="chapter" data-level="4.2" data-path="find-car.html"><a href="find-car.html"><i class="fa fa-check"></i><b>4.2</b> Find Car</a></li>
+<li class="chapter" data-level="4.3" data-path="calibrate-car.html"><a href="calibrate-car.html"><i class="fa fa-check"></i><b>4.3</b> Calibrate Car</a></li>
+<li class="chapter" data-level="4.4" data-path="clean-data-in-tub.html"><a href="clean-data-in-tub.html"><i class="fa fa-check"></i><b>4.4</b> Clean data in Tub</a></li>
+<li class="chapter" data-level="4.5" data-path="make-movie-from-tub.html"><a href="make-movie-from-tub.html"><i class="fa fa-check"></i><b>4.5</b> Make Movie from Tub</a></li>
+<li class="chapter" data-level="4.6" data-path="tubclean.html"><a href="tubclean.html"><i class="fa fa-check"></i><b>4.6</b> Check Tub</a></li>
+<li class="chapter" data-level="4.7" data-path="histogram.html"><a href="histogram.html"><i class="fa fa-check"></i><b>4.7</b> Histogram</a></li>
+<li class="chapter" data-level="4.8" data-path="plot-predictions.html"><a href="plot-predictions.html"><i class="fa fa-check"></i><b>4.8</b> Plot Predictions</a></li>
+<li class="chapter" data-level="4.9" data-path="simulation-server.html"><a href="simulation-server.html"><i class="fa fa-check"></i><b>4.9</b> Simulation Server</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="how-to-add-parts-to-a-vehicle.html"><a href="how-to-add-parts-to-a-vehicle.html"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="how-to-add-parts-to-a-vehicle.html"><a href="how-to-add-parts-to-a-vehicle.html#function-v.start"><i class="fa fa-check"></i><b>5.1.1</b> Function V.start()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="how-to-add-parts-to-a-vehicle.html"><a href="how-to-add-parts-to-a-vehicle.html#function-v.update_parts"><i class="fa fa-check"></i><b>5.1.2</b> Function V.update_parts()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="how-to-add-parts-to-a-vehicle.html"><a href="how-to-add-parts-to-a-vehicle.html#function-v.add"><i class="fa fa-check"></i><b>5.1.3</b> Function V.add</a></li>
+<li class="chapter" data-level="5.1.4" data-path="how-to-add-parts-to-a-vehicle.html"><a href="how-to-add-parts-to-a-vehicle.html#threadedParts"><i class="fa fa-check"></i><b>5.1.4</b> Concept of threads vs non-threaded parts</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="structure-of-manage-py.html"><a href="structure-of-manage-py.html"><i class="fa fa-check"></i><b>5.2</b> Structure of <code>manage.py</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="structure-of-manage-py.html"><a href="structure-of-manage-py.html#creating-manage.py"><i class="fa fa-check"></i><b>5.2.1</b> Creating <code>manage.py</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="structure-of-manage-py.html"><a href="structure-of-manage-py.html#starting-manage.py"><i class="fa fa-check"></i><b>5.2.2</b> Starting <code>manage.py</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="structure-of-manage-py.html"><a href="structure-of-manage-py.html#parsing-the-command-line-parameters"><i class="fa fa-check"></i><b>5.2.3</b> Parsing the command line parameters</a></li>
+<li class="chapter" data-level="5.2.4" data-path="structure-of-manage-py.html"><a href="structure-of-manage-py.html#function-drive"><i class="fa fa-check"></i><b>5.2.4</b> Function <code>drive</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="locate-modules-on-raspi-which-are-being-imported-by-manage-py.html"><a href="locate-modules-on-raspi-which-are-being-imported-by-manage-py.html"><i class="fa fa-check"></i><b>5.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
+<li class="chapter" data-level="5.4" data-path="AssignStickToAction.html"><a href="AssignStickToAction.html"><i class="fa fa-check"></i><b>5.4</b> Assignment of WiiU controller sticks to action</a></li>
+<li class="chapter" data-level="5.5" data-path="setMaxVel.html"><a href="setMaxVel.html"><i class="fa fa-check"></i><b>5.5</b> Limit max velocity</a></li>
+<li class="chapter" data-level="5.6" data-path="LedIndicatingRecordingMode.html"><a href="LedIndicatingRecordingMode.html"><i class="fa fa-check"></i><b>5.6</b> Add LED to indicate recording mode</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="LedIndicatingRecordingMode.html"><a href="LedIndicatingRecordingMode.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>5.6.1</b> Wiring of LED to PWM/Servo HAT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="change-default-recording-status-to-false.html"><a href="change-default-recording-status-to-false.html"><i class="fa fa-check"></i><b>5.7</b> Change default recording status to false</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="6.1" data-path="environment.html"><a href="environment.html"><i class="fa fa-check"></i><b>6.1</b> Environment</a></li>
+<li class="chapter" data-level="6.2" data-path="sudo-raspi-config.html"><a href="sudo-raspi-config.html"><i class="fa fa-check"></i><b>6.2</b> sudo raspi-config</a></li>
+<li class="chapter" data-level="6.3" data-path="etcwpa-supllicantwpa-supplicant-conf.html"><a href="etcwpa-supllicantwpa-supplicant-conf.html"><i class="fa fa-check"></i><b>6.3</b> etc/wpa_supllicant/wpa_supplicant.conf</a></li>
+<li class="chapter" data-level="6.4" data-path="installs.html"><a href="installs.html"><i class="fa fa-check"></i><b>6.4</b> installs</a></li>
+<li class="chapter" data-level="6.5" data-path="install-donkey-on-pi.html"><a href="install-donkey-on-pi.html"><i class="fa fa-check"></i><b>6.5</b> install donkey on pi</a></li>
+<li class="chapter" data-level="6.6" data-path="config-piy.html"><a href="config-piy.html"><i class="fa fa-check"></i><b>6.6</b> 5. config.piy</a></li>
+<li class="chapter" data-level="6.7" data-path="bluetooth.html"><a href="bluetooth.html"><i class="fa fa-check"></i><b>6.7</b> bluetooth</a></li>
+<li class="chapter" data-level="6.8" data-path="wii-u-controller.html"><a href="wii-u-controller.html"><i class="fa fa-check"></i><b>6.8</b> 8. wii u controller</a></li>
+<li class="chapter" data-level="6.9" data-path="autostart-donkeycar.html"><a href="autostart-donkeycar.html"><i class="fa fa-check"></i><b>6.9</b> autostart donkeycar</a></li>
+<li class="chapter" data-level="6.10" data-path="steering-calibration-1.html"><a href="steering-calibration-1.html"><i class="fa fa-check"></i><b>6.10</b> Steering Calibration</a></li>
+<li class="chapter" data-level="6.11" data-path="drive.html"><a href="drive.html"><i class="fa fa-check"></i><b>6.11</b> drive</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="7.1" data-path="environment-1.html"><a href="environment-1.html"><i class="fa fa-check"></i><b>7.1</b> Environment</a></li>
+<li class="chapter" data-level="7.2" data-path="read-data-from-pi.html"><a href="read-data-from-pi.html"><i class="fa fa-check"></i><b>7.2</b> Read data from pi</a></li>
+<li class="chapter" data-level="7.3" data-path="check-data-raw-prepared.html"><a href="check-data-raw-prepared.html"><i class="fa fa-check"></i><b>7.3</b> Check data raw &amp; prepared</a></li>
+<li class="chapter" data-level="7.4" data-path="clean-data.html"><a href="clean-data.html"><i class="fa fa-check"></i><b>7.4</b> 3. Clean data</a></li>
+<li class="chapter" data-level="7.5" data-path="make-movie.html"><a href="make-movie.html"><i class="fa fa-check"></i><b>7.5</b> Make movie</a></li>
+<li class="chapter" data-level="7.6" data-path="tubhist.html"><a href="tubhist.html"><i class="fa fa-check"></i><b>7.6</b> tubhist</a></li>
+<li class="chapter" data-level="7.7" data-path="train-data.html"><a href="train-data.html"><i class="fa fa-check"></i><b>7.7</b> Train Data</a></li>
+<li class="chapter" data-level="7.8" data-path="plot-data-against-model.html"><a href="plot-data-against-model.html"><i class="fa fa-check"></i><b>7.8</b> Plot data against model</a></li>
+<li class="chapter" data-level="7.9" data-path="run-in-simulator.html"><a href="run-in-simulator.html"><i class="fa fa-check"></i><b>7.9</b> Run in simulator</a></li>
+<li class="chapter" data-level="7.10" data-path="copy-model-to-pi.html"><a href="copy-model-to-pi.html"><i class="fa fa-check"></i><b>7.10</b> Copy model to pi</a></li>
+<li class="chapter" data-level="7.11" data-path="run-model-on-pi.html"><a href="run-model-on-pi.html"><i class="fa fa-check"></i><b>7.11</b> Run model on pi</a></li>
+<li class="chapter" data-level="7.12" data-path="watch-pi-camera.html"><a href="watch-pi-camera.html"><i class="fa fa-check"></i><b>7.12</b> 11. Watch pi camera</a></li>
+<li class="chapter" data-level="7.13" data-path="reinfocement-learning.html"><a href="reinfocement-learning.html"><i class="fa fa-check"></i><b>7.13</b> Reinfocement Learning</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a><ul>
+<li class="chapter" data-level="8.1" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="section.html"><a href="section.html#donkey-findcar"><i class="fa fa-check"></i><b>8.1.1</b> donkey findcar</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="build-sunfounder-car-17-02-2018.html"><a href="build-sunfounder-car-17-02-2018.html"><i class="fa fa-check"></i><b>8.2</b> Build sunfounder car 17-02-2018</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="build-sunfounder-car-17-02-2018.html"><a href="build-sunfounder-car-17-02-2018.html#install-software-18-02-2018"><i class="fa fa-check"></i><b>8.2.1</b> install software 18-02-2018</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="viewing-a-list-of-available-python-versions.html"><a href="viewing-a-list-of-available-python-versions.html"><i class="fa fa-check"></i><b>8.3</b> Viewing a list of available Python versions</a></li>
+<li class="chapter" data-level="8.4" data-path="run-calibration.html"><a href="run-calibration.html"><i class="fa fa-check"></i><b>8.4</b> Run calibration</a></li>
+<li class="chapter" data-level="8.5" data-path="mjpg-streamer-installation.html"><a href="mjpg-streamer-installation.html"><i class="fa fa-check"></i><b>8.5</b> MJPG-streamer Installation</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="mjpg-streamer-installation.html"><a href="mjpg-streamer-installation.html#testing"><i class="fa fa-check"></i><b>8.5.1</b> Testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="get-on-the-road.html"><a href="get-on-the-road.html"><i class="fa fa-check"></i><b>9</b> Get on the Road!</a><ul>
+<li class="chapter" data-level="9.1" data-path="install-carnd-term1.html"><a href="install-carnd-term1.html"><i class="fa fa-check"></i><b>9.1</b> install carnd-term1</a></li>
+<li class="chapter" data-level="9.2" data-path="install-xbox-360-controller.html"><a href="install-xbox-360-controller.html"><i class="fa fa-check"></i><b>9.2</b> Install Xbox 360 controller</a></li>
+<li class="chapter" data-level="9.3" data-path="implement-xbox-controller-as-input-in-client-app-py.html"><a href="implement-xbox-controller-as-input-in-client-app-py.html"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="implement-xbox-controller-as-input-in-client-app-py.html"><a href="implement-xbox-controller-as-input-in-client-app-py.html#make-steering-proportional-to-remote-control-lever-position"><i class="fa fa-check"></i><b>9.3.1</b> Make steering proportional to remote control lever position</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="GetIp.html"><a href="GetIp.html"><i class="fa fa-check"></i><b>9.4</b> Get IP adress of raspi in shack</a></li>
+<li class="chapter" data-level="9.5" data-path="store-snapshots-of-video-stream-on-local-computer.html"><a href="store-snapshots-of-video-stream-on-local-computer.html"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="store-snapshots-of-video-stream-on-local-computer.html"><a href="store-snapshots-of-video-stream-on-local-computer.html#jie-hous-alternative"><i class="fa fa-check"></i><b>9.5.1</b> Jie Hou’s alternative</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Resources</a><ul>
+<li class="chapter" data-level="10.1" data-path="meetups.html"><a href="meetups.html"><i class="fa fa-check"></i><b>10.1</b> Meetups</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="meetups.html"><a href="meetups.html#esslinger-makerspace-projekt-autonomen-robocar-bauen"><i class="fa fa-check"></i><b>10.1.1</b> Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a></li>
+<li class="chapter" data-level="10.1.2" data-path="meetups.html"><a href="meetups.html#autonomous-mobility-berlin"><i class="fa fa-check"></i><b>10.1.2</b> Autonomous Mobility Berlin</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="robocar-projects.html"><a href="robocar-projects.html"><i class="fa fa-check"></i><b>10.2</b> RoboCar projects</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="robocar-projects.html"><a href="robocar-projects.html#diy-robocars"><i class="fa fa-check"></i><b>10.2.1</b> DIY RoboCars</a></li>
+<li class="chapter" data-level="10.2.2" data-path="robocar-projects.html"><a href="robocar-projects.html#donkey-car"><i class="fa fa-check"></i><b>10.2.2</b> Donkey car</a></li>
+<li class="chapter" data-level="10.2.3" data-path="robocar-projects.html"><a href="robocar-projects.html#sunfounder-smart-video-car-kit-for-raspberry-pi-with-android-app"><i class="fa fa-check"></i><b>10.2.3</b> Sunfounder Smart Video Car Kit for Raspberry Pi with Android App</a></li>
+<li class="chapter" data-level="10.2.4" data-path="robocar-projects.html"><a href="robocar-projects.html#kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3"><i class="fa fa-check"></i><b>10.2.4</b> Kuman Professional WIFI Smart Robot Model Car Kit Videokamera for Raspberry Pi 3</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="hardware.html"><a href="hardware.html"><i class="fa fa-check"></i><b>10.3</b> Hardware</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="hardware.html"><a href="hardware.html#komponentenliste-für-ein-ferngesteuertes-roboter-auto"><i class="fa fa-check"></i><b>10.3.1</b> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</a></li>
+<li class="chapter" data-level="10.3.2" data-path="hardware.html"><a href="hardware.html#motor-control"><i class="fa fa-check"></i><b>10.3.2</b> Motor control</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="simulators.html"><a href="simulators.html"><i class="fa fa-check"></i><b>10.4</b> Simulators</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="simulators.html"><a href="simulators.html#donkey-simulator"><i class="fa fa-check"></i><b>10.4.1</b> Donkey Simulator</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>10.5</b> Software</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="software.html"><a href="software.html#udacitiy-open-source-sdc"><i class="fa fa-check"></i><b>10.5.1</b> Udacitiy open source SDC</a></li>
+<li class="chapter" data-level="10.5.2" data-path="software.html"><a href="software.html#connect-raspberry-with-xbox-controller"><i class="fa fa-check"></i><b>10.5.2</b> connect raspberry with xbox controller</a></li>
+<li class="chapter" data-level="10.5.3" data-path="software.html"><a href="software.html#raspberry-pi-rc-control"><i class="fa fa-check"></i><b>10.5.3</b> RASPBERRY PI RC CONTROL</a></li>
+<li class="chapter" data-level="10.5.4" data-path="software.html"><a href="software.html#python-class-to-support-xbox-360-controller-under-linux-on-raspberrypi"><i class="fa fa-check"></i><b>10.5.4</b> Python class to support xbox 360 controller under Linux on RaspberryPi</a></li>
+<li class="chapter" data-level="10.5.5" data-path="software.html"><a href="software.html#xbox-driver-for-mac"><i class="fa fa-check"></i><b>10.5.5</b> xbox driver for mac</a></li>
+<li class="chapter" data-level="10.5.6" data-path="software.html"><a href="software.html#konzept-für-softwareschichten"><i class="fa fa-check"></i><b>10.5.6</b> Konzept für softwareschichten</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a><ul>
+<li class="chapter" data-level="11.1" data-path="install-donkey-car-on-mac.html"><a href="install-donkey-car-on-mac.html"><i class="fa fa-check"></i><b>11.1</b> Install donkey car on Mac</a></li>
+<li class="chapter" data-level="11.2" data-path="donkey-car-simulator.html"><a href="donkey-car-simulator.html"><i class="fa fa-check"></i><b>11.2</b> Donkey car simulator</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Theory.html"><a href="Theory.html"><i class="fa fa-check"></i><b>12</b> Theory</a><ul>
+<li class="chapter" data-level="12.1" data-path="wiring-of-pca9685-with-l298n-h-bridge.html"><a href="wiring-of-pca9685-with-l298n-h-bridge.html"><i class="fa fa-check"></i><b>12.1</b> Wiring of PCA9685 with L298N H-bridge</a></li>
+<li class="chapter" data-level="12.2" data-path="sensor-fusion-of-lidar-and-camera-data.html"><a href="sensor-fusion-of-lidar-and-camera-data.html"><i class="fa fa-check"></i><b>12.2</b> sensor fusion of LIDAR and camera data</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="UsefulLinks.html"><a href="UsefulLinks.html"><i class="fa fa-check"></i><b>13</b> Useful links</a><ul>
+<li class="chapter" data-level="13.1" data-path="donkey-car-1.html"><a href="donkey-car-1.html"><i class="fa fa-check"></i><b>13.1</b> Donkey car</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="donkey-car-1.html"><a href="donkey-car-1.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>13.1.1</b> Videos for donkey car</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="parts-to-build-a-robocar.html"><a href="parts-to-build-a-robocar.html"><i class="fa fa-check"></i><b>13.2</b> Parts to build a RoboCar</a></li>
+<li class="chapter" data-level="13.3" data-path="little-setup-helpers.html"><a href="little-setup-helpers.html"><i class="fa fa-check"></i><b>13.3</b> Little setup helpers</a></li>
+<li class="chapter" data-level="13.4" data-path="meetup-in-stuttgart-area.html"><a href="meetup-in-stuttgart-area.html"><i class="fa fa-check"></i><b>13.4</b> Meetup in Stuttgart area</a></li>
+<li class="chapter" data-level="13.5" data-path="robocar-projects-1.html"><a href="robocar-projects-1.html"><i class="fa fa-check"></i><b>13.5</b> RoboCar projects</a></li>
+<li class="chapter" data-level="13.6" data-path="write-ups-on-donkeycar-projects.html"><a href="write-ups-on-donkeycar-projects.html"><i class="fa fa-check"></i><b>13.6</b> Write ups on Donkeycar projects</a></li>
+<li class="chapter" data-level="13.7" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>13.7</b> Other stuff</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/RoboCarEsslingen" target="blank">Related files on Github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RoboCar project documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="environment" class="section level2">
+<h2><span class="header-section-number">6.1</span> Environment</h2>
+<pre><code>1. conda create --name donkey_3tk4 tensorflow-gpu==1.10.0
+2. source activate donkey_3tk4
+3. git clone https://github.com/tawnkramer/donkey.git
+4. pip install -e ./donkey
+5. conda install -c conda-forge keras==2.2.2
+
+activate: source activate donkey_3tk4
+get installed software: conda env export &gt; environment.yml </code></pre>
+<p>content of <a href="https://github.com/Heavy02011/50-donkey/blob/master/environment.yml">environment.yml</a></p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sudo-raspi-config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RoboCarDokumentation.pdf", "RoboCarDokumentation.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
