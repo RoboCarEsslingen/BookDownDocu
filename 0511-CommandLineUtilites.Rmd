@@ -181,13 +181,24 @@ https://colab.research.google.com/github/robocarstore/donkey-car-training-on-goo
 
 ## Transfer learning
 
-Tawn Kramer wrote a little tool to do transfer learning which can be downloaded from https://gist.github.com/tawnkramer/5fa63a805e045504c4e56004e4f93e42
-
-There is a python file ```train_imagenet.py``` which is engaged with the following command
+The neural network can also be trained using a pre-trained network using the `manage.py`script with the flag `[--transfer=<model>]`
 
 ```
-train_imagenet.py --model="mymodel.h5" --data="/data/ImageNetDir" --resume
+manage.py (train) [--tub=<tub1,tub2,..tubn>] [--file=<file> ...] (--model=<model>) [--transfer=<model>] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
+
 ```
+
+To control the transfer learning change settings in `myconfig.py`
+
+```
+# #Model transfer options
+# #When copying weights during a model transfer operation, should we freeze a certain number of layers
+# #to the incoming weights and not allow them to change during training?
+# FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
+# NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?
+```
+
+
 
 As a starting point Tawn also offers a .h5 model ```base_linear.h5``` which can be downloaded from 
 https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK 

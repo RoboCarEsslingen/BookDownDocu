@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2020-02-24" />
+<meta name="date" content="2020-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -487,9 +487,15 @@ donkey tubcheck /Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  </code></
 </div>
 <div id="transfer-learning" class="section level2">
 <h2><span class="header-section-number">4.11</span> Transfer learning</h2>
-<p>Tawn Kramer wrote a little tool to do transfer learning which can be downloaded from <a href="https://gist.github.com/tawnkramer/5fa63a805e045504c4e56004e4f93e42" class="uri">https://gist.github.com/tawnkramer/5fa63a805e045504c4e56004e4f93e42</a></p>
-<p>There is a python file <code>train_imagenet.py</code> which is engaged with the following command</p>
-<pre><code>train_imagenet.py --model=&quot;mymodel.h5&quot; --data=&quot;/data/ImageNetDir&quot; --resume</code></pre>
+<p>The neural network can also be trained using a pre-trained network using the <code>manage.py</code>script with the flag <code>[--transfer=&lt;model&gt;]</code></p>
+<pre><code>manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;] [--file=&lt;file&gt; ...] (--model=&lt;model&gt;) [--transfer=&lt;model&gt;] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
+</code></pre>
+<p>To control the transfer learning change settings in <code>myconfig.py</code></p>
+<pre><code># #Model transfer options
+# #When copying weights during a model transfer operation, should we freeze a certain number of layers
+# #to the incoming weights and not allow them to change during training?
+# FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
+# NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?</code></pre>
 <p>As a starting point Tawn also offers a .h5 model <code>base_linear.h5</code> which can be downloaded from
 <a href="https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK" class="uri">https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK</a></p>
 
