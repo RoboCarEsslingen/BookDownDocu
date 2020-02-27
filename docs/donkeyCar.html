@@ -886,11 +886,11 @@ Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models
 <pre><code>manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;] [--file=&lt;file&gt; ...] (--model=&lt;model&gt;) [--transfer=&lt;model&gt;] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
 manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
 <p>To control the transfer learning change settings in <code>myconfig.py</code></p>
-<pre><code># #Model transfer options
-# #When copying weights during a model transfer operation, should we freeze a certain number of layers
-# #to the incoming weights and not allow them to change during training?
-# FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
-# NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="donkeyCar.html#cb29-1"></a><span class="co"># #Model transfer options</span></span>
+<span id="cb29-2"><a href="donkeyCar.html#cb29-2"></a><span class="co"># #When copying weights during a model transfer operation, should we freeze a certain number of layers</span></span>
+<span id="cb29-3"><a href="donkeyCar.html#cb29-3"></a><span class="co"># #to the incoming weights and not allow them to change during training?</span></span>
+<span id="cb29-4"><a href="donkeyCar.html#cb29-4"></a>FREEZE_LAYERS <span class="op">=</span> <span class="va">False</span>               <span class="co">#default False will allow all layers to be modified by training</span></span>
+<span id="cb29-5"><a href="donkeyCar.html#cb29-5"></a>NUM_LAST_LAYERS_TO_TRAIN <span class="op">=</span> <span class="dv">7</span>        <span class="co">#when freezing layers, how many layers from the last should be allowed to train?</span></span></code></pre></div>
 <p>The above parameters are used in <code>train.py</code> to control the training of the model</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="donkeyCar.html#cb30-1"></a>    <span class="cf">if</span> transfer_model:</span>
 <span id="cb30-2"><a href="donkeyCar.html#cb30-2"></a>        <span class="bu">print</span>(<span class="st">&#39;loading weights from model&#39;</span>, transfer_model)</span>

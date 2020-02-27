@@ -630,12 +630,12 @@ manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar
 
 To control the transfer learning change settings in `myconfig.py`
 
-```
+```python
 # #Model transfer options
 # #When copying weights during a model transfer operation, should we freeze a certain number of layers
 # #to the incoming weights and not allow them to change during training?
-# FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
-# NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?
+FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
+NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?
 ```
 
 
