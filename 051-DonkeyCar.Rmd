@@ -562,6 +562,107 @@ Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models
 35/35 [==============================] - 31s 874ms/step - loss: 0.3338 - angle_out_loss: 0.5289 - throttle_out_loss: 0.1387 - val_loss: 0.2920 - val_angle_out_loss: 0.4629 - val_throttle_out_loss: 0.1212
 ```
 
+### Add augmentation
+
+Adding augmentation should lead to a more robust model, to invoke augmentation set the flag `--aug` when calling `manage.py`
+
+```
+python /content/mycar/manage.py train  --type=linear  --model=/content/mycar/models/mypilot.h5 --aug
+```
+
+then the function `augment_image` from `augment.py` will be applied to the images during training
+
+
+
+```python
+def augment_image(np_img, shadow_images=None, do_warp_persp=False):
+    conv_img = np_img * 255.0
+    conv_img = conv_img.astype(np.uint8)
+    img = Image.fromarray(conv_img)
+    #change the coloration, sharpness, and composite a shadow
+    factor = random.uniform(0.5, 2.0)
+    img = ImageEnhance.Brightness(img).enhance(factor)
+    factor = random.uniform(0.5, 1.0)
+    img = ImageEnhance.Contrast(img).enhance(factor)
+    factor = random.uniform(0.5, 1.5)
+    img = ImageEnhance.Sharpness(img).enhance(factor)
+    factor = random.uniform(0.0, 1.0)
+    img = ImageEnhance.Color(img).enhance(factor)
+
+    if shadow_images is not None:
+        '''
+        optionaly composite a shadow, perpared from load_shadow_images
+        '''
+        iShad = random.randrange(0, len(shadow_images))
+        top, mask = shadow_images[iShad]
+        theta = random.randrange(-35, 35)
+        mask.rotate(theta)
+        top.rotate(theta)
+        mask = ImageEnhance.Brightness(mask).enhance(random.uniform(0.3, 1.0))
+        offset = (random.randrange(-128, 128), random.randrange(-128, 128))
+        img.paste(top, offset, mask)
+    
+    if do_warp_persp:
+        '''
+        optionaly warp perspective
+        '''
+        img = rand_persp_transform(img)
+
+    return np.array(img).astype(np.float) / 255.0
+```
+
+which is called from `train.py`
+
+```python
+ if aug:
+     img_arr = augment_image(img_arr)
+```
+
+
+### Transfer learning
+
+The neural network can also be trained using a pre-trained network using the `manage.py`script with the flag `[--transfer=<model>]`
+
+```
+manage.py (train) [--tub=<tub1,tub2,..tubn>] [--file=<file> ...] (--model=<model>) [--transfer=<model>] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
+manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug
+```
+
+To control the transfer learning change settings in `myconfig.py`
+
+```
+# #Model transfer options
+# #When copying weights during a model transfer operation, should we freeze a certain number of layers
+# #to the incoming weights and not allow them to change during training?
+# FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
+# NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?
+```
+
+
+The above parameters are used in `train.py` to control the training of the model
+
+```python
+    if transfer_model:
+        print('loading weights from model', transfer_model)
+        kl.load(transfer_model)
+
+        #when transfering models, should we freeze all but the last N layers?
+        if cfg.FREEZE_LAYERS:
+            num_to_freeze = len(kl.model.layers) - cfg.NUM_LAST_LAYERS_TO_TRAIN 
+            print('freezing %d layers' % num_to_freeze)           
+            for i in range(num_to_freeze):
+                kl.model.layers[i].trainable = False   
+```
+
+
+
+As a starting point Tawn also offers a .h5 model ```base_linear.h5``` which can be downloaded from 
+https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK 
+The model can be invoked by
+```
+manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug
+```
+
 
 ## Run car on neural net
 

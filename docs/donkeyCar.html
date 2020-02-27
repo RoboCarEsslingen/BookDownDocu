@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2020-02-25" />
+<meta name="date" content="2020-02-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -174,7 +174,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>2.10.3</b> Copy files from raspi to mac</a></li>
 <li class="chapter" data-level="2.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>2.10.4</b> How big is the tub folder</a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a></li>
+<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="donkeyCar.html"><a href="donkeyCar.html#add-augmentation"><i class="fa fa-check"></i><b>2.11.1</b> Add augmentation</a></li>
+<li class="chapter" data-level="2.11.2" data-path="donkeyCar.html"><a href="donkeyCar.html#transfer-learning"><i class="fa fa-check"></i><b>2.11.2</b> Transfer learning</a></li>
+</ul></li>
 <li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#run-car-on-neural-net"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a><ul>
 <li class="chapter" data-level="2.12.1" data-path="donkeyCar.html"><a href="donkeyCar.html#change-model"><i class="fa fa-check"></i><b>2.12.1</b> change model</a></li>
 </ul></li>
@@ -203,7 +206,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>4.8</b> Plot Predictions</a></li>
 <li class="chapter" data-level="4.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>4.9</b> Simulation Server</a></li>
 <li class="chapter" data-level="4.10" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.10</b> Colab training</a></li>
-<li class="chapter" data-level="4.11" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#transfer-learning"><i class="fa fa-check"></i><b>4.11</b> Transfer learning</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
@@ -835,6 +837,76 @@ Epoch 2/100
 34/35 [============================&gt;.] - ETA: 0s - loss: 0.3353 - angle_out_loss: 0.5307 - throttle_out_loss: 0.1398 
 Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models/mypilot
 35/35 [==============================] - 31s 874ms/step - loss: 0.3338 - angle_out_loss: 0.5289 - throttle_out_loss: 0.1387 - val_loss: 0.2920 - val_angle_out_loss: 0.4629 - val_throttle_out_loss: 0.1212</code></pre>
+<div id="add-augmentation" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Add augmentation</h3>
+<p>Adding augmentation should lead to a more robust model, to invoke augmentation set the flag <code>--aug</code> when calling <code>manage.py</code></p>
+<pre><code>python /content/mycar/manage.py train  --type=linear  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
+<p>then the function <code>augment_image</code> from <code>augment.py</code> will be applied to the images during training</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="donkeyCar.html#cb26-1"></a><span class="kw">def</span> augment_image(np_img, shadow_images<span class="op">=</span><span class="va">None</span>, do_warp_persp<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb26-2"><a href="donkeyCar.html#cb26-2"></a>    conv_img <span class="op">=</span> np_img <span class="op">*</span> <span class="fl">255.0</span></span>
+<span id="cb26-3"><a href="donkeyCar.html#cb26-3"></a>    conv_img <span class="op">=</span> conv_img.astype(np.uint8)</span>
+<span id="cb26-4"><a href="donkeyCar.html#cb26-4"></a>    img <span class="op">=</span> Image.fromarray(conv_img)</span>
+<span id="cb26-5"><a href="donkeyCar.html#cb26-5"></a>    <span class="co">#change the coloration, sharpness, and composite a shadow</span></span>
+<span id="cb26-6"><a href="donkeyCar.html#cb26-6"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">2.0</span>)</span>
+<span id="cb26-7"><a href="donkeyCar.html#cb26-7"></a>    img <span class="op">=</span> ImageEnhance.Brightness(img).enhance(factor)</span>
+<span id="cb26-8"><a href="donkeyCar.html#cb26-8"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.0</span>)</span>
+<span id="cb26-9"><a href="donkeyCar.html#cb26-9"></a>    img <span class="op">=</span> ImageEnhance.Contrast(img).enhance(factor)</span>
+<span id="cb26-10"><a href="donkeyCar.html#cb26-10"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb26-11"><a href="donkeyCar.html#cb26-11"></a>    img <span class="op">=</span> ImageEnhance.Sharpness(img).enhance(factor)</span>
+<span id="cb26-12"><a href="donkeyCar.html#cb26-12"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb26-13"><a href="donkeyCar.html#cb26-13"></a>    img <span class="op">=</span> ImageEnhance.Color(img).enhance(factor)</span>
+<span id="cb26-14"><a href="donkeyCar.html#cb26-14"></a></span>
+<span id="cb26-15"><a href="donkeyCar.html#cb26-15"></a>    <span class="cf">if</span> shadow_images <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb26-16"><a href="donkeyCar.html#cb26-16"></a>        <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb26-17"><a href="donkeyCar.html#cb26-17"></a><span class="co">        optionaly composite a shadow, perpared from load_shadow_images</span></span>
+<span id="cb26-18"><a href="donkeyCar.html#cb26-18"></a><span class="co">        &#39;&#39;&#39;</span></span>
+<span id="cb26-19"><a href="donkeyCar.html#cb26-19"></a>        iShad <span class="op">=</span> random.randrange(<span class="dv">0</span>, <span class="bu">len</span>(shadow_images))</span>
+<span id="cb26-20"><a href="donkeyCar.html#cb26-20"></a>        top, mask <span class="op">=</span> shadow_images[iShad]</span>
+<span id="cb26-21"><a href="donkeyCar.html#cb26-21"></a>        theta <span class="op">=</span> random.randrange(<span class="op">-</span><span class="dv">35</span>, <span class="dv">35</span>)</span>
+<span id="cb26-22"><a href="donkeyCar.html#cb26-22"></a>        mask.rotate(theta)</span>
+<span id="cb26-23"><a href="donkeyCar.html#cb26-23"></a>        top.rotate(theta)</span>
+<span id="cb26-24"><a href="donkeyCar.html#cb26-24"></a>        mask <span class="op">=</span> ImageEnhance.Brightness(mask).enhance(random.uniform(<span class="fl">0.3</span>, <span class="fl">1.0</span>))</span>
+<span id="cb26-25"><a href="donkeyCar.html#cb26-25"></a>        offset <span class="op">=</span> (random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>), random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>))</span>
+<span id="cb26-26"><a href="donkeyCar.html#cb26-26"></a>        img.paste(top, offset, mask)</span>
+<span id="cb26-27"><a href="donkeyCar.html#cb26-27"></a>    </span>
+<span id="cb26-28"><a href="donkeyCar.html#cb26-28"></a>    <span class="cf">if</span> do_warp_persp:</span>
+<span id="cb26-29"><a href="donkeyCar.html#cb26-29"></a>        <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb26-30"><a href="donkeyCar.html#cb26-30"></a><span class="co">        optionaly warp perspective</span></span>
+<span id="cb26-31"><a href="donkeyCar.html#cb26-31"></a><span class="co">        &#39;&#39;&#39;</span></span>
+<span id="cb26-32"><a href="donkeyCar.html#cb26-32"></a>        img <span class="op">=</span> rand_persp_transform(img)</span>
+<span id="cb26-33"><a href="donkeyCar.html#cb26-33"></a></span>
+<span id="cb26-34"><a href="donkeyCar.html#cb26-34"></a>    <span class="cf">return</span> np.array(img).astype(np.<span class="bu">float</span>) <span class="op">/</span> <span class="fl">255.0</span></span></code></pre></div>
+<p>which is called from <code>train.py</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="donkeyCar.html#cb27-1"></a> <span class="cf">if</span> aug:</span>
+<span id="cb27-2"><a href="donkeyCar.html#cb27-2"></a>     img_arr <span class="op">=</span> augment_image(img_arr)</span></code></pre></div>
+</div>
+<div id="transfer-learning" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Transfer learning</h3>
+<p>The neural network can also be trained using a pre-trained network using the <code>manage.py</code>script with the flag <code>[--transfer=&lt;model&gt;]</code></p>
+<pre><code>manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;] [--file=&lt;file&gt; ...] (--model=&lt;model&gt;) [--transfer=&lt;model&gt;] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
+manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
+<p>To control the transfer learning change settings in <code>myconfig.py</code></p>
+<pre><code># #Model transfer options
+# #When copying weights during a model transfer operation, should we freeze a certain number of layers
+# #to the incoming weights and not allow them to change during training?
+# FREEZE_LAYERS = False               #default False will allow all layers to be modified by training
+# NUM_LAST_LAYERS_TO_TRAIN = 7        #when freezing layers, how many layers from the last should be allowed to train?</code></pre>
+<p>The above parameters are used in <code>train.py</code> to control the training of the model</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="donkeyCar.html#cb30-1"></a>    <span class="cf">if</span> transfer_model:</span>
+<span id="cb30-2"><a href="donkeyCar.html#cb30-2"></a>        <span class="bu">print</span>(<span class="st">&#39;loading weights from model&#39;</span>, transfer_model)</span>
+<span id="cb30-3"><a href="donkeyCar.html#cb30-3"></a>        kl.load(transfer_model)</span>
+<span id="cb30-4"><a href="donkeyCar.html#cb30-4"></a></span>
+<span id="cb30-5"><a href="donkeyCar.html#cb30-5"></a>        <span class="co">#when transfering models, should we freeze all but the last N layers?</span></span>
+<span id="cb30-6"><a href="donkeyCar.html#cb30-6"></a>        <span class="cf">if</span> cfg.FREEZE_LAYERS:</span>
+<span id="cb30-7"><a href="donkeyCar.html#cb30-7"></a>            num_to_freeze <span class="op">=</span> <span class="bu">len</span>(kl.model.layers) <span class="op">-</span> cfg.NUM_LAST_LAYERS_TO_TRAIN </span>
+<span id="cb30-8"><a href="donkeyCar.html#cb30-8"></a>            <span class="bu">print</span>(<span class="st">&#39;freezing </span><span class="sc">%d</span><span class="st"> layers&#39;</span> <span class="op">%</span> num_to_freeze)           </span>
+<span id="cb30-9"><a href="donkeyCar.html#cb30-9"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_to_freeze):</span>
+<span id="cb30-10"><a href="donkeyCar.html#cb30-10"></a>                kl.model.layers[i].trainable <span class="op">=</span> <span class="va">False</span>   </span></code></pre></div>
+<p>As a starting point Tawn also offers a .h5 model <code>base_linear.h5</code> which can be downloaded from
+<a href="https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK" class="uri">https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK</a>
+The model can be invoked by</p>
+<pre><code>manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
+</div>
 </div>
 <div id="run-car-on-neural-net" class="section level2">
 <h2><span class="header-section-number">2.12</span> Run car on neural net</h2>
