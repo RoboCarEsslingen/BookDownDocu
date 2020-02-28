@@ -138,6 +138,8 @@ Usage:
 donkey tubplot <tub_path> [--model=<model_path>]
 ```
 
+don't forget to use a `myconfig.py` file which matches to the model your are using, i.e. if you use an RNN model make sure you use a `myconfig.py` file in which `SEQUENCE_LENGTH = 6` set to the correct value, the one you used when training the model
+
 * This command may be run from `~/mycar` dir
 * Run on the host computer
 * Will show a pop-up window showing the plot of steering values in a given tub compared to NN predictions from the trained model

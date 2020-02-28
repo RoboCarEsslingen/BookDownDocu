@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2020-02-27" />
+<meta name="date" content="2020-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -357,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Create Car</h2>
 <p>This command creates a new dir which will contain the files needed to run and train your robot.</p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="donkey-command-line-utilities.html#cb40-1"></a><span class="ex">donkey</span> createcar --path <span class="op">&lt;</span>dir<span class="op">&gt;</span> [--overwrite] [--template <span class="op">&lt;</span>donkey2<span class="op">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="donkey-command-line-utilities.html#cb42-1"></a><span class="ex">donkey</span> createcar --path <span class="op">&lt;</span>dir<span class="op">&gt;</span> [--overwrite] [--template <span class="op">&lt;</span>donkey2<span class="op">&gt;</span>]</span></code></pre></div>
 <ul>
 <li>This command may be run from any dir</li>
 <li>Run on the host computer or the robot</li>
@@ -369,20 +369,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.2</span> Find Car</h2>
 <p>This command attempts to locate your car on the local network using nmap.</p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="donkey-command-line-utilities.html#cb41-1"></a><span class="ex">donkey</span> findcar</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="donkey-command-line-utilities.html#cb43-1"></a><span class="ex">donkey</span> findcar</span></code></pre></div>
 <ul>
 <li>Run on the host computer</li>
 <li>Prints the host computer IP address and the car IP address if found</li>
 <li>Requires the nmap utility:</li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="donkey-command-line-utilities.html#cb42-1"></a><span class="fu">sudo</span> apt install nmap</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="donkey-command-line-utilities.html#cb44-1"></a><span class="fu">sudo</span> apt install nmap</span></code></pre></div>
 </div>
 <div id="calibrate-car" class="section level2">
 <h2><span class="header-section-number">4.3</span> Calibrate Car</h2>
 <p>This command allows you to manually enter values to interactively set the PWM values and experiment with how your robot responds.
 See also <a href="http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car">more information.</a></p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="donkey-command-line-utilities.html#cb43-1"></a><span class="ex">donkey</span> calibrate --channel <span class="op">&lt;</span>0-15 channel id<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="donkey-command-line-utilities.html#cb45-1"></a><span class="ex">donkey</span> calibrate --channel <span class="op">&lt;</span>0-15 channel id<span class="op">&gt;</span></span></code></pre></div>
 <ul>
 <li>Run on the host computer</li>
 <li>Opens the PWM channel specified by <code>--channel</code></li>
@@ -405,7 +405,7 @@ See also <a href="http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car"
 <h2><span class="header-section-number">4.5</span> Make Movie from Tub</h2>
 <p>This command allows you to create a movie file from the images in a Tub.</p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="donkey-command-line-utilities.html#cb45-1"></a><span class="ex">donkey</span> makemovie <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> [--out=<span class="op">&lt;</span>tub_movie.mp4<span class="op">&gt;</span>] [--config=<span class="op">&lt;</span>config.py<span class="op">&gt;</span>] [--model=<span class="op">&lt;</span>model path<span class="op">&gt;</span>] [--model_type=(linear<span class="kw">|</span><span class="ex">categorical</span><span class="kw">|</span><span class="ex">rnn</span><span class="kw">|</span><span class="ex">imu</span><span class="kw">|</span><span class="ex">behavior</span><span class="kw">|</span><span class="ex">3d</span>)] [<span class="ex">--start</span>=0] [--end=-1] [--scale=2] [--salient]</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="donkey-command-line-utilities.html#cb47-1"></a><span class="ex">donkey</span> makemovie <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> [--out=<span class="op">&lt;</span>tub_movie.mp4<span class="op">&gt;</span>] [--config=<span class="op">&lt;</span>config.py<span class="op">&gt;</span>] [--model=<span class="op">&lt;</span>model path<span class="op">&gt;</span>] [--model_type=(linear<span class="kw">|</span><span class="ex">categorical</span><span class="kw">|</span><span class="ex">rnn</span><span class="kw">|</span><span class="ex">imu</span><span class="kw">|</span><span class="ex">behavior</span><span class="kw">|</span><span class="ex">3d</span>)] [<span class="ex">--start</span>=0] [--end=-1] [--scale=2] [--salient]</span></code></pre></div>
 <ul>
 <li>Run on the host computer or the robot</li>
 <li>Uses the image records from <code>--tub</code> dir path given</li>
@@ -418,7 +418,7 @@ See also <a href="http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car"
 scale will cause ouput image to be scaled by this amount</li>
 </ul>
 <p>Examples:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="donkey-command-line-utilities.html#cb46-1"></a><span class="kw">(</span><span class="ex">donkeyV3</span><span class="kw">)</span> <span class="ex">Uwes-MBP</span>:mycarV3 uwesterr$ donkey makemovie --tub=/Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  --out=VaihingenTubMovieV3.mp4 --config=config.py --model=/Users/uwesterr/mycarV3/vaihingenIII.h5  --type=linear --start=0 --end=1000 --salient</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="donkey-command-line-utilities.html#cb48-1"></a><span class="kw">(</span><span class="ex">donkeyV3</span><span class="kw">)</span> <span class="ex">Uwes-MBP</span>:mycarV3 uwesterr$ donkey makemovie --tub=/Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  --out=VaihingenTubMovieV3.mp4 --config=config.py --model=/Users/uwesterr/mycarV3/vaihingenIII.h5  --type=linear --start=0 --end=1000 --salient</span></code></pre></div>
 <p>Results in the following movie
 <video width="720" controls>
 <source src="images/VaihingenTubMovieV3WithSteeringAndSalientLong.mp4" type="video/mp4">
@@ -446,7 +446,7 @@ donkey tubcheck /Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  </code></
 <h2><span class="header-section-number">4.7</span> Histogram</h2>
 <p>This command will show a pop-up window showing the histogram of record values in a given tub.</p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="donkey-command-line-utilities.html#cb48-1"></a><span class="ex">donkey</span> tubhist <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> --rec=<span class="op">&lt;</span><span class="st">&quot;user/angle&quot;</span><span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="donkey-command-line-utilities.html#cb50-1"></a><span class="ex">donkey</span> tubhist <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> --rec=<span class="op">&lt;</span><span class="st">&quot;user/angle&quot;</span><span class="op">&gt;</span></span></code></pre></div>
 <ul>
 <li><p>Run on the host computer</p></li>
 <li><p>When the <code>--tub</code> is omitted, it will check all tubs in the default data dir</p></li>
@@ -456,7 +456,8 @@ donkey tubcheck /Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  </code></
 <h2><span class="header-section-number">4.8</span> Plot Predictions</h2>
 <p>This command allows you plot steering and throttle against predictions coming from a trained model.</p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="donkey-command-line-utilities.html#cb49-1"></a><span class="ex">donkey</span> tubplot <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> [--model=<span class="op">&lt;</span>model_path<span class="op">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="donkey-command-line-utilities.html#cb51-1"></a><span class="ex">donkey</span> tubplot <span class="op">&lt;</span>tub_path<span class="op">&gt;</span> [--model=<span class="op">&lt;</span>model_path<span class="op">&gt;</span>]</span></code></pre></div>
+<p>don’t forget to use a <code>myconfig.py</code> file which matches to the model your are using, i.e. if you use an RNN model make sure you use a <code>myconfig.py</code> file in which <code>SEQUENCE_LENGTH = 6</code> set to the correct value, the one you used when training the model</p>
 <ul>
 <li>This command may be run from <code>~/mycar</code> dir</li>
 <li>Run on the host computer</li>
@@ -468,7 +469,7 @@ donkey tubcheck /Users/uwesterr/mycarV3/data/tubVaihingenIIIProcessed  </code></
 <h2><span class="header-section-number">4.9</span> Simulation Server</h2>
 <p>This command allows you serve steering and throttle controls to a simulated vehicle using the <a href="/guide/simulator.md">Donkey Simulator</a>.</p>
 <p>Usage:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="donkey-command-line-utilities.html#cb50-1"></a><span class="ex">donkey</span> sim --model=<span class="op">&lt;</span>model_path<span class="op">&gt;</span> [--type=<span class="op">&lt;</span>linear<span class="kw">|</span><span class="ex">categorical</span><span class="op">&gt;</span>] [--top_speed=<span class="op">&lt;</span>speed<span class="op">&gt;</span>] [--config=<span class="op">&lt;</span>config.py<span class="op">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="donkey-command-line-utilities.html#cb52-1"></a><span class="ex">donkey</span> sim --model=<span class="op">&lt;</span>model_path<span class="op">&gt;</span> [--type=<span class="op">&lt;</span>linear<span class="kw">|</span><span class="ex">categorical</span><span class="op">&gt;</span>] [--top_speed=<span class="op">&lt;</span>speed<span class="op">&gt;</span>] [--config=<span class="op">&lt;</span>config.py<span class="op">&gt;</span>]</span></code></pre></div>
 <ul>
 <li>This command may be run from <code>~/mycar</code> dir</li>
 <li>Run on the host computer</li>
