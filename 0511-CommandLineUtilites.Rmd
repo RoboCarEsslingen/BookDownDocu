@@ -182,7 +182,7 @@ https://colab.research.google.com/github/robocarstore/donkey-car-training-on-goo
 
 ### Blog: Train donkeycar with GPU support in Colab 
 
-Check out the blog https://uwesterr.github.io/MlFastAiBlog/donkeycar/colab/2020/03/02/TrainDonkeyCar.html
+Check out the blog https://uwesterr.github.io/MlFastAiBlog/donkeycar/colab/2020/03/01/TrainDonkeyCar.html
 The blog can be turned into a Jupyter Notebook running in Google Colab with one mouse click
 
 
