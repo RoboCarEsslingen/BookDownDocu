@@ -499,83 +499,83 @@ Experiment with training a donkey car to drive in simulation. This simulator is 
 <p>good tutorial with example code
 <a href="https://tutorials-raspberrypi.de/raspberry-pi-xbox-360-controller-steuern/" class="uri">https://tutorials-raspberrypi.de/raspberry-pi-xbox-360-controller-steuern/</a></p>
 <p>you find a code example</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="resources.html#cb163-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
-<span id="cb163-2"><a href="resources.html#cb163-2"></a><span class="im">import</span> math</span>
-<span id="cb163-3"><a href="resources.html#cb163-3"></a><span class="im">import</span> xbox</span>
-<span id="cb163-4"><a href="resources.html#cb163-4"></a> </span>
-<span id="cb163-5"><a href="resources.html#cb163-5"></a>GPIO_LED_GREEN  <span class="op">=</span> <span class="dv">23</span></span>
-<span id="cb163-6"><a href="resources.html#cb163-6"></a>GPIO_LED_RED    <span class="op">=</span> <span class="dv">22</span></span>
-<span id="cb163-7"><a href="resources.html#cb163-7"></a>GPIO_LED_YELLOW <span class="op">=</span> <span class="dv">27</span></span>
-<span id="cb163-8"><a href="resources.html#cb163-8"></a>GPIO_LED_BLUE   <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb163-9"><a href="resources.html#cb163-9"></a> </span>
-<span id="cb163-10"><a href="resources.html#cb163-10"></a>GPIO_SERVO_PIN  <span class="op">=</span> <span class="dv">25</span></span>
-<span id="cb163-11"><a href="resources.html#cb163-11"></a> </span>
-<span id="cb163-12"><a href="resources.html#cb163-12"></a> </span>
-<span id="cb163-13"><a href="resources.html#cb163-13"></a>GPIO.setmode(GPIO.BCM)</span>
-<span id="cb163-14"><a href="resources.html#cb163-14"></a>GPIO.setwarnings(<span class="va">False</span>)</span>
-<span id="cb163-15"><a href="resources.html#cb163-15"></a> </span>
-<span id="cb163-16"><a href="resources.html#cb163-16"></a>GPIO.setup(GPIO_LED_GREEN, GPIO.OUT)</span>
-<span id="cb163-17"><a href="resources.html#cb163-17"></a>GPIO.setup(GPIO_LED_RED, GPIO.OUT)</span>
-<span id="cb163-18"><a href="resources.html#cb163-18"></a>GPIO.setup(GPIO_LED_YELLOW, GPIO.OUT)</span>
-<span id="cb163-19"><a href="resources.html#cb163-19"></a>GPIO.setup(GPIO_LED_BLUE, GPIO.OUT)</span>
-<span id="cb163-20"><a href="resources.html#cb163-20"></a>GPIO.setup(GPIO_SERVO_PIN, GPIO.OUT)</span>
-<span id="cb163-21"><a href="resources.html#cb163-21"></a> </span>
-<span id="cb163-22"><a href="resources.html#cb163-22"></a> </span>
-<span id="cb163-23"><a href="resources.html#cb163-23"></a><span class="kw">def</span> updateServo(pwm, angle):</span>
-<span id="cb163-24"><a href="resources.html#cb163-24"></a>    duty <span class="op">=</span> <span class="bu">float</span>(angle) <span class="op">/</span> <span class="fl">10.0</span> <span class="op">+</span> <span class="fl">2.5</span></span>
-<span id="cb163-25"><a href="resources.html#cb163-25"></a>    pwm.ChangeDutyCycle(duty)</span>
-<span id="cb163-26"><a href="resources.html#cb163-26"></a> </span>
-<span id="cb163-27"><a href="resources.html#cb163-27"></a><span class="kw">def</span> angleFromCoords(x,y):</span>
-<span id="cb163-28"><a href="resources.html#cb163-28"></a>    angle <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb163-29"><a href="resources.html#cb163-29"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">==</span><span class="fl">0.0</span>:</span>
-<span id="cb163-30"><a href="resources.html#cb163-30"></a>        angle <span class="op">=</span> <span class="fl">90.0</span></span>
-<span id="cb163-31"><a href="resources.html#cb163-31"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
-<span id="cb163-32"><a href="resources.html#cb163-32"></a>        <span class="co"># first quadrant</span></span>
-<span id="cb163-33"><a href="resources.html#cb163-33"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">90.0</span></span>
-<span id="cb163-34"><a href="resources.html#cb163-34"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
-<span id="cb163-35"><a href="resources.html#cb163-35"></a>        <span class="co"># second quadrant</span></span>
-<span id="cb163-36"><a href="resources.html#cb163-36"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
-<span id="cb163-37"><a href="resources.html#cb163-37"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
-<span id="cb163-38"><a href="resources.html#cb163-38"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
-<span id="cb163-39"><a href="resources.html#cb163-39"></a>        <span class="co"># third quadrant</span></span>
-<span id="cb163-40"><a href="resources.html#cb163-40"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
-<span id="cb163-41"><a href="resources.html#cb163-41"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
-<span id="cb163-42"><a href="resources.html#cb163-42"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
-<span id="cb163-43"><a href="resources.html#cb163-43"></a>        <span class="co"># third quadrant</span></span>
-<span id="cb163-44"><a href="resources.html#cb163-44"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">-90.0</span></span>
-<span id="cb163-45"><a href="resources.html#cb163-45"></a>        angle <span class="op">+=</span> <span class="fl">360.0</span></span>
-<span id="cb163-46"><a href="resources.html#cb163-46"></a>    <span class="cf">return</span> angle</span>
-<span id="cb163-47"><a href="resources.html#cb163-47"></a> </span>
-<span id="cb163-48"><a href="resources.html#cb163-48"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
-<span id="cb163-49"><a href="resources.html#cb163-49"></a>    joy <span class="op">=</span> xbox.Joystick()</span>
-<span id="cb163-50"><a href="resources.html#cb163-50"></a>    pwm <span class="op">=</span> GPIO.PWM(GPIO_SERVO_PIN, <span class="dv">100</span>)</span>
-<span id="cb163-51"><a href="resources.html#cb163-51"></a>    pwm.start(<span class="dv">5</span>)</span>
-<span id="cb163-52"><a href="resources.html#cb163-52"></a>    </span>
-<span id="cb163-53"><a href="resources.html#cb163-53"></a>    <span class="cf">while</span> <span class="kw">not</span> joy.Back():</span>
-<span id="cb163-54"><a href="resources.html#cb163-54"></a>        </span>
-<span id="cb163-55"><a href="resources.html#cb163-55"></a>        <span class="co"># LEDs</span></span>
-<span id="cb163-56"><a href="resources.html#cb163-56"></a>        led_state_green  <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.A() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb163-57"><a href="resources.html#cb163-57"></a>        led_state_red    <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.B() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb163-58"><a href="resources.html#cb163-58"></a>        led_state_yellow <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.Y() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb163-59"><a href="resources.html#cb163-59"></a>        led_state_blue   <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.X() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb163-60"><a href="resources.html#cb163-60"></a>            </span>
-<span id="cb163-61"><a href="resources.html#cb163-61"></a>        GPIO.output(GPIO_LED_GREEN, led_state_green)</span>
-<span id="cb163-62"><a href="resources.html#cb163-62"></a>        GPIO.output(GPIO_LED_RED, led_state_red)</span>
-<span id="cb163-63"><a href="resources.html#cb163-63"></a>        GPIO.output(GPIO_LED_YELLOW, led_state_yellow)</span>
-<span id="cb163-64"><a href="resources.html#cb163-64"></a>        GPIO.output(GPIO_LED_BLUE, led_state_blue)</span>
-<span id="cb163-65"><a href="resources.html#cb163-65"></a>        </span>
-<span id="cb163-66"><a href="resources.html#cb163-66"></a>        <span class="co"># Servo</span></span>
-<span id="cb163-67"><a href="resources.html#cb163-67"></a>        x, y <span class="op">=</span> joy.leftStick()</span>
-<span id="cb163-68"><a href="resources.html#cb163-68"></a>        angle <span class="op">=</span> angleFromCoords(x,y)</span>
-<span id="cb163-69"><a href="resources.html#cb163-69"></a>        <span class="cf">if</span> angle <span class="op">&gt;</span> <span class="dv">180</span> <span class="kw">and</span> angle <span class="op">&lt;</span> <span class="dv">270</span>:</span>
-<span id="cb163-70"><a href="resources.html#cb163-70"></a>            angle <span class="op">=</span> <span class="dv">180</span></span>
-<span id="cb163-71"><a href="resources.html#cb163-71"></a>        <span class="cf">elif</span> angle <span class="op">&gt;=</span> <span class="dv">270</span>:</span>
-<span id="cb163-72"><a href="resources.html#cb163-72"></a>            angle <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb163-73"><a href="resources.html#cb163-73"></a>        updateServo(pwm, angle)</span>
-<span id="cb163-74"><a href="resources.html#cb163-74"></a>        </span>
-<span id="cb163-75"><a href="resources.html#cb163-75"></a>    </span>
-<span id="cb163-76"><a href="resources.html#cb163-76"></a>    joy.close()</span>
-<span id="cb163-77"><a href="resources.html#cb163-77"></a>    pwm.stop()</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="resources.html#cb164-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb164-2"><a href="resources.html#cb164-2"></a><span class="im">import</span> math</span>
+<span id="cb164-3"><a href="resources.html#cb164-3"></a><span class="im">import</span> xbox</span>
+<span id="cb164-4"><a href="resources.html#cb164-4"></a> </span>
+<span id="cb164-5"><a href="resources.html#cb164-5"></a>GPIO_LED_GREEN  <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb164-6"><a href="resources.html#cb164-6"></a>GPIO_LED_RED    <span class="op">=</span> <span class="dv">22</span></span>
+<span id="cb164-7"><a href="resources.html#cb164-7"></a>GPIO_LED_YELLOW <span class="op">=</span> <span class="dv">27</span></span>
+<span id="cb164-8"><a href="resources.html#cb164-8"></a>GPIO_LED_BLUE   <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb164-9"><a href="resources.html#cb164-9"></a> </span>
+<span id="cb164-10"><a href="resources.html#cb164-10"></a>GPIO_SERVO_PIN  <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb164-11"><a href="resources.html#cb164-11"></a> </span>
+<span id="cb164-12"><a href="resources.html#cb164-12"></a> </span>
+<span id="cb164-13"><a href="resources.html#cb164-13"></a>GPIO.setmode(GPIO.BCM)</span>
+<span id="cb164-14"><a href="resources.html#cb164-14"></a>GPIO.setwarnings(<span class="va">False</span>)</span>
+<span id="cb164-15"><a href="resources.html#cb164-15"></a> </span>
+<span id="cb164-16"><a href="resources.html#cb164-16"></a>GPIO.setup(GPIO_LED_GREEN, GPIO.OUT)</span>
+<span id="cb164-17"><a href="resources.html#cb164-17"></a>GPIO.setup(GPIO_LED_RED, GPIO.OUT)</span>
+<span id="cb164-18"><a href="resources.html#cb164-18"></a>GPIO.setup(GPIO_LED_YELLOW, GPIO.OUT)</span>
+<span id="cb164-19"><a href="resources.html#cb164-19"></a>GPIO.setup(GPIO_LED_BLUE, GPIO.OUT)</span>
+<span id="cb164-20"><a href="resources.html#cb164-20"></a>GPIO.setup(GPIO_SERVO_PIN, GPIO.OUT)</span>
+<span id="cb164-21"><a href="resources.html#cb164-21"></a> </span>
+<span id="cb164-22"><a href="resources.html#cb164-22"></a> </span>
+<span id="cb164-23"><a href="resources.html#cb164-23"></a><span class="kw">def</span> updateServo(pwm, angle):</span>
+<span id="cb164-24"><a href="resources.html#cb164-24"></a>    duty <span class="op">=</span> <span class="bu">float</span>(angle) <span class="op">/</span> <span class="fl">10.0</span> <span class="op">+</span> <span class="fl">2.5</span></span>
+<span id="cb164-25"><a href="resources.html#cb164-25"></a>    pwm.ChangeDutyCycle(duty)</span>
+<span id="cb164-26"><a href="resources.html#cb164-26"></a> </span>
+<span id="cb164-27"><a href="resources.html#cb164-27"></a><span class="kw">def</span> angleFromCoords(x,y):</span>
+<span id="cb164-28"><a href="resources.html#cb164-28"></a>    angle <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb164-29"><a href="resources.html#cb164-29"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">==</span><span class="fl">0.0</span>:</span>
+<span id="cb164-30"><a href="resources.html#cb164-30"></a>        angle <span class="op">=</span> <span class="fl">90.0</span></span>
+<span id="cb164-31"><a href="resources.html#cb164-31"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
+<span id="cb164-32"><a href="resources.html#cb164-32"></a>        <span class="co"># first quadrant</span></span>
+<span id="cb164-33"><a href="resources.html#cb164-33"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">90.0</span></span>
+<span id="cb164-34"><a href="resources.html#cb164-34"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
+<span id="cb164-35"><a href="resources.html#cb164-35"></a>        <span class="co"># second quadrant</span></span>
+<span id="cb164-36"><a href="resources.html#cb164-36"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
+<span id="cb164-37"><a href="resources.html#cb164-37"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
+<span id="cb164-38"><a href="resources.html#cb164-38"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
+<span id="cb164-39"><a href="resources.html#cb164-39"></a>        <span class="co"># third quadrant</span></span>
+<span id="cb164-40"><a href="resources.html#cb164-40"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
+<span id="cb164-41"><a href="resources.html#cb164-41"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
+<span id="cb164-42"><a href="resources.html#cb164-42"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
+<span id="cb164-43"><a href="resources.html#cb164-43"></a>        <span class="co"># third quadrant</span></span>
+<span id="cb164-44"><a href="resources.html#cb164-44"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">-90.0</span></span>
+<span id="cb164-45"><a href="resources.html#cb164-45"></a>        angle <span class="op">+=</span> <span class="fl">360.0</span></span>
+<span id="cb164-46"><a href="resources.html#cb164-46"></a>    <span class="cf">return</span> angle</span>
+<span id="cb164-47"><a href="resources.html#cb164-47"></a> </span>
+<span id="cb164-48"><a href="resources.html#cb164-48"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb164-49"><a href="resources.html#cb164-49"></a>    joy <span class="op">=</span> xbox.Joystick()</span>
+<span id="cb164-50"><a href="resources.html#cb164-50"></a>    pwm <span class="op">=</span> GPIO.PWM(GPIO_SERVO_PIN, <span class="dv">100</span>)</span>
+<span id="cb164-51"><a href="resources.html#cb164-51"></a>    pwm.start(<span class="dv">5</span>)</span>
+<span id="cb164-52"><a href="resources.html#cb164-52"></a>    </span>
+<span id="cb164-53"><a href="resources.html#cb164-53"></a>    <span class="cf">while</span> <span class="kw">not</span> joy.Back():</span>
+<span id="cb164-54"><a href="resources.html#cb164-54"></a>        </span>
+<span id="cb164-55"><a href="resources.html#cb164-55"></a>        <span class="co"># LEDs</span></span>
+<span id="cb164-56"><a href="resources.html#cb164-56"></a>        led_state_green  <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.A() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb164-57"><a href="resources.html#cb164-57"></a>        led_state_red    <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.B() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb164-58"><a href="resources.html#cb164-58"></a>        led_state_yellow <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.Y() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb164-59"><a href="resources.html#cb164-59"></a>        led_state_blue   <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.X() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb164-60"><a href="resources.html#cb164-60"></a>            </span>
+<span id="cb164-61"><a href="resources.html#cb164-61"></a>        GPIO.output(GPIO_LED_GREEN, led_state_green)</span>
+<span id="cb164-62"><a href="resources.html#cb164-62"></a>        GPIO.output(GPIO_LED_RED, led_state_red)</span>
+<span id="cb164-63"><a href="resources.html#cb164-63"></a>        GPIO.output(GPIO_LED_YELLOW, led_state_yellow)</span>
+<span id="cb164-64"><a href="resources.html#cb164-64"></a>        GPIO.output(GPIO_LED_BLUE, led_state_blue)</span>
+<span id="cb164-65"><a href="resources.html#cb164-65"></a>        </span>
+<span id="cb164-66"><a href="resources.html#cb164-66"></a>        <span class="co"># Servo</span></span>
+<span id="cb164-67"><a href="resources.html#cb164-67"></a>        x, y <span class="op">=</span> joy.leftStick()</span>
+<span id="cb164-68"><a href="resources.html#cb164-68"></a>        angle <span class="op">=</span> angleFromCoords(x,y)</span>
+<span id="cb164-69"><a href="resources.html#cb164-69"></a>        <span class="cf">if</span> angle <span class="op">&gt;</span> <span class="dv">180</span> <span class="kw">and</span> angle <span class="op">&lt;</span> <span class="dv">270</span>:</span>
+<span id="cb164-70"><a href="resources.html#cb164-70"></a>            angle <span class="op">=</span> <span class="dv">180</span></span>
+<span id="cb164-71"><a href="resources.html#cb164-71"></a>        <span class="cf">elif</span> angle <span class="op">&gt;=</span> <span class="dv">270</span>:</span>
+<span id="cb164-72"><a href="resources.html#cb164-72"></a>            angle <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb164-73"><a href="resources.html#cb164-73"></a>        updateServo(pwm, angle)</span>
+<span id="cb164-74"><a href="resources.html#cb164-74"></a>        </span>
+<span id="cb164-75"><a href="resources.html#cb164-75"></a>    </span>
+<span id="cb164-76"><a href="resources.html#cb164-76"></a>    joy.close()</span>
+<span id="cb164-77"><a href="resources.html#cb164-77"></a>    pwm.stop()</span></code></pre></div>
 </div>
 <div id="raspberry-pi-rc-control" class="section level3">
 <h3><span class="header-section-number">10.5.3</span> RASPBERRY PI RC CONTROL</h3>
@@ -585,16 +585,16 @@ Experiment with training a donkey car to drive in simulation. This simulator is 
 <h3><span class="header-section-number">10.5.4</span> Python class to support xbox 360 controller under Linux on RaspberryPi</h3>
 <p>Python class to support reading xbox 360 wired and wireless controller input under Linux. Makes it easy to get real-time input from controller buttons, analog sticks and triggers. Built and tested on RaspberryPi running Raspbian.</p>
 <p>code example</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="resources.html#cb164-1"></a><span class="im">import</span> xbox</span>
-<span id="cb164-2"><a href="resources.html#cb164-2"></a>joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span></span>
-<span id="cb164-3"><a href="resources.html#cb164-3"></a></span>
-<span id="cb164-4"><a href="resources.html#cb164-4"></a><span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span></span>
-<span id="cb164-5"><a href="resources.html#cb164-5"></a>    <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span></span>
-<span id="cb164-6"><a href="resources.html#cb164-6"></a>x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span></span>
-<span id="cb164-7"><a href="resources.html#cb164-7"></a>(x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span></span>
-<span id="cb164-8"><a href="resources.html#cb164-8"></a>trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span></span>
-<span id="cb164-9"><a href="resources.html#cb164-9"></a></span>
-<span id="cb164-10"><a href="resources.html#cb164-10"></a>joy.close()                   <span class="co">#Cleanup before exit</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="resources.html#cb165-1"></a><span class="im">import</span> xbox</span>
+<span id="cb165-2"><a href="resources.html#cb165-2"></a>joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span></span>
+<span id="cb165-3"><a href="resources.html#cb165-3"></a></span>
+<span id="cb165-4"><a href="resources.html#cb165-4"></a><span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span></span>
+<span id="cb165-5"><a href="resources.html#cb165-5"></a>    <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span></span>
+<span id="cb165-6"><a href="resources.html#cb165-6"></a>x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span></span>
+<span id="cb165-7"><a href="resources.html#cb165-7"></a>(x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span></span>
+<span id="cb165-8"><a href="resources.html#cb165-8"></a>trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span></span>
+<span id="cb165-9"><a href="resources.html#cb165-9"></a></span>
+<span id="cb165-10"><a href="resources.html#cb165-10"></a>joy.close()                   <span class="co">#Cleanup before exit</span></span></code></pre></div>
 <p><a href="https://github.com/FRC4564/Xbox" class="uri">https://github.com/FRC4564/Xbox</a></p>
 </div>
 <div id="xbox-driver-for-mac" class="section level3">

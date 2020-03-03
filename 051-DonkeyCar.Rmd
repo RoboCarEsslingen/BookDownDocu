@@ -533,6 +533,20 @@ run
 (donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot
 ```
 
+
+or maybe better readalbe:
+```bash
+model_type = "linear" # linear|categorical|rnn|imu|behavior|3d|localizer|latent
+model_path = "/content/mycar/models/mypilot.h5"
+tub_path = "/content/mycar/data/tub_1_19_10_27,/content/mycar/data/tub_2_19_10_27"
+
+%cd /content/mycar
+python manage.py train --model={model_path} --type={model_type} --tub={tub_path}
+
+```
+
+
+
 which will place a model file called `mypilot` at 
 ```
 (donkey) Uwes-MacBook-Pro:models uwesterr$ pwd

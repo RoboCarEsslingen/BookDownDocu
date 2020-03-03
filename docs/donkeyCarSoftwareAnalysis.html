@@ -668,35 +668,35 @@ config.py  __init__.py  log.py  management  memory.py  parts  __pycache__  templ
 </li>
 <li>wiggle right: Button <strong>RB</strong></li>
 </ul>
-<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="donkeyCarSoftwareAnalysis.html#cb75-1"></a>       <span class="va">self</span>.axis_names <span class="op">=</span> {</span>
-<span id="cb75-2"><a href="donkeyCarSoftwareAnalysis.html#cb75-2"></a>            <span class="bn">0x00</span>: <span class="st">&#39;left_stick_horz&#39;</span>,</span>
-<span id="cb75-3"><a href="donkeyCarSoftwareAnalysis.html#cb75-3"></a>            <span class="bn">0x01</span>: <span class="st">&#39;left_stick_vert&#39;</span>,</span>
-<span id="cb75-4"><a href="donkeyCarSoftwareAnalysis.html#cb75-4"></a>            <span class="bn">0x03</span>: <span class="st">&#39;right_stick_horz&#39;</span>,</span>
-<span id="cb75-5"><a href="donkeyCarSoftwareAnalysis.html#cb75-5"></a>            <span class="bn">0x04</span>: <span class="st">&#39;right_stick_vert&#39;</span>,</span>
-<span id="cb75-6"><a href="donkeyCarSoftwareAnalysis.html#cb75-6"></a></span>
-<span id="cb75-7"><a href="donkeyCarSoftwareAnalysis.html#cb75-7"></a>            <span class="bn">0x02</span>: <span class="st">&#39;L2_pressure&#39;</span>,</span>
-<span id="cb75-8"><a href="donkeyCarSoftwareAnalysis.html#cb75-8"></a>            <span class="bn">0x05</span>: <span class="st">&#39;R2_pressure&#39;</span>,</span>
-<span id="cb75-9"><a href="donkeyCarSoftwareAnalysis.html#cb75-9"></a></span>
-<span id="cb75-10"><a href="donkeyCarSoftwareAnalysis.html#cb75-10"></a>            <span class="bn">0x10</span>: <span class="st">&#39;dpad_leftright&#39;</span>, <span class="co"># 1 is right, -1 is left</span></span>
-<span id="cb75-11"><a href="donkeyCarSoftwareAnalysis.html#cb75-11"></a>            <span class="bn">0x11</span>: <span class="st">&#39;dpad_up_down&#39;</span>, <span class="co"># 1 is down, -1 is up</span></span>
-<span id="cb75-12"><a href="donkeyCarSoftwareAnalysis.html#cb75-12"></a>        }</span>
-<span id="cb75-13"><a href="donkeyCarSoftwareAnalysis.html#cb75-13"></a></span>
-<span id="cb75-14"><a href="donkeyCarSoftwareAnalysis.html#cb75-14"></a>        <span class="va">self</span>.button_names <span class="op">=</span> {</span>
-<span id="cb75-15"><a href="donkeyCarSoftwareAnalysis.html#cb75-15"></a>            <span class="bn">0x13a</span>: <span class="st">&#39;back&#39;</span>,  <span class="co"># 8 314</span></span>
-<span id="cb75-16"><a href="donkeyCarSoftwareAnalysis.html#cb75-16"></a>            <span class="bn">0x13b</span>: <span class="st">&#39;start&#39;</span>,  <span class="co"># 9 315</span></span>
-<span id="cb75-17"><a href="donkeyCarSoftwareAnalysis.html#cb75-17"></a>            <span class="bn">0x13c</span>: <span class="st">&#39;Logitech&#39;</span>,  <span class="co"># a  316</span></span>
-<span id="cb75-18"><a href="donkeyCarSoftwareAnalysis.html#cb75-18"></a></span>
-<span id="cb75-19"><a href="donkeyCarSoftwareAnalysis.html#cb75-19"></a>            <span class="bn">0x130</span>: <span class="st">&#39;A&#39;</span>,</span>
-<span id="cb75-20"><a href="donkeyCarSoftwareAnalysis.html#cb75-20"></a>            <span class="bn">0x131</span>: <span class="st">&#39;B&#39;</span>,</span>
-<span id="cb75-21"><a href="donkeyCarSoftwareAnalysis.html#cb75-21"></a>            <span class="bn">0x133</span>: <span class="st">&#39;X&#39;</span>,</span>
-<span id="cb75-22"><a href="donkeyCarSoftwareAnalysis.html#cb75-22"></a>            <span class="bn">0x134</span>: <span class="st">&#39;Y&#39;</span>,</span>
-<span id="cb75-23"><a href="donkeyCarSoftwareAnalysis.html#cb75-23"></a></span>
-<span id="cb75-24"><a href="donkeyCarSoftwareAnalysis.html#cb75-24"></a>            <span class="bn">0x136</span>: <span class="st">&#39;L1&#39;</span>,</span>
-<span id="cb75-25"><a href="donkeyCarSoftwareAnalysis.html#cb75-25"></a>            <span class="bn">0x137</span>: <span class="st">&#39;R1&#39;</span>,</span>
-<span id="cb75-26"><a href="donkeyCarSoftwareAnalysis.html#cb75-26"></a></span>
-<span id="cb75-27"><a href="donkeyCarSoftwareAnalysis.html#cb75-27"></a>            <span class="bn">0x13d</span>: <span class="st">&#39;left_stick_press&#39;</span>,</span>
-<span id="cb75-28"><a href="donkeyCarSoftwareAnalysis.html#cb75-28"></a>            <span class="bn">0x13e</span>: <span class="st">&#39;right_stick_press&#39;</span>,</span>
-<span id="cb75-29"><a href="donkeyCarSoftwareAnalysis.html#cb75-29"></a>        }</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="donkeyCarSoftwareAnalysis.html#cb76-1"></a>       <span class="va">self</span>.axis_names <span class="op">=</span> {</span>
+<span id="cb76-2"><a href="donkeyCarSoftwareAnalysis.html#cb76-2"></a>            <span class="bn">0x00</span>: <span class="st">&#39;left_stick_horz&#39;</span>,</span>
+<span id="cb76-3"><a href="donkeyCarSoftwareAnalysis.html#cb76-3"></a>            <span class="bn">0x01</span>: <span class="st">&#39;left_stick_vert&#39;</span>,</span>
+<span id="cb76-4"><a href="donkeyCarSoftwareAnalysis.html#cb76-4"></a>            <span class="bn">0x03</span>: <span class="st">&#39;right_stick_horz&#39;</span>,</span>
+<span id="cb76-5"><a href="donkeyCarSoftwareAnalysis.html#cb76-5"></a>            <span class="bn">0x04</span>: <span class="st">&#39;right_stick_vert&#39;</span>,</span>
+<span id="cb76-6"><a href="donkeyCarSoftwareAnalysis.html#cb76-6"></a></span>
+<span id="cb76-7"><a href="donkeyCarSoftwareAnalysis.html#cb76-7"></a>            <span class="bn">0x02</span>: <span class="st">&#39;L2_pressure&#39;</span>,</span>
+<span id="cb76-8"><a href="donkeyCarSoftwareAnalysis.html#cb76-8"></a>            <span class="bn">0x05</span>: <span class="st">&#39;R2_pressure&#39;</span>,</span>
+<span id="cb76-9"><a href="donkeyCarSoftwareAnalysis.html#cb76-9"></a></span>
+<span id="cb76-10"><a href="donkeyCarSoftwareAnalysis.html#cb76-10"></a>            <span class="bn">0x10</span>: <span class="st">&#39;dpad_leftright&#39;</span>, <span class="co"># 1 is right, -1 is left</span></span>
+<span id="cb76-11"><a href="donkeyCarSoftwareAnalysis.html#cb76-11"></a>            <span class="bn">0x11</span>: <span class="st">&#39;dpad_up_down&#39;</span>, <span class="co"># 1 is down, -1 is up</span></span>
+<span id="cb76-12"><a href="donkeyCarSoftwareAnalysis.html#cb76-12"></a>        }</span>
+<span id="cb76-13"><a href="donkeyCarSoftwareAnalysis.html#cb76-13"></a></span>
+<span id="cb76-14"><a href="donkeyCarSoftwareAnalysis.html#cb76-14"></a>        <span class="va">self</span>.button_names <span class="op">=</span> {</span>
+<span id="cb76-15"><a href="donkeyCarSoftwareAnalysis.html#cb76-15"></a>            <span class="bn">0x13a</span>: <span class="st">&#39;back&#39;</span>,  <span class="co"># 8 314</span></span>
+<span id="cb76-16"><a href="donkeyCarSoftwareAnalysis.html#cb76-16"></a>            <span class="bn">0x13b</span>: <span class="st">&#39;start&#39;</span>,  <span class="co"># 9 315</span></span>
+<span id="cb76-17"><a href="donkeyCarSoftwareAnalysis.html#cb76-17"></a>            <span class="bn">0x13c</span>: <span class="st">&#39;Logitech&#39;</span>,  <span class="co"># a  316</span></span>
+<span id="cb76-18"><a href="donkeyCarSoftwareAnalysis.html#cb76-18"></a></span>
+<span id="cb76-19"><a href="donkeyCarSoftwareAnalysis.html#cb76-19"></a>            <span class="bn">0x130</span>: <span class="st">&#39;A&#39;</span>,</span>
+<span id="cb76-20"><a href="donkeyCarSoftwareAnalysis.html#cb76-20"></a>            <span class="bn">0x131</span>: <span class="st">&#39;B&#39;</span>,</span>
+<span id="cb76-21"><a href="donkeyCarSoftwareAnalysis.html#cb76-21"></a>            <span class="bn">0x133</span>: <span class="st">&#39;X&#39;</span>,</span>
+<span id="cb76-22"><a href="donkeyCarSoftwareAnalysis.html#cb76-22"></a>            <span class="bn">0x134</span>: <span class="st">&#39;Y&#39;</span>,</span>
+<span id="cb76-23"><a href="donkeyCarSoftwareAnalysis.html#cb76-23"></a></span>
+<span id="cb76-24"><a href="donkeyCarSoftwareAnalysis.html#cb76-24"></a>            <span class="bn">0x136</span>: <span class="st">&#39;L1&#39;</span>,</span>
+<span id="cb76-25"><a href="donkeyCarSoftwareAnalysis.html#cb76-25"></a>            <span class="bn">0x137</span>: <span class="st">&#39;R1&#39;</span>,</span>
+<span id="cb76-26"><a href="donkeyCarSoftwareAnalysis.html#cb76-26"></a></span>
+<span id="cb76-27"><a href="donkeyCarSoftwareAnalysis.html#cb76-27"></a>            <span class="bn">0x13d</span>: <span class="st">&#39;left_stick_press&#39;</span>,</span>
+<span id="cb76-28"><a href="donkeyCarSoftwareAnalysis.html#cb76-28"></a>            <span class="bn">0x13e</span>: <span class="st">&#39;right_stick_press&#39;</span>,</span>
+<span id="cb76-29"><a href="donkeyCarSoftwareAnalysis.html#cb76-29"></a>        }</span></code></pre></div>
 </div>
 <div id="AssignStickToAction" class="section level2">
 <h2><span class="header-section-number">5.5</span> Assignment of WiiU controller sticks to action</h2>

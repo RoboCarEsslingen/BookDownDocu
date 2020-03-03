@@ -818,6 +818,13 @@ Below an example for the case that all training data are located in a single fol
 </ul>
 <p>run</p>
 <pre><code>(donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot</code></pre>
+<p>or maybe better readalbe:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="donkeyCar.html#cb23-1"></a><span class="ex">model_type</span> = <span class="st">&quot;linear&quot;</span> <span class="co"># linear|categorical|rnn|imu|behavior|3d|localizer|latent</span></span>
+<span id="cb23-2"><a href="donkeyCar.html#cb23-2"></a><span class="ex">model_path</span> = <span class="st">&quot;/content/mycar/models/mypilot.h5&quot;</span></span>
+<span id="cb23-3"><a href="donkeyCar.html#cb23-3"></a><span class="ex">tub_path</span> = <span class="st">&quot;/content/mycar/data/tub_1_19_10_27,/content/mycar/data/tub_2_19_10_27&quot;</span></span>
+<span id="cb23-4"><a href="donkeyCar.html#cb23-4"></a></span>
+<span id="cb23-5"><a href="donkeyCar.html#cb23-5"></a><span class="ex">%cd</span> /content/mycar</span>
+<span id="cb23-6"><a href="donkeyCar.html#cb23-6"></a><span class="ex">python</span> manage.py train --model=<span class="dt">{model_path}</span> --type=<span class="dt">{model_type}</span> --tub=<span class="dt">{tub_path}</span></span></code></pre></div>
 <p>which will place a model file called <code>mypilot</code> at</p>
 <pre><code>(donkey) Uwes-MacBook-Pro:models uwesterr$ pwd
 /Users/uwesterr/mycar/models
@@ -841,103 +848,103 @@ Epoch 2/100
 Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models/mypilot
 35/35 [==============================] - 31s 874ms/step - loss: 0.3338 - angle_out_loss: 0.5289 - throttle_out_loss: 0.1387 - val_loss: 0.2920 - val_angle_out_loss: 0.4629 - val_throttle_out_loss: 0.1212</code></pre>
 <p>The model is defined in <code>keras.py</code></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="donkeyCar.html#cb25-1"></a><span class="kw">class</span> KerasLinear(KerasPilot):</span>
-<span id="cb25-2"><a href="donkeyCar.html#cb25-2"></a>    <span class="co">&#39;&#39;&#39;</span></span>
-<span id="cb25-3"><a href="donkeyCar.html#cb25-3"></a><span class="co">    The KerasLinear pilot uses one neuron to output a continous value via the </span></span>
-<span id="cb25-4"><a href="donkeyCar.html#cb25-4"></a><span class="co">    Keras Dense layer with linear activation. One each for steering and throttle.</span></span>
-<span id="cb25-5"><a href="donkeyCar.html#cb25-5"></a><span class="co">    The output is not bounded.</span></span>
-<span id="cb25-6"><a href="donkeyCar.html#cb25-6"></a><span class="co">    &#39;&#39;&#39;</span></span>
-<span id="cb25-7"><a href="donkeyCar.html#cb25-7"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, num_outputs<span class="op">=</span><span class="dv">2</span>, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb25-8"><a href="donkeyCar.html#cb25-8"></a>        <span class="bu">super</span>(KerasLinear, <span class="va">self</span>).<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
-<span id="cb25-9"><a href="donkeyCar.html#cb25-9"></a>        <span class="va">self</span>.model <span class="op">=</span> default_n_linear(num_outputs, input_shape, roi_crop)</span>
-<span id="cb25-10"><a href="donkeyCar.html#cb25-10"></a>        <span class="va">self</span>.<span class="bu">compile</span>()</span>
-<span id="cb25-11"><a href="donkeyCar.html#cb25-11"></a></span>
-<span id="cb25-12"><a href="donkeyCar.html#cb25-12"></a>    <span class="kw">def</span> <span class="bu">compile</span>(<span class="va">self</span>):</span>
-<span id="cb25-13"><a href="donkeyCar.html#cb25-13"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="va">self</span>.optimizer,</span>
-<span id="cb25-14"><a href="donkeyCar.html#cb25-14"></a>                loss<span class="op">=</span><span class="st">&#39;mse&#39;</span>)</span>
-<span id="cb25-15"><a href="donkeyCar.html#cb25-15"></a></span>
-<span id="cb25-16"><a href="donkeyCar.html#cb25-16"></a>    <span class="kw">def</span> run(<span class="va">self</span>, img_arr):</span>
-<span id="cb25-17"><a href="donkeyCar.html#cb25-17"></a>        img_arr <span class="op">=</span> img_arr.reshape((<span class="dv">1</span>,) <span class="op">+</span> img_arr.shape)</span>
-<span id="cb25-18"><a href="donkeyCar.html#cb25-18"></a>        outputs <span class="op">=</span> <span class="va">self</span>.model.predict(img_arr)</span>
-<span id="cb25-19"><a href="donkeyCar.html#cb25-19"></a>        steering <span class="op">=</span> outputs[<span class="dv">0</span>]</span>
-<span id="cb25-20"><a href="donkeyCar.html#cb25-20"></a>        throttle <span class="op">=</span> outputs[<span class="dv">1</span>]</span>
-<span id="cb25-21"><a href="donkeyCar.html#cb25-21"></a>        <span class="cf">return</span> steering[<span class="dv">0</span>][<span class="dv">0</span>], throttle[<span class="dv">0</span>][<span class="dv">0</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="donkeyCar.html#cb26-1"></a><span class="kw">def</span> default_n_linear(num_outputs, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>)):</span>
-<span id="cb26-2"><a href="donkeyCar.html#cb26-2"></a></span>
-<span id="cb26-3"><a href="donkeyCar.html#cb26-3"></a>    drop <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb26-4"><a href="donkeyCar.html#cb26-4"></a></span>
-<span id="cb26-5"><a href="donkeyCar.html#cb26-5"></a>    <span class="co">#we now expect that cropping done elsewhere. we will adjust our expeected image size here:</span></span>
-<span id="cb26-6"><a href="donkeyCar.html#cb26-6"></a>    input_shape <span class="op">=</span> adjust_input_shape(input_shape, roi_crop)</span>
-<span id="cb26-7"><a href="donkeyCar.html#cb26-7"></a>    </span>
-<span id="cb26-8"><a href="donkeyCar.html#cb26-8"></a>    img_in <span class="op">=</span> Input(shape<span class="op">=</span>input_shape, name<span class="op">=</span><span class="st">&#39;img_in&#39;</span>)</span>
-<span id="cb26-9"><a href="donkeyCar.html#cb26-9"></a>    x <span class="op">=</span> img_in</span>
-<span id="cb26-10"><a href="donkeyCar.html#cb26-10"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">24</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_1&quot;</span>)(x)</span>
-<span id="cb26-11"><a href="donkeyCar.html#cb26-11"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-12"><a href="donkeyCar.html#cb26-12"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">32</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_2&quot;</span>)(x)</span>
-<span id="cb26-13"><a href="donkeyCar.html#cb26-13"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-14"><a href="donkeyCar.html#cb26-14"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_3&quot;</span>)(x)</span>
-<span id="cb26-15"><a href="donkeyCar.html#cb26-15"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-16"><a href="donkeyCar.html#cb26-16"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_4&quot;</span>)(x)</span>
-<span id="cb26-17"><a href="donkeyCar.html#cb26-17"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-18"><a href="donkeyCar.html#cb26-18"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_5&quot;</span>)(x)</span>
-<span id="cb26-19"><a href="donkeyCar.html#cb26-19"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-20"><a href="donkeyCar.html#cb26-20"></a>    </span>
-<span id="cb26-21"><a href="donkeyCar.html#cb26-21"></a>    x <span class="op">=</span> Flatten(name<span class="op">=</span><span class="st">&#39;flattened&#39;</span>)(x)</span>
-<span id="cb26-22"><a href="donkeyCar.html#cb26-22"></a>    x <span class="op">=</span> Dense(<span class="dv">100</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
-<span id="cb26-23"><a href="donkeyCar.html#cb26-23"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-24"><a href="donkeyCar.html#cb26-24"></a>    x <span class="op">=</span> Dense(<span class="dv">50</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
-<span id="cb26-25"><a href="donkeyCar.html#cb26-25"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb26-26"><a href="donkeyCar.html#cb26-26"></a></span>
-<span id="cb26-27"><a href="donkeyCar.html#cb26-27"></a>    outputs <span class="op">=</span> []</span>
-<span id="cb26-28"><a href="donkeyCar.html#cb26-28"></a>    </span>
-<span id="cb26-29"><a href="donkeyCar.html#cb26-29"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_outputs):</span>
-<span id="cb26-30"><a href="donkeyCar.html#cb26-30"></a>        outputs.append(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;linear&#39;</span>, name<span class="op">=</span><span class="st">&#39;n_outputs&#39;</span> <span class="op">+</span> <span class="bu">str</span>(i))(x))</span>
-<span id="cb26-31"><a href="donkeyCar.html#cb26-31"></a>        </span>
-<span id="cb26-32"><a href="donkeyCar.html#cb26-32"></a>    model <span class="op">=</span> Model(inputs<span class="op">=</span>[img_in], outputs<span class="op">=</span>outputs)</span>
-<span id="cb26-33"><a href="donkeyCar.html#cb26-33"></a>    </span>
-<span id="cb26-34"><a href="donkeyCar.html#cb26-34"></a>    <span class="cf">return</span> model</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="donkeyCar.html#cb26-1"></a><span class="kw">class</span> KerasLinear(KerasPilot):</span>
+<span id="cb26-2"><a href="donkeyCar.html#cb26-2"></a>    <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb26-3"><a href="donkeyCar.html#cb26-3"></a><span class="co">    The KerasLinear pilot uses one neuron to output a continous value via the </span></span>
+<span id="cb26-4"><a href="donkeyCar.html#cb26-4"></a><span class="co">    Keras Dense layer with linear activation. One each for steering and throttle.</span></span>
+<span id="cb26-5"><a href="donkeyCar.html#cb26-5"></a><span class="co">    The output is not bounded.</span></span>
+<span id="cb26-6"><a href="donkeyCar.html#cb26-6"></a><span class="co">    &#39;&#39;&#39;</span></span>
+<span id="cb26-7"><a href="donkeyCar.html#cb26-7"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, num_outputs<span class="op">=</span><span class="dv">2</span>, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb26-8"><a href="donkeyCar.html#cb26-8"></a>        <span class="bu">super</span>(KerasLinear, <span class="va">self</span>).<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb26-9"><a href="donkeyCar.html#cb26-9"></a>        <span class="va">self</span>.model <span class="op">=</span> default_n_linear(num_outputs, input_shape, roi_crop)</span>
+<span id="cb26-10"><a href="donkeyCar.html#cb26-10"></a>        <span class="va">self</span>.<span class="bu">compile</span>()</span>
+<span id="cb26-11"><a href="donkeyCar.html#cb26-11"></a></span>
+<span id="cb26-12"><a href="donkeyCar.html#cb26-12"></a>    <span class="kw">def</span> <span class="bu">compile</span>(<span class="va">self</span>):</span>
+<span id="cb26-13"><a href="donkeyCar.html#cb26-13"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="va">self</span>.optimizer,</span>
+<span id="cb26-14"><a href="donkeyCar.html#cb26-14"></a>                loss<span class="op">=</span><span class="st">&#39;mse&#39;</span>)</span>
+<span id="cb26-15"><a href="donkeyCar.html#cb26-15"></a></span>
+<span id="cb26-16"><a href="donkeyCar.html#cb26-16"></a>    <span class="kw">def</span> run(<span class="va">self</span>, img_arr):</span>
+<span id="cb26-17"><a href="donkeyCar.html#cb26-17"></a>        img_arr <span class="op">=</span> img_arr.reshape((<span class="dv">1</span>,) <span class="op">+</span> img_arr.shape)</span>
+<span id="cb26-18"><a href="donkeyCar.html#cb26-18"></a>        outputs <span class="op">=</span> <span class="va">self</span>.model.predict(img_arr)</span>
+<span id="cb26-19"><a href="donkeyCar.html#cb26-19"></a>        steering <span class="op">=</span> outputs[<span class="dv">0</span>]</span>
+<span id="cb26-20"><a href="donkeyCar.html#cb26-20"></a>        throttle <span class="op">=</span> outputs[<span class="dv">1</span>]</span>
+<span id="cb26-21"><a href="donkeyCar.html#cb26-21"></a>        <span class="cf">return</span> steering[<span class="dv">0</span>][<span class="dv">0</span>], throttle[<span class="dv">0</span>][<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="donkeyCar.html#cb27-1"></a><span class="kw">def</span> default_n_linear(num_outputs, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>)):</span>
+<span id="cb27-2"><a href="donkeyCar.html#cb27-2"></a></span>
+<span id="cb27-3"><a href="donkeyCar.html#cb27-3"></a>    drop <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb27-4"><a href="donkeyCar.html#cb27-4"></a></span>
+<span id="cb27-5"><a href="donkeyCar.html#cb27-5"></a>    <span class="co">#we now expect that cropping done elsewhere. we will adjust our expeected image size here:</span></span>
+<span id="cb27-6"><a href="donkeyCar.html#cb27-6"></a>    input_shape <span class="op">=</span> adjust_input_shape(input_shape, roi_crop)</span>
+<span id="cb27-7"><a href="donkeyCar.html#cb27-7"></a>    </span>
+<span id="cb27-8"><a href="donkeyCar.html#cb27-8"></a>    img_in <span class="op">=</span> Input(shape<span class="op">=</span>input_shape, name<span class="op">=</span><span class="st">&#39;img_in&#39;</span>)</span>
+<span id="cb27-9"><a href="donkeyCar.html#cb27-9"></a>    x <span class="op">=</span> img_in</span>
+<span id="cb27-10"><a href="donkeyCar.html#cb27-10"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">24</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_1&quot;</span>)(x)</span>
+<span id="cb27-11"><a href="donkeyCar.html#cb27-11"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-12"><a href="donkeyCar.html#cb27-12"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">32</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_2&quot;</span>)(x)</span>
+<span id="cb27-13"><a href="donkeyCar.html#cb27-13"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-14"><a href="donkeyCar.html#cb27-14"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_3&quot;</span>)(x)</span>
+<span id="cb27-15"><a href="donkeyCar.html#cb27-15"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-16"><a href="donkeyCar.html#cb27-16"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_4&quot;</span>)(x)</span>
+<span id="cb27-17"><a href="donkeyCar.html#cb27-17"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-18"><a href="donkeyCar.html#cb27-18"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_5&quot;</span>)(x)</span>
+<span id="cb27-19"><a href="donkeyCar.html#cb27-19"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-20"><a href="donkeyCar.html#cb27-20"></a>    </span>
+<span id="cb27-21"><a href="donkeyCar.html#cb27-21"></a>    x <span class="op">=</span> Flatten(name<span class="op">=</span><span class="st">&#39;flattened&#39;</span>)(x)</span>
+<span id="cb27-22"><a href="donkeyCar.html#cb27-22"></a>    x <span class="op">=</span> Dense(<span class="dv">100</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
+<span id="cb27-23"><a href="donkeyCar.html#cb27-23"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-24"><a href="donkeyCar.html#cb27-24"></a>    x <span class="op">=</span> Dense(<span class="dv">50</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
+<span id="cb27-25"><a href="donkeyCar.html#cb27-25"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-26"><a href="donkeyCar.html#cb27-26"></a></span>
+<span id="cb27-27"><a href="donkeyCar.html#cb27-27"></a>    outputs <span class="op">=</span> []</span>
+<span id="cb27-28"><a href="donkeyCar.html#cb27-28"></a>    </span>
+<span id="cb27-29"><a href="donkeyCar.html#cb27-29"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_outputs):</span>
+<span id="cb27-30"><a href="donkeyCar.html#cb27-30"></a>        outputs.append(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;linear&#39;</span>, name<span class="op">=</span><span class="st">&#39;n_outputs&#39;</span> <span class="op">+</span> <span class="bu">str</span>(i))(x))</span>
+<span id="cb27-31"><a href="donkeyCar.html#cb27-31"></a>        </span>
+<span id="cb27-32"><a href="donkeyCar.html#cb27-32"></a>    model <span class="op">=</span> Model(inputs<span class="op">=</span>[img_in], outputs<span class="op">=</span>outputs)</span>
+<span id="cb27-33"><a href="donkeyCar.html#cb27-33"></a>    </span>
+<span id="cb27-34"><a href="donkeyCar.html#cb27-34"></a>    <span class="cf">return</span> model</span></code></pre></div>
 <div id="add-augmentation" class="section level3">
 <h3><span class="header-section-number">2.11.1</span> Add augmentation</h3>
 <p>Adding augmentation should lead to a more robust model, to invoke augmentation set the flag <code>--aug</code> when calling <code>manage.py</code></p>
 <pre><code>python /content/mycar/manage.py train  --type=linear  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
 <p>then the function <code>augment_image</code> from <code>augment.py</code> will be applied to the images during training</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="donkeyCar.html#cb28-1"></a><span class="kw">def</span> augment_image(np_img, shadow_images<span class="op">=</span><span class="va">None</span>, do_warp_persp<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb28-2"><a href="donkeyCar.html#cb28-2"></a>    conv_img <span class="op">=</span> np_img <span class="op">*</span> <span class="fl">255.0</span></span>
-<span id="cb28-3"><a href="donkeyCar.html#cb28-3"></a>    conv_img <span class="op">=</span> conv_img.astype(np.uint8)</span>
-<span id="cb28-4"><a href="donkeyCar.html#cb28-4"></a>    img <span class="op">=</span> Image.fromarray(conv_img)</span>
-<span id="cb28-5"><a href="donkeyCar.html#cb28-5"></a>    <span class="co">#change the coloration, sharpness, and composite a shadow</span></span>
-<span id="cb28-6"><a href="donkeyCar.html#cb28-6"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">2.0</span>)</span>
-<span id="cb28-7"><a href="donkeyCar.html#cb28-7"></a>    img <span class="op">=</span> ImageEnhance.Brightness(img).enhance(factor)</span>
-<span id="cb28-8"><a href="donkeyCar.html#cb28-8"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.0</span>)</span>
-<span id="cb28-9"><a href="donkeyCar.html#cb28-9"></a>    img <span class="op">=</span> ImageEnhance.Contrast(img).enhance(factor)</span>
-<span id="cb28-10"><a href="donkeyCar.html#cb28-10"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
-<span id="cb28-11"><a href="donkeyCar.html#cb28-11"></a>    img <span class="op">=</span> ImageEnhance.Sharpness(img).enhance(factor)</span>
-<span id="cb28-12"><a href="donkeyCar.html#cb28-12"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb28-13"><a href="donkeyCar.html#cb28-13"></a>    img <span class="op">=</span> ImageEnhance.Color(img).enhance(factor)</span>
-<span id="cb28-14"><a href="donkeyCar.html#cb28-14"></a></span>
-<span id="cb28-15"><a href="donkeyCar.html#cb28-15"></a>    <span class="cf">if</span> shadow_images <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb28-16"><a href="donkeyCar.html#cb28-16"></a>        <span class="co">&#39;&#39;&#39;</span></span>
-<span id="cb28-17"><a href="donkeyCar.html#cb28-17"></a><span class="co">        optionaly composite a shadow, perpared from load_shadow_images</span></span>
-<span id="cb28-18"><a href="donkeyCar.html#cb28-18"></a><span class="co">        &#39;&#39;&#39;</span></span>
-<span id="cb28-19"><a href="donkeyCar.html#cb28-19"></a>        iShad <span class="op">=</span> random.randrange(<span class="dv">0</span>, <span class="bu">len</span>(shadow_images))</span>
-<span id="cb28-20"><a href="donkeyCar.html#cb28-20"></a>        top, mask <span class="op">=</span> shadow_images[iShad]</span>
-<span id="cb28-21"><a href="donkeyCar.html#cb28-21"></a>        theta <span class="op">=</span> random.randrange(<span class="op">-</span><span class="dv">35</span>, <span class="dv">35</span>)</span>
-<span id="cb28-22"><a href="donkeyCar.html#cb28-22"></a>        mask.rotate(theta)</span>
-<span id="cb28-23"><a href="donkeyCar.html#cb28-23"></a>        top.rotate(theta)</span>
-<span id="cb28-24"><a href="donkeyCar.html#cb28-24"></a>        mask <span class="op">=</span> ImageEnhance.Brightness(mask).enhance(random.uniform(<span class="fl">0.3</span>, <span class="fl">1.0</span>))</span>
-<span id="cb28-25"><a href="donkeyCar.html#cb28-25"></a>        offset <span class="op">=</span> (random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>), random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>))</span>
-<span id="cb28-26"><a href="donkeyCar.html#cb28-26"></a>        img.paste(top, offset, mask)</span>
-<span id="cb28-27"><a href="donkeyCar.html#cb28-27"></a>    </span>
-<span id="cb28-28"><a href="donkeyCar.html#cb28-28"></a>    <span class="cf">if</span> do_warp_persp:</span>
-<span id="cb28-29"><a href="donkeyCar.html#cb28-29"></a>        <span class="co">&#39;&#39;&#39;</span></span>
-<span id="cb28-30"><a href="donkeyCar.html#cb28-30"></a><span class="co">        optionaly warp perspective</span></span>
-<span id="cb28-31"><a href="donkeyCar.html#cb28-31"></a><span class="co">        &#39;&#39;&#39;</span></span>
-<span id="cb28-32"><a href="donkeyCar.html#cb28-32"></a>        img <span class="op">=</span> rand_persp_transform(img)</span>
-<span id="cb28-33"><a href="donkeyCar.html#cb28-33"></a></span>
-<span id="cb28-34"><a href="donkeyCar.html#cb28-34"></a>    <span class="cf">return</span> np.array(img).astype(np.<span class="bu">float</span>) <span class="op">/</span> <span class="fl">255.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="donkeyCar.html#cb29-1"></a><span class="kw">def</span> augment_image(np_img, shadow_images<span class="op">=</span><span class="va">None</span>, do_warp_persp<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb29-2"><a href="donkeyCar.html#cb29-2"></a>    conv_img <span class="op">=</span> np_img <span class="op">*</span> <span class="fl">255.0</span></span>
+<span id="cb29-3"><a href="donkeyCar.html#cb29-3"></a>    conv_img <span class="op">=</span> conv_img.astype(np.uint8)</span>
+<span id="cb29-4"><a href="donkeyCar.html#cb29-4"></a>    img <span class="op">=</span> Image.fromarray(conv_img)</span>
+<span id="cb29-5"><a href="donkeyCar.html#cb29-5"></a>    <span class="co">#change the coloration, sharpness, and composite a shadow</span></span>
+<span id="cb29-6"><a href="donkeyCar.html#cb29-6"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">2.0</span>)</span>
+<span id="cb29-7"><a href="donkeyCar.html#cb29-7"></a>    img <span class="op">=</span> ImageEnhance.Brightness(img).enhance(factor)</span>
+<span id="cb29-8"><a href="donkeyCar.html#cb29-8"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.0</span>)</span>
+<span id="cb29-9"><a href="donkeyCar.html#cb29-9"></a>    img <span class="op">=</span> ImageEnhance.Contrast(img).enhance(factor)</span>
+<span id="cb29-10"><a href="donkeyCar.html#cb29-10"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb29-11"><a href="donkeyCar.html#cb29-11"></a>    img <span class="op">=</span> ImageEnhance.Sharpness(img).enhance(factor)</span>
+<span id="cb29-12"><a href="donkeyCar.html#cb29-12"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb29-13"><a href="donkeyCar.html#cb29-13"></a>    img <span class="op">=</span> ImageEnhance.Color(img).enhance(factor)</span>
+<span id="cb29-14"><a href="donkeyCar.html#cb29-14"></a></span>
+<span id="cb29-15"><a href="donkeyCar.html#cb29-15"></a>    <span class="cf">if</span> shadow_images <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb29-16"><a href="donkeyCar.html#cb29-16"></a>        <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb29-17"><a href="donkeyCar.html#cb29-17"></a><span class="co">        optionaly composite a shadow, perpared from load_shadow_images</span></span>
+<span id="cb29-18"><a href="donkeyCar.html#cb29-18"></a><span class="co">        &#39;&#39;&#39;</span></span>
+<span id="cb29-19"><a href="donkeyCar.html#cb29-19"></a>        iShad <span class="op">=</span> random.randrange(<span class="dv">0</span>, <span class="bu">len</span>(shadow_images))</span>
+<span id="cb29-20"><a href="donkeyCar.html#cb29-20"></a>        top, mask <span class="op">=</span> shadow_images[iShad]</span>
+<span id="cb29-21"><a href="donkeyCar.html#cb29-21"></a>        theta <span class="op">=</span> random.randrange(<span class="op">-</span><span class="dv">35</span>, <span class="dv">35</span>)</span>
+<span id="cb29-22"><a href="donkeyCar.html#cb29-22"></a>        mask.rotate(theta)</span>
+<span id="cb29-23"><a href="donkeyCar.html#cb29-23"></a>        top.rotate(theta)</span>
+<span id="cb29-24"><a href="donkeyCar.html#cb29-24"></a>        mask <span class="op">=</span> ImageEnhance.Brightness(mask).enhance(random.uniform(<span class="fl">0.3</span>, <span class="fl">1.0</span>))</span>
+<span id="cb29-25"><a href="donkeyCar.html#cb29-25"></a>        offset <span class="op">=</span> (random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>), random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>))</span>
+<span id="cb29-26"><a href="donkeyCar.html#cb29-26"></a>        img.paste(top, offset, mask)</span>
+<span id="cb29-27"><a href="donkeyCar.html#cb29-27"></a>    </span>
+<span id="cb29-28"><a href="donkeyCar.html#cb29-28"></a>    <span class="cf">if</span> do_warp_persp:</span>
+<span id="cb29-29"><a href="donkeyCar.html#cb29-29"></a>        <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb29-30"><a href="donkeyCar.html#cb29-30"></a><span class="co">        optionaly warp perspective</span></span>
+<span id="cb29-31"><a href="donkeyCar.html#cb29-31"></a><span class="co">        &#39;&#39;&#39;</span></span>
+<span id="cb29-32"><a href="donkeyCar.html#cb29-32"></a>        img <span class="op">=</span> rand_persp_transform(img)</span>
+<span id="cb29-33"><a href="donkeyCar.html#cb29-33"></a></span>
+<span id="cb29-34"><a href="donkeyCar.html#cb29-34"></a>    <span class="cf">return</span> np.array(img).astype(np.<span class="bu">float</span>) <span class="op">/</span> <span class="fl">255.0</span></span></code></pre></div>
 <p>which is called from <code>train.py</code></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="donkeyCar.html#cb29-1"></a> <span class="cf">if</span> aug:</span>
-<span id="cb29-2"><a href="donkeyCar.html#cb29-2"></a>     img_arr <span class="op">=</span> augment_image(img_arr)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="donkeyCar.html#cb30-1"></a> <span class="cf">if</span> aug:</span>
+<span id="cb30-2"><a href="donkeyCar.html#cb30-2"></a>     img_arr <span class="op">=</span> augment_image(img_arr)</span></code></pre></div>
 </div>
 <div id="transfer-learning" class="section level3">
 <h3><span class="header-section-number">2.11.2</span> Transfer learning</h3>
@@ -945,22 +952,22 @@ Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models
 <pre><code>manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;] [--file=&lt;file&gt; ...] (--model=&lt;model&gt;) [--transfer=&lt;model&gt;] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
 manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
 <p>To control the transfer learning change settings in <code>myconfig.py</code></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="donkeyCar.html#cb31-1"></a><span class="co"># #Model transfer options</span></span>
-<span id="cb31-2"><a href="donkeyCar.html#cb31-2"></a><span class="co"># #When copying weights during a model transfer operation, should we freeze a certain number of layers</span></span>
-<span id="cb31-3"><a href="donkeyCar.html#cb31-3"></a><span class="co"># #to the incoming weights and not allow them to change during training?</span></span>
-<span id="cb31-4"><a href="donkeyCar.html#cb31-4"></a>FREEZE_LAYERS <span class="op">=</span> <span class="va">False</span>               <span class="co">#default False will allow all layers to be modified by training</span></span>
-<span id="cb31-5"><a href="donkeyCar.html#cb31-5"></a>NUM_LAST_LAYERS_TO_TRAIN <span class="op">=</span> <span class="dv">7</span>        <span class="co">#when freezing layers, how many layers from the last should be allowed to train?</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="donkeyCar.html#cb32-1"></a><span class="co"># #Model transfer options</span></span>
+<span id="cb32-2"><a href="donkeyCar.html#cb32-2"></a><span class="co"># #When copying weights during a model transfer operation, should we freeze a certain number of layers</span></span>
+<span id="cb32-3"><a href="donkeyCar.html#cb32-3"></a><span class="co"># #to the incoming weights and not allow them to change during training?</span></span>
+<span id="cb32-4"><a href="donkeyCar.html#cb32-4"></a>FREEZE_LAYERS <span class="op">=</span> <span class="va">False</span>               <span class="co">#default False will allow all layers to be modified by training</span></span>
+<span id="cb32-5"><a href="donkeyCar.html#cb32-5"></a>NUM_LAST_LAYERS_TO_TRAIN <span class="op">=</span> <span class="dv">7</span>        <span class="co">#when freezing layers, how many layers from the last should be allowed to train?</span></span></code></pre></div>
 <p>The above parameters are used in <code>train.py</code> to control the training of the model</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="donkeyCar.html#cb32-1"></a>    <span class="cf">if</span> transfer_model:</span>
-<span id="cb32-2"><a href="donkeyCar.html#cb32-2"></a>        <span class="bu">print</span>(<span class="st">&#39;loading weights from model&#39;</span>, transfer_model)</span>
-<span id="cb32-3"><a href="donkeyCar.html#cb32-3"></a>        kl.load(transfer_model)</span>
-<span id="cb32-4"><a href="donkeyCar.html#cb32-4"></a></span>
-<span id="cb32-5"><a href="donkeyCar.html#cb32-5"></a>        <span class="co">#when transfering models, should we freeze all but the last N layers?</span></span>
-<span id="cb32-6"><a href="donkeyCar.html#cb32-6"></a>        <span class="cf">if</span> cfg.FREEZE_LAYERS:</span>
-<span id="cb32-7"><a href="donkeyCar.html#cb32-7"></a>            num_to_freeze <span class="op">=</span> <span class="bu">len</span>(kl.model.layers) <span class="op">-</span> cfg.NUM_LAST_LAYERS_TO_TRAIN </span>
-<span id="cb32-8"><a href="donkeyCar.html#cb32-8"></a>            <span class="bu">print</span>(<span class="st">&#39;freezing </span><span class="sc">%d</span><span class="st"> layers&#39;</span> <span class="op">%</span> num_to_freeze)           </span>
-<span id="cb32-9"><a href="donkeyCar.html#cb32-9"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_to_freeze):</span>
-<span id="cb32-10"><a href="donkeyCar.html#cb32-10"></a>                kl.model.layers[i].trainable <span class="op">=</span> <span class="va">False</span>   </span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="donkeyCar.html#cb33-1"></a>    <span class="cf">if</span> transfer_model:</span>
+<span id="cb33-2"><a href="donkeyCar.html#cb33-2"></a>        <span class="bu">print</span>(<span class="st">&#39;loading weights from model&#39;</span>, transfer_model)</span>
+<span id="cb33-3"><a href="donkeyCar.html#cb33-3"></a>        kl.load(transfer_model)</span>
+<span id="cb33-4"><a href="donkeyCar.html#cb33-4"></a></span>
+<span id="cb33-5"><a href="donkeyCar.html#cb33-5"></a>        <span class="co">#when transfering models, should we freeze all but the last N layers?</span></span>
+<span id="cb33-6"><a href="donkeyCar.html#cb33-6"></a>        <span class="cf">if</span> cfg.FREEZE_LAYERS:</span>
+<span id="cb33-7"><a href="donkeyCar.html#cb33-7"></a>            num_to_freeze <span class="op">=</span> <span class="bu">len</span>(kl.model.layers) <span class="op">-</span> cfg.NUM_LAST_LAYERS_TO_TRAIN </span>
+<span id="cb33-8"><a href="donkeyCar.html#cb33-8"></a>            <span class="bu">print</span>(<span class="st">&#39;freezing </span><span class="sc">%d</span><span class="st"> layers&#39;</span> <span class="op">%</span> num_to_freeze)           </span>
+<span id="cb33-9"><a href="donkeyCar.html#cb33-9"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_to_freeze):</span>
+<span id="cb33-10"><a href="donkeyCar.html#cb33-10"></a>                kl.model.layers[i].trainable <span class="op">=</span> <span class="va">False</span>   </span></code></pre></div>
 <p>As a starting point Tawn also offers a .h5 model <code>base_linear.h5</code> which can be downloaded from
 <a href="https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK" class="uri">https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK</a>
 The model can be invoked by</p>
