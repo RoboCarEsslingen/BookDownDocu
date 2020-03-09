@@ -534,7 +534,7 @@ run
 ```
 
 
-or maybe better readalbe:
+or maybe better readable:
 ```bash
 model_type = "linear" # linear|categorical|rnn|imu|behavior|3d|localizer|latent
 model_path = "/content/mycar/models/mypilot.h5"
