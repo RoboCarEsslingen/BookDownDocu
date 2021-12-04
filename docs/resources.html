@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Resources | RoboCar project documentation</title>
   <meta name="description" content="Notes taken by Uwe for the RoboCar project" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Resources | RoboCar project documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2020-03-09" />
+<meta name="date" content="2021-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="get-on-the-road.html"/>
 <link rel="next" href="experiences.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,22 +51,23 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,69 +137,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">RoboCar project documentation</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project RoboCar</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project RoboCar</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-to-join-us"><i class="fa fa-check"></i><b>1.1</b> How to join us</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.2</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>2</b> Building and operate a donkeycar</a><ul>
-<li class="chapter" data-level="2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changing-the-plattform"><i class="fa fa-check"></i><b>2.1</b> Reason for changing the plattform</a><ul>
+<li class="chapter" data-level="2" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>2</b> Building and operate a donkeycar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changing-the-plattform"><i class="fa fa-check"></i><b>2.1</b> Reason for changing the plattform</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="donkeyCar.html"><a href="donkeyCar.html#carSelection"><i class="fa fa-check"></i><b>2.1.1</b> Selecting a RC car</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="donkeyCar.html"><a href="donkeyCar.html#what-to-do"><i class="fa fa-check"></i><b>2.2</b> What to do</a></li>
-<li class="chapter" data-level="2.3" data-path="donkeyCar.html"><a href="donkeyCar.html#carWiring"><i class="fa fa-check"></i><b>2.3</b> Rewiring the car</a><ul>
+<li class="chapter" data-level="2.3" data-path="donkeyCar.html"><a href="donkeyCar.html#carWiring"><i class="fa fa-check"></i><b>2.3</b> Rewiring the car</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="donkeyCar.html"><a href="donkeyCar.html#parts-list"><i class="fa fa-check"></i><b>2.3.1</b> Parts list</a></li>
 <li class="chapter" data-level="2.3.2" data-path="donkeyCar.html"><a href="donkeyCar.html#why-not-using-pca9685"><i class="fa fa-check"></i><b>2.3.2</b> Why not using PCA9685</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="donkeyCar.html"><a href="donkeyCar.html#folders-created-during-installation-of-host-pc"><i class="fa fa-check"></i><b>2.4</b> Folders created during installation of host PC</a></li>
-<li class="chapter" data-level="2.5" data-path="donkeyCar.html"><a href="donkeyCar.html#calibrate-the-car"><i class="fa fa-check"></i><b>2.5</b> Calibrate the car</a><ul>
+<li class="chapter" data-level="2.5" data-path="donkeyCar.html"><a href="donkeyCar.html#calibrate-the-car"><i class="fa fa-check"></i><b>2.5</b> Calibrate the car</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="donkeyCar.html"><a href="donkeyCar.html#setting-wifi-up-for-the-raspberry"><i class="fa fa-check"></i><b>2.5.1</b> Setting WIFI up for the raspberry</a></li>
 <li class="chapter" data-level="2.5.2" data-path="donkeyCar.html"><a href="donkeyCar.html#steering-calibration"><i class="fa fa-check"></i><b>2.5.2</b> Steering Calibration</a></li>
 <li class="chapter" data-level="2.5.3" data-path="donkeyCar.html"><a href="donkeyCar.html#throttle-calibration"><i class="fa fa-check"></i><b>2.5.3</b> Throttle Calibration</a></li>
 <li class="chapter" data-level="2.5.4" data-path="donkeyCar.html"><a href="donkeyCar.html#configpyAfterCalib"><i class="fa fa-check"></i><b>2.5.4</b> Config.py after calibration</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="donkeyCar.html"><a href="donkeyCar.html#drive-your-car-with-web-interface"><i class="fa fa-check"></i><b>2.6</b> Drive your car with web interface</a><ul>
+<li class="chapter" data-level="2.6" data-path="donkeyCar.html"><a href="donkeyCar.html#drive-your-car-with-web-interface"><i class="fa fa-check"></i><b>2.6</b> Drive your car with web interface</a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-mac"><i class="fa fa-check"></i><b>2.6.1</b> Preparation on Mac</a></li>
 <li class="chapter" data-level="2.6.2" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-raspberry"><i class="fa fa-check"></i><b>2.6.2</b> Preparation on Raspberry</a></li>
 <li class="chapter" data-level="2.6.3" data-path="donkeyCar.html"><a href="donkeyCar.html#open-control-in-web-browser-on-mac"><i class="fa fa-check"></i><b>2.6.3</b> Open control in web browser on Mac</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>2.7</b> Connecting bluetooth controller</a><ul>
+<li class="chapter" data-level="2.7" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>2.7</b> Connecting bluetooth controller</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#BluetoothControllerInstall"><i class="fa fa-check"></i><b>2.7.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>2.8</b> Start driving or training</a><ul>
+<li class="chapter" data-level="2.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>2.8</b> Start driving or training</a>
+<ul>
 <li class="chapter" data-level="2.8.1" data-path="donkeyCar.html"><a href="donkeyCar.html#create-movie-from-tub-data"><i class="fa fa-check"></i><b>2.8.1</b> Create movie from tub data</a></li>
 <li class="chapter" data-level="2.8.2" data-path="donkeyCar.html"><a href="donkeyCar.html#options-of-manage.py"><i class="fa fa-check"></i><b>2.8.2</b> Options of manage.py</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="donkeyCar.html"><a href="donkeyCar.html#tips-on-how-to-drive-during-training"><i class="fa fa-check"></i><b>2.9</b> Tips on how to drive during training</a><ul>
+<li class="chapter" data-level="2.9" data-path="donkeyCar.html"><a href="donkeyCar.html#tips-on-how-to-drive-during-training"><i class="fa fa-check"></i><b>2.9</b> Tips on how to drive during training</a>
+<ul>
 <li class="chapter" data-level="2.9.1" data-path="donkeyCar.html"><a href="donkeyCar.html#how-to-edit-recorded-data"><i class="fa fa-check"></i><b>2.9.1</b> How to edit recorded data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>2.10</b> Mange recorded data</a><ul>
+<li class="chapter" data-level="2.10" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>2.10</b> Mange recorded data</a>
+<ul>
 <li class="chapter" data-level="2.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>2.10.1</b> Archiving data</a></li>
 <li class="chapter" data-level="2.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>2.10.2</b> Delete data</a></li>
 <li class="chapter" data-level="2.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>2.10.3</b> Copy files from raspi to mac</a></li>
 <li class="chapter" data-level="2.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>2.10.4</b> How big is the tub folder</a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a><ul>
+<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a>
+<ul>
 <li class="chapter" data-level="2.11.1" data-path="donkeyCar.html"><a href="donkeyCar.html#add-augmentation"><i class="fa fa-check"></i><b>2.11.1</b> Add augmentation</a></li>
 <li class="chapter" data-level="2.11.2" data-path="donkeyCar.html"><a href="donkeyCar.html#transfer-learning"><i class="fa fa-check"></i><b>2.11.2</b> Transfer learning</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#run-car-on-neural-net"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a><ul>
+<li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#run-car-on-neural-net"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a>
+<ul>
 <li class="chapter" data-level="2.12.1" data-path="donkeyCar.html"><a href="donkeyCar.html#change-model"><i class="fa fa-check"></i><b>2.12.1</b> change model</a></li>
 </ul></li>
 <li class="chapter" data-level="2.13" data-path="donkeyCar.html"><a href="donkeyCar.html#see-rainers-description"><i class="fa fa-check"></i><b>2.13</b> See Rainer’s description</a></li>
-<li class="chapter" data-level="2.14" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.14</b> Build pre processing pipe line</a><ul>
+<li class="chapter" data-level="2.14" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.14</b> Build pre processing pipe line</a>
+<ul>
 <li class="chapter" data-level="2.14.1" data-path="donkeyCar.html"><a href="donkeyCar.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.14.1</b> Install openCV on the raspi</a></li>
 </ul></li>
 <li class="chapter" data-level="2.15" data-path="donkeyCar.html"><a href="donkeyCar.html#bluetooth-key-mapping"><i class="fa fa-check"></i><b>2.15</b> bluetooth key mapping</a></li>
 <li class="chapter" data-level="2.16" data-path="donkeyCar.html"><a href="donkeyCar.html#load-h5-model-and-inspect"><i class="fa fa-check"></i><b>2.16</b> Load h5 model and inspect</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a><ul>
+<li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="Conncectivity.html"><a href="Conncectivity.html#purpose-of-connections"><i class="fa fa-check"></i><b>3.1</b> Purpose of connections</a></li>
-<li class="chapter" data-level="3.2" data-path="Conncectivity.html"><a href="Conncectivity.html#setting-up-of-the-wireless-connections"><i class="fa fa-check"></i><b>3.2</b> Setting up of the wireless connections</a><ul>
+<li class="chapter" data-level="3.2" data-path="Conncectivity.html"><a href="Conncectivity.html#setting-up-of-the-wireless-connections"><i class="fa fa-check"></i><b>3.2</b> Setting up of the wireless connections</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="Conncectivity.html"><a href="Conncectivity.html#bluetooth-connection"><i class="fa fa-check"></i><b>3.2.1</b> Bluetooth connection</a></li>
 <li class="chapter" data-level="3.2.2" data-path="Conncectivity.html"><a href="Conncectivity.html#wifi-connection"><i class="fa fa-check"></i><b>3.2.2</b> Wifi connection</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>4</b> Donkey Command-line Utilities</a><ul>
+<li class="chapter" data-level="4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>4</b> Donkey Command-line Utilities</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#create-car"><i class="fa fa-check"></i><b>4.1</b> Create Car</a></li>
 <li class="chapter" data-level="4.2" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#update-car"><i class="fa fa-check"></i><b>4.2</b> Update Car</a></li>
 <li class="chapter" data-level="4.3" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#find-car"><i class="fa fa-check"></i><b>4.3</b> Find Car</a></li>
@@ -206,18 +226,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#histogram"><i class="fa fa-check"></i><b>4.8</b> Histogram</a></li>
 <li class="chapter" data-level="4.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>4.9</b> Plot Predictions</a></li>
 <li class="chapter" data-level="4.10" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>4.10</b> Simulation Server</a></li>
-<li class="chapter" data-level="4.11" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.11</b> Colab training</a><ul>
+<li class="chapter" data-level="4.11" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.11</b> Colab training</a>
+<ul>
 <li class="chapter" data-level="4.11.1" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#blog-train-donkeycar-with-gpu-support-in-colab"><i class="fa fa-check"></i><b>4.11.1</b> Blog: Train donkeycar with GPU support in Colab</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
-<li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
+<li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.start"><i class="fa fa-check"></i><b>5.1.1</b> Function V.start()</a></li>
 <li class="chapter" data-level="5.1.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.update_parts"><i class="fa fa-check"></i><b>5.1.2</b> Function V.update_parts()</a></li>
 <li class="chapter" data-level="5.1.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.add"><i class="fa fa-check"></i><b>5.1.3</b> Function V.add</a></li>
 <li class="chapter" data-level="5.1.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#threadedParts"><i class="fa fa-check"></i><b>5.1.4</b> Concept of threads vs non-threaded parts</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>5.2</b> Structure of <code>manage.py</code></a><ul>
+<li class="chapter" data-level="5.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>5.2</b> Structure of <code>manage.py</code></a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#creating-manage.py"><i class="fa fa-check"></i><b>5.2.1</b> Creating <code>manage.py</code></a></li>
 <li class="chapter" data-level="5.2.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#starting-manage.py"><i class="fa fa-check"></i><b>5.2.2</b> Starting <code>manage.py</code></a></li>
 <li class="chapter" data-level="5.2.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#parsing-the-command-line-parameters"><i class="fa fa-check"></i><b>5.2.3</b> Parsing the command line parameters</a></li>
@@ -226,16 +250,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>5.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="5.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#assignement-of-logitech-710-controler"><i class="fa fa-check"></i><b>5.4</b> Assignement of Logitech 710 controler</a></li>
 <li class="chapter" data-level="5.5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>5.5</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="5.6" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.6</b> Limit max velocity</a><ul>
+<li class="chapter" data-level="5.6" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.6</b> Limit max velocity</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#limit-max-velocity-for-joystick-input"><i class="fa fa-check"></i><b>5.6.1</b> Limit max velocity for joystick input</a></li>
 <li class="chapter" data-level="5.6.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#limit-max-velocity-for-ai-pilot"><i class="fa fa-check"></i><b>5.6.2</b> Limit max velocity for ai pilot</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>5.7</b> Add LED to indicate recording mode</a><ul>
+<li class="chapter" data-level="5.7" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>5.7</b> Add LED to indicate recording mode</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>5.7.1</b> Wiring of LED to PWM/Servo HAT</a></li>
 </ul></li>
 <li class="chapter" data-level="5.8" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#change-default-recording-status-to-false"><i class="fa fa-check"></i><b>5.8</b> Change default recording status to false</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#environment"><i class="fa fa-check"></i><b>6.1</b> Environment</a></li>
 <li class="chapter" data-level="6.2" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#sudo-raspi-config"><i class="fa fa-check"></i><b>6.2</b> sudo raspi-config</a></li>
 <li class="chapter" data-level="6.3" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#etcwpa_supllicantwpa_supplicant.conf"><i class="fa fa-check"></i><b>6.3</b> etc/wpa_supllicant/wpa_supplicant.conf</a></li>
@@ -248,7 +275,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#steering-calibration-1"><i class="fa fa-check"></i><b>6.10</b> Steering Calibration</a></li>
 <li class="chapter" data-level="6.11" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#drive"><i class="fa fa-check"></i><b>6.11</b> drive</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#environment-1"><i class="fa fa-check"></i><b>7.1</b> Environment</a></li>
 <li class="chapter" data-level="7.2" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#read-data-from-pi"><i class="fa fa-check"></i><b>7.2</b> Read data from pi</a></li>
 <li class="chapter" data-level="7.3" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#check-data-raw-prepared"><i class="fa fa-check"></i><b>7.3</b> Check data raw &amp; prepared</a></li>
@@ -263,49 +291,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.12" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#watch-pi-camera"><i class="fa fa-check"></i><b>7.12</b> 11. Watch pi camera</a></li>
 <li class="chapter" data-level="7.13" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#reinfocement-learning"><i class="fa fa-check"></i><b>7.13</b> Reinfocement Learning</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a><ul>
-<li class="chapter" data-level="8.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#section"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a><ul>
+<li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#section"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#donkey-findcar"><i class="fa fa-check"></i><b>8.1.1</b> donkey findcar</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="robocarLogBook.html"><a href="robocarLogBook.html#build-sunfounder-car-17-02-2018"><i class="fa fa-check"></i><b>8.2</b> Build sunfounder car 17-02-2018</a><ul>
+<li class="chapter" data-level="8.2" data-path="robocarLogBook.html"><a href="robocarLogBook.html#build-sunfounder-car-17-02-2018"><i class="fa fa-check"></i><b>8.2</b> Build sunfounder car 17-02-2018</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#install-software-18-02-2018"><i class="fa fa-check"></i><b>8.2.1</b> install software 18-02-2018</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="robocarLogBook.html"><a href="robocarLogBook.html#viewing-a-list-of-available-python-versions"><i class="fa fa-check"></i><b>8.3</b> Viewing a list of available Python versions</a></li>
 <li class="chapter" data-level="8.4" data-path="robocarLogBook.html"><a href="robocarLogBook.html#run-calibration"><i class="fa fa-check"></i><b>8.4</b> Run calibration</a></li>
-<li class="chapter" data-level="8.5" data-path="robocarLogBook.html"><a href="robocarLogBook.html#mjpg-streamer-installation"><i class="fa fa-check"></i><b>8.5</b> MJPG-streamer Installation</a><ul>
+<li class="chapter" data-level="8.5" data-path="robocarLogBook.html"><a href="robocarLogBook.html#mjpg-streamer-installation"><i class="fa fa-check"></i><b>8.5</b> MJPG-streamer Installation</a>
+<ul>
 <li class="chapter" data-level="8.5.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#testing"><i class="fa fa-check"></i><b>8.5.1</b> Testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="get-on-the-road.html"><a href="get-on-the-road.html"><i class="fa fa-check"></i><b>9</b> Get on the Road!</a><ul>
+<li class="chapter" data-level="9" data-path="get-on-the-road.html"><a href="get-on-the-road.html"><i class="fa fa-check"></i><b>9</b> Get on the Road!</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#install-carnd-term1"><i class="fa fa-check"></i><b>9.1</b> install carnd-term1</a></li>
 <li class="chapter" data-level="9.2" data-path="get-on-the-road.html"><a href="get-on-the-road.html#install-xbox-360-controller"><i class="fa fa-check"></i><b>9.2</b> Install Xbox 360 controller</a></li>
-<li class="chapter" data-level="9.3" data-path="get-on-the-road.html"><a href="get-on-the-road.html#implement-xbox-controller-as-input-in-client_app.py"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a><ul>
+<li class="chapter" data-level="9.3" data-path="get-on-the-road.html"><a href="get-on-the-road.html#implement-xbox-controller-as-input-in-client_app.py"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#make-steering-proportional-to-remote-control-lever-position"><i class="fa fa-check"></i><b>9.3.1</b> Make steering proportional to remote control lever position</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="get-on-the-road.html"><a href="get-on-the-road.html#GetIp"><i class="fa fa-check"></i><b>9.4</b> Get IP adress of raspi in shack</a></li>
-<li class="chapter" data-level="9.5" data-path="get-on-the-road.html"><a href="get-on-the-road.html#store-snapshots-of-video-stream-on-local-computer"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a><ul>
+<li class="chapter" data-level="9.5" data-path="get-on-the-road.html"><a href="get-on-the-road.html#store-snapshots-of-video-stream-on-local-computer"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a>
+<ul>
 <li class="chapter" data-level="9.5.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#jie-hous-alternative"><i class="fa fa-check"></i><b>9.5.1</b> Jie Hou’s alternative</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Resources</a><ul>
-<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#meetups"><i class="fa fa-check"></i><b>10.1</b> Meetups</a><ul>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Resources</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#meetups"><i class="fa fa-check"></i><b>10.1</b> Meetups</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="resources.html"><a href="resources.html#esslinger-makerspace-projekt-autonomen-robocar-bauen"><i class="fa fa-check"></i><b>10.1.1</b> Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a></li>
 <li class="chapter" data-level="10.1.2" data-path="resources.html"><a href="resources.html#autonomous-mobility-berlin"><i class="fa fa-check"></i><b>10.1.2</b> Autonomous Mobility Berlin</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#robocar-projects"><i class="fa fa-check"></i><b>10.2</b> RoboCar projects</a><ul>
+<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#robocar-projects"><i class="fa fa-check"></i><b>10.2</b> RoboCar projects</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="resources.html"><a href="resources.html#diy-robocars"><i class="fa fa-check"></i><b>10.2.1</b> DIY RoboCars</a></li>
 <li class="chapter" data-level="10.2.2" data-path="resources.html"><a href="resources.html#donkey-car"><i class="fa fa-check"></i><b>10.2.2</b> Donkey car</a></li>
 <li class="chapter" data-level="10.2.3" data-path="resources.html"><a href="resources.html#sunfounder-smart-video-car-kit-for-raspberry-pi-with-android-app"><i class="fa fa-check"></i><b>10.2.3</b> Sunfounder Smart Video Car Kit for Raspberry Pi with Android App</a></li>
 <li class="chapter" data-level="10.2.4" data-path="resources.html"><a href="resources.html#kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3"><i class="fa fa-check"></i><b>10.2.4</b> Kuman Professional WIFI Smart Robot Model Car Kit Videokamera for Raspberry Pi 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#hardware"><i class="fa fa-check"></i><b>10.3</b> Hardware</a><ul>
+<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#hardware"><i class="fa fa-check"></i><b>10.3</b> Hardware</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="resources.html"><a href="resources.html#komponentenliste-für-ein-ferngesteuertes-roboter-auto"><i class="fa fa-check"></i><b>10.3.1</b> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</a></li>
 <li class="chapter" data-level="10.3.2" data-path="resources.html"><a href="resources.html#motor-control"><i class="fa fa-check"></i><b>10.3.2</b> Motor control</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="resources.html"><a href="resources.html#simulators"><i class="fa fa-check"></i><b>10.4</b> Simulators</a><ul>
+<li class="chapter" data-level="10.4" data-path="resources.html"><a href="resources.html#simulators"><i class="fa fa-check"></i><b>10.4</b> Simulators</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="resources.html"><a href="resources.html#donkey-simulator"><i class="fa fa-check"></i><b>10.4.1</b> Donkey Simulator</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="resources.html"><a href="resources.html#software"><i class="fa fa-check"></i><b>10.5</b> Software</a><ul>
+<li class="chapter" data-level="10.5" data-path="resources.html"><a href="resources.html#software"><i class="fa fa-check"></i><b>10.5</b> Software</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="resources.html"><a href="resources.html#udacitiy-open-source-sdc"><i class="fa fa-check"></i><b>10.5.1</b> Udacitiy open source SDC</a></li>
 <li class="chapter" data-level="10.5.2" data-path="resources.html"><a href="resources.html#connect-raspberry-with-xbox-controller"><i class="fa fa-check"></i><b>10.5.2</b> connect raspberry with xbox controller</a></li>
 <li class="chapter" data-level="10.5.3" data-path="resources.html"><a href="resources.html#raspberry-pi-rc-control"><i class="fa fa-check"></i><b>10.5.3</b> RASPBERRY PI RC CONTROL</a></li>
@@ -314,21 +355,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.6" data-path="resources.html"><a href="resources.html#konzept-für-softwareschichten"><i class="fa fa-check"></i><b>10.5.6</b> Konzept für softwareschichten</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a><ul>
+<li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="experiences.html"><a href="experiences.html#install-donkey-car-on-mac"><i class="fa fa-check"></i><b>11.1</b> Install donkey car on Mac</a></li>
 <li class="chapter" data-level="11.2" data-path="experiences.html"><a href="experiences.html#donkey-car-simulator"><i class="fa fa-check"></i><b>11.2</b> Donkey car simulator</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="Theory.html"><a href="Theory.html"><i class="fa fa-check"></i><b>12</b> Theory</a><ul>
+<li class="chapter" data-level="12" data-path="Theory.html"><a href="Theory.html"><i class="fa fa-check"></i><b>12</b> Theory</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="Theory.html"><a href="Theory.html#wiring-of-pca9685-with-l298n-h-bridge"><i class="fa fa-check"></i><b>12.1</b> Wiring of PCA9685 with L298N H-bridge</a></li>
 <li class="chapter" data-level="12.2" data-path="Theory.html"><a href="Theory.html#sensor-fusion-of-lidar-and-camera-data"><i class="fa fa-check"></i><b>12.2</b> sensor fusion of LIDAR and camera data</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="UsefulLinks.html"><a href="UsefulLinks.html"><i class="fa fa-check"></i><b>13</b> Useful links</a><ul>
-<li class="chapter" data-level="13.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#donkey-car-1"><i class="fa fa-check"></i><b>13.1</b> Donkey car</a><ul>
+<li class="chapter" data-level="13" data-path="UsefulLinks.html"><a href="UsefulLinks.html"><i class="fa fa-check"></i><b>13</b> Useful links</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#donkey-car-1"><i class="fa fa-check"></i><b>13.1</b> Donkey car</a>
+<ul>
 <li class="chapter" data-level="13.1.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>13.1.1</b> Videos for donkey car</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="UsefulLinks.html"><a href="UsefulLinks.html#parts-to-build-a-robocar"><i class="fa fa-check"></i><b>13.2</b> Parts to build a RoboCar</a></li>
 <li class="chapter" data-level="13.3" data-path="UsefulLinks.html"><a href="UsefulLinks.html#little-setup-helpers"><i class="fa fa-check"></i><b>13.3</b> Little setup helpers</a></li>
-<li class="chapter" data-level="13.4" data-path="UsefulLinks.html"><a href="UsefulLinks.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>13.4</b> Meetup in Stuttgart area</a></li>
+<li class="chapter" data-level="13.4" data-path="UsefulLinks.html"><a href="UsefulLinks.html#meetups-in-stuttgart-area"><i class="fa fa-check"></i><b>13.4</b> Meetups in Stuttgart area</a></li>
 <li class="chapter" data-level="13.5" data-path="UsefulLinks.html"><a href="UsefulLinks.html#robocar-projects-1"><i class="fa fa-check"></i><b>13.5</b> RoboCar projects</a></li>
 <li class="chapter" data-level="13.6" data-path="UsefulLinks.html"><a href="UsefulLinks.html#write-ups-on-donkeycar-projects"><i class="fa fa-check"></i><b>13.6</b> Write ups on Donkeycar projects</a></li>
 <li class="chapter" data-level="13.7" data-path="UsefulLinks.html"><a href="UsefulLinks.html#other-stuff"><i class="fa fa-check"></i><b>13.7</b> Other stuff</a></li>
@@ -353,31 +398,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="resources" class="section level1">
+<div id="resources" class="section level1" number="10">
 <h1><span class="header-section-number">Chapter 10</span> Resources</h1>
 <p>In this section interesting resources for different topics are listed</p>
-<div id="meetups" class="section level2">
+<div id="meetups" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Meetups</h2>
-<div id="esslinger-makerspace-projekt-autonomen-robocar-bauen" class="section level3">
+<div id="esslinger-makerspace-projekt-autonomen-robocar-bauen" class="section level3" number="10.1.1">
 <h3><span class="header-section-number">10.1.1</span> Esslinger Makerspace Projekt: Autonomen RoboCar bauen</h3>
 <p><a href="https://www.meetup.com/Esslingen-Makerspace/" class="uri">https://www.meetup.com/Esslingen-Makerspace/</a></p>
 <p>Ob ihr euer eigenes RoboCar entwickeln wollt, oder lieber ein kleines Team bilden wollt, hier seit ihr richtig.</p>
-<p><img src="images/EliasCar.jpg" width="300" /></p>
+<p><img src="images/EliasCar.jpg" /><!-- --></p>
 </div>
-<div id="autonomous-mobility-berlin" class="section level3">
+<div id="autonomous-mobility-berlin" class="section level3" number="10.1.2">
 <h3><span class="header-section-number">10.1.2</span> Autonomous Mobility Berlin</h3>
 <p><a href="https://www.meetup.com/autonomous-mobility-berlin/" class="uri">https://www.meetup.com/autonomous-mobility-berlin/</a></p>
 <p>This is a group for anyone interested and intrigued by Autonomous Mobility, Self-Driving Cars (SDC). Robots. We will cover topics on related technologies - Computer Vision, Deep Learning, Reinforcement learning, evolutionary computation, Sensor Fusion, ROS etc..</p>
 </div>
 </div>
-<div id="robocar-projects" class="section level2">
+<div id="robocar-projects" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> RoboCar projects</h2>
-<div id="diy-robocars" class="section level3">
+<div id="diy-robocars" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> DIY RoboCars</h3>
 <p><a href="https://diyrobocars.com/about/" class="uri">https://diyrobocars.com/about/</a></p>
 <p>This is the sister site to DIY Drones and resource/community companion to the DIY Robocars Meetup Group. Created by Chris Anderson of 3DR.</p>
 </div>
-<div id="donkey-car" class="section level3">
+<div id="donkey-car" class="section level3" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Donkey car</h3>
 <p><a href="http://www.donkeycar.com" class="uri">http://www.donkeycar.com</a></p>
 <p>An opensource DIY self driving platform for small scale cars.
@@ -391,28 +436,28 @@ RC CAR + Raspberry Pi + Python (tornado, keras, tensorflow, opencv, ….)</p>
 <li>Train an autopilot.</li>
 <li>Experiment with simulator</li>
 </ol>
-<p><img src="images/donkey-car-graphic_orig.jpg" width="449" /></p>
+<p><img src="images/donkey-car-graphic_orig.jpg" /><!-- --></p>
 <p>The code can be found at <a href="https://github.com/wroscoe/donkey">github</a></p>
 </div>
-<div id="sunfounder-smart-video-car-kit-for-raspberry-pi-with-android-app" class="section level3">
+<div id="sunfounder-smart-video-car-kit-for-raspberry-pi-with-android-app" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Sunfounder Smart Video Car Kit for Raspberry Pi with Android App</h3>
 <p><a href="https://www.sunfounder.com/robotic-drone/smartcar/smart-video-car-kit/rpi-car.html" class="uri">https://www.sunfounder.com/robotic-drone/smartcar/smart-video-car-kit/rpi-car.html</a></p>
 <p>This is a complete learning kit based on Raspberry Pi with Android App. For better learning, an elaborately-written user manual, code with explanation and thorough schematic diagrams are provided.</p>
 <p>Available at <a href="https://www.amazon.de/dp/B01ANIY3EC/ref=psdc_1626220031_t3_B071J21R3D">amazon</a></p>
-<p><img src="images/sunfounder.jpg" width="300" /></p>
+<p><img src="images/sunfounder.jpg" /><!-- --></p>
 <p>Sunfounder software is found at <a href="https://github.com/sunfounder/Sunfounder_Smart_Video_Car_Kit_for_RaspberryPi">github</a></p>
 <p>Documentation can be found at <a href="https://www.sunfounder.com/learn/category/Smart-Video-Car-V2-0-for-Raspberry-Pi-Pi-Car-V.html" class="uri">https://www.sunfounder.com/learn/category/Smart-Video-Car-V2-0-for-Raspberry-Pi-Pi-Car-V.html</a></p>
 </div>
-<div id="kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3" class="section level3">
+<div id="kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3" class="section level3" number="10.2.4">
 <h3><span class="header-section-number">10.2.4</span> Kuman Professional WIFI Smart Robot Model Car Kit Videokamera for Raspberry Pi 3</h3>
 <p>Einfache Montage und Bedienung: Das ist ein komplettes WIFI-Lern-Smart-Roboter-Kit mit 8GB-Karte basierend auf Raspberry Pi 3 Controlled by ISO Android App. Für den Betrieb leicht, Code of smart Robot System sind in 8 GB Karte vorinstalliert. Für ein besseres Lernen, eine ausführliche schriftliche Benutzerhandbuch, Code mit Erklärung und schematische Diagramme werden von kuman zur Verfügung gestellt.</p>
 <p><a href="https://www.amazon.de/Kuman-Professional-Videokamera-Fernbedienung-Elektronische/dp/B071J21R3D/ref=sr_1_2_sspa?ie=UTF8&amp;qid=1518681363&amp;sr=8-2-spons&amp;keywords=raspberry+pi+3&amp;psc=1">Available at amazon</a></p>
 </div>
 </div>
-<div id="hardware" class="section level2">
+<div id="hardware" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> Hardware</h2>
 <p>In this section hardware related information is presented</p>
-<div id="komponentenliste-für-ein-ferngesteuertes-roboter-auto" class="section level3">
+<div id="komponentenliste-für-ein-ferngesteuertes-roboter-auto" class="section level3" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</h3>
 <p><a href="https://custom-build-robots.com/raspberry-pi-roboter-auto-komponenten" class="uri">https://custom-build-robots.com/raspberry-pi-roboter-auto-komponenten</a></p>
 <p>Ingmar Stapel from Munich keeps this list up to date</p>
@@ -424,12 +469,12 @@ RC CAR + Raspberry Pi + Python (tornado, keras, tensorflow, opencv, ….)</p>
 <li>MOTOREN</li>
 </ul>
 </div>
-<div id="motor-control" class="section level3">
+<div id="motor-control" class="section level3" number="10.3.2">
 <h3><span class="header-section-number">10.3.2</span> Motor control</h3>
 <p>How to control steer and throttle</p>
-<div id="pca9685" class="section level4">
+<div id="pca9685" class="section level4" number="10.3.2.1">
 <h4><span class="header-section-number">10.3.2.1</span> PCA9685</h4>
-<div id="kanal-pca9685-servo-kontroller-teil-1-einführung-und-aufbau" class="section level5">
+<div id="kanal-pca9685-servo-kontroller-teil-1-einführung-und-aufbau" class="section level5" number="10.3.2.1.1">
 <h5><span class="header-section-number">10.3.2.1.1</span> 16-KANAL PCA9685 SERVO KONTROLLER – TEIL 1 EINFÜHRUNG UND AUFBAU</h5>
 <p><a href="https://custom-build-robots.com/raspberry-pi-elektronik/16-kanal-pca9685-servo-kontroller-i2c-schnittstelle-einfuehrung-aufbau/8040" class="uri">https://custom-build-robots.com/raspberry-pi-elektronik/16-kanal-pca9685-servo-kontroller-i2c-schnittstelle-einfuehrung-aufbau/8040</a></p>
 <ul>
@@ -467,142 +512,142 @@ RC CAR + Raspberry Pi + Python (tornado, keras, tensorflow, opencv, ….)</p>
 </tbody>
 </table>
 </div>
-<div id="adafruit-16-channel-servo-driver-with-raspberry-pi" class="section level5">
+<div id="adafruit-16-channel-servo-driver-with-raspberry-pi" class="section level5" number="10.3.2.1.2">
 <h5><span class="header-section-number">10.3.2.1.2</span> Adafruit 16 Channel Servo Driver with Raspberry Pi</h5>
 <p><a href="https://learn.adafruit.com/adafruit-16-channel-servo-driver-with-raspberry-pi/overview" class="uri">https://learn.adafruit.com/adafruit-16-channel-servo-driver-with-raspberry-pi/overview</a></p>
 <p>Good explanation with link to github code and wiring example</p>
 </div>
 </div>
-<div id="wii-sensor" class="section level4">
+<div id="wii-sensor" class="section level4" number="10.3.2.2">
 <h4><span class="header-section-number">10.3.2.2</span> Wii sensor</h4>
 <p>Could use wii sensor instead of camera</p>
 </div>
 </div>
 </div>
-<div id="simulators" class="section level2">
+<div id="simulators" class="section level2" number="10.4">
 <h2><span class="header-section-number">10.4</span> Simulators</h2>
-<div id="donkey-simulator" class="section level3">
+<div id="donkey-simulator" class="section level3" number="10.4.1">
 <h3><span class="header-section-number">10.4.1</span> Donkey Simulator</h3>
 <p><a href="http://docs.donkeycar.com/guide/simulator/" class="uri">http://docs.donkeycar.com/guide/simulator/</a><br />
 Experiment with training a donkey car to drive in simulation. This simulator is built on the the Unity game platform, uses their internal physics and graphics, and connects to a donkey Python process to use our trained model to control the simulated Donkey.</p>
 </div>
 </div>
-<div id="software" class="section level2">
+<div id="software" class="section level2" number="10.5">
 <h2><span class="header-section-number">10.5</span> Software</h2>
-<div id="udacitiy-open-source-sdc" class="section level3">
+<div id="udacitiy-open-source-sdc" class="section level3" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> Udacitiy open source SDC</h3>
 <p><a href="https://github.com/udacity/self-driving-car" class="uri">https://github.com/udacity/self-driving-car</a></p>
 <p>At Udacity, we believe in democratizing education. How can we provide opportunity to everyone on the planet? We also believe in teaching really amazing and useful subject matter. When we decided to build the Self-Driving Car Nanodegree program, to teach the world to build autonomous vehicles, we instantly knew we had to tackle our own self-driving car too.</p>
 <p>Together with Google Self-Driving Car founder and Udacity President Sebastian Thrun, we formed our core Self-Driving Car Team. One of the first decisions we made? Open source code, written by hundreds of students from across the globe!</p>
 </div>
-<div id="connect-raspberry-with-xbox-controller" class="section level3">
+<div id="connect-raspberry-with-xbox-controller" class="section level3" number="10.5.2">
 <h3><span class="header-section-number">10.5.2</span> connect raspberry with xbox controller</h3>
 <p>good tutorial with example code
 <a href="https://tutorials-raspberrypi.de/raspberry-pi-xbox-360-controller-steuern/" class="uri">https://tutorials-raspberrypi.de/raspberry-pi-xbox-360-controller-steuern/</a></p>
 <p>you find a code example</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="resources.html#cb165-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
-<span id="cb165-2"><a href="resources.html#cb165-2"></a><span class="im">import</span> math</span>
-<span id="cb165-3"><a href="resources.html#cb165-3"></a><span class="im">import</span> xbox</span>
-<span id="cb165-4"><a href="resources.html#cb165-4"></a> </span>
-<span id="cb165-5"><a href="resources.html#cb165-5"></a>GPIO_LED_GREEN  <span class="op">=</span> <span class="dv">23</span></span>
-<span id="cb165-6"><a href="resources.html#cb165-6"></a>GPIO_LED_RED    <span class="op">=</span> <span class="dv">22</span></span>
-<span id="cb165-7"><a href="resources.html#cb165-7"></a>GPIO_LED_YELLOW <span class="op">=</span> <span class="dv">27</span></span>
-<span id="cb165-8"><a href="resources.html#cb165-8"></a>GPIO_LED_BLUE   <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb165-9"><a href="resources.html#cb165-9"></a> </span>
-<span id="cb165-10"><a href="resources.html#cb165-10"></a>GPIO_SERVO_PIN  <span class="op">=</span> <span class="dv">25</span></span>
-<span id="cb165-11"><a href="resources.html#cb165-11"></a> </span>
-<span id="cb165-12"><a href="resources.html#cb165-12"></a> </span>
-<span id="cb165-13"><a href="resources.html#cb165-13"></a>GPIO.setmode(GPIO.BCM)</span>
-<span id="cb165-14"><a href="resources.html#cb165-14"></a>GPIO.setwarnings(<span class="va">False</span>)</span>
-<span id="cb165-15"><a href="resources.html#cb165-15"></a> </span>
-<span id="cb165-16"><a href="resources.html#cb165-16"></a>GPIO.setup(GPIO_LED_GREEN, GPIO.OUT)</span>
-<span id="cb165-17"><a href="resources.html#cb165-17"></a>GPIO.setup(GPIO_LED_RED, GPIO.OUT)</span>
-<span id="cb165-18"><a href="resources.html#cb165-18"></a>GPIO.setup(GPIO_LED_YELLOW, GPIO.OUT)</span>
-<span id="cb165-19"><a href="resources.html#cb165-19"></a>GPIO.setup(GPIO_LED_BLUE, GPIO.OUT)</span>
-<span id="cb165-20"><a href="resources.html#cb165-20"></a>GPIO.setup(GPIO_SERVO_PIN, GPIO.OUT)</span>
-<span id="cb165-21"><a href="resources.html#cb165-21"></a> </span>
-<span id="cb165-22"><a href="resources.html#cb165-22"></a> </span>
-<span id="cb165-23"><a href="resources.html#cb165-23"></a><span class="kw">def</span> updateServo(pwm, angle):</span>
-<span id="cb165-24"><a href="resources.html#cb165-24"></a>    duty <span class="op">=</span> <span class="bu">float</span>(angle) <span class="op">/</span> <span class="fl">10.0</span> <span class="op">+</span> <span class="fl">2.5</span></span>
-<span id="cb165-25"><a href="resources.html#cb165-25"></a>    pwm.ChangeDutyCycle(duty)</span>
-<span id="cb165-26"><a href="resources.html#cb165-26"></a> </span>
-<span id="cb165-27"><a href="resources.html#cb165-27"></a><span class="kw">def</span> angleFromCoords(x,y):</span>
-<span id="cb165-28"><a href="resources.html#cb165-28"></a>    angle <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb165-29"><a href="resources.html#cb165-29"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">==</span><span class="fl">0.0</span>:</span>
-<span id="cb165-30"><a href="resources.html#cb165-30"></a>        angle <span class="op">=</span> <span class="fl">90.0</span></span>
-<span id="cb165-31"><a href="resources.html#cb165-31"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
-<span id="cb165-32"><a href="resources.html#cb165-32"></a>        <span class="co"># first quadrant</span></span>
-<span id="cb165-33"><a href="resources.html#cb165-33"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">90.0</span></span>
-<span id="cb165-34"><a href="resources.html#cb165-34"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
-<span id="cb165-35"><a href="resources.html#cb165-35"></a>        <span class="co"># second quadrant</span></span>
-<span id="cb165-36"><a href="resources.html#cb165-36"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
-<span id="cb165-37"><a href="resources.html#cb165-37"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
-<span id="cb165-38"><a href="resources.html#cb165-38"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
-<span id="cb165-39"><a href="resources.html#cb165-39"></a>        <span class="co"># third quadrant</span></span>
-<span id="cb165-40"><a href="resources.html#cb165-40"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
-<span id="cb165-41"><a href="resources.html#cb165-41"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
-<span id="cb165-42"><a href="resources.html#cb165-42"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
-<span id="cb165-43"><a href="resources.html#cb165-43"></a>        <span class="co"># third quadrant</span></span>
-<span id="cb165-44"><a href="resources.html#cb165-44"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">-90.0</span></span>
-<span id="cb165-45"><a href="resources.html#cb165-45"></a>        angle <span class="op">+=</span> <span class="fl">360.0</span></span>
-<span id="cb165-46"><a href="resources.html#cb165-46"></a>    <span class="cf">return</span> angle</span>
-<span id="cb165-47"><a href="resources.html#cb165-47"></a> </span>
-<span id="cb165-48"><a href="resources.html#cb165-48"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
-<span id="cb165-49"><a href="resources.html#cb165-49"></a>    joy <span class="op">=</span> xbox.Joystick()</span>
-<span id="cb165-50"><a href="resources.html#cb165-50"></a>    pwm <span class="op">=</span> GPIO.PWM(GPIO_SERVO_PIN, <span class="dv">100</span>)</span>
-<span id="cb165-51"><a href="resources.html#cb165-51"></a>    pwm.start(<span class="dv">5</span>)</span>
-<span id="cb165-52"><a href="resources.html#cb165-52"></a>    </span>
-<span id="cb165-53"><a href="resources.html#cb165-53"></a>    <span class="cf">while</span> <span class="kw">not</span> joy.Back():</span>
-<span id="cb165-54"><a href="resources.html#cb165-54"></a>        </span>
-<span id="cb165-55"><a href="resources.html#cb165-55"></a>        <span class="co"># LEDs</span></span>
-<span id="cb165-56"><a href="resources.html#cb165-56"></a>        led_state_green  <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.A() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb165-57"><a href="resources.html#cb165-57"></a>        led_state_red    <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.B() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb165-58"><a href="resources.html#cb165-58"></a>        led_state_yellow <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.Y() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb165-59"><a href="resources.html#cb165-59"></a>        led_state_blue   <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.X() <span class="cf">else</span> GPIO.LOW</span>
-<span id="cb165-60"><a href="resources.html#cb165-60"></a>            </span>
-<span id="cb165-61"><a href="resources.html#cb165-61"></a>        GPIO.output(GPIO_LED_GREEN, led_state_green)</span>
-<span id="cb165-62"><a href="resources.html#cb165-62"></a>        GPIO.output(GPIO_LED_RED, led_state_red)</span>
-<span id="cb165-63"><a href="resources.html#cb165-63"></a>        GPIO.output(GPIO_LED_YELLOW, led_state_yellow)</span>
-<span id="cb165-64"><a href="resources.html#cb165-64"></a>        GPIO.output(GPIO_LED_BLUE, led_state_blue)</span>
-<span id="cb165-65"><a href="resources.html#cb165-65"></a>        </span>
-<span id="cb165-66"><a href="resources.html#cb165-66"></a>        <span class="co"># Servo</span></span>
-<span id="cb165-67"><a href="resources.html#cb165-67"></a>        x, y <span class="op">=</span> joy.leftStick()</span>
-<span id="cb165-68"><a href="resources.html#cb165-68"></a>        angle <span class="op">=</span> angleFromCoords(x,y)</span>
-<span id="cb165-69"><a href="resources.html#cb165-69"></a>        <span class="cf">if</span> angle <span class="op">&gt;</span> <span class="dv">180</span> <span class="kw">and</span> angle <span class="op">&lt;</span> <span class="dv">270</span>:</span>
-<span id="cb165-70"><a href="resources.html#cb165-70"></a>            angle <span class="op">=</span> <span class="dv">180</span></span>
-<span id="cb165-71"><a href="resources.html#cb165-71"></a>        <span class="cf">elif</span> angle <span class="op">&gt;=</span> <span class="dv">270</span>:</span>
-<span id="cb165-72"><a href="resources.html#cb165-72"></a>            angle <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb165-73"><a href="resources.html#cb165-73"></a>        updateServo(pwm, angle)</span>
-<span id="cb165-74"><a href="resources.html#cb165-74"></a>        </span>
-<span id="cb165-75"><a href="resources.html#cb165-75"></a>    </span>
-<span id="cb165-76"><a href="resources.html#cb165-76"></a>    joy.close()</span>
-<span id="cb165-77"><a href="resources.html#cb165-77"></a>    pwm.stop()</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="resources.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb165-2"><a href="resources.html#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb165-3"><a href="resources.html#cb165-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xbox</span>
+<span id="cb165-4"><a href="resources.html#cb165-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-5"><a href="resources.html#cb165-5" aria-hidden="true" tabindex="-1"></a>GPIO_LED_GREEN  <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb165-6"><a href="resources.html#cb165-6" aria-hidden="true" tabindex="-1"></a>GPIO_LED_RED    <span class="op">=</span> <span class="dv">22</span></span>
+<span id="cb165-7"><a href="resources.html#cb165-7" aria-hidden="true" tabindex="-1"></a>GPIO_LED_YELLOW <span class="op">=</span> <span class="dv">27</span></span>
+<span id="cb165-8"><a href="resources.html#cb165-8" aria-hidden="true" tabindex="-1"></a>GPIO_LED_BLUE   <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb165-9"><a href="resources.html#cb165-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-10"><a href="resources.html#cb165-10" aria-hidden="true" tabindex="-1"></a>GPIO_SERVO_PIN  <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb165-11"><a href="resources.html#cb165-11" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-12"><a href="resources.html#cb165-12" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-13"><a href="resources.html#cb165-13" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)</span>
+<span id="cb165-14"><a href="resources.html#cb165-14" aria-hidden="true" tabindex="-1"></a>GPIO.setwarnings(<span class="va">False</span>)</span>
+<span id="cb165-15"><a href="resources.html#cb165-15" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-16"><a href="resources.html#cb165-16" aria-hidden="true" tabindex="-1"></a>GPIO.setup(GPIO_LED_GREEN, GPIO.OUT)</span>
+<span id="cb165-17"><a href="resources.html#cb165-17" aria-hidden="true" tabindex="-1"></a>GPIO.setup(GPIO_LED_RED, GPIO.OUT)</span>
+<span id="cb165-18"><a href="resources.html#cb165-18" aria-hidden="true" tabindex="-1"></a>GPIO.setup(GPIO_LED_YELLOW, GPIO.OUT)</span>
+<span id="cb165-19"><a href="resources.html#cb165-19" aria-hidden="true" tabindex="-1"></a>GPIO.setup(GPIO_LED_BLUE, GPIO.OUT)</span>
+<span id="cb165-20"><a href="resources.html#cb165-20" aria-hidden="true" tabindex="-1"></a>GPIO.setup(GPIO_SERVO_PIN, GPIO.OUT)</span>
+<span id="cb165-21"><a href="resources.html#cb165-21" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-22"><a href="resources.html#cb165-22" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-23"><a href="resources.html#cb165-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> updateServo(pwm, angle):</span>
+<span id="cb165-24"><a href="resources.html#cb165-24" aria-hidden="true" tabindex="-1"></a>    duty <span class="op">=</span> <span class="bu">float</span>(angle) <span class="op">/</span> <span class="fl">10.0</span> <span class="op">+</span> <span class="fl">2.5</span></span>
+<span id="cb165-25"><a href="resources.html#cb165-25" aria-hidden="true" tabindex="-1"></a>    pwm.ChangeDutyCycle(duty)</span>
+<span id="cb165-26"><a href="resources.html#cb165-26" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-27"><a href="resources.html#cb165-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> angleFromCoords(x,y):</span>
+<span id="cb165-28"><a href="resources.html#cb165-28" aria-hidden="true" tabindex="-1"></a>    angle <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb165-29"><a href="resources.html#cb165-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">==</span><span class="fl">0.0</span>:</span>
+<span id="cb165-30"><a href="resources.html#cb165-30" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">=</span> <span class="fl">90.0</span></span>
+<span id="cb165-31"><a href="resources.html#cb165-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
+<span id="cb165-32"><a href="resources.html#cb165-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first quadrant</span></span>
+<span id="cb165-33"><a href="resources.html#cb165-33" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="fl">90.0</span></span>
+<span id="cb165-34"><a href="resources.html#cb165-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&gt;=</span><span class="fl">0.0</span>:</span>
+<span id="cb165-35"><a href="resources.html#cb165-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># second quadrant</span></span>
+<span id="cb165-36"><a href="resources.html#cb165-36" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
+<span id="cb165-37"><a href="resources.html#cb165-37" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
+<span id="cb165-38"><a href="resources.html#cb165-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
+<span id="cb165-39"><a href="resources.html#cb165-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># third quadrant</span></span>
+<span id="cb165-40"><a href="resources.html#cb165-40" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x))</span>
+<span id="cb165-41"><a href="resources.html#cb165-41" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">+=</span> <span class="fl">180.0</span></span>
+<span id="cb165-42"><a href="resources.html#cb165-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x<span class="op">&gt;=</span><span class="fl">0.0</span> <span class="kw">and</span> y<span class="op">&lt;</span><span class="fl">0.0</span>:</span>
+<span id="cb165-43"><a href="resources.html#cb165-43" aria-hidden="true" tabindex="-1"></a>        <span class="co"># third quadrant</span></span>
+<span id="cb165-44"><a href="resources.html#cb165-44" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">=</span> math.degrees(math.atan(y<span class="op">/</span>x)) <span class="cf">if</span> x<span class="op">!=</span><span class="fl">0.0</span> <span class="cf">else</span> <span class="op">-</span><span class="fl">90.0</span></span>
+<span id="cb165-45"><a href="resources.html#cb165-45" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">+=</span> <span class="fl">360.0</span></span>
+<span id="cb165-46"><a href="resources.html#cb165-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> angle</span>
+<span id="cb165-47"><a href="resources.html#cb165-47" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb165-48"><a href="resources.html#cb165-48" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb165-49"><a href="resources.html#cb165-49" aria-hidden="true" tabindex="-1"></a>    joy <span class="op">=</span> xbox.Joystick()</span>
+<span id="cb165-50"><a href="resources.html#cb165-50" aria-hidden="true" tabindex="-1"></a>    pwm <span class="op">=</span> GPIO.PWM(GPIO_SERVO_PIN, <span class="dv">100</span>)</span>
+<span id="cb165-51"><a href="resources.html#cb165-51" aria-hidden="true" tabindex="-1"></a>    pwm.start(<span class="dv">5</span>)</span>
+<span id="cb165-52"><a href="resources.html#cb165-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb165-53"><a href="resources.html#cb165-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">not</span> joy.Back():</span>
+<span id="cb165-54"><a href="resources.html#cb165-54" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb165-55"><a href="resources.html#cb165-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># LEDs</span></span>
+<span id="cb165-56"><a href="resources.html#cb165-56" aria-hidden="true" tabindex="-1"></a>        led_state_green  <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.A() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb165-57"><a href="resources.html#cb165-57" aria-hidden="true" tabindex="-1"></a>        led_state_red    <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.B() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb165-58"><a href="resources.html#cb165-58" aria-hidden="true" tabindex="-1"></a>        led_state_yellow <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.Y() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb165-59"><a href="resources.html#cb165-59" aria-hidden="true" tabindex="-1"></a>        led_state_blue   <span class="op">=</span> GPIO.HIGH <span class="cf">if</span> joy.X() <span class="cf">else</span> GPIO.LOW</span>
+<span id="cb165-60"><a href="resources.html#cb165-60" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb165-61"><a href="resources.html#cb165-61" aria-hidden="true" tabindex="-1"></a>        GPIO.output(GPIO_LED_GREEN, led_state_green)</span>
+<span id="cb165-62"><a href="resources.html#cb165-62" aria-hidden="true" tabindex="-1"></a>        GPIO.output(GPIO_LED_RED, led_state_red)</span>
+<span id="cb165-63"><a href="resources.html#cb165-63" aria-hidden="true" tabindex="-1"></a>        GPIO.output(GPIO_LED_YELLOW, led_state_yellow)</span>
+<span id="cb165-64"><a href="resources.html#cb165-64" aria-hidden="true" tabindex="-1"></a>        GPIO.output(GPIO_LED_BLUE, led_state_blue)</span>
+<span id="cb165-65"><a href="resources.html#cb165-65" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb165-66"><a href="resources.html#cb165-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Servo</span></span>
+<span id="cb165-67"><a href="resources.html#cb165-67" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> joy.leftStick()</span>
+<span id="cb165-68"><a href="resources.html#cb165-68" aria-hidden="true" tabindex="-1"></a>        angle <span class="op">=</span> angleFromCoords(x,y)</span>
+<span id="cb165-69"><a href="resources.html#cb165-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> angle <span class="op">&gt;</span> <span class="dv">180</span> <span class="kw">and</span> angle <span class="op">&lt;</span> <span class="dv">270</span>:</span>
+<span id="cb165-70"><a href="resources.html#cb165-70" aria-hidden="true" tabindex="-1"></a>            angle <span class="op">=</span> <span class="dv">180</span></span>
+<span id="cb165-71"><a href="resources.html#cb165-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> angle <span class="op">&gt;=</span> <span class="dv">270</span>:</span>
+<span id="cb165-72"><a href="resources.html#cb165-72" aria-hidden="true" tabindex="-1"></a>            angle <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb165-73"><a href="resources.html#cb165-73" aria-hidden="true" tabindex="-1"></a>        updateServo(pwm, angle)</span>
+<span id="cb165-74"><a href="resources.html#cb165-74" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb165-75"><a href="resources.html#cb165-75" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb165-76"><a href="resources.html#cb165-76" aria-hidden="true" tabindex="-1"></a>    joy.close()</span>
+<span id="cb165-77"><a href="resources.html#cb165-77" aria-hidden="true" tabindex="-1"></a>    pwm.stop()</span></code></pre></div>
 </div>
-<div id="raspberry-pi-rc-control" class="section level3">
+<div id="raspberry-pi-rc-control" class="section level3" number="10.5.3">
 <h3><span class="header-section-number">10.5.3</span> RASPBERRY PI RC CONTROL</h3>
 <p><a href="http://www.instructables.com/id/Raspberry-Pi-RC-Control/" class="uri">http://www.instructables.com/id/Raspberry-Pi-RC-Control/</a></p>
 </div>
-<div id="python-class-to-support-xbox-360-controller-under-linux-on-raspberrypi" class="section level3">
+<div id="python-class-to-support-xbox-360-controller-under-linux-on-raspberrypi" class="section level3" number="10.5.4">
 <h3><span class="header-section-number">10.5.4</span> Python class to support xbox 360 controller under Linux on RaspberryPi</h3>
 <p>Python class to support reading xbox 360 wired and wireless controller input under Linux. Makes it easy to get real-time input from controller buttons, analog sticks and triggers. Built and tested on RaspberryPi running Raspbian.</p>
 <p>code example</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="resources.html#cb166-1"></a><span class="im">import</span> xbox</span>
-<span id="cb166-2"><a href="resources.html#cb166-2"></a>joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span></span>
-<span id="cb166-3"><a href="resources.html#cb166-3"></a></span>
-<span id="cb166-4"><a href="resources.html#cb166-4"></a><span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span></span>
-<span id="cb166-5"><a href="resources.html#cb166-5"></a>    <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span></span>
-<span id="cb166-6"><a href="resources.html#cb166-6"></a>x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span></span>
-<span id="cb166-7"><a href="resources.html#cb166-7"></a>(x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span></span>
-<span id="cb166-8"><a href="resources.html#cb166-8"></a>trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span></span>
-<span id="cb166-9"><a href="resources.html#cb166-9"></a></span>
-<span id="cb166-10"><a href="resources.html#cb166-10"></a>joy.close()                   <span class="co">#Cleanup before exit</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="resources.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xbox</span>
+<span id="cb166-2"><a href="resources.html#cb166-2" aria-hidden="true" tabindex="-1"></a>joy <span class="op">=</span> xbox.Joystick()         <span class="co">#Initialize joystick</span></span>
+<span id="cb166-3"><a href="resources.html#cb166-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-4"><a href="resources.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> joy.A():                   <span class="co">#Test state of the A button (1=pressed, 0=not pressed)</span></span>
+<span id="cb166-5"><a href="resources.html#cb166-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> <span class="st">&#39;A button pressed&#39;</span></span>
+<span id="cb166-6"><a href="resources.html#cb166-6" aria-hidden="true" tabindex="-1"></a>x_axis   <span class="op">=</span> joy.leftX()        <span class="co">#X-axis of the left stick (values -1.0 to 1.0)</span></span>
+<span id="cb166-7"><a href="resources.html#cb166-7" aria-hidden="true" tabindex="-1"></a>(x,y)    <span class="op">=</span> joy.leftStick()    <span class="co">#Returns tuple containing left X and Y axes (values -1.0 to 1.0)</span></span>
+<span id="cb166-8"><a href="resources.html#cb166-8" aria-hidden="true" tabindex="-1"></a>trigger  <span class="op">=</span> joy.rightTrigger() <span class="co">#Right trigger position (values 0 to 1.0)</span></span>
+<span id="cb166-9"><a href="resources.html#cb166-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-10"><a href="resources.html#cb166-10" aria-hidden="true" tabindex="-1"></a>joy.close()                   <span class="co">#Cleanup before exit</span></span></code></pre></div>
 <p><a href="https://github.com/FRC4564/Xbox" class="uri">https://github.com/FRC4564/Xbox</a></p>
 </div>
-<div id="xbox-driver-for-mac" class="section level3">
+<div id="xbox-driver-for-mac" class="section level3" number="10.5.5">
 <h3><span class="header-section-number">10.5.5</span> xbox driver for mac</h3>
 <p><a href="https://github.com/360Controller/360Controller/releases" class="uri">https://github.com/360Controller/360Controller/releases</a></p>
 </div>
-<div id="konzept-für-softwareschichten" class="section level3">
+<div id="konzept-für-softwareschichten" class="section level3" number="10.5.6">
 <h3><span class="header-section-number">10.5.6</span> Konzept für softwareschichten</h3>
 <p>Die Softwareschichten sollen es ermöglichen das teile der software zwischen den bastlern ausgetauscht werden können bzw. unabhängig voneinander entwickelt werden können</p>
 <hr />
@@ -699,7 +744,6 @@ Experiment with training a donkey car to drive in simulation. This simulator is 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -718,6 +762,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -738,6 +783,10 @@ gitbook.start({
 "text": null
 },
 "download": ["RoboCarDokumentation.pdf", "RoboCarDokumentation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Building and operate a donkeycar | RoboCar project documentation</title>
   <meta name="description" content="Notes taken by Uwe for the RoboCar project" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Building and operate a donkeycar | RoboCar project documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Uwe Sterr" />
 
 
-<meta name="date" content="2020-03-09" />
+<meta name="date" content="2021-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="Conncectivity.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,22 +51,23 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,69 +137,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">RoboCar project documentation</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project RoboCar</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project RoboCar</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-to-join-us"><i class="fa fa-check"></i><b>1.1</b> How to join us</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.2</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>2</b> Building and operate a donkeycar</a><ul>
-<li class="chapter" data-level="2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changing-the-plattform"><i class="fa fa-check"></i><b>2.1</b> Reason for changing the plattform</a><ul>
+<li class="chapter" data-level="2" data-path="donkeyCar.html"><a href="donkeyCar.html"><i class="fa fa-check"></i><b>2</b> Building and operate a donkeycar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="donkeyCar.html"><a href="donkeyCar.html#reason-for-changing-the-plattform"><i class="fa fa-check"></i><b>2.1</b> Reason for changing the plattform</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="donkeyCar.html"><a href="donkeyCar.html#carSelection"><i class="fa fa-check"></i><b>2.1.1</b> Selecting a RC car</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="donkeyCar.html"><a href="donkeyCar.html#what-to-do"><i class="fa fa-check"></i><b>2.2</b> What to do</a></li>
-<li class="chapter" data-level="2.3" data-path="donkeyCar.html"><a href="donkeyCar.html#carWiring"><i class="fa fa-check"></i><b>2.3</b> Rewiring the car</a><ul>
+<li class="chapter" data-level="2.3" data-path="donkeyCar.html"><a href="donkeyCar.html#carWiring"><i class="fa fa-check"></i><b>2.3</b> Rewiring the car</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="donkeyCar.html"><a href="donkeyCar.html#parts-list"><i class="fa fa-check"></i><b>2.3.1</b> Parts list</a></li>
 <li class="chapter" data-level="2.3.2" data-path="donkeyCar.html"><a href="donkeyCar.html#why-not-using-pca9685"><i class="fa fa-check"></i><b>2.3.2</b> Why not using PCA9685</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="donkeyCar.html"><a href="donkeyCar.html#folders-created-during-installation-of-host-pc"><i class="fa fa-check"></i><b>2.4</b> Folders created during installation of host PC</a></li>
-<li class="chapter" data-level="2.5" data-path="donkeyCar.html"><a href="donkeyCar.html#calibrate-the-car"><i class="fa fa-check"></i><b>2.5</b> Calibrate the car</a><ul>
+<li class="chapter" data-level="2.5" data-path="donkeyCar.html"><a href="donkeyCar.html#calibrate-the-car"><i class="fa fa-check"></i><b>2.5</b> Calibrate the car</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="donkeyCar.html"><a href="donkeyCar.html#setting-wifi-up-for-the-raspberry"><i class="fa fa-check"></i><b>2.5.1</b> Setting WIFI up for the raspberry</a></li>
 <li class="chapter" data-level="2.5.2" data-path="donkeyCar.html"><a href="donkeyCar.html#steering-calibration"><i class="fa fa-check"></i><b>2.5.2</b> Steering Calibration</a></li>
 <li class="chapter" data-level="2.5.3" data-path="donkeyCar.html"><a href="donkeyCar.html#throttle-calibration"><i class="fa fa-check"></i><b>2.5.3</b> Throttle Calibration</a></li>
 <li class="chapter" data-level="2.5.4" data-path="donkeyCar.html"><a href="donkeyCar.html#configpyAfterCalib"><i class="fa fa-check"></i><b>2.5.4</b> Config.py after calibration</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="donkeyCar.html"><a href="donkeyCar.html#drive-your-car-with-web-interface"><i class="fa fa-check"></i><b>2.6</b> Drive your car with web interface</a><ul>
+<li class="chapter" data-level="2.6" data-path="donkeyCar.html"><a href="donkeyCar.html#drive-your-car-with-web-interface"><i class="fa fa-check"></i><b>2.6</b> Drive your car with web interface</a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-mac"><i class="fa fa-check"></i><b>2.6.1</b> Preparation on Mac</a></li>
 <li class="chapter" data-level="2.6.2" data-path="donkeyCar.html"><a href="donkeyCar.html#preparation-on-raspberry"><i class="fa fa-check"></i><b>2.6.2</b> Preparation on Raspberry</a></li>
 <li class="chapter" data-level="2.6.3" data-path="donkeyCar.html"><a href="donkeyCar.html#open-control-in-web-browser-on-mac"><i class="fa fa-check"></i><b>2.6.3</b> Open control in web browser on Mac</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>2.7</b> Connecting bluetooth controller</a><ul>
+<li class="chapter" data-level="2.7" data-path="donkeyCar.html"><a href="donkeyCar.html#connecting-bluetooth-controller"><i class="fa fa-check"></i><b>2.7</b> Connecting bluetooth controller</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="donkeyCar.html"><a href="donkeyCar.html#BluetoothControllerInstall"><i class="fa fa-check"></i><b>2.7.1</b> Connect your bluetooth controller to the raspberry pi.</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>2.8</b> Start driving or training</a><ul>
+<li class="chapter" data-level="2.8" data-path="donkeyCar.html"><a href="donkeyCar.html#start-driving-or-training"><i class="fa fa-check"></i><b>2.8</b> Start driving or training</a>
+<ul>
 <li class="chapter" data-level="2.8.1" data-path="donkeyCar.html"><a href="donkeyCar.html#create-movie-from-tub-data"><i class="fa fa-check"></i><b>2.8.1</b> Create movie from tub data</a></li>
 <li class="chapter" data-level="2.8.2" data-path="donkeyCar.html"><a href="donkeyCar.html#options-of-manage.py"><i class="fa fa-check"></i><b>2.8.2</b> Options of manage.py</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="donkeyCar.html"><a href="donkeyCar.html#tips-on-how-to-drive-during-training"><i class="fa fa-check"></i><b>2.9</b> Tips on how to drive during training</a><ul>
+<li class="chapter" data-level="2.9" data-path="donkeyCar.html"><a href="donkeyCar.html#tips-on-how-to-drive-during-training"><i class="fa fa-check"></i><b>2.9</b> Tips on how to drive during training</a>
+<ul>
 <li class="chapter" data-level="2.9.1" data-path="donkeyCar.html"><a href="donkeyCar.html#how-to-edit-recorded-data"><i class="fa fa-check"></i><b>2.9.1</b> How to edit recorded data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>2.10</b> Mange recorded data</a><ul>
+<li class="chapter" data-level="2.10" data-path="donkeyCar.html"><a href="donkeyCar.html#mange-recorded-data"><i class="fa fa-check"></i><b>2.10</b> Mange recorded data</a>
+<ul>
 <li class="chapter" data-level="2.10.1" data-path="donkeyCar.html"><a href="donkeyCar.html#archiving-data"><i class="fa fa-check"></i><b>2.10.1</b> Archiving data</a></li>
 <li class="chapter" data-level="2.10.2" data-path="donkeyCar.html"><a href="donkeyCar.html#delete-data"><i class="fa fa-check"></i><b>2.10.2</b> Delete data</a></li>
 <li class="chapter" data-level="2.10.3" data-path="donkeyCar.html"><a href="donkeyCar.html#copy-files-from-raspi-to-mac"><i class="fa fa-check"></i><b>2.10.3</b> Copy files from raspi to mac</a></li>
 <li class="chapter" data-level="2.10.4" data-path="donkeyCar.html"><a href="donkeyCar.html#how-big-is-the-tub-folder"><i class="fa fa-check"></i><b>2.10.4</b> How big is the tub folder</a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a><ul>
+<li class="chapter" data-level="2.11" data-path="donkeyCar.html"><a href="donkeyCar.html#train-neural-network"><i class="fa fa-check"></i><b>2.11</b> Train neural network</a>
+<ul>
 <li class="chapter" data-level="2.11.1" data-path="donkeyCar.html"><a href="donkeyCar.html#add-augmentation"><i class="fa fa-check"></i><b>2.11.1</b> Add augmentation</a></li>
 <li class="chapter" data-level="2.11.2" data-path="donkeyCar.html"><a href="donkeyCar.html#transfer-learning"><i class="fa fa-check"></i><b>2.11.2</b> Transfer learning</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#run-car-on-neural-net"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a><ul>
+<li class="chapter" data-level="2.12" data-path="donkeyCar.html"><a href="donkeyCar.html#run-car-on-neural-net"><i class="fa fa-check"></i><b>2.12</b> Run car on neural net</a>
+<ul>
 <li class="chapter" data-level="2.12.1" data-path="donkeyCar.html"><a href="donkeyCar.html#change-model"><i class="fa fa-check"></i><b>2.12.1</b> change model</a></li>
 </ul></li>
 <li class="chapter" data-level="2.13" data-path="donkeyCar.html"><a href="donkeyCar.html#see-rainers-description"><i class="fa fa-check"></i><b>2.13</b> See Rainer’s description</a></li>
-<li class="chapter" data-level="2.14" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.14</b> Build pre processing pipe line</a><ul>
+<li class="chapter" data-level="2.14" data-path="donkeyCar.html"><a href="donkeyCar.html#build-pre-processing-pipe-line"><i class="fa fa-check"></i><b>2.14</b> Build pre processing pipe line</a>
+<ul>
 <li class="chapter" data-level="2.14.1" data-path="donkeyCar.html"><a href="donkeyCar.html#install-opencv-on-the-raspi"><i class="fa fa-check"></i><b>2.14.1</b> Install openCV on the raspi</a></li>
 </ul></li>
 <li class="chapter" data-level="2.15" data-path="donkeyCar.html"><a href="donkeyCar.html#bluetooth-key-mapping"><i class="fa fa-check"></i><b>2.15</b> bluetooth key mapping</a></li>
 <li class="chapter" data-level="2.16" data-path="donkeyCar.html"><a href="donkeyCar.html#load-h5-model-and-inspect"><i class="fa fa-check"></i><b>2.16</b> Load h5 model and inspect</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a><ul>
+<li class="chapter" data-level="3" data-path="Conncectivity.html"><a href="Conncectivity.html"><i class="fa fa-check"></i><b>3</b> Wireless connections Raspi, Controller, Mac</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="Conncectivity.html"><a href="Conncectivity.html#purpose-of-connections"><i class="fa fa-check"></i><b>3.1</b> Purpose of connections</a></li>
-<li class="chapter" data-level="3.2" data-path="Conncectivity.html"><a href="Conncectivity.html#setting-up-of-the-wireless-connections"><i class="fa fa-check"></i><b>3.2</b> Setting up of the wireless connections</a><ul>
+<li class="chapter" data-level="3.2" data-path="Conncectivity.html"><a href="Conncectivity.html#setting-up-of-the-wireless-connections"><i class="fa fa-check"></i><b>3.2</b> Setting up of the wireless connections</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="Conncectivity.html"><a href="Conncectivity.html#bluetooth-connection"><i class="fa fa-check"></i><b>3.2.1</b> Bluetooth connection</a></li>
 <li class="chapter" data-level="3.2.2" data-path="Conncectivity.html"><a href="Conncectivity.html#wifi-connection"><i class="fa fa-check"></i><b>3.2.2</b> Wifi connection</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>4</b> Donkey Command-line Utilities</a><ul>
+<li class="chapter" data-level="4" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html"><i class="fa fa-check"></i><b>4</b> Donkey Command-line Utilities</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#create-car"><i class="fa fa-check"></i><b>4.1</b> Create Car</a></li>
 <li class="chapter" data-level="4.2" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#update-car"><i class="fa fa-check"></i><b>4.2</b> Update Car</a></li>
 <li class="chapter" data-level="4.3" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#find-car"><i class="fa fa-check"></i><b>4.3</b> Find Car</a></li>
@@ -206,18 +226,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#histogram"><i class="fa fa-check"></i><b>4.8</b> Histogram</a></li>
 <li class="chapter" data-level="4.9" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#plot-predictions"><i class="fa fa-check"></i><b>4.9</b> Plot Predictions</a></li>
 <li class="chapter" data-level="4.10" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#simulation-server"><i class="fa fa-check"></i><b>4.10</b> Simulation Server</a></li>
-<li class="chapter" data-level="4.11" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.11</b> Colab training</a><ul>
+<li class="chapter" data-level="4.11" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#colab-training"><i class="fa fa-check"></i><b>4.11</b> Colab training</a>
+<ul>
 <li class="chapter" data-level="4.11.1" data-path="donkey-command-line-utilities.html"><a href="donkey-command-line-utilities.html#blog-train-donkeycar-with-gpu-support-in-colab"><i class="fa fa-check"></i><b>4.11.1</b> Blog: Train donkeycar with GPU support in Colab</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a><ul>
-<li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a><ul>
+<li class="chapter" data-level="5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html"><i class="fa fa-check"></i><b>5</b> Donkeycar software analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#how-to-add-parts-to-a-vehicle"><i class="fa fa-check"></i><b>5.1</b> How to add parts to a vehicle</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.start"><i class="fa fa-check"></i><b>5.1.1</b> Function V.start()</a></li>
 <li class="chapter" data-level="5.1.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.update_parts"><i class="fa fa-check"></i><b>5.1.2</b> Function V.update_parts()</a></li>
 <li class="chapter" data-level="5.1.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#function-v.add"><i class="fa fa-check"></i><b>5.1.3</b> Function V.add</a></li>
 <li class="chapter" data-level="5.1.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#threadedParts"><i class="fa fa-check"></i><b>5.1.4</b> Concept of threads vs non-threaded parts</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>5.2</b> Structure of <code>manage.py</code></a><ul>
+<li class="chapter" data-level="5.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#structure-of-manage.py"><i class="fa fa-check"></i><b>5.2</b> Structure of <code>manage.py</code></a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#creating-manage.py"><i class="fa fa-check"></i><b>5.2.1</b> Creating <code>manage.py</code></a></li>
 <li class="chapter" data-level="5.2.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#starting-manage.py"><i class="fa fa-check"></i><b>5.2.2</b> Starting <code>manage.py</code></a></li>
 <li class="chapter" data-level="5.2.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#parsing-the-command-line-parameters"><i class="fa fa-check"></i><b>5.2.3</b> Parsing the command line parameters</a></li>
@@ -226,16 +250,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#locate-modules-on-raspi-which-are-being-imported-by-manage.py"><i class="fa fa-check"></i><b>5.3</b> Locate modules on raspi which are being imported by manage.py</a></li>
 <li class="chapter" data-level="5.4" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#assignement-of-logitech-710-controler"><i class="fa fa-check"></i><b>5.4</b> Assignement of Logitech 710 controler</a></li>
 <li class="chapter" data-level="5.5" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#AssignStickToAction"><i class="fa fa-check"></i><b>5.5</b> Assignment of WiiU controller sticks to action</a></li>
-<li class="chapter" data-level="5.6" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.6</b> Limit max velocity</a><ul>
+<li class="chapter" data-level="5.6" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#setMaxVel"><i class="fa fa-check"></i><b>5.6</b> Limit max velocity</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#limit-max-velocity-for-joystick-input"><i class="fa fa-check"></i><b>5.6.1</b> Limit max velocity for joystick input</a></li>
 <li class="chapter" data-level="5.6.2" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#limit-max-velocity-for-ai-pilot"><i class="fa fa-check"></i><b>5.6.2</b> Limit max velocity for ai pilot</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>5.7</b> Add LED to indicate recording mode</a><ul>
+<li class="chapter" data-level="5.7" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#LedIndicatingRecordingMode"><i class="fa fa-check"></i><b>5.7</b> Add LED to indicate recording mode</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#wiring-of-led-to-pwmservo-hat"><i class="fa fa-check"></i><b>5.7.1</b> Wiring of LED to PWM/Servo HAT</a></li>
 </ul></li>
 <li class="chapter" data-level="5.8" data-path="donkeyCarSoftwareAnalysis.html"><a href="donkeyCarSoftwareAnalysis.html#change-default-recording-status-to-false"><i class="fa fa-check"></i><b>5.8</b> Change default recording status to false</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="6" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>6</b> Installation of Tawn Kramers donkeycar version (By Rainer Bareiß)</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#environment"><i class="fa fa-check"></i><b>6.1</b> Environment</a></li>
 <li class="chapter" data-level="6.2" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#sudo-raspi-config"><i class="fa fa-check"></i><b>6.2</b> sudo raspi-config</a></li>
 <li class="chapter" data-level="6.3" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#etcwpa_supllicantwpa_supplicant.conf"><i class="fa fa-check"></i><b>6.3</b> etc/wpa_supllicant/wpa_supplicant.conf</a></li>
@@ -248,7 +275,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.10" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#steering-calibration-1"><i class="fa fa-check"></i><b>6.10</b> Steering Calibration</a></li>
 <li class="chapter" data-level="6.11" data-path="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html"><a href="installation-of-tawn-kramers-donkeycar-version-by-rainer-bareiß.html#drive"><i class="fa fa-check"></i><b>6.11</b> drive</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a><ul>
+<li class="chapter" data-level="7" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><i class="fa fa-check"></i><b>7</b> Driving &amp; Training following Tawn Kramer (By Rainer Bareiß)</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#environment-1"><i class="fa fa-check"></i><b>7.1</b> Environment</a></li>
 <li class="chapter" data-level="7.2" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#read-data-from-pi"><i class="fa fa-check"></i><b>7.2</b> Read data from pi</a></li>
 <li class="chapter" data-level="7.3" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#check-data-raw-prepared"><i class="fa fa-check"></i><b>7.3</b> Check data raw &amp; prepared</a></li>
@@ -263,49 +291,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.12" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#watch-pi-camera"><i class="fa fa-check"></i><b>7.12</b> 11. Watch pi camera</a></li>
 <li class="chapter" data-level="7.13" data-path="driving-training-following-tawn-kramer-by-rainer-bareiß.html"><a href="driving-training-following-tawn-kramer-by-rainer-bareiß.html#reinfocement-learning"><i class="fa fa-check"></i><b>7.13</b> Reinfocement Learning</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a><ul>
-<li class="chapter" data-level="8.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#section"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a><ul>
+<li class="chapter" data-level="8" data-path="robocarLogBook.html"><a href="robocarLogBook.html"><i class="fa fa-check"></i><b>8</b> RoboCar Logbook</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#section"><i class="fa fa-check"></i><b>8.1</b> 15-02-2018</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#donkey-findcar"><i class="fa fa-check"></i><b>8.1.1</b> donkey findcar</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="robocarLogBook.html"><a href="robocarLogBook.html#build-sunfounder-car-17-02-2018"><i class="fa fa-check"></i><b>8.2</b> Build sunfounder car 17-02-2018</a><ul>
+<li class="chapter" data-level="8.2" data-path="robocarLogBook.html"><a href="robocarLogBook.html#build-sunfounder-car-17-02-2018"><i class="fa fa-check"></i><b>8.2</b> Build sunfounder car 17-02-2018</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#install-software-18-02-2018"><i class="fa fa-check"></i><b>8.2.1</b> install software 18-02-2018</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="robocarLogBook.html"><a href="robocarLogBook.html#viewing-a-list-of-available-python-versions"><i class="fa fa-check"></i><b>8.3</b> Viewing a list of available Python versions</a></li>
 <li class="chapter" data-level="8.4" data-path="robocarLogBook.html"><a href="robocarLogBook.html#run-calibration"><i class="fa fa-check"></i><b>8.4</b> Run calibration</a></li>
-<li class="chapter" data-level="8.5" data-path="robocarLogBook.html"><a href="robocarLogBook.html#mjpg-streamer-installation"><i class="fa fa-check"></i><b>8.5</b> MJPG-streamer Installation</a><ul>
+<li class="chapter" data-level="8.5" data-path="robocarLogBook.html"><a href="robocarLogBook.html#mjpg-streamer-installation"><i class="fa fa-check"></i><b>8.5</b> MJPG-streamer Installation</a>
+<ul>
 <li class="chapter" data-level="8.5.1" data-path="robocarLogBook.html"><a href="robocarLogBook.html#testing"><i class="fa fa-check"></i><b>8.5.1</b> Testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="get-on-the-road.html"><a href="get-on-the-road.html"><i class="fa fa-check"></i><b>9</b> Get on the Road!</a><ul>
+<li class="chapter" data-level="9" data-path="get-on-the-road.html"><a href="get-on-the-road.html"><i class="fa fa-check"></i><b>9</b> Get on the Road!</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#install-carnd-term1"><i class="fa fa-check"></i><b>9.1</b> install carnd-term1</a></li>
 <li class="chapter" data-level="9.2" data-path="get-on-the-road.html"><a href="get-on-the-road.html#install-xbox-360-controller"><i class="fa fa-check"></i><b>9.2</b> Install Xbox 360 controller</a></li>
-<li class="chapter" data-level="9.3" data-path="get-on-the-road.html"><a href="get-on-the-road.html#implement-xbox-controller-as-input-in-client_app.py"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a><ul>
+<li class="chapter" data-level="9.3" data-path="get-on-the-road.html"><a href="get-on-the-road.html#implement-xbox-controller-as-input-in-client_app.py"><i class="fa fa-check"></i><b>9.3</b> Implement Xbox controller as input in client_App.py</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#make-steering-proportional-to-remote-control-lever-position"><i class="fa fa-check"></i><b>9.3.1</b> Make steering proportional to remote control lever position</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="get-on-the-road.html"><a href="get-on-the-road.html#GetIp"><i class="fa fa-check"></i><b>9.4</b> Get IP adress of raspi in shack</a></li>
-<li class="chapter" data-level="9.5" data-path="get-on-the-road.html"><a href="get-on-the-road.html#store-snapshots-of-video-stream-on-local-computer"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a><ul>
+<li class="chapter" data-level="9.5" data-path="get-on-the-road.html"><a href="get-on-the-road.html#store-snapshots-of-video-stream-on-local-computer"><i class="fa fa-check"></i><b>9.5</b> Store snapshots of video stream on local computer</a>
+<ul>
 <li class="chapter" data-level="9.5.1" data-path="get-on-the-road.html"><a href="get-on-the-road.html#jie-hous-alternative"><i class="fa fa-check"></i><b>9.5.1</b> Jie Hou’s alternative</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Resources</a><ul>
-<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#meetups"><i class="fa fa-check"></i><b>10.1</b> Meetups</a><ul>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Resources</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#meetups"><i class="fa fa-check"></i><b>10.1</b> Meetups</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="resources.html"><a href="resources.html#esslinger-makerspace-projekt-autonomen-robocar-bauen"><i class="fa fa-check"></i><b>10.1.1</b> Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a></li>
 <li class="chapter" data-level="10.1.2" data-path="resources.html"><a href="resources.html#autonomous-mobility-berlin"><i class="fa fa-check"></i><b>10.1.2</b> Autonomous Mobility Berlin</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#robocar-projects"><i class="fa fa-check"></i><b>10.2</b> RoboCar projects</a><ul>
+<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#robocar-projects"><i class="fa fa-check"></i><b>10.2</b> RoboCar projects</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="resources.html"><a href="resources.html#diy-robocars"><i class="fa fa-check"></i><b>10.2.1</b> DIY RoboCars</a></li>
 <li class="chapter" data-level="10.2.2" data-path="resources.html"><a href="resources.html#donkey-car"><i class="fa fa-check"></i><b>10.2.2</b> Donkey car</a></li>
 <li class="chapter" data-level="10.2.3" data-path="resources.html"><a href="resources.html#sunfounder-smart-video-car-kit-for-raspberry-pi-with-android-app"><i class="fa fa-check"></i><b>10.2.3</b> Sunfounder Smart Video Car Kit for Raspberry Pi with Android App</a></li>
 <li class="chapter" data-level="10.2.4" data-path="resources.html"><a href="resources.html#kuman-professional-wifi-smart-robot-model-car-kit-videokamera-for-raspberry-pi-3"><i class="fa fa-check"></i><b>10.2.4</b> Kuman Professional WIFI Smart Robot Model Car Kit Videokamera for Raspberry Pi 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#hardware"><i class="fa fa-check"></i><b>10.3</b> Hardware</a><ul>
+<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#hardware"><i class="fa fa-check"></i><b>10.3</b> Hardware</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="resources.html"><a href="resources.html#komponentenliste-für-ein-ferngesteuertes-roboter-auto"><i class="fa fa-check"></i><b>10.3.1</b> KOMPONENTENLISTE FÜR EIN FERNGESTEUERTES ROBOTER AUTO</a></li>
 <li class="chapter" data-level="10.3.2" data-path="resources.html"><a href="resources.html#motor-control"><i class="fa fa-check"></i><b>10.3.2</b> Motor control</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="resources.html"><a href="resources.html#simulators"><i class="fa fa-check"></i><b>10.4</b> Simulators</a><ul>
+<li class="chapter" data-level="10.4" data-path="resources.html"><a href="resources.html#simulators"><i class="fa fa-check"></i><b>10.4</b> Simulators</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="resources.html"><a href="resources.html#donkey-simulator"><i class="fa fa-check"></i><b>10.4.1</b> Donkey Simulator</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="resources.html"><a href="resources.html#software"><i class="fa fa-check"></i><b>10.5</b> Software</a><ul>
+<li class="chapter" data-level="10.5" data-path="resources.html"><a href="resources.html#software"><i class="fa fa-check"></i><b>10.5</b> Software</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="resources.html"><a href="resources.html#udacitiy-open-source-sdc"><i class="fa fa-check"></i><b>10.5.1</b> Udacitiy open source SDC</a></li>
 <li class="chapter" data-level="10.5.2" data-path="resources.html"><a href="resources.html#connect-raspberry-with-xbox-controller"><i class="fa fa-check"></i><b>10.5.2</b> connect raspberry with xbox controller</a></li>
 <li class="chapter" data-level="10.5.3" data-path="resources.html"><a href="resources.html#raspberry-pi-rc-control"><i class="fa fa-check"></i><b>10.5.3</b> RASPBERRY PI RC CONTROL</a></li>
@@ -314,21 +355,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.6" data-path="resources.html"><a href="resources.html#konzept-für-softwareschichten"><i class="fa fa-check"></i><b>10.5.6</b> Konzept für softwareschichten</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a><ul>
+<li class="chapter" data-level="11" data-path="experiences.html"><a href="experiences.html"><i class="fa fa-check"></i><b>11</b> Experiences gathered</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="experiences.html"><a href="experiences.html#install-donkey-car-on-mac"><i class="fa fa-check"></i><b>11.1</b> Install donkey car on Mac</a></li>
 <li class="chapter" data-level="11.2" data-path="experiences.html"><a href="experiences.html#donkey-car-simulator"><i class="fa fa-check"></i><b>11.2</b> Donkey car simulator</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="Theory.html"><a href="Theory.html"><i class="fa fa-check"></i><b>12</b> Theory</a><ul>
+<li class="chapter" data-level="12" data-path="Theory.html"><a href="Theory.html"><i class="fa fa-check"></i><b>12</b> Theory</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="Theory.html"><a href="Theory.html#wiring-of-pca9685-with-l298n-h-bridge"><i class="fa fa-check"></i><b>12.1</b> Wiring of PCA9685 with L298N H-bridge</a></li>
 <li class="chapter" data-level="12.2" data-path="Theory.html"><a href="Theory.html#sensor-fusion-of-lidar-and-camera-data"><i class="fa fa-check"></i><b>12.2</b> sensor fusion of LIDAR and camera data</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="UsefulLinks.html"><a href="UsefulLinks.html"><i class="fa fa-check"></i><b>13</b> Useful links</a><ul>
-<li class="chapter" data-level="13.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#donkey-car-1"><i class="fa fa-check"></i><b>13.1</b> Donkey car</a><ul>
+<li class="chapter" data-level="13" data-path="UsefulLinks.html"><a href="UsefulLinks.html"><i class="fa fa-check"></i><b>13</b> Useful links</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#donkey-car-1"><i class="fa fa-check"></i><b>13.1</b> Donkey car</a>
+<ul>
 <li class="chapter" data-level="13.1.1" data-path="UsefulLinks.html"><a href="UsefulLinks.html#videos-for-donkey-car"><i class="fa fa-check"></i><b>13.1.1</b> Videos for donkey car</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="UsefulLinks.html"><a href="UsefulLinks.html#parts-to-build-a-robocar"><i class="fa fa-check"></i><b>13.2</b> Parts to build a RoboCar</a></li>
 <li class="chapter" data-level="13.3" data-path="UsefulLinks.html"><a href="UsefulLinks.html#little-setup-helpers"><i class="fa fa-check"></i><b>13.3</b> Little setup helpers</a></li>
-<li class="chapter" data-level="13.4" data-path="UsefulLinks.html"><a href="UsefulLinks.html#meetup-in-stuttgart-area"><i class="fa fa-check"></i><b>13.4</b> Meetup in Stuttgart area</a></li>
+<li class="chapter" data-level="13.4" data-path="UsefulLinks.html"><a href="UsefulLinks.html#meetups-in-stuttgart-area"><i class="fa fa-check"></i><b>13.4</b> Meetups in Stuttgart area</a></li>
 <li class="chapter" data-level="13.5" data-path="UsefulLinks.html"><a href="UsefulLinks.html#robocar-projects-1"><i class="fa fa-check"></i><b>13.5</b> RoboCar projects</a></li>
 <li class="chapter" data-level="13.6" data-path="UsefulLinks.html"><a href="UsefulLinks.html#write-ups-on-donkeycar-projects"><i class="fa fa-check"></i><b>13.6</b> Write ups on Donkeycar projects</a></li>
 <li class="chapter" data-level="13.7" data-path="UsefulLinks.html"><a href="UsefulLinks.html#other-stuff"><i class="fa fa-check"></i><b>13.7</b> Other stuff</a></li>
@@ -353,15 +398,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="donkeyCar" class="section level1">
+<div id="donkeyCar" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Building and operate a donkeycar</h1>
 <p>In December 2018 I switched from sunfounder to donkeycar
 <a href="http://www.donkeycar.com" title="Donkey Car&#39;s Homepage">Donkey Car</a></p>
-<div id="reason-for-changing-the-plattform" class="section level2">
+<div id="reason-for-changing-the-plattform" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Reason for changing the plattform</h2>
 <p>The sunfounder was wonderful to learn the basics, PWM, I2C, use of camera with Pi, but had shortcomings in the steering mechanism. The steering angle was not reproducible, i.e. sending twice the same steering command did result in different steering angles of about a few degrees difference. Now since the aim of the game is to train a neural net which takes the commanded steering angle as ground truth this was a show stopper for me and therefore i moved to =&gt; Donkey Car</p>
 <p>Second reason, other members of the group <a href="https://www.meetup.com/Esslingen-Makerspace/" title="Homepage of the meetup">Esslinger Makerspace Projekt: Autonomen RoboCar bauen</a> opted for donkey car.</p>
-<div id="carSelection" class="section level3">
+<div id="carSelection" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Selecting a RC car</h3>
 <p>Selection criteria for RC car are:</p>
 <ul>
@@ -374,15 +419,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I changed to <a href="https://www.conrad.de/de/reely-dart-20-brushed-110-rc-modellauto-elektro-buggy-heckantrieb-100-premium-rtr-24-ghz-inkl-akku-ladegeraet-und-s-1605712.html">Reely Dart 2.0 Brushed</a>
 Tamiya-Buchse is the connector of the NiMH battery
 Charger is <a href="https://www.voelkner.de/products/873118/VOLTCRAFT-Modellbau-Ladegeraet-230V-3A-V-Charge-Eco-NiMh-3000-NiMH-NiCd.html?ref=43&amp;gclid=Cj0KCQiAoo7gBRDuARIsANeJKUY9VcxYcAKJaeCDBPf9sg6MXEd316L1nYbbPL-Y-BZesMLOi7MQGoYaAuewEALw_wcB">Voltcraft V-Charge Eco NiMh 3000</a></p>
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
-<img src="images/Donkey3DPrint.jpg" alt="Reely Dart 2.0 Brushed converted RoboCar" width="2016" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="images/Donkey3DPrint.jpg" alt="Reely Dart 2.0 Brushed converted RoboCar"  />
 <p class="caption">
 Figure 2.1: Reely Dart 2.0 Brushed converted RoboCar
 </p>
 </div>
 </div>
 </div>
-<div id="what-to-do" class="section level2">
+<div id="what-to-do" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> What to do</h2>
 <ul>
 <li><p>disassemble the sunfounder, by taking of the plate on which the raspberry is mounted</p></li>
@@ -404,7 +449,7 @@ Figure 2.1: Reely Dart 2.0 Brushed converted RoboCar
 <li><p>Select web or physical controller <a href="http://docs.donkeycar.com/parts/controllers/#physical-joystick-controller">Controller Parts</a></p></li>
 </ul>
 </div>
-<div id="carWiring" class="section level2">
+<div id="carWiring" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Rewiring the car</h2>
 <p>The rewiring consists of</p>
 <ul>
@@ -424,7 +469,7 @@ Figure 2.1: Reely Dart 2.0 Brushed converted RoboCar
 </ul></li>
 </ul>
 <p>The resulting wiring diagram can be seen in figure <a href="donkeyCar.html#fig:wiringDiagram">2.2</a></p>
-<div class="figure"><span id="fig:wiringDiagram"></span>
+<div class="figure"><span style="display:block;" id="fig:wiringDiagram"></span>
 <img src="images/DonkeyCarRewiringI.png" alt="Wiring diagram after rewiring car" width="827" />
 <p class="caption">
 Figure 2.2: Wiring diagram after rewiring car
@@ -432,21 +477,21 @@ Figure 2.2: Wiring diagram after rewiring car
 </div>
 <p><strong>WARNING, don’t connect the red wire of the ESC to PWM Servo Hat, only the other two wires are needed between ESC to PWM Servo Hat</strong></p>
 <p>So there are only the PWM signal wires from the PWM Servo Hat to the car and the power supply needs to be connected to the DC/DC converter. A close-up on the PWM Servo Hat is given in figure <a href="donkeyCar.html#fig:closeUpPwmHat">2.3</a></p>
-<div class="figure"><span id="fig:closeUpPwmHat"></span>
+<div class="figure"><span style="display:block;" id="fig:closeUpPwmHat"></span>
 <img src="images/ServoHat.jpg" alt="Close-up of PWM Servo Hat"  />
 <p class="caption">
 Figure 2.3: Close-up of PWM Servo Hat
 </p>
 </div>
 <p>You can eliminate the RC receiver altogether, see figure <a href="donkeyCar.html#fig:rewireSimple">2.4</a></p>
-<div class="figure"><span id="fig:rewireSimple"></span>
+<div class="figure"><span style="display:block;" id="fig:rewireSimple"></span>
 <img src="images/RewiringSimple.png" alt="Rewiring without RC receiver"  />
 <p class="caption">
 Figure 2.4: Rewiring without RC receiver
 </p>
 </div>
 <p><strong>WARNING, don’t connect the red wire of the ESC to PWM Servo Hat, only the other two wires are needed between ESC to PWM Servo Hat</strong></p>
-<div id="parts-list" class="section level3">
+<div id="parts-list" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Parts list</h3>
 <p>The following list is what I used to build the car, this does not mean there are better and/or cheaper options available. In total the cost is about 250€.</p>
 <ul>
@@ -460,7 +505,7 @@ Figure 2.4: Rewiring without RC receiver
 <li><p>Stuff to mechanically integrate the new elements into the car.</p></li>
 </ul>
 </div>
-<div id="why-not-using-pca9685" class="section level3">
+<div id="why-not-using-pca9685" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Why not using PCA9685</h3>
 <p><strong>Note</strong>, there seems to be an issue with driving two servos with PCA9685 at the same time. What happens is that steering and throttle work during calibration but not when the car is controlled via the web interface. TBC</p>
 <p>A possible cure is described at <a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf">Adafruit 16 Channel Servo Driver with Raspberry Pi</a>.</p>
@@ -473,7 +518,7 @@ capacitor. If you are driving a lot of servos from a power supply that dips a lo
 <p>The now used <a href="https://www.amazon.de/gp/product/B01185WQXY?ref=em_1p_0_ti&amp;ref_=pe_2444481_339394281">PWM SERVO HAT 2327 By ADAFRUIT INDUSTRIES</a> did not show any problem controlling two channels at the same time</p>
 </div>
 </div>
-<div id="folders-created-during-installation-of-host-pc" class="section level2">
+<div id="folders-created-during-installation-of-host-pc" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Folders created during installation of host PC</h2>
 <ul>
 <li>/Users/uwesterr/mycar/models</li>
@@ -481,16 +526,16 @@ capacitor. If you are driving a lot of servos from a power supply that dips a lo
 <li>/Users/uwesterr/mycar/logs</li>
 </ul>
 </div>
-<div id="calibrate-the-car" class="section level2">
+<div id="calibrate-the-car" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Calibrate the car</h2>
 <p>Instructions for the calibrations can be found at <a href="http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car" class="uri">http://docs.donkeycar.com/guide/calibrate/#calibrate-your-car</a></p>
 <p>ssh into your raspberry</p>
-<div id="setting-wifi-up-for-the-raspberry" class="section level3">
+<div id="setting-wifi-up-for-the-raspberry" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Setting WIFI up for the raspberry</h3>
 <p>To set up the WiFi connection on the raspberry you find a detailed description at
 <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" title="DOCUMENTATION &gt; CONFIGURATION &gt; WIRELESS &gt; WIRELESS-CLI">SETTING WIFI UP VIA THE COMMAND LINE</a></p>
 </div>
-<div id="steering-calibration" class="section level3">
+<div id="steering-calibration" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Steering Calibration</h3>
 <p>To start steering calibration run</p>
 <pre><code>donkey calibrate --channel &lt;your_steering_channel&gt;</code></pre>
@@ -515,7 +560,7 @@ Enter a PWM setting to test(0-1500)120
 <li>fast reverse 310</li>
 </ul>
 </div>
-<div id="throttle-calibration" class="section level3">
+<div id="throttle-calibration" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Throttle Calibration</h3>
 <p>To start throttle calibration run</p>
 <pre><code>donkey calibrate --channel &lt;your_throttle_channel&gt;</code></pre>
@@ -527,7 +572,7 @@ Enter a PWM setting to test(0-1500)420
 Enter a PWM setting to test(0-1500)400
 Enter a PWM setting to test(0-1500)380</code></pre>
 </div>
-<div id="configpyAfterCalib" class="section level3">
+<div id="configpyAfterCalib" class="section level3" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> Config.py after calibration</h3>
 <p>after configuration the <code>config.py</code> file reads</p>
 <pre><code>&quot;&quot;&quot;
@@ -586,10 +631,10 @@ AUTO_RECORD_ON_THROTTLE = True
 TUB_PATH = os.path.join(CAR_PATH, &#39;tub&#39;) # if using a single tub</code></pre>
 </div>
 </div>
-<div id="drive-your-car-with-web-interface" class="section level2">
+<div id="drive-your-car-with-web-interface" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Drive your car with web interface</h2>
 <p>Instructions are at <a href="http://docs.donkeycar.com/guide/get_driving/" class="uri">http://docs.donkeycar.com/guide/get_driving/</a></p>
-<div id="preparation-on-mac" class="section level3">
+<div id="preparation-on-mac" class="section level3" number="2.6.1">
 <h3><span class="header-section-number">2.6.1</span> Preparation on Mac</h3>
 <ul>
 <li>open terminal</li>
@@ -597,7 +642,7 @@ TUB_PATH = os.path.join(CAR_PATH, &#39;tub&#39;) # if using a single tub</code><
 <li>Change to your local dir for managing donkey: <code>cd ~/mycar</code></li>
 </ul>
 </div>
-<div id="preparation-on-raspberry" class="section level3">
+<div id="preparation-on-raspberry" class="section level3" number="2.6.2">
 <h3><span class="header-section-number">2.6.2</span> Preparation on Raspberry</h3>
 <pre><code>cd ~/mycar
 python manage.py drive</code></pre>
@@ -615,18 +660,18 @@ You can now go to http://127.0.0.1:8887 to drive your car.
 /home/pi/env/lib/python3.5/site-packages/picamera/encoders.py:544: PiCameraResolutionRounded: frame size rounded up from 160x120 to 160x128
   width, height, fwidth, fheight)))</code></pre>
 </div>
-<div id="open-control-in-web-browser-on-mac" class="section level3">
+<div id="open-control-in-web-browser-on-mac" class="section level3" number="2.6.3">
 <h3><span class="header-section-number">2.6.3</span> Open control in web browser on Mac</h3>
 <p>You can now control your car from a web browser at the URL: <code>192.168.178.67:8887</code></p>
 </div>
 </div>
-<div id="connecting-bluetooth-controller" class="section level2">
+<div id="connecting-bluetooth-controller" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Connecting bluetooth controller</h2>
 <p>I got an Wii U second hand <a href="https://www.amazon.de/gp/product/B06XSB2TXQ/ref=oh_aui_detailpage_o01_s00?ie=UTF8&amp;psc=1">WiiU controller</a>, therefore I did select the <a href="http://docs.donkeycar.com/parts/controllers/">Controllers page</a> the <a href="https://github.com/autorope/donkeypart_bluetooth_game_controller">WiiU controller</a></p>
 <p>After ssh into the raspberry install <strong>Bluetooth Game Controller</strong> library</p>
 <pre><code>git clone https://github.com/autorope/donkeypart_bluetooth_game_controller.git
 pip install -e ./donkeypart_bluetooth_game_controller</code></pre>
-<div id="BluetoothControllerInstall" class="section level3">
+<div id="BluetoothControllerInstall" class="section level3" number="2.7.1">
 <h3><span class="header-section-number">2.7.1</span> Connect your bluetooth controller to the raspberry pi.</h3>
 <ol style="list-style-type: decimal">
 <li>Start the Bluetooth bash tool on your raspberry pi.</li>
@@ -661,7 +706,7 @@ button: LEFT_STICK_X, value:-0.00703125</code></pre>
 <p>In the file <code>manageOrgExtWii.py</code> the Bluetooth controller was integrated.</p>
 </div>
 </div>
-<div id="start-driving-or-training" class="section level2">
+<div id="start-driving-or-training" class="section level2" number="2.8">
 <h2><span class="header-section-number">2.8</span> Start driving or training</h2>
 <p>Before start driving it might be a good idea to <strong>limit the max velocity</strong>, this can be done as described in <a href="donkeyCarSoftwareAnalysis.html#setMaxVel">5.6</a></p>
 <ul>
@@ -689,7 +734,7 @@ python manageOrgExtWii.py drive</code></pre>
 <source src="images/firstTryDonkeyCar.mp4" type="video/mp4">
 </video>
 <p>add Bluetooth controller to <code>manage.py</code> <a href="https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py" class="uri">https://github.com/autorope/donkey2_plus/blob/690ff1b78c49c2a3dd4c1095bfcac9673f150804/manage.py</a></p>
-<div id="create-movie-from-tub-data" class="section level3">
+<div id="create-movie-from-tub-data" class="section level3" number="2.8.1">
 <h3><span class="header-section-number">2.8.1</span> Create movie from tub data</h3>
 <p>To create a movie from the gathered data</p>
 <pre><code>donkey makemovie &lt;tub_path&gt; [--out=&lt;tub_movie.mp4&gt;]
@@ -698,7 +743,7 @@ source activate donkey
 donkey makemovie --tub tub --out tubMovie.mp4   </code></pre>
 <p>More details at <a href="http://docs.donkeycar.com/utility/donkey/#make-movie-from-tub" class="uri">http://docs.donkeycar.com/utility/donkey/#make-movie-from-tub</a></p>
 </div>
-<div id="options-of-manage.py" class="section level3">
+<div id="options-of-manage.py" class="section level3" number="2.8.2">
 <h3><span class="header-section-number">2.8.2</span> Options of manage.py</h3>
 <p>The script <code>manage.py</code> can be called with several options, to find them type</p>
 <pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --h</code></pre>
@@ -719,7 +764,7 @@ Options:
     --chaos          Add periodic random steering when manually driving</code></pre>
 </div>
 </div>
-<div id="tips-on-how-to-drive-during-training" class="section level2">
+<div id="tips-on-how-to-drive-during-training" class="section level2" number="2.9">
 <h2><span class="header-section-number">2.9</span> Tips on how to drive during training</h2>
 <p>Here are a few tips on how to gather the necessary training data. The tips are based on a video by Tawn Kramer <a href="https://www.youtube.com/watch?v=4fXbDf_QWM4&amp;feature=youtu.be">Driving Tips to Train your Autonomous End-to-End NN Driver</a></p>
 <ul>
@@ -752,7 +797,7 @@ Options:
 </ul></li>
 </ul>
 <p>The resulting steering angle histogram is shown in figure <a href="donkeyCar.html#fig:steeringAngleHist">2.5</a></p>
-<div class="figure"><span id="fig:steeringAngleHist"></span>
+<div class="figure"><span style="display:block;" id="fig:steeringAngleHist"></span>
 <img src="images/HistSteeringAngleTawn.png" alt="Steering angle histogramm of Tawn Kramer's training data" width="262" />
 <p class="caption">
 Figure 2.5: Steering angle histogramm of Tawn Kramer’s training data
@@ -763,12 +808,12 @@ Figure 2.5: Steering angle histogramm of Tawn Kramer’s training data
 <li>Two humps from the oscillating driving</li>
 <li>Right hump more prominent since course has more right bends</li>
 </ul>
-<div id="how-to-edit-recorded-data" class="section level3">
+<div id="how-to-edit-recorded-data" class="section level3" number="2.9.1">
 <h3><span class="header-section-number">2.9.1</span> How to edit recorded data</h3>
 <p>The donkey car utility tubclean is described in chapter <a href="donkey-command-line-utilities.html#tubclean">4.7</a></p>
 </div>
 </div>
-<div id="mange-recorded-data" class="section level2">
+<div id="mange-recorded-data" class="section level2" number="2.10">
 <h2><span class="header-section-number">2.10</span> Mange recorded data</h2>
 <p>The training data is being stored in the folder /mycar/tub.</p>
 <p>Since there might be a lot of data after a while you might want to</p>
@@ -778,19 +823,19 @@ Figure 2.5: Steering angle histogramm of Tawn Kramer’s training data
 <li>copy it from the Raspberry Pi to your computer</li>
 </ul>
 <p>data</p>
-<div id="archiving-data" class="section level3">
+<div id="archiving-data" class="section level3" number="2.10.1">
 <h3><span class="header-section-number">2.10.1</span> Archiving data</h3>
 <p>Archiving can be done by renaming the tub folder with the <code>mv</code> command. The <code>mv</code> command moves, or renames, files and directories on your file system. To move the <strong>tub</strong> folder, i.e rename it, to <strong>tubArchive</strong> use</p>
 <pre><code>mv tub tubArchive</code></pre>
 <p>more details on <code>mv</code> can be found at <a href="https://www.computerhope.com/unix/umv.htm" class="uri">https://www.computerhope.com/unix/umv.htm</a></p>
 </div>
-<div id="delete-data" class="section level3">
+<div id="delete-data" class="section level3" number="2.10.2">
 <h3><span class="header-section-number">2.10.2</span> Delete data</h3>
 <p>Once you want to get rid of the data use the following command</p>
 <pre><code>rm -rf tub</code></pre>
 <p>More on <code>rm</code> can be found at <a href="https://www.computerhope.com/unix/urm.htm" class="uri">https://www.computerhope.com/unix/urm.htm</a></p>
 </div>
-<div id="copy-files-from-raspi-to-mac" class="section level3">
+<div id="copy-files-from-raspi-to-mac" class="section level3" number="2.10.3">
 <h3><span class="header-section-number">2.10.3</span> Copy files from raspi to mac</h3>
 <p>Open terminal on Mac
 <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">Docy of scp command to copy file from pi to mac</a> run in terminal</p>
@@ -801,14 +846,14 @@ Figure 2.5: Steering angle histogramm of Tawn Kramer’s training data
 <p>You will be prompted for the raspi password.
 All files from the raspi folder <code>~/mycar/tub/</code> will be copied to the folder <code>~/mycar/tubMac/</code>on the Mac</p>
 </div>
-<div id="how-big-is-the-tub-folder" class="section level3">
+<div id="how-big-is-the-tub-folder" class="section level3" number="2.10.4">
 <h3><span class="header-section-number">2.10.4</span> How big is the tub folder</h3>
 <p>If you want to know how many MB of data you collected already use the <code>su</code> command. More info on the <code>su</code> command <a href="https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line">here</a></p>
 <pre><code>(env) pi@donkeypi_uwe:~/mycar $ du -sh tub
 232M    tub</code></pre>
 </div>
 </div>
-<div id="train-neural-network" class="section level2">
+<div id="train-neural-network" class="section level2" number="2.11">
 <h2><span class="header-section-number">2.11</span> Train neural network</h2>
 <p>A description is given in the <a href="http://docs.donkeycar.com/guide/train_autopilot/">donkeycar documentation</a>
 Below an example for the case that all training data are located in a single folder named <code>tub</code>.</p>
@@ -820,12 +865,12 @@ Below an example for the case that all training data are located in a single fol
 <p>run</p>
 <pre><code>(donkey) Uwes-MacBook-Pro:mycar uwesterr$  python ~/mycar/manage.py train --tub tub --model ./models/mypilot</code></pre>
 <p>or maybe better readable:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="donkeyCar.html#cb23-1"></a><span class="ex">model_type</span> = <span class="st">&quot;linear&quot;</span> <span class="co"># linear|categorical|rnn|imu|behavior|3d|localizer|latent</span></span>
-<span id="cb23-2"><a href="donkeyCar.html#cb23-2"></a><span class="ex">model_path</span> = <span class="st">&quot;/content/mycar/models/mypilot.h5&quot;</span></span>
-<span id="cb23-3"><a href="donkeyCar.html#cb23-3"></a><span class="ex">tub_path</span> = <span class="st">&quot;/content/mycar/data/tub_1_19_10_27,/content/mycar/data/tub_2_19_10_27&quot;</span></span>
-<span id="cb23-4"><a href="donkeyCar.html#cb23-4"></a></span>
-<span id="cb23-5"><a href="donkeyCar.html#cb23-5"></a><span class="ex">%cd</span> /content/mycar</span>
-<span id="cb23-6"><a href="donkeyCar.html#cb23-6"></a><span class="ex">python</span> manage.py train --model=<span class="dt">{model_path}</span> --type=<span class="dt">{model_type}</span> --tub=<span class="dt">{tub_path}</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="donkeyCar.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">model_type</span> = <span class="st">&quot;linear&quot;</span> <span class="co"># linear|categorical|rnn|imu|behavior|3d|localizer|latent</span></span>
+<span id="cb23-2"><a href="donkeyCar.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">model_path</span> = <span class="st">&quot;/content/mycar/models/mypilot.h5&quot;</span></span>
+<span id="cb23-3"><a href="donkeyCar.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tub_path</span> = <span class="st">&quot;/content/mycar/data/tub_1_19_10_27,/content/mycar/data/tub_2_19_10_27&quot;</span></span>
+<span id="cb23-4"><a href="donkeyCar.html#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="donkeyCar.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">%cd</span> /content/mycar</span>
+<span id="cb23-6"><a href="donkeyCar.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> manage.py train <span class="at">--model</span><span class="op">=</span>{model_path} <span class="at">--type</span><span class="op">=</span>{model_type} <span class="at">--tub</span><span class="op">=</span>{tub_path}</span></code></pre></div>
 <p>which will place a model file called <code>mypilot</code> at</p>
 <pre><code>(donkey) Uwes-MacBook-Pro:models uwesterr$ pwd
 /Users/uwesterr/mycar/models
@@ -849,133 +894,133 @@ Epoch 2/100
 Epoch 00002: val_loss improved from 0.37914 to 0.29204, saving model to ./models/mypilot
 35/35 [==============================] - 31s 874ms/step - loss: 0.3338 - angle_out_loss: 0.5289 - throttle_out_loss: 0.1387 - val_loss: 0.2920 - val_angle_out_loss: 0.4629 - val_throttle_out_loss: 0.1212</code></pre>
 <p>The model is defined in <code>keras.py</code></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="donkeyCar.html#cb26-1"></a><span class="kw">class</span> KerasLinear(KerasPilot):</span>
-<span id="cb26-2"><a href="donkeyCar.html#cb26-2"></a>    <span class="co">&#39;&#39;&#39;</span></span>
-<span id="cb26-3"><a href="donkeyCar.html#cb26-3"></a><span class="co">    The KerasLinear pilot uses one neuron to output a continous value via the </span></span>
-<span id="cb26-4"><a href="donkeyCar.html#cb26-4"></a><span class="co">    Keras Dense layer with linear activation. One each for steering and throttle.</span></span>
-<span id="cb26-5"><a href="donkeyCar.html#cb26-5"></a><span class="co">    The output is not bounded.</span></span>
-<span id="cb26-6"><a href="donkeyCar.html#cb26-6"></a><span class="co">    &#39;&#39;&#39;</span></span>
-<span id="cb26-7"><a href="donkeyCar.html#cb26-7"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, num_outputs<span class="op">=</span><span class="dv">2</span>, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb26-8"><a href="donkeyCar.html#cb26-8"></a>        <span class="bu">super</span>(KerasLinear, <span class="va">self</span>).<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
-<span id="cb26-9"><a href="donkeyCar.html#cb26-9"></a>        <span class="va">self</span>.model <span class="op">=</span> default_n_linear(num_outputs, input_shape, roi_crop)</span>
-<span id="cb26-10"><a href="donkeyCar.html#cb26-10"></a>        <span class="va">self</span>.<span class="bu">compile</span>()</span>
-<span id="cb26-11"><a href="donkeyCar.html#cb26-11"></a></span>
-<span id="cb26-12"><a href="donkeyCar.html#cb26-12"></a>    <span class="kw">def</span> <span class="bu">compile</span>(<span class="va">self</span>):</span>
-<span id="cb26-13"><a href="donkeyCar.html#cb26-13"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="va">self</span>.optimizer,</span>
-<span id="cb26-14"><a href="donkeyCar.html#cb26-14"></a>                loss<span class="op">=</span><span class="st">&#39;mse&#39;</span>)</span>
-<span id="cb26-15"><a href="donkeyCar.html#cb26-15"></a></span>
-<span id="cb26-16"><a href="donkeyCar.html#cb26-16"></a>    <span class="kw">def</span> run(<span class="va">self</span>, img_arr):</span>
-<span id="cb26-17"><a href="donkeyCar.html#cb26-17"></a>        img_arr <span class="op">=</span> img_arr.reshape((<span class="dv">1</span>,) <span class="op">+</span> img_arr.shape)</span>
-<span id="cb26-18"><a href="donkeyCar.html#cb26-18"></a>        outputs <span class="op">=</span> <span class="va">self</span>.model.predict(img_arr)</span>
-<span id="cb26-19"><a href="donkeyCar.html#cb26-19"></a>        steering <span class="op">=</span> outputs[<span class="dv">0</span>]</span>
-<span id="cb26-20"><a href="donkeyCar.html#cb26-20"></a>        throttle <span class="op">=</span> outputs[<span class="dv">1</span>]</span>
-<span id="cb26-21"><a href="donkeyCar.html#cb26-21"></a>        <span class="cf">return</span> steering[<span class="dv">0</span>][<span class="dv">0</span>], throttle[<span class="dv">0</span>][<span class="dv">0</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="donkeyCar.html#cb27-1"></a><span class="kw">def</span> default_n_linear(num_outputs, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>)):</span>
-<span id="cb27-2"><a href="donkeyCar.html#cb27-2"></a></span>
-<span id="cb27-3"><a href="donkeyCar.html#cb27-3"></a>    drop <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb27-4"><a href="donkeyCar.html#cb27-4"></a></span>
-<span id="cb27-5"><a href="donkeyCar.html#cb27-5"></a>    <span class="co">#we now expect that cropping done elsewhere. we will adjust our expeected image size here:</span></span>
-<span id="cb27-6"><a href="donkeyCar.html#cb27-6"></a>    input_shape <span class="op">=</span> adjust_input_shape(input_shape, roi_crop)</span>
-<span id="cb27-7"><a href="donkeyCar.html#cb27-7"></a>    </span>
-<span id="cb27-8"><a href="donkeyCar.html#cb27-8"></a>    img_in <span class="op">=</span> Input(shape<span class="op">=</span>input_shape, name<span class="op">=</span><span class="st">&#39;img_in&#39;</span>)</span>
-<span id="cb27-9"><a href="donkeyCar.html#cb27-9"></a>    x <span class="op">=</span> img_in</span>
-<span id="cb27-10"><a href="donkeyCar.html#cb27-10"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">24</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_1&quot;</span>)(x)</span>
-<span id="cb27-11"><a href="donkeyCar.html#cb27-11"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-12"><a href="donkeyCar.html#cb27-12"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">32</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_2&quot;</span>)(x)</span>
-<span id="cb27-13"><a href="donkeyCar.html#cb27-13"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-14"><a href="donkeyCar.html#cb27-14"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_3&quot;</span>)(x)</span>
-<span id="cb27-15"><a href="donkeyCar.html#cb27-15"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-16"><a href="donkeyCar.html#cb27-16"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_4&quot;</span>)(x)</span>
-<span id="cb27-17"><a href="donkeyCar.html#cb27-17"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-18"><a href="donkeyCar.html#cb27-18"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_5&quot;</span>)(x)</span>
-<span id="cb27-19"><a href="donkeyCar.html#cb27-19"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-20"><a href="donkeyCar.html#cb27-20"></a>    </span>
-<span id="cb27-21"><a href="donkeyCar.html#cb27-21"></a>    x <span class="op">=</span> Flatten(name<span class="op">=</span><span class="st">&#39;flattened&#39;</span>)(x)</span>
-<span id="cb27-22"><a href="donkeyCar.html#cb27-22"></a>    x <span class="op">=</span> Dense(<span class="dv">100</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
-<span id="cb27-23"><a href="donkeyCar.html#cb27-23"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-24"><a href="donkeyCar.html#cb27-24"></a>    x <span class="op">=</span> Dense(<span class="dv">50</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
-<span id="cb27-25"><a href="donkeyCar.html#cb27-25"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
-<span id="cb27-26"><a href="donkeyCar.html#cb27-26"></a></span>
-<span id="cb27-27"><a href="donkeyCar.html#cb27-27"></a>    outputs <span class="op">=</span> []</span>
-<span id="cb27-28"><a href="donkeyCar.html#cb27-28"></a>    </span>
-<span id="cb27-29"><a href="donkeyCar.html#cb27-29"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_outputs):</span>
-<span id="cb27-30"><a href="donkeyCar.html#cb27-30"></a>        outputs.append(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;linear&#39;</span>, name<span class="op">=</span><span class="st">&#39;n_outputs&#39;</span> <span class="op">+</span> <span class="bu">str</span>(i))(x))</span>
-<span id="cb27-31"><a href="donkeyCar.html#cb27-31"></a>        </span>
-<span id="cb27-32"><a href="donkeyCar.html#cb27-32"></a>    model <span class="op">=</span> Model(inputs<span class="op">=</span>[img_in], outputs<span class="op">=</span>outputs)</span>
-<span id="cb27-33"><a href="donkeyCar.html#cb27-33"></a>    </span>
-<span id="cb27-34"><a href="donkeyCar.html#cb27-34"></a>    <span class="cf">return</span> model</span></code></pre></div>
-<div id="add-augmentation" class="section level3">
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="donkeyCar.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> KerasLinear(KerasPilot):</span>
+<span id="cb26-2"><a href="donkeyCar.html#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb26-3"><a href="donkeyCar.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">    The KerasLinear pilot uses one neuron to output a continous value via the </span></span>
+<span id="cb26-4"><a href="donkeyCar.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Keras Dense layer with linear activation. One each for steering and throttle.</span></span>
+<span id="cb26-5"><a href="donkeyCar.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    The output is not bounded.</span></span>
+<span id="cb26-6"><a href="donkeyCar.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    &#39;&#39;&#39;</span></span>
+<span id="cb26-7"><a href="donkeyCar.html#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, num_outputs<span class="op">=</span><span class="dv">2</span>, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb26-8"><a href="donkeyCar.html#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(KerasLinear, <span class="va">self</span>).<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb26-9"><a href="donkeyCar.html#cb26-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> default_n_linear(num_outputs, input_shape, roi_crop)</span>
+<span id="cb26-10"><a href="donkeyCar.html#cb26-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.<span class="bu">compile</span>()</span>
+<span id="cb26-11"><a href="donkeyCar.html#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="donkeyCar.html#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">compile</span>(<span class="va">self</span>):</span>
+<span id="cb26-13"><a href="donkeyCar.html#cb26-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="va">self</span>.optimizer,</span>
+<span id="cb26-14"><a href="donkeyCar.html#cb26-14" aria-hidden="true" tabindex="-1"></a>                loss<span class="op">=</span><span class="st">&#39;mse&#39;</span>)</span>
+<span id="cb26-15"><a href="donkeyCar.html#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="donkeyCar.html#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run(<span class="va">self</span>, img_arr):</span>
+<span id="cb26-17"><a href="donkeyCar.html#cb26-17" aria-hidden="true" tabindex="-1"></a>        img_arr <span class="op">=</span> img_arr.reshape((<span class="dv">1</span>,) <span class="op">+</span> img_arr.shape)</span>
+<span id="cb26-18"><a href="donkeyCar.html#cb26-18" aria-hidden="true" tabindex="-1"></a>        outputs <span class="op">=</span> <span class="va">self</span>.model.predict(img_arr)</span>
+<span id="cb26-19"><a href="donkeyCar.html#cb26-19" aria-hidden="true" tabindex="-1"></a>        steering <span class="op">=</span> outputs[<span class="dv">0</span>]</span>
+<span id="cb26-20"><a href="donkeyCar.html#cb26-20" aria-hidden="true" tabindex="-1"></a>        throttle <span class="op">=</span> outputs[<span class="dv">1</span>]</span>
+<span id="cb26-21"><a href="donkeyCar.html#cb26-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> steering[<span class="dv">0</span>][<span class="dv">0</span>], throttle[<span class="dv">0</span>][<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="donkeyCar.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> default_n_linear(num_outputs, input_shape<span class="op">=</span>(<span class="dv">120</span>, <span class="dv">160</span>, <span class="dv">3</span>), roi_crop<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>)):</span>
+<span id="cb27-2"><a href="donkeyCar.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="donkeyCar.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    drop <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb27-4"><a href="donkeyCar.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="donkeyCar.html#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#we now expect that cropping done elsewhere. we will adjust our expeected image size here:</span></span>
+<span id="cb27-6"><a href="donkeyCar.html#cb27-6" aria-hidden="true" tabindex="-1"></a>    input_shape <span class="op">=</span> adjust_input_shape(input_shape, roi_crop)</span>
+<span id="cb27-7"><a href="donkeyCar.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-8"><a href="donkeyCar.html#cb27-8" aria-hidden="true" tabindex="-1"></a>    img_in <span class="op">=</span> Input(shape<span class="op">=</span>input_shape, name<span class="op">=</span><span class="st">&#39;img_in&#39;</span>)</span>
+<span id="cb27-9"><a href="donkeyCar.html#cb27-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> img_in</span>
+<span id="cb27-10"><a href="donkeyCar.html#cb27-10" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">24</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_1&quot;</span>)(x)</span>
+<span id="cb27-11"><a href="donkeyCar.html#cb27-11" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-12"><a href="donkeyCar.html#cb27-12" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">32</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_2&quot;</span>)(x)</span>
+<span id="cb27-13"><a href="donkeyCar.html#cb27-13" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-14"><a href="donkeyCar.html#cb27-14" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">5</span>,<span class="dv">5</span>), strides<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_3&quot;</span>)(x)</span>
+<span id="cb27-15"><a href="donkeyCar.html#cb27-15" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-16"><a href="donkeyCar.html#cb27-16" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_4&quot;</span>)(x)</span>
+<span id="cb27-17"><a href="donkeyCar.html#cb27-17" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-18"><a href="donkeyCar.html#cb27-18" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Convolution2D(<span class="dv">64</span>, (<span class="dv">3</span>,<span class="dv">3</span>), strides<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, name<span class="op">=</span><span class="st">&quot;conv2d_5&quot;</span>)(x)</span>
+<span id="cb27-19"><a href="donkeyCar.html#cb27-19" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-20"><a href="donkeyCar.html#cb27-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-21"><a href="donkeyCar.html#cb27-21" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Flatten(name<span class="op">=</span><span class="st">&#39;flattened&#39;</span>)(x)</span>
+<span id="cb27-22"><a href="donkeyCar.html#cb27-22" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dense(<span class="dv">100</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
+<span id="cb27-23"><a href="donkeyCar.html#cb27-23" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-24"><a href="donkeyCar.html#cb27-24" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dense(<span class="dv">50</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>)(x)</span>
+<span id="cb27-25"><a href="donkeyCar.html#cb27-25" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(drop)(x)</span>
+<span id="cb27-26"><a href="donkeyCar.html#cb27-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-27"><a href="donkeyCar.html#cb27-27" aria-hidden="true" tabindex="-1"></a>    outputs <span class="op">=</span> []</span>
+<span id="cb27-28"><a href="donkeyCar.html#cb27-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-29"><a href="donkeyCar.html#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_outputs):</span>
+<span id="cb27-30"><a href="donkeyCar.html#cb27-30" aria-hidden="true" tabindex="-1"></a>        outputs.append(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;linear&#39;</span>, name<span class="op">=</span><span class="st">&#39;n_outputs&#39;</span> <span class="op">+</span> <span class="bu">str</span>(i))(x))</span>
+<span id="cb27-31"><a href="donkeyCar.html#cb27-31" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-32"><a href="donkeyCar.html#cb27-32" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> Model(inputs<span class="op">=</span>[img_in], outputs<span class="op">=</span>outputs)</span>
+<span id="cb27-33"><a href="donkeyCar.html#cb27-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-34"><a href="donkeyCar.html#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> model</span></code></pre></div>
+<div id="add-augmentation" class="section level3" number="2.11.1">
 <h3><span class="header-section-number">2.11.1</span> Add augmentation</h3>
 <p>Adding augmentation should lead to a more robust model, to invoke augmentation set the flag <code>--aug</code> when calling <code>manage.py</code></p>
 <pre><code>python /content/mycar/manage.py train  --type=linear  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
 <p>then the function <code>augment_image</code> from <code>augment.py</code> will be applied to the images during training</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="donkeyCar.html#cb29-1"></a><span class="kw">def</span> augment_image(np_img, shadow_images<span class="op">=</span><span class="va">None</span>, do_warp_persp<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb29-2"><a href="donkeyCar.html#cb29-2"></a>    conv_img <span class="op">=</span> np_img <span class="op">*</span> <span class="fl">255.0</span></span>
-<span id="cb29-3"><a href="donkeyCar.html#cb29-3"></a>    conv_img <span class="op">=</span> conv_img.astype(np.uint8)</span>
-<span id="cb29-4"><a href="donkeyCar.html#cb29-4"></a>    img <span class="op">=</span> Image.fromarray(conv_img)</span>
-<span id="cb29-5"><a href="donkeyCar.html#cb29-5"></a>    <span class="co">#change the coloration, sharpness, and composite a shadow</span></span>
-<span id="cb29-6"><a href="donkeyCar.html#cb29-6"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">2.0</span>)</span>
-<span id="cb29-7"><a href="donkeyCar.html#cb29-7"></a>    img <span class="op">=</span> ImageEnhance.Brightness(img).enhance(factor)</span>
-<span id="cb29-8"><a href="donkeyCar.html#cb29-8"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.0</span>)</span>
-<span id="cb29-9"><a href="donkeyCar.html#cb29-9"></a>    img <span class="op">=</span> ImageEnhance.Contrast(img).enhance(factor)</span>
-<span id="cb29-10"><a href="donkeyCar.html#cb29-10"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
-<span id="cb29-11"><a href="donkeyCar.html#cb29-11"></a>    img <span class="op">=</span> ImageEnhance.Sharpness(img).enhance(factor)</span>
-<span id="cb29-12"><a href="donkeyCar.html#cb29-12"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb29-13"><a href="donkeyCar.html#cb29-13"></a>    img <span class="op">=</span> ImageEnhance.Color(img).enhance(factor)</span>
-<span id="cb29-14"><a href="donkeyCar.html#cb29-14"></a></span>
-<span id="cb29-15"><a href="donkeyCar.html#cb29-15"></a>    <span class="cf">if</span> shadow_images <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb29-16"><a href="donkeyCar.html#cb29-16"></a>        <span class="co">&#39;&#39;&#39;</span></span>
-<span id="cb29-17"><a href="donkeyCar.html#cb29-17"></a><span class="co">        optionaly composite a shadow, perpared from load_shadow_images</span></span>
-<span id="cb29-18"><a href="donkeyCar.html#cb29-18"></a><span class="co">        &#39;&#39;&#39;</span></span>
-<span id="cb29-19"><a href="donkeyCar.html#cb29-19"></a>        iShad <span class="op">=</span> random.randrange(<span class="dv">0</span>, <span class="bu">len</span>(shadow_images))</span>
-<span id="cb29-20"><a href="donkeyCar.html#cb29-20"></a>        top, mask <span class="op">=</span> shadow_images[iShad]</span>
-<span id="cb29-21"><a href="donkeyCar.html#cb29-21"></a>        theta <span class="op">=</span> random.randrange(<span class="op">-</span><span class="dv">35</span>, <span class="dv">35</span>)</span>
-<span id="cb29-22"><a href="donkeyCar.html#cb29-22"></a>        mask.rotate(theta)</span>
-<span id="cb29-23"><a href="donkeyCar.html#cb29-23"></a>        top.rotate(theta)</span>
-<span id="cb29-24"><a href="donkeyCar.html#cb29-24"></a>        mask <span class="op">=</span> ImageEnhance.Brightness(mask).enhance(random.uniform(<span class="fl">0.3</span>, <span class="fl">1.0</span>))</span>
-<span id="cb29-25"><a href="donkeyCar.html#cb29-25"></a>        offset <span class="op">=</span> (random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>), random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>))</span>
-<span id="cb29-26"><a href="donkeyCar.html#cb29-26"></a>        img.paste(top, offset, mask)</span>
-<span id="cb29-27"><a href="donkeyCar.html#cb29-27"></a>    </span>
-<span id="cb29-28"><a href="donkeyCar.html#cb29-28"></a>    <span class="cf">if</span> do_warp_persp:</span>
-<span id="cb29-29"><a href="donkeyCar.html#cb29-29"></a>        <span class="co">&#39;&#39;&#39;</span></span>
-<span id="cb29-30"><a href="donkeyCar.html#cb29-30"></a><span class="co">        optionaly warp perspective</span></span>
-<span id="cb29-31"><a href="donkeyCar.html#cb29-31"></a><span class="co">        &#39;&#39;&#39;</span></span>
-<span id="cb29-32"><a href="donkeyCar.html#cb29-32"></a>        img <span class="op">=</span> rand_persp_transform(img)</span>
-<span id="cb29-33"><a href="donkeyCar.html#cb29-33"></a></span>
-<span id="cb29-34"><a href="donkeyCar.html#cb29-34"></a>    <span class="cf">return</span> np.array(img).astype(np.<span class="bu">float</span>) <span class="op">/</span> <span class="fl">255.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="donkeyCar.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> augment_image(np_img, shadow_images<span class="op">=</span><span class="va">None</span>, do_warp_persp<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb29-2"><a href="donkeyCar.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    conv_img <span class="op">=</span> np_img <span class="op">*</span> <span class="fl">255.0</span></span>
+<span id="cb29-3"><a href="donkeyCar.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    conv_img <span class="op">=</span> conv_img.astype(np.uint8)</span>
+<span id="cb29-4"><a href="donkeyCar.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> Image.fromarray(conv_img)</span>
+<span id="cb29-5"><a href="donkeyCar.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#change the coloration, sharpness, and composite a shadow</span></span>
+<span id="cb29-6"><a href="donkeyCar.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">2.0</span>)</span>
+<span id="cb29-7"><a href="donkeyCar.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> ImageEnhance.Brightness(img).enhance(factor)</span>
+<span id="cb29-8"><a href="donkeyCar.html#cb29-8" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.0</span>)</span>
+<span id="cb29-9"><a href="donkeyCar.html#cb29-9" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> ImageEnhance.Contrast(img).enhance(factor)</span>
+<span id="cb29-10"><a href="donkeyCar.html#cb29-10" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb29-11"><a href="donkeyCar.html#cb29-11" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> ImageEnhance.Sharpness(img).enhance(factor)</span>
+<span id="cb29-12"><a href="donkeyCar.html#cb29-12" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> random.uniform(<span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb29-13"><a href="donkeyCar.html#cb29-13" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> ImageEnhance.Color(img).enhance(factor)</span>
+<span id="cb29-14"><a href="donkeyCar.html#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="donkeyCar.html#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> shadow_images <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb29-16"><a href="donkeyCar.html#cb29-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb29-17"><a href="donkeyCar.html#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="co">        optionaly composite a shadow, perpared from load_shadow_images</span></span>
+<span id="cb29-18"><a href="donkeyCar.html#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co">        &#39;&#39;&#39;</span></span>
+<span id="cb29-19"><a href="donkeyCar.html#cb29-19" aria-hidden="true" tabindex="-1"></a>        iShad <span class="op">=</span> random.randrange(<span class="dv">0</span>, <span class="bu">len</span>(shadow_images))</span>
+<span id="cb29-20"><a href="donkeyCar.html#cb29-20" aria-hidden="true" tabindex="-1"></a>        top, mask <span class="op">=</span> shadow_images[iShad]</span>
+<span id="cb29-21"><a href="donkeyCar.html#cb29-21" aria-hidden="true" tabindex="-1"></a>        theta <span class="op">=</span> random.randrange(<span class="op">-</span><span class="dv">35</span>, <span class="dv">35</span>)</span>
+<span id="cb29-22"><a href="donkeyCar.html#cb29-22" aria-hidden="true" tabindex="-1"></a>        mask.rotate(theta)</span>
+<span id="cb29-23"><a href="donkeyCar.html#cb29-23" aria-hidden="true" tabindex="-1"></a>        top.rotate(theta)</span>
+<span id="cb29-24"><a href="donkeyCar.html#cb29-24" aria-hidden="true" tabindex="-1"></a>        mask <span class="op">=</span> ImageEnhance.Brightness(mask).enhance(random.uniform(<span class="fl">0.3</span>, <span class="fl">1.0</span>))</span>
+<span id="cb29-25"><a href="donkeyCar.html#cb29-25" aria-hidden="true" tabindex="-1"></a>        offset <span class="op">=</span> (random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>), random.randrange(<span class="op">-</span><span class="dv">128</span>, <span class="dv">128</span>))</span>
+<span id="cb29-26"><a href="donkeyCar.html#cb29-26" aria-hidden="true" tabindex="-1"></a>        img.paste(top, offset, mask)</span>
+<span id="cb29-27"><a href="donkeyCar.html#cb29-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-28"><a href="donkeyCar.html#cb29-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> do_warp_persp:</span>
+<span id="cb29-29"><a href="donkeyCar.html#cb29-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">&#39;&#39;&#39;</span></span>
+<span id="cb29-30"><a href="donkeyCar.html#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co">        optionaly warp perspective</span></span>
+<span id="cb29-31"><a href="donkeyCar.html#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="co">        &#39;&#39;&#39;</span></span>
+<span id="cb29-32"><a href="donkeyCar.html#cb29-32" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> rand_persp_transform(img)</span>
+<span id="cb29-33"><a href="donkeyCar.html#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-34"><a href="donkeyCar.html#cb29-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(img).astype(np.<span class="bu">float</span>) <span class="op">/</span> <span class="fl">255.0</span></span></code></pre></div>
 <p>which is called from <code>train.py</code></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="donkeyCar.html#cb30-1"></a> <span class="cf">if</span> aug:</span>
-<span id="cb30-2"><a href="donkeyCar.html#cb30-2"></a>     img_arr <span class="op">=</span> augment_image(img_arr)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="donkeyCar.html#cb30-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> aug:</span>
+<span id="cb30-2"><a href="donkeyCar.html#cb30-2" aria-hidden="true" tabindex="-1"></a>     img_arr <span class="op">=</span> augment_image(img_arr)</span></code></pre></div>
 </div>
-<div id="transfer-learning" class="section level3">
+<div id="transfer-learning" class="section level3" number="2.11.2">
 <h3><span class="header-section-number">2.11.2</span> Transfer learning</h3>
 <p>The neural network can also be trained using a pre-trained network using the <code>manage.py</code>script with the flag <code>[--transfer=&lt;model&gt;]</code></p>
 <pre><code>manage.py (train) [--tub=&lt;tub1,tub2,..tubn&gt;] [--file=&lt;file&gt; ...] (--model=&lt;model&gt;) [--transfer=&lt;model&gt;] [--type=(linear|categorical|rnn|imu|behavior|3d|localizer)] [--continuous] [--aug]
 manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
 <p>To control the transfer learning change settings in <code>myconfig.py</code></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="donkeyCar.html#cb32-1"></a><span class="co"># #Model transfer options</span></span>
-<span id="cb32-2"><a href="donkeyCar.html#cb32-2"></a><span class="co"># #When copying weights during a model transfer operation, should we freeze a certain number of layers</span></span>
-<span id="cb32-3"><a href="donkeyCar.html#cb32-3"></a><span class="co"># #to the incoming weights and not allow them to change during training?</span></span>
-<span id="cb32-4"><a href="donkeyCar.html#cb32-4"></a>FREEZE_LAYERS <span class="op">=</span> <span class="va">False</span>               <span class="co">#default False will allow all layers to be modified by training</span></span>
-<span id="cb32-5"><a href="donkeyCar.html#cb32-5"></a>NUM_LAST_LAYERS_TO_TRAIN <span class="op">=</span> <span class="dv">7</span>        <span class="co">#when freezing layers, how many layers from the last should be allowed to train?</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="donkeyCar.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #Model transfer options</span></span>
+<span id="cb32-2"><a href="donkeyCar.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># #When copying weights during a model transfer operation, should we freeze a certain number of layers</span></span>
+<span id="cb32-3"><a href="donkeyCar.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># #to the incoming weights and not allow them to change during training?</span></span>
+<span id="cb32-4"><a href="donkeyCar.html#cb32-4" aria-hidden="true" tabindex="-1"></a>FREEZE_LAYERS <span class="op">=</span> <span class="va">False</span>               <span class="co">#default False will allow all layers to be modified by training</span></span>
+<span id="cb32-5"><a href="donkeyCar.html#cb32-5" aria-hidden="true" tabindex="-1"></a>NUM_LAST_LAYERS_TO_TRAIN <span class="op">=</span> <span class="dv">7</span>        <span class="co">#when freezing layers, how many layers from the last should be allowed to train?</span></span></code></pre></div>
 <p>The above parameters are used in <code>train.py</code> to control the training of the model</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="donkeyCar.html#cb33-1"></a>    <span class="cf">if</span> transfer_model:</span>
-<span id="cb33-2"><a href="donkeyCar.html#cb33-2"></a>        <span class="bu">print</span>(<span class="st">&#39;loading weights from model&#39;</span>, transfer_model)</span>
-<span id="cb33-3"><a href="donkeyCar.html#cb33-3"></a>        kl.load(transfer_model)</span>
-<span id="cb33-4"><a href="donkeyCar.html#cb33-4"></a></span>
-<span id="cb33-5"><a href="donkeyCar.html#cb33-5"></a>        <span class="co">#when transfering models, should we freeze all but the last N layers?</span></span>
-<span id="cb33-6"><a href="donkeyCar.html#cb33-6"></a>        <span class="cf">if</span> cfg.FREEZE_LAYERS:</span>
-<span id="cb33-7"><a href="donkeyCar.html#cb33-7"></a>            num_to_freeze <span class="op">=</span> <span class="bu">len</span>(kl.model.layers) <span class="op">-</span> cfg.NUM_LAST_LAYERS_TO_TRAIN </span>
-<span id="cb33-8"><a href="donkeyCar.html#cb33-8"></a>            <span class="bu">print</span>(<span class="st">&#39;freezing </span><span class="sc">%d</span><span class="st"> layers&#39;</span> <span class="op">%</span> num_to_freeze)           </span>
-<span id="cb33-9"><a href="donkeyCar.html#cb33-9"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_to_freeze):</span>
-<span id="cb33-10"><a href="donkeyCar.html#cb33-10"></a>                kl.model.layers[i].trainable <span class="op">=</span> <span class="va">False</span>   </span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="donkeyCar.html#cb33-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> transfer_model:</span>
+<span id="cb33-2"><a href="donkeyCar.html#cb33-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;loading weights from model&#39;</span>, transfer_model)</span>
+<span id="cb33-3"><a href="donkeyCar.html#cb33-3" aria-hidden="true" tabindex="-1"></a>        kl.load(transfer_model)</span>
+<span id="cb33-4"><a href="donkeyCar.html#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="donkeyCar.html#cb33-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">#when transfering models, should we freeze all but the last N layers?</span></span>
+<span id="cb33-6"><a href="donkeyCar.html#cb33-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cfg.FREEZE_LAYERS:</span>
+<span id="cb33-7"><a href="donkeyCar.html#cb33-7" aria-hidden="true" tabindex="-1"></a>            num_to_freeze <span class="op">=</span> <span class="bu">len</span>(kl.model.layers) <span class="op">-</span> cfg.NUM_LAST_LAYERS_TO_TRAIN </span>
+<span id="cb33-8"><a href="donkeyCar.html#cb33-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&#39;freezing </span><span class="sc">%d</span><span class="st"> layers&#39;</span> <span class="op">%</span> num_to_freeze)           </span>
+<span id="cb33-9"><a href="donkeyCar.html#cb33-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_to_freeze):</span>
+<span id="cb33-10"><a href="donkeyCar.html#cb33-10" aria-hidden="true" tabindex="-1"></a>                kl.model.layers[i].trainable <span class="op">=</span> <span class="va">False</span>   </span></code></pre></div>
 <p>As a starting point Tawn also offers a .h5 model <code>base_linear.h5</code> which can be downloaded from
 <a href="https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK" class="uri">https://drive.google.com/open?id=18Qfc_T5fpUmuTqXFZbJZrQhlf2l3S0VK</a>
 The model can be invoked by</p>
 <pre><code>manage.py train  --type=linear --transfer=base_linear.h5  --model=/content/mycar/models/mypilot.h5 --aug</code></pre>
 </div>
 </div>
-<div id="run-car-on-neural-net" class="section level2">
+<div id="run-car-on-neural-net" class="section level2" number="2.12">
 <h2><span class="header-section-number">2.12</span> Run car on neural net</h2>
 <p>Run the following command on the raspberry pi.</p>
 <pre><code>(env) pi@donkeypi_uwe:~/mycar $ python manage.py drive --js --model ~/mycar/models/vaihingenIII.h5</code></pre>
@@ -991,7 +1036,7 @@ The model can be invoked by</p>
 <li><p>Local Angle : Not too obvious, but this is where the trained model (mypilot from above) controls the steering. The Local refers to the trained model which is locally hosted on the raspberry-pi.</p></li>
 <li><p>Local Pilot : This is where the trained model (mypilot) assumes control of both the steering and the throttle. As of now, it’s purportedly not very reliable.</p></li>
 </ol>
-<div id="change-model" class="section level3">
+<div id="change-model" class="section level3" number="2.12.1">
 <h3><span class="header-section-number">2.12.1</span> change model</h3>
 <p>change in</p>
 <pre><code>/Users/uwesterr/CloudProjectsUnderWork/ProjectsUnderWork/RoboCar/donkeycar/donkeycar-1/donkeycar/parts/</code></pre>
@@ -999,7 +1044,7 @@ The model can be invoked by</p>
 <p>Model doesnt work with donkeycar installation on raspi, change to tawn kramer installation</p>
 </div>
 </div>
-<div id="see-rainers-description" class="section level2">
+<div id="see-rainers-description" class="section level2" number="2.13">
 <h2><span class="header-section-number">2.13</span> See Rainer’s description</h2>
 <p><a href="https://github.com/tawnkramer/donkey/blob/master/docs/guide/install_software.md" class="uri">https://github.com/tawnkramer/donkey/blob/master/docs/guide/install_software.md</a></p>
 <p>name of new installation donkeyUweTk</p>
@@ -1009,16 +1054,16 @@ __pycache__  behavior.py  cv.py          encoder.py       image.py  led_status.p
 actuator.py  camera.py    datastore.py   file_watcher.py  imu.py    lidar.py       salient.py  throttle_filter.py</code></pre>
 <p>add Wii U controller instruction <a href="https://github.com/autorope/donkeypart_bluetooth_game_controller" class="uri">https://github.com/autorope/donkeypart_bluetooth_game_controller</a></p>
 </div>
-<div id="build-pre-processing-pipe-line" class="section level2">
+<div id="build-pre-processing-pipe-line" class="section level2" number="2.14">
 <h2><span class="header-section-number">2.14</span> Build pre processing pipe line</h2>
 <p>First step is to install openCV on the raspi so that the images recorded by the camera can be processed before they are stored.</p>
-<div id="install-opencv-on-the-raspi" class="section level3">
+<div id="install-opencv-on-the-raspi" class="section level3" number="2.14.1">
 <h3><span class="header-section-number">2.14.1</span> Install openCV on the raspi</h3>
 <p>To add a pre-processing pipe line we need openCV. To intsall opencv on the raspberry
 <code>pip install opencv-python</code></p>
 </div>
 </div>
-<div id="bluetooth-key-mapping" class="section level2">
+<div id="bluetooth-key-mapping" class="section level2" number="2.15">
 <h2><span class="header-section-number">2.15</span> bluetooth key mapping</h2>
 <p>For Tawn Kramer’s version of donkeycar the following key mappings are valid for the Wii U</p>
 <ul>
@@ -1033,7 +1078,7 @@ actuator.py  camera.py    datastore.py   file_watcher.py  imu.py    lidar.py    
 </ul></li>
 </ul>
 </div>
-<div id="load-h5-model-and-inspect" class="section level2">
+<div id="load-h5-model-and-inspect" class="section level2" number="2.16">
 <h2><span class="header-section-number">2.16</span> Load h5 model and inspect</h2>
 <pre><code>from tensorflow.python.keras.models import load_model
 
@@ -1100,7 +1145,6 @@ Non-trainable params: 6
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1119,6 +1163,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1139,6 +1184,10 @@ gitbook.start({
 "text": null
 },
 "download": ["RoboCarDokumentation.pdf", "RoboCarDokumentation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
