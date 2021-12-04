@@ -87,7 +87,6 @@ Zur Eröffnung des Makerspace Esslingen können wir dann zeigen was wir erreicht
 
 - [Connected Autonomous Driving](https://www.meetup.com/Connected-Autonomous-Driving/)
 This Meetup is for autonomous driving enthusiasts, self-driving car engineers and those who want to create a seamless connected user experience of mobility, information and services in cities which fosters smart cities & measurable/scalable solutions saving our climate.
-
 We are a Homebrew computer club for autonomous mobility* and connect schools, creatives, engineers, startups, companies, politics for exchange & projects to create a seamless connected user experience of mobility, information and services in cities.
 
 
