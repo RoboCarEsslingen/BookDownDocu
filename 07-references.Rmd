@@ -75,10 +75,23 @@ Here are links to instructions on how to get things done
 
 [SFTP on Raspbery](https://www.raspberrypi.org/documentation/remote-access/ssh/sftp.md)
 
-## Meetup in Stuttgart area
+## Meetups in Stuttgart area
 
 
-[Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
+- [Esslinger Makerspace Projekt: Autonomen RoboCar bauen](https://www.meetup.com/Esslingen-Makerspace/ "Homepage of the meetup")
+In der Konzeption für die neue/umgebaute Stadtbücherei ist ein Makerspace vorgesehen. Diese tolle Idee sollten wir unterstützen!
+Und als erstes Projekt entwickeln wir RoboCars die autonom einen Parkour bewältigen können.
+Ob ihr euer eigenes RoboCar entwickeln wollt, oder lieber ein kleines Team bilden wollt, hier seit ihr richtig.
+Mal schauen welche Hard- bzw. Softwarekonzepte euch einfallen.
+Zur Eröffnung des Makerspace Esslingen können wir dann zeigen was wir erreicht haben.
+
+- [Connected Autonomous Driving](https://www.meetup.com/Connected-Autonomous-Driving/)
+This Meetup is for autonomous driving enthusiasts, self-driving car engineers and those who want to create a seamless connected user experience of mobility, information and services in cities which fosters smart cities & measurable/scalable solutions saving our climate.
+
+We are a Homebrew computer club for autonomous mobility* and connect schools, creatives, engineers, startups, companies, politics for exchange & projects to create a seamless connected user experience of mobility, information and services in cities.
+
+
+
 
 
 ## RoboCar projects
